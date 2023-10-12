@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Repository;
+
+interface BannersRepository
+{
+
+    public function getAll();
+    public function update();
+
+    public function findOrFail(int $id);
+
+    public function destroy(int $id);
+}
