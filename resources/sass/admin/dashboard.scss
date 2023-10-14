@@ -1,0 +1,15 @@
+.dashboard {
+    min-height: 100vh;
+    min-width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+
+    &-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}

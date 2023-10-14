@@ -1,0 +1,17 @@
+.lists {
+    display: flex;
+    flex-direction: column;
+
+    &-single-element {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1.5px solid #d3d3d3;
+        background-color: #f8fafc;
+        text-decoration: none;
+    }
+}
+.customBorder {
+    border-right: 1.5px solid #d3d3d3;
+}

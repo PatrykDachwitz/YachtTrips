@@ -1,0 +1,13 @@
+.windowAction {
+    width: 95%;
+    min-height: 90%;
+    max-height: 90%;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    &Content {
+        flex: 1;
+    }
+}

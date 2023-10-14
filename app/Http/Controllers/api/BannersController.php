@@ -5,8 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Repository\Eloquent\BannersRepository;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use Mockery\Exception;
+use Exception;
 
 class BannersController extends Controller
 {
@@ -21,7 +22,7 @@ class BannersController extends Controller
      */
     public function index()
     {
-        return response($this->banners->getAll() ?? [], 200);
+        return response($this->banners->get() ?? [], 200);
     }
 
     /**
@@ -29,7 +30,7 @@ class BannersController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -45,6 +46,7 @@ class BannersController extends Controller
      */
     public function show(string $id)
     {
+
         return response($this->banners->findOrFail($id), 200);
     }
 
@@ -53,7 +55,14 @@ class BannersController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        //dd('test');
+        if ($this->banners->destroy($id)) {
+            return response('success', 200);
+        } else {
+            abort(500);
+        }
+
+        //return response($this->banners->destroy($id));
     }
 
     /**
@@ -69,6 +78,10 @@ class BannersController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->banners->destroy($id);
+        if ($this->banners->destroy($id)) {
+            return response('success', 200);
+        } else {
+            abort(500);
+        }
     }
 }

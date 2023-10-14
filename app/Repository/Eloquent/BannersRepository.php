@@ -3,6 +3,8 @@
 namespace App\Repository\Eloquent;
 
 use App\Models\Banner;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Exception;
 
 class BannersRepository implements \App\Repository\BannersRepository
 {
@@ -14,8 +16,10 @@ class BannersRepository implements \App\Repository\BannersRepository
     }
     public function getAll()
     {
-        return $this->banner->get();
+        return $this->banner->all();
     }
+
+
 
     public function update()
     {
@@ -29,6 +33,17 @@ class BannersRepository implements \App\Repository\BannersRepository
 
     public function destroy(int $id)
     {
-        $this->banner->delete($id);
+        $banner = $this->banner->findOrFail($id);
+
+        if($banner->delete()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function get()
+    {
+        return $this->banner->get();
     }
 }
