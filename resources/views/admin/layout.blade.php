@@ -12,7 +12,7 @@
 
 <div class="dashboard">
     <div id="navbar" class="shadow bg-dark text-white">
-        @include('cms.menu')
+        @include('admin.menu')
     </div>
     <div class="dashboard-content">
         <div class="windowAction rounded-3 shadow" id="app">

@@ -13,6 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('cms.banners.list');
+Route::get('/', \App\Http\Controllers\MainPageController::class);
+
+//CMS routing
+Route::group([
+ "as" => "admin.",
+ "prefix" => "admin/"
+], function () {
+    Route::group([
+        "as" => "banners.",
+        "prefix" => "banners"
+    ], function () {
+        Route::view("", "admin.banners.list")
+        ->name('index');
+        Route::view("{id}", "admin.banners.show")
+        ->name('show');
+        Route::group([
+            "as" => "category.",
+            "prefix" => "category"
+        ], function () {
+            Route::view("", "admin.banners.category.list")
+                ->name('index');
+        });
+    });
+;
 });

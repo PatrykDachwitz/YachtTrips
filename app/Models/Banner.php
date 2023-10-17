@@ -10,4 +10,8 @@ class Banner extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function categoryBanners() {
+        return $this->belongsTo(CategoryBanner::class, "id");
+    }
 }

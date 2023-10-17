@@ -12,4 +12,10 @@ class CategoryBanner extends Model
     use SoftDeletes;
 
     protected $table = "category_banners";
+    protected $primaryKey = "id";
+
+
+    public function banners() {
+        return $this->hasMany(Banner::class);
+    }
 }

@@ -1,15 +1,13 @@
 <script setup>
-import { ref, inject, provide } from 'vue'
+import { ref, provide } from 'vue'
 import { useFetch, getUrl } from "../../primary_function/useFetch.js";
 import dashboard from "@/admin/components/dashboard.vue";
 import optionList from "@/admin/components/list/optionList.vue";
 
-const url = ref(getUrl());
-const urlApiCurrent = ref(`api${url.value}`);
+const { url, urlApi } = getUrl();
+const { date, error } = useFetch(urlApi);
 
-const { date, error } = useFetch(urlApiCurrent);
-
-provide('urlApiCurrent', urlApiCurrent);
+provide('urlApiCurrent', urlApi);
 
 </script>
 

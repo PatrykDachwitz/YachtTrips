@@ -4,13 +4,18 @@ export function useFetch(url) {
     const date = ref(null)
     const error = ref(null)
 
+
     watchEffect(() => {
        error.value = null;
 
        fetch(toValue(url))
-           .then((res) => res.json())
+           .then((res) => {
+               return res.json();
+           })
            .then((json) => (date.value = json))
-           .catch((err) => (error.value = error))
+           .catch((err) => {
+               error.value = err;
+           })
     });
 
     return { date, error }
@@ -18,7 +23,7 @@ export function useFetch(url) {
 
 export function useFetchDeleted(urlApi) {
     const status = ref(null);
-
+    console.log(urlApi)
     fetch(urlApi, {
         method: "delete"
     })
@@ -30,5 +35,10 @@ export function useFetchDeleted(urlApi) {
 }
 
 export function getUrl() {
-    return document.querySelector("input[data-url]").value ?? "";
+    const url = ref(null);
+    const urlApi = ref(null);
+
+    url.value = document.querySelector("input[data-url]").value ?? "";
+    urlApi.value = document.querySelector("input[data-url-api]").value ?? "";
+    return { url, urlApi };
 }

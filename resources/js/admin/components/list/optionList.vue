@@ -8,8 +8,10 @@ defineProps([
     'url',
 ]);
 const urlApiCurrent = inject('urlApiCurrent');
-function useFetchDeletedCustom(url) {
-    useFetchDeleted(url);
+const deleteUrl = urlApiCurrent.value;
+
+function useFetchDeletedCustom(id) {
+    useFetchDeleted(`${deleteUrl}/${id}`);
 
     urlApiCurrent.value = urlApiCurrent.value + "?ts=13";
     console.log(urlApiCurrent.value);
@@ -30,7 +32,7 @@ function useFetchDeletedCustom(url) {
         <div>
             <a :href="`${url}/${id}`" class="text-dark fs-5 customBorder pe-2">Wyświetl</a>
             <a :href="`${url}/${id}/edit`" class="text-dark fs-5 mx-2 pe-2 customBorder">Edytuj</a>
-            <a class="text-dark fs-5" @click="useFetchDeletedCustom(`api${url}/${id}`)">Usuń</a>
+            <a class="text-dark fs-5" @click="useFetchDeletedCustom(id)">Usuń</a>
         </div>
     </div>
 </template>
