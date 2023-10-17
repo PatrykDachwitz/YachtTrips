@@ -20,6 +20,7 @@ Route::group([
  "as" => "admin.",
  "prefix" => "admin/"
 ], function () {
+    Route::get('file_manager', \App\Http\Controllers\admin\ManagerFilesController::class);
     Route::group([
         "as" => "banners.",
         "prefix" => "banners"

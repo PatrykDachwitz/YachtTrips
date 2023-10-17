@@ -31,33 +31,6 @@
         </div>
         <img src="http://127.0.0.1/menu.png" class="d-block d-md-none" width="30" height="30"/>
     </nav>
-
-    <style>
-        .testMenu {
-            flex: 1;
-            @media only screen and (max-width: 767px) {
-                top: 0;
-                left: 0;
-                margin: 0;
-                display: flex !important;
-                position: absolute;
-                z-index: 90;
-                background-color: #2d3748;
-                min-width: 100%;
-                background-color: #212529;
-                flex-direction: column;
-                justify-content: flex-start;
-                padding-bottom: 15px;
-            }
-        }
-
-        .testMenu ul {
-            @media only screen and (max-width: 767px) {
-                min-width: 100%;
-            }
-        }
-
-    </style>
     <div class="d-flex justify-content-center banner-container">
         <div class="banner position-relative">
             <picture>
@@ -72,130 +45,17 @@
                 </div>
             </div>
         </div>
-        <style>
-            nav {
-                border-bottom: 1px solid rgba(255,255,255,.2);
-            }
-            div.banner-container {
-                background-color: #212529;
-            }
-            div.banner {
-                width: 1920px;
-                height: 800px;
-                max-height: 800px;
-                position:relative;
-            }
-            div.banner-text {
-                min-height: 800px;
-                max-height: 800px;
-            }
-        </style>
     </div>
 
-    <!--- sekcja oceanów **Gotowe** -->
-
-
-    @include('mainPage.oceans', [
-        'oceans' => $content[1]
-    ])
-
-    <!-- sekcja oceanów koniec-->
-
-    <!--Sekcja wariant jachtów -->
-    @include('mainPage.yachts', [
-    'yachts' => $content[2]
-    ])
-
-    <!--Sekcja wariant jachtó koniec-->
-
-    <!--Sekcja Dlaczego Nasza Flota **Gotowe**-->
-
-    @include('mainPage.why', [
-    'why' => $content[3]
-    ])
-
-    <!--Sekcja Dlaczego Nasza Flota koniec-->
-
-
-    <!-- Sekcja bloga -->
-
-    @include('mainPage.popularTrips', [
-    'trips' => $content[4]
-    ])
-
-    <!-- Sekcja bloga koniec -->
-
-    <!--Sekcja opini klientów **Gotowe**-->
-
-    @include('mainPage.opinions', [
-    'opinions' => $content[5]
-    ])
-
-    <!--Sekcja opini klientów koniec-->
-
-
-
+    @foreach($content as $contents)
+        @include('mainPage.' . $content->templates->name, [
+            'content' => $content->banners
+        ])
+    @endforeach
 
 </div>
 @include('elements.footer')
-<style>
 
-    .cart-oceans-container {
-        display: flex;
-        justify-content: center;
-    }
-    .cart-oceans {
-        border: 1px solid rgba(255,255,255,.2);
-        border-radius: 5px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        flex: 350px 0;
-
-    }
-
-    .cart-oceans-content {
-        flex: 1;
-    }
-
-
-
-    .rofilcontaineropinienion {
-        border: 1px solid rgba(255,255,255,.2);
-    }
-    .miniSlider {
-        min-width: 950px;
-        min-height: 650px;
-    }
-    .bg-gray {
-        background-color: rgba(133,133,133,.1);
-    }
-    div.activeCart {
-        width: 415px;
-        min-height: 450px;
-    }
-    div.activeCart div.slideClass {
-        width: 415px;
-        height: 296px;
-    }
-    div.activeCart div.content{
-        width: 415px;
-    }
-
-    div.activeCart div.slideClass img{
-        width: 415px;
-        height: 296px;
-    }
-    div.content {
-        width: 350px;
-        flex: 1;
-    }
-    div.slideClass {
-        width: 350px;
-        height: 250px;
-        overflow: hidden;
-    }
-</style>
 @vite([ 'resources/sass/app.scss',
                 'resources/js/app.js'])
 </body>

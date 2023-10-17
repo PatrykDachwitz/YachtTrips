@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CategoryBanner>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Folder>
  */
-class CategoryBannerFactory extends Factory
+class FolderFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,9 @@ class CategoryBannerFactory extends Factory
     public function definition(): array
     {
         return [
+            'path' => "/files/" . fake()->name(),
+            'parent' => rand(0, 3),
             'name' => fake()->name(),
-            'description' => fake()->randomHtml()
         ];
     }
-
 }

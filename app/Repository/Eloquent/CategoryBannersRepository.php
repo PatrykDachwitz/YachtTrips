@@ -20,7 +20,10 @@ class CategoryBannersRepository implements \App\Repository\CategoryBannersReposi
     public function getWithContent()
     {
         return $this->category
-            ->with('banners')
+            ->with([
+                'banners',
+                'templates'
+            ])
             ->get();
     }
 }

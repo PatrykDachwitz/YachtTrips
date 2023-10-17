@@ -1,0 +1,21 @@
+div.banner {
+    width: 1920px;
+    height: 800px;
+    max-height: 800px;
+    position:relative;
+
+    &-container {
+        background-color: #212529;
+    }
+
+    &-text {
+        min-height: 800px;
+        max-height: 800px;
+    }
+}
+
+nav {
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+//Oceans
+@import "oceans";
