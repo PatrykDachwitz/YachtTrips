@@ -23,20 +23,20 @@ provide('urlApiCurrent', urlApi);
         </div>
         <form class="row g-3 p-3">
             <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <label for="inputEmail4" class="form-label">Nazwa</label>
+                <input type="email" class="form-control" id="inputEmail4" name="name">
             </div>
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <label for="inputPassword4" class="form-label">Aktywny</label>
+                <input type="text" name="active" class="form-control" id="inputPassword4">
             </div>
             <div class="col-12">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <label for="inputAddress" class="form-label">Kategoria</label>
+                <input type="text" name="category_banner_id" class="form-control" id="inputAddress">
             </div>
             <div class="col-12">
-                <label for="inputAddress2" class="form-label">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <label for="inputAddress2" class="form-label">Start baneru</label>
+                <input type="text" class="form-control" id="inputAddress2" name="">
             </div>
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">City</label>

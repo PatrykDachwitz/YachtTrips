@@ -7,8 +7,14 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+//Custom class Bootstrap
+@import "customBootstrap";
+
 //Main page
 @import "mainPage";
 
 //Menu
-@import "menu";
+@import "elements/menu";
+
+//Footer
+@import "elements/footer";
