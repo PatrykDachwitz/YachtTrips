@@ -28,7 +28,7 @@ class BannersRepository implements \App\Repository\BannersRepository
 
     public function findOrFail(int $id)
     {
-        return $this->banner->findOrFail($id);
+        return $this->banner->with('images')->findOrFail($id);
     }
 
     public function destroy(int $id)

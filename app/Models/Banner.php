@@ -14,4 +14,9 @@ class Banner extends Model
     public function categoryBanners() {
         return $this->belongsTo(CategoryBanner::class, "id");
     }
+
+    public function images() {
+        return $this->belongsToMany(File::class, "pivot_images", "place_id")
+            ->withPivot('device');
+    }
 }

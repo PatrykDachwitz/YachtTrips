@@ -27,8 +27,22 @@ Route::group([
     ], function () {
         Route::view("", "admin.banners.list")
         ->name('index');
-        Route::view("{id}", "admin.banners.show")
-        ->name('show');
+        Route::get("{id}/test",function ($id, \App\Repository\Eloquent\BannersRepository $banner){
+
+            dd($banner->findOrFail($id));
+            //"admin.banners.show")
+        });
+
+        Route::get("{id}",function ($id, \App\Repository\Eloquent\CategoryBannersRepository $categoryBannersRepository){
+
+            return view('admin.banners.show', [
+                "id" => $id,
+                'categoryBanners' => $categoryBannersRepository->get()
+            ]);
+        })->name('show');
+
+
+
         Route::group([
             "as" => "category.",
             "prefix" => "category"

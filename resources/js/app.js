@@ -1,5 +1,5 @@
 import './bootstrap';
-
+import {miniSliders} from "@/primary_function/miniSliders.js";
 function offSliders(categorySliders) {
     const banner = document.querySelector(`div.selected[data-category-banner='${categorySliders}']`);
     banner.classList.remove('selected');
@@ -66,3 +66,6 @@ function viewFunction() {
 }
 
 viewFunction();
+const oceans = new miniSliders('oceans');
+
+

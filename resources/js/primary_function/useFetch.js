@@ -8,16 +8,23 @@ export function useFetch(url) {
     watchEffect(() => {
        error.value = null;
 
-       fetch(toValue(url))
+       fetch(toValue(url), {
+           headers: {
+               'Content-Type': 'application/json',
+               'Accept': 'application/json',
+           },
+       })
            .then((res) => {
-               return res.json();
+               if (res.status !== 200) throw Error(res.status);
+               else return res.json();
            })
            .then((json) => (date.value = json))
            .catch((err) => {
-               error.value = err;
+               error.value = 404;
            })
     });
 
+    //console.log(date);
     return { date, error }
 }
 
@@ -32,6 +39,30 @@ export function useFetchDeleted(urlApi) {
         });
 
     return { status };
+}
+
+export function useFetchPut(url, updateDate) {
+    const error = ref(null);
+    const date = ref(null);
+    fetch(url, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updateDate),
+    })
+        .then(response => {
+            if (response.status !== 200) throw Error('Error status');
+            else return response.json;
+        })
+        .then(json => {
+            date.value = json;
+        })
+        .catch(err => {
+            error.value = err;
+        })
+
+    return { date, error };
 }
 
 export function getUrl() {

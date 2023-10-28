@@ -6,38 +6,56 @@
 
     <div class="d-flex flex-wrap justify-content-center align-items-center">
 
-        <div class="oceans">
+        <div class="oceans" >
 
-            <div class="d-flex d-xxxxl-none align-items-center">
+            <div class="d-flex align-items-center">
                 <div>
-                    <button class="btn btn-dark border-2 fs-2">
+                    <button class="btn btn-dark border-2 fs-2" data-button-previous="oceans">
                         <
                     </button>
                 </div>
             </div>
-
+            <div class="d-flex" data-slider-container="oceans">
             @foreach($content->banners ?? [] as $banner)
                 <div class="ocean m-4 shadow
 
-                    @if(in_array($loop->index, [
-                        2,
-                        3
-                    ]))
-                        d-none
-                        d-xxxl-flex
-                    @elseif($loop->index == 4)
-                        d-none
-                        d-xxxxl-flex
-                    @else()
-                        d-none
-                        d-lg-flex
-                    @endif
+                    @switch($loop->index)
 
-                ">
+                        @case(0)
+                            d-flex
+                            @break
+                        @case(1)
+                            d-none
+                            d-lg-flex
+                            @break
+                        @case(2)
+                            d-none
+                            d-xxxl-flex
+                            @break
+                        @case(3)
+                            d-none
+                            d-xxxl-flex
+                            @break
+                        @case(4)
+                            d-none
+                            d-xxxxl-flex
+                            @break
+                        @default
+                            d-none
+                            @break
+                    @endswitch
 
+                " data-slider="oceans">
+                    <!--
+                    d-xxxxl-flex
+                    d-xxxl-flex
+                    d-lg-flex
+                    d-lg-flex
+                    d-lg-flex
+                    -->
                     <div>
                         <picture>
-                            <img src="http://127.0.0.1/slide1.jpg" width="350" height="250" />
+                            <img src="{{ $banner->images[0]->path . '/' . $banner->images[0]->name . '.' . $banner->images[0]->extension }}" width="350" height="250" />
                         </picture>
                     </div>
 
@@ -52,10 +70,11 @@
 
                 </div>
             @endforeach
+            </div>
 
-            <div class="d-flex d-xxxxl-none align-items-center">
+            <div class="d-flex align-items-center">
                 <div>
-                    <button class="btn btn-dark border-2 fs-2">
+                    <button class="btn btn-dark border-2 fs-2" data-button-next="oceans">
                         >
                     </button>
                 </div>

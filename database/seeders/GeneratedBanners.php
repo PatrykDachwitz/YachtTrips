@@ -74,6 +74,22 @@ class GeneratedBanners extends Seeder
                 "name" => "Ocean Indyjski",
                 "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
                 "category_banner_id" => 2,
+            ],  [
+                "name" => "Ocean Indyjski",
+                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "category_banner_id" => 2,
+            ],  [
+                "name" => "Ocean Indyjski",
+                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "category_banner_id" => 2,
+            ],  [
+                "name" => "Ocean Indyjski",
+                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "category_banner_id" => 2,
+            ],  [
+                "name" => "Ocean Indyjski",
+                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "category_banner_id" => 2,
             ], [
                 "name" => "Dlaczego Wybrać Nasze Wycieczki?",
                 "descriptions" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
