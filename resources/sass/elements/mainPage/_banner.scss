@@ -1,0 +1,15 @@
+.banner {
+    background-color: #212529;
+
+    &-container {
+        width: 1920px;
+        height: 800px;
+        max-height: 800px;
+        position:relative;
+    }
+
+    &-text {
+        min-height: 800px;
+        max-height: 800px;
+    }
+}

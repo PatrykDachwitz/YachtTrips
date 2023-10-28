@@ -21,4 +21,5 @@ class CategoryBannerFactory extends Factory
             'description' => fake()->randomHtml()
         ];
     }
+
 }

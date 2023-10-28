@@ -1,0 +1,11 @@
+nav {
+    border-bottom: 1px solid $border-color-gray;
+}
+//Banner
+@import "elements/mainPage/banner";
+
+//Oceans
+@import "elements/mainPage/oceans";
+
+//Sliders
+@import "elements/mainPage/sliders";

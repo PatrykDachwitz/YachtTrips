@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\banners\UpdateRequest;
 use App\Models\Banner;
 use App\Repository\BannersRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -46,7 +47,6 @@ class BannersController extends Controller
      */
     public function show(string $id)
     {
-
         return response($this->banners->findOrFail($id), 200);
     }
 
@@ -55,6 +55,8 @@ class BannersController extends Controller
      */
     public function edit(string $id)
     {
+
+
         //dd('test');
         if ($this->banners->destroy($id)) {
             return response('success', 200);
@@ -68,9 +70,9 @@ class BannersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, string $id)
     {
-        //
+        return response("git");
     }
 
     /**

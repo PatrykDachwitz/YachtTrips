@@ -1,0 +1,50 @@
+.sliders {
+    display: flex;
+    @media only screen and (max-width: 767px) {
+        flex-direction: column;
+    }
+    @media only screen and (min-width: 768px)  {
+        flex-wrap: wrap;
+    }
+
+    &-image {
+        @media only screen and (max-width: 1000px) {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 1001px) and (max-width: 1400px)  {
+            min-width: 500px;
+            width: 50%;
+            max-width: 50%;
+        }
+
+        @media only screen and (min-width: 1401px)  {
+            min-width: 950px;
+            width: 50%;
+            max-width: 50%;
+        }
+    }
+
+    &-content {
+        @media only screen and (max-width: 1000px) {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 1001px)  {
+            flex:1;
+        }
+
+        &-text {
+            @media only screen and (max-width: 1400px) {
+                width: 100%;
+            }
+            @media only screen and (min-width: 1401px) and (max-width: 1900px) {
+                width: 75%;
+            }
+            @media only screen and (min-width: 1901px) {
+                width: 50%;
+            }
+        }
+
+    }
+}

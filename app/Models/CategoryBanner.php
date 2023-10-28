@@ -16,6 +16,10 @@ class CategoryBanner extends Model
 
 
     public function banners() {
-        return $this->hasMany(Banner::class);
+        return $this->hasMany(Banner::class)->with('images');
+    }
+
+    public function templates() {
+        return $this->belongsTo(Template::class, 'template_id', "id");
     }
 }

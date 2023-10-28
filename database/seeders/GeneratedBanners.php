@@ -18,26 +18,32 @@ class GeneratedBanners extends Seeder
                 "id" => 1,
                 "name" => "Slider",
                 "description" => null,
+                'template_id' => 1
             ], [
                 "id" => 2,
                 "name" => "Sekcja oceanów",
                 "description" => "Nasze najpopularniejsze Wycieczki na Oceanie",
+                'template_id' => 2
             ], [
                 "id" => 3,
                 "name" => "Slider",
                 "description" => null,
+                'template_id' => 3
             ], [
                 "id" => 4,
                 "name" => "Dlaczego my",
                 "description" => null,
+                'template_id' => 4
             ], [
                 "id" => 5,
                 "name" => "Slider najpopularniejszych wycieczek",
                 "description" => "Nasze najpopularniejsze Wycieczki na Oceanie",
+                'template_id' => 5
             ], [
                 "id" => 6,
                 "name" => "Opinie klientów",
                 "description" => "Najnowsze opinie naszych klientów",
+                'template_id' => 6
             ],
         ];
 
@@ -51,83 +57,122 @@ class GeneratedBanners extends Seeder
                     <a class="btn btn-info">Sprawdz ofertę</a>
                 </div>
                 '),
-                "category" => 1,
+                "category_banner_id" => 1,
             ], [
                 "name" => "Ocean karaibski",
                 "descriptions" => 'Egzotyczne wakacje na Karaibach! 🌴⛵',
-                "category" => 2,
+                "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Pacyfik",
                 "descriptions" => 'Odkryj tajemnice Pacyfiku na luksusowym jachcie! 🌊⛴️',
-                "category" => 2,
+                "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Atlantycki",
                 "descriptions" => 'Przygoda na Atlantyku! 🌊⛵',
-                "category" => 2,
+                "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Indyjski",
                 "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
-                "category" => 2,
+                "category_banner_id" => 2,
+            ],  [
+                "name" => "Ocean Indyjski",
+                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "category_banner_id" => 2,
+            ],  [
+                "name" => "Ocean Indyjski",
+                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "category_banner_id" => 2,
+            ],  [
+                "name" => "Ocean Indyjski",
+                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "category_banner_id" => 2,
+            ],  [
+                "name" => "Ocean Indyjski",
+                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "category_banner_id" => 2,
             ], [
                 "name" => "Dlaczego Wybrać Nasze Wycieczki?",
                 "descriptions" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
-                "category" => 3,
+                "category_banner_id" => 3,
             ], [
                 "name" => "Dlaczego Wybrać Nasze Wycieczki?",
                 "descriptions" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
-                "category" => 3,
+                "category_banner_id" => 3,
             ], [
                 "name" => "Dlaczego Wybrać Nasze Wycieczki?",
                 "descriptions" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
-                "category" => 4,
+                "category_banner_id" => 4,
             ], [
                 "name" => "Ocean karaibski",
                 "descriptions" => 'Egzotyczne wakacje na Karaibach! 🌴⛵',
-                "category" => 5,
+                "category_banner_id" => 5,
             ], [
                 "name" => "Ocean Pacyfik",
                 "descriptions" => 'Odkryj tajemnice Pacyfiku na luksusowym jachcie! 🌊⛴️',
-                "category" => 5,
+                "category_banner_id" => 5,
             ], [
                 "name" => "Ocean Atlantycki",
                 "descriptions" => 'Przygoda na Atlantyku! 🌊⛵',
-                "category" => 5,
+                "category_banner_id" => 5,
             ], [
                 "name" => "Ocean Indyjski",
                 "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
-                "category" => 5,
+                "category_banner_id" => 5,
             ], [
                 "name" => "Patryk Dachwitz",
                 "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
-                "category" => 6,
+                "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
                 "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
-                "category" => 6,
+                "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
                 "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
-                "category" => 6,
+                "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
                 "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
-                "category" => 6,
+                "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
                 "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
-                "category" => 6,
+                "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
                 "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
-                "category" => 6,
+                "category_banner_id" => 6,
             ],
+        ];
+
+        $template = [
+            [
+          "id" => 1,
+          'name' => "banner"
+        ], [
+          "id" => 2,
+          'name' => "oceans"
+        ], [
+          "id" => 3,
+          'name' => "yachts"
+        ], [
+          "id" => 4,
+          'name' => "why"
+        ], [
+          "id" => 5,
+          'name' => "popularTrips"
+        ], [
+          "id" => 6,
+          'name' => "opinions"
+        ],
         ];
 
         DB::table('category_banners')->truncate();
         DB::table('banners')->truncate();
-
+        DB::table('templates')->truncate();
 
         DB::table('category_banners')->insertOrIgnore($category);
         DB::table('banners')->insertOrIgnore($banners);
+        DB::table('templates')->insertOrIgnore($template);
     }
 }

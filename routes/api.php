@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('banners', \App\Http\Controllers\api\BannersController::class);
 Route::resource('category', \App\Http\Controllers\api\categoryBannersController::class);
+Route::resource('folders', \App\Http\Controllers\api\FolderController::class);

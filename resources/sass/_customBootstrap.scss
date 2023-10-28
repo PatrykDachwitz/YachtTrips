@@ -1,0 +1,26 @@
+.bg-gray {
+    background-color: $custom-gray-backGround;
+}
+
+.d-xxxl-flex {
+    @media only screen and (min-width: 1801px){
+        display: flex !important;
+    }
+}
+
+.d-xxxxl-none {
+    @media only screen and (min-width: 2001px){
+        display: none !important;
+    }
+}
+
+.d-xxxxl-flex {
+    @media only screen and (min-width: 2001px){
+        display: flex !important;
+    }
+}
+
+
+.colorGray {
+    color: #bebebe !important;
+}

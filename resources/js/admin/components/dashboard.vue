@@ -14,10 +14,11 @@ defineProps([
 
     <navbar
         :name="name"
-        :id="id"
-    />
+        :id="id">
+        <slot name="header" />
+    </navbar>
 
-    <slot>
+    <slot name="content">
         <contents/>
     </slot>
 </template>

@@ -20,14 +20,29 @@ Route::group([
  "as" => "admin.",
  "prefix" => "admin/"
 ], function () {
+    Route::get('file_manager', \App\Http\Controllers\admin\ManagerFilesController::class);
     Route::group([
         "as" => "banners.",
         "prefix" => "banners"
     ], function () {
         Route::view("", "admin.banners.list")
         ->name('index');
-        Route::view("{id}", "admin.banners.show")
-        ->name('show');
+        Route::get("{id}/test",function ($id, \App\Repository\Eloquent\BannersRepository $banner){
+
+            dd($banner->findOrFail($id));
+            //"admin.banners.show")
+        });
+
+        Route::get("{id}",function ($id, \App\Repository\Eloquent\CategoryBannersRepository $categoryBannersRepository){
+
+            return view('admin.banners.show', [
+                "id" => $id,
+                'categoryBanners' => $categoryBannersRepository->get()
+            ]);
+        })->name('show');
+
+
+
         Route::group([
             "as" => "category.",
             "prefix" => "category"

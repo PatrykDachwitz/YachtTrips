@@ -1,5 +1,5 @@
-<footer class="bg-dark d-flex flex-column text-white shadow">
-    <div class="supportNavigation d-flex justify-content-lg-evenly flex-column flex-lg-row py-4 align-items-center align-items-lg-start">
+<footer class="footer bg-dark d-flex flex-column text-white shadow">
+    <div class="supportNavigation d-flex justify-content-lg-evenly flex-column flex-lg-row py-4 align-items-center align-items-lg-start w-75">
         <div class=" d-flex flex-column align-items-center align-items-lg-start">
             <h3 class="fs-4 mb-3 mb-lg-0" >BoatsTrip Sp.z.o.o.k</h3>
             <div class="d-flex flex-row flex-lg-column me-5 me-lg-0">
@@ -54,7 +54,7 @@
             </ul>
         </div>
     </div>
-    <div class="footer d-flex flex-column  flex-md-row py-2 fs-6  justify-content-center justify-content-lg-around colorGray">
+    <div class="footer-bottom d-flex flex-column  flex-md-row py-2 fs-6  justify-content-center justify-content-lg-around colorGray">
         <span class="text-center mb-1 mb-lg-0">© Copyright 2023 <b>BoatsTrip</b></span>
         <span class="text-center">created by <b>Patryk Dachwitz</b></span>
     </div>

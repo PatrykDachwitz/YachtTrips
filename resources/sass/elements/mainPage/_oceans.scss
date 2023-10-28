@@ -1,0 +1,17 @@
+.oceans {
+    display: flex;
+    justify-content: center;
+}
+
+.ocean {
+    border: 1px solid $border-color-gray;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex: 350px 0;
+
+    &-content {
+        flex: 1;
+    }
+}

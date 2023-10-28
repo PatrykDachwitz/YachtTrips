@@ -16,25 +16,9 @@ class MainPageController extends Controller
      */
     public function __invoke(Request $request)
     {
-        dd($this->banners->getWithContent());
+        //dd($this->banners->getWithContent());
         return view('index', [
-            'titles' => [
-                'Egzotyczne wakacje na Karaibach! 🌴⛵',
-                'Odkryj tajemnice Pacyfiku na luksusowym jachcie! 🌊⛴️',
-                'Przygoda na Atlantyku! 🌊⛵',
-                'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
-                'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
-            ],
-            'opinionsClient' => [
-                'Patryk Dachwitz',
-                'Patryk Dachwitz',
-                'Patryk Dachwitz',
-                'Patryk Dachwitz',
-                'Patryk Dachwitz',
-                'Patryk Dachwitz',
-            ],
-                'content' => $this->banners->getWithContent()
-        ]
-        );
+            'contents' => $this->banners->getWithContent()
+        ]);
     }
 }
