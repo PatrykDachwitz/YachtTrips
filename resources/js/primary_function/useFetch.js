@@ -86,7 +86,7 @@ export function useFetchPost(url, updateDate) {
     const dataPost = ref(null);
 
     fetch(toValue(url), {
-        method: "PUT",
+        method: "POST",
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -98,12 +98,12 @@ export function useFetchPost(url, updateDate) {
             else return response.json();
         })
         .then(jsonRes => {
-            console.log("DAne odp")
+            console.log("Dane odp")
             console.log(jsonRes)
             dataPost.value = jsonRes;
         })
         .catch(err => {
-            console.error("ERror")
+            console.error("Error")
             console.error(err)
             errorPost.value = err;
         })

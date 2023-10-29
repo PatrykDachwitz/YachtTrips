@@ -14,11 +14,14 @@ class CategoryBannerController extends Controller
         $this->templates = $templatesRepository;
     }
 
+    public function index(){
+        return view('admin.banners.category.list');
+    }
+
     public function show(int $id) {
         return view('admin.banners.category.show', [
             'templates' => $this->templates->findOrFail($id)
         ]);
-
     }
 
     public function edit(int $id) {
@@ -28,9 +31,6 @@ class CategoryBannerController extends Controller
         ]);
     }
 
-    public function index(){
-        return view('admin.banners.category.list');
-    }
 
     public function create() {
         return view('admin.banners.category.create');

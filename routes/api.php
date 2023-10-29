@@ -21,6 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group([
+    'prefix' => "banners/",
+    "as" => "banners."
+], function () {
+    Route::resource('category', categoryBannersController::class);
+});
+
 Route::resource('banners', BannersController::class);
-Route::resource('category', categoryBannersController::class);
+
 Route::resource('folders', FolderController::class);

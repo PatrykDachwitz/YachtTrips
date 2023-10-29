@@ -18,44 +18,5 @@
                 <li><a class="dropdown-item" href="{{ route('admin.banners.category.index') }}">Kategorie</a></li>
             </ul>
         </li>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Klienci
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Nowy klient</a></li>
-                <li><a class="dropdown-item" href="#">Lista klientów</a></li>
-            </ul>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Rejsy
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Nowy rejs</a></li>
-                <li><a class="dropdown-item" href="#">Lista rejsów</a></li>
-                <hr />
-                <li><a class="dropdown-item" href="#">Odbyte rejsy</a></li>
-            </ul>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Klienci
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Nowy klient</a></li>
-                <li><a class="dropdown-item" href="#">Lista klientów</a></li>
-            </ul>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Statki
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Nowy statek</a></li>
-                <li><a class="dropdown-item" href="#">Lista statków</a></li>
-            </ul>
-        </li>
     </ul>
 </nav>

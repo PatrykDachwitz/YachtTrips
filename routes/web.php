@@ -29,17 +29,7 @@ Route::group([
         "as" => "banners.",
         "prefix" => "banners"
     ], function () {
-        Route::get("", [BannerController::class, 'index'])
-            ->name('index');
 
-        Route::get("create", [BannerController::class, 'create'])
-            ->name('create');
-
-        Route::get("{id}/edit", [BannerController::class, 'edit'])
-            ->name('edit');
-
-        Route::get("{id}", [BannerController::class, 'show'])
-            ->name('show');
 
         Route::group([
             "as" => "category.",
@@ -58,5 +48,19 @@ Route::group([
             Route::get("{id}", [CategoryBannerController::class, 'show'])
                 ->name('show');
         });
+
+
+        Route::get("", [BannerController::class, 'index'])
+            ->name('index');
+
+        Route::get("create", [BannerController::class, 'create'])
+            ->name('create');
+
+        Route::get("{id}/edit", [BannerController::class, 'edit'])
+            ->name('edit');
+
+        Route::get("{id}", [BannerController::class, 'show'])
+            ->name('show');
+
     });
 });

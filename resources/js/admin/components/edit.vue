@@ -42,7 +42,7 @@ provide('urlApiCurrent', urlApi);
     >
         <template v-slot:header>
             <div>
-                <img src="/files/icons/save.png" alt="save" width="25" height="25" @click="save"/>
+                <img src="/files/icons/save.png" class="pointer" alt="save" width="25" height="25" @click="save"/>
             </div>
         </template>
         <template v-slot:content>
@@ -92,5 +92,8 @@ div.graphic-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.pointer {
+    cursor: pointer;
 }
 </style>
