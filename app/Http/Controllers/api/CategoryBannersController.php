@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\banners_category\UpdateRequest;
 use App\Repository\CategoryBannersRepository;
+use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class categoryBannersController extends Controller
@@ -26,7 +29,7 @@ class categoryBannersController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -34,7 +37,20 @@ class categoryBannersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $id = $this->category->create($request->only([
+                'name',
+                'description',
+                'active',
+                'template_id',
+            ]));
+        } catch (Exception) {
+            return response(_('api.error_500'), 500);
+        }
+
+        return response( route('admin.banners.category.show', [
+            'id' => $id
+        ] ), 301);
     }
 
     /**
@@ -42,7 +58,7 @@ class categoryBannersController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return response($this->category->findOrFail($id), 200);
     }
 
     /**
@@ -50,15 +66,30 @@ class categoryBannersController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return response($this->category->findOrFail($id), 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, string $id)
     {
-        //
+        $banner = [];
+
+        try {
+            $banner = $this->category->update($id, $request->only([
+                'name',
+                'description',
+                'active',
+                'template_id',
+            ]));
+        } catch (ModelNotFoundException) {
+            return response(_('api.not_found'), 404);
+        } catch (Exception) {
+            return response(_('api.error_500'), 500);
+        }
+
+        return response($banner, 200);
     }
 
     /**
@@ -66,6 +97,10 @@ class categoryBannersController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if ($this->category->destroy($id)) {
+            return response('success', 200);
+        } else {
+            abort(500);
+        }
     }
 }

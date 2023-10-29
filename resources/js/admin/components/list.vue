@@ -5,7 +5,7 @@ import dashboard from "@/admin/components/dashboard.vue";
 import optionList from "@/admin/components/list/optionList.vue";
 
 const { url, urlApi } = getUrl();
-const { date, error } = useFetch(urlApi);
+const { data, error } = useFetch(urlApi);
 
 provide('urlApiCurrent', urlApi);
 
@@ -18,7 +18,7 @@ provide('urlApiCurrent', urlApi);
     >
         <div class="overflow-y-scroll lists">
             <option-list
-                v-for="item in date"
+                v-for="item in data"
                 :key="item.id"
                 :name="item.name"
                 :id="item.id"

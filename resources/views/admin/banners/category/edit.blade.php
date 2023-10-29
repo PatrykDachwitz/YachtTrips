@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@include('admin.form.banners')
+@include('admin.form.categoryBanners')
 
 @section('script')
     <input type="hidden" data-url value="/test">

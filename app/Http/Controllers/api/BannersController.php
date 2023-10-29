@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\banners\CreatedRequest;
 use App\Http\Requests\banners\UpdateRequest;
 use App\Models\Banner;
 use App\Repository\BannersRepository;
@@ -37,9 +38,25 @@ class BannersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreatedRequest $request)
     {
-        //
+
+        try {
+            $id = $this->banners->create($request->only([
+                'name',
+                'start_at',
+                'finish_at',
+                'active',
+                'category_banner_id',
+                'description',
+            ]));
+        } catch (Exception) {
+            return response(_('api.error_500'), 500);
+        }
+
+        return response( route('admin.banners.show', [
+            'id' => $id
+        ] ), 301);
     }
 
     /**
@@ -55,24 +72,32 @@ class BannersController extends Controller
      */
     public function edit(string $id)
     {
-
-
-        //dd('test');
-        if ($this->banners->destroy($id)) {
-            return response('success', 200);
-        } else {
-            abort(500);
-        }
-
-        //return response($this->banners->destroy($id));
+        return response($this->banners->findOrFail($id), 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, string $id)
+    public function update(UpdateRequest $request, int $id)
     {
-        return response("git");
+        $banner = [];
+
+        try {
+            $banner = $this->banners->update($id, $request->only([
+                'name',
+                'start_at',
+                'finish_at',
+                'active',
+                'category_banner_id',
+                'description',
+            ]));
+        } catch (ModelNotFoundException) {
+            return response(_('api.not_found'), 404);
+        } catch (Exception) {
+            return response(_('api.error_500'), 500);
+        }
+
+        return response($banner, 200);
     }
 
     /**

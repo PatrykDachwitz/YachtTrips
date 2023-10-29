@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\banners;
+namespace App\Http\Requests\banners_category;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class CreatedRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,10 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', "min:6", "max:255", "string"],
-            'start_at' => ['date_format:Y-m-d H:i:s'],
-            'finish_at' => ['date_format:Y-m-d H:i:s'],
-            'active' => ["required", "boolean"],
-            'category_banner_id' => ["required", "integer", "min:1"],
-            'description' => ['string'],
+            "name" => ['required', "min:6", "max:255", "string"],
+            "description" => ['string'],
+            "active" => ['required', 'boolean'],
+            "template_id" => ['required', 'integer'],
         ];
     }
 }

@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\BannersController;
+use App\Http\Controllers\api\categoryBannersController;
+use App\Http\Controllers\api\FolderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('banners', \App\Http\Controllers\api\BannersController::class);
-Route::resource('category', \App\Http\Controllers\api\categoryBannersController::class);
-Route::resource('folders', \App\Http\Controllers\api\FolderController::class);
+Route::resource('banners', BannersController::class);
+Route::resource('category', categoryBannersController::class);
+Route::resource('folders', FolderController::class);

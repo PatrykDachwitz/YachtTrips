@@ -1,13 +1,15 @@
 <script setup>
 import {ref, provide, watch } from 'vue'
-import { useFetch, getUrl } from "../../primary_function/useFetch.js";
+import { useFetch, getUrl, useFetchPut } from "../../primary_function/useFetch.js";
 import dashboard from "@/admin/components/dashboard.vue";
 import alert from "@/admin/components/elements/alert.vue"
 import { changeJsonToArray } from "@/primary_function/conversionType.js";
 import {
     changePositionForm,
+    downloadDataForm,
     updateValueInform,
-    active
+    active,
+    updateIssetInput
 } from "@/primary_function/updateFormCreateEditView.js";
 
 
@@ -20,6 +22,15 @@ watch(data, ()  => {
 
     changePositionForm();
 });
+function save() {
+    let formData = downloadDataForm();
+
+    let { dataPut, errorPut } = useFetchPut(urlApi, formData);
+    watch(dataPut, () => {
+        updateIssetInput(dataPut);
+    })
+}
+
 
 provide('urlApiCurrent', urlApi);
 
@@ -29,6 +40,11 @@ provide('urlApiCurrent', urlApi);
     <dashboard
         name="Lista"
     >
+        <template v-slot:header>
+            <div>
+                <img src="/files/icons/save.png" alt="save" width="25" height="25" @click="save"/>
+            </div>
+        </template>
         <template v-slot:content>
             <div class="bg-gray p-2 " style="border-bottom: 1.5px solid #d3d3d3">
                 <a class="btn btn-dark" @click="active('info')">Informacje</a>

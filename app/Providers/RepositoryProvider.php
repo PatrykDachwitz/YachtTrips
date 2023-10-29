@@ -7,6 +7,8 @@ use App\Repository\BannersRepository as BannersRepositoryInterface;
 use App\Repository\Eloquent\BannersRepository;
 use App\Repository\CategoryBannersRepository as CategoryBannersRepositoryInterface;
 use App\Repository\Eloquent\CategoryBannersRepository;
+use App\Repository\TemplatesRepository as TemplatesRepositoryInterface;
+use App\Repository\Eloquent\TemplatesRepository;
 class RepositoryProvider extends ServiceProvider
 {
     /**
@@ -30,6 +32,10 @@ class RepositoryProvider extends ServiceProvider
         $this->app->singleton(
             CategoryBannersRepositoryInterface::class,
             CategoryBannersRepository::class
+        );
+        $this->app->singleton(
+            TemplatesRepositoryInterface::class,
+            TemplatesRepository::class
         );
     }
 }

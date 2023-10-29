@@ -1,7 +1,7 @@
 import { ref, toValue, watchEffect } from "vue";
 
 export function useFetch(url) {
-    const date = ref(null)
+    const data = ref(null)
     const error = ref(null)
 
 
@@ -18,14 +18,14 @@ export function useFetch(url) {
                if (res.status !== 200) throw Error(res.status);
                else return res.json();
            })
-           .then((json) => (date.value = json))
+           .then((json) => (data.value = json))
            .catch((err) => {
                error.value = 404;
            })
     });
 
     //console.log(date);
-    return { date, error }
+    return { data, error }
 }
 
 export function useFetchDeleted(urlApi) {
@@ -42,27 +42,33 @@ export function useFetchDeleted(urlApi) {
 }
 
 export function useFetchPut(url, updateDate) {
-    const error = ref(null);
-    const date = ref(null);
-    fetch(url, {
+    const errorPut = ref(null);
+    const dataPut = ref(null);
+
+    fetch(toValue(url), {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json',
         },
-        body: JSON.stringify(updateDate),
+        body: updateDate,
     })
         .then(response => {
             if (response.status !== 200) throw Error('Error status');
-            else return response.json;
+            else return response.json();
         })
-        .then(json => {
-            date.value = json;
+        .then(jsonRes => {
+            console.log("DAne odp")
+            console.log(jsonRes)
+            dataPut.value = jsonRes;
         })
         .catch(err => {
-            error.value = err;
+            console.error("ERror")
+            console.error(err)
+            errorPut.value = err;
         })
 
-    return { date, error };
+    return { dataPut, errorPut };
 }
 
 export function getUrl() {
@@ -73,3 +79,35 @@ export function getUrl() {
     urlApi.value = document.querySelector("input[data-url-api]").value ?? "";
     return { url, urlApi };
 }
+
+
+export function useFetchPost(url, updateDate) {
+    const errorPost = ref(null);
+    const dataPost = ref(null);
+
+    fetch(toValue(url), {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: updateDate,
+    })
+        .then(response => {
+            if (response.status !== 200) throw Error('Error status');
+            else return response.json();
+        })
+        .then(jsonRes => {
+            console.log("DAne odp")
+            console.log(jsonRes)
+            dataPost.value = jsonRes;
+        })
+        .catch(err => {
+            console.error("ERror")
+            console.error(err)
+            errorPost.value = err;
+        })
+
+    return { dataPost, errorPost };
+}
+

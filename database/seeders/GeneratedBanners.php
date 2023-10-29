@@ -50,7 +50,7 @@ class GeneratedBanners extends Seeder
         $banners = [
             [
                 "name" => "MainBanner",
-                "descriptions" => trim('
+                "description" => trim('
                 <h2 class="fs-1">Lorem Ipsum is simply</h2>
                 <p class="w-25">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially u</p>
                 <div>
@@ -60,87 +60,87 @@ class GeneratedBanners extends Seeder
                 "category_banner_id" => 1,
             ], [
                 "name" => "Ocean karaibski",
-                "descriptions" => 'Egzotyczne wakacje na Karaibach! 🌴⛵',
+                "description" => 'Egzotyczne wakacje na Karaibach! 🌴⛵',
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Pacyfik",
-                "descriptions" => 'Odkryj tajemnice Pacyfiku na luksusowym jachcie! 🌊⛴️',
+                "description" => 'Odkryj tajemnice Pacyfiku na luksusowym jachcie! 🌊⛴️',
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Atlantycki",
-                "descriptions" => 'Przygoda na Atlantyku! 🌊⛵',
+                "description" => 'Przygoda na Atlantyku! 🌊⛵',
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Indyjski",
-                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
                 "category_banner_id" => 2,
             ],  [
                 "name" => "Ocean Indyjski",
-                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
                 "category_banner_id" => 2,
             ],  [
                 "name" => "Ocean Indyjski",
-                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
                 "category_banner_id" => 2,
             ],  [
                 "name" => "Ocean Indyjski",
-                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
                 "category_banner_id" => 2,
             ],  [
                 "name" => "Ocean Indyjski",
-                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
                 "category_banner_id" => 2,
             ], [
                 "name" => "Dlaczego Wybrać Nasze Wycieczki?",
-                "descriptions" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
+                "description" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
                 "category_banner_id" => 3,
             ], [
                 "name" => "Dlaczego Wybrać Nasze Wycieczki?",
-                "descriptions" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
+                "description" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
                 "category_banner_id" => 3,
             ], [
                 "name" => "Dlaczego Wybrać Nasze Wycieczki?",
-                "descriptions" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
+                "description" => '🌊 <b>Wyjątkowe Doświadczenia:</b> Nasze wycieczki na jachtach to podróż, którą będziesz wspominać przez całe życie. Zanurz się w kulturze, historii i przyrodzie oceanów.',
                 "category_banner_id" => 4,
             ], [
                 "name" => "Ocean karaibski",
-                "descriptions" => 'Egzotyczne wakacje na Karaibach! 🌴⛵',
+                "description" => 'Egzotyczne wakacje na Karaibach! 🌴⛵',
                 "category_banner_id" => 5,
             ], [
                 "name" => "Ocean Pacyfik",
-                "descriptions" => 'Odkryj tajemnice Pacyfiku na luksusowym jachcie! 🌊⛴️',
+                "description" => 'Odkryj tajemnice Pacyfiku na luksusowym jachcie! 🌊⛴️',
                 "category_banner_id" => 5,
             ], [
                 "name" => "Ocean Atlantycki",
-                "descriptions" => 'Przygoda na Atlantyku! 🌊⛵',
+                "description" => 'Przygoda na Atlantyku! 🌊⛵',
                 "category_banner_id" => 5,
             ], [
                 "name" => "Ocean Indyjski",
-                "descriptions" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
                 "category_banner_id" => 5,
             ], [
                 "name" => "Patryk Dachwitz",
-                "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
+                "description" => 'Lorem isum loremLorem isum loremLorem isum lorem',
                 "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
-                "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
+                "description" => 'Lorem isum loremLorem isum loremLorem isum lorem',
                 "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
-                "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
+                "description" => 'Lorem isum loremLorem isum loremLorem isum lorem',
                 "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
-                "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
+                "description" => 'Lorem isum loremLorem isum loremLorem isum lorem',
                 "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
-                "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
+                "description" => 'Lorem isum loremLorem isum loremLorem isum lorem',
                 "category_banner_id" => 6,
             ], [
                 "name" => "Patryk Dachwitz",
-                "descriptions" => 'Lorem isum loremLorem isum loremLorem isum lorem',
+                "description" => 'Lorem isum loremLorem isum loremLorem isum lorem',
                 "category_banner_id" => 6,
             ],
         ];

@@ -8,6 +8,7 @@ return [
     'endView' => "Koniec wyświetlania",
     'yes' => "Tak",
     'no' => "Nie",
+    'template' => "Szablon",
     /*'category' => "Kategoria",
     'category' => "Kategoria",*/
 ];

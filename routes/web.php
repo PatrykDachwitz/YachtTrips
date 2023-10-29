@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\CategoryBannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//MainPage
 Route::get('/', \App\Http\Controllers\MainPageController::class);
 
 //CMS routing
@@ -25,31 +29,34 @@ Route::group([
         "as" => "banners.",
         "prefix" => "banners"
     ], function () {
-        Route::view("", "admin.banners.list")
-        ->name('index');
-        Route::get("{id}/test",function ($id, \App\Repository\Eloquent\BannersRepository $banner){
+        Route::get("", [BannerController::class, 'index'])
+            ->name('index');
 
-            dd($banner->findOrFail($id));
-            //"admin.banners.show")
-        });
+        Route::get("create", [BannerController::class, 'create'])
+            ->name('create');
 
-        Route::get("{id}",function ($id, \App\Repository\Eloquent\CategoryBannersRepository $categoryBannersRepository){
+        Route::get("{id}/edit", [BannerController::class, 'edit'])
+            ->name('edit');
 
-            return view('admin.banners.show', [
-                "id" => $id,
-                'categoryBanners' => $categoryBannersRepository->get()
-            ]);
-        })->name('show');
-
-
+        Route::get("{id}", [BannerController::class, 'show'])
+            ->name('show');
 
         Route::group([
             "as" => "category.",
             "prefix" => "category"
         ], function () {
-            Route::view("", "admin.banners.category.list")
+
+            Route::get("", [CategoryBannerController::class, 'index'])
                 ->name('index');
+
+            Route::get("create", [CategoryBannerController::class, 'create'])
+                ->name('create');
+
+            Route::get("{id}/edit", [CategoryBannerController::class, 'edit'])
+                ->name('edit');
+
+            Route::get("{id}", [CategoryBannerController::class, 'show'])
+                ->name('show');
         });
     });
-;
 });
