@@ -4,7 +4,7 @@ import { useFetch, getUrl } from "../../primary_function/useFetch.js";
 import dashboard from "@/admin/components/dashboard.vue";
 import optionList from "@/admin/components/list/optionList.vue";
 
-const { url, urlApi } = getUrl();
+const { url, urlApi, urlCreate } = getUrl();
 const { data, error } = useFetch(urlApi);
 
 provide('urlApiCurrent', urlApi);
@@ -16,6 +16,10 @@ provide('urlApiCurrent', urlApi);
     <dashboard
         name="Lista"
     >
+        <template v-slot:header>
+            <a :href="urlCreate" v-if="urlCreate !== ''">Nowy</a>
+        </template>
+        <template v-slot:content >
         <div class="overflow-y-scroll lists">
             <option-list
                 v-for="item in data"
@@ -25,6 +29,7 @@ provide('urlApiCurrent', urlApi);
                 :url="url"
             />
         </div>
+        </template>
     </dashboard>
 </template>
 

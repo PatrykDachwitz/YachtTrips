@@ -71,13 +71,25 @@ export function useFetchPut(url, updateDate) {
     return { dataPut, errorPut };
 }
 
+function getUrlBuDataSetName(dataSet) {
+    try {
+        const url = document.querySelector(`input[${dataSet}]`).value ?? "";
+        return url;
+    } catch (e) {
+        return null;
+    }
+}
+
 export function getUrl() {
     const url = ref(null);
     const urlApi = ref(null);
+    const urlCreate = ref(null);
 
-    url.value = document.querySelector("input[data-url]").value ?? "";
-    urlApi.value = document.querySelector("input[data-url-api]").value ?? "";
-    return { url, urlApi };
+    url.value = getUrlBuDataSetName('data-url');
+    urlApi.value = getUrlBuDataSetName('data-url-api');
+    urlCreate.value = getUrlBuDataSetName('data-url-create');
+
+    return { url, urlApi, urlCreate };
 }
 
 
