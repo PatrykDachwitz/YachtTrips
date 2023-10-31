@@ -1,22 +1,24 @@
-<nav class="offcanvas-body p-4">
+<nav class="offcanvas-body p-4" data-bs-theme="dark">
     <a class="navbar-brand" href="#">Offcanvas navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
     <hr />
 
-    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-        <span class="fs-5 mb-2">Panel zarządzania</span>
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Banery
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ route('admin.banners.index') }}">Lista banerów</a></li>
-                <li><a class="dropdown-item" href="{{ route('admin.banners.category.index') }}">Kategorie</a></li>
-            </ul>
+    <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                Home
+            </button>
+            <div class="collapse" id="home-collapse" style="">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">Overview</a></li>
+                </ul>
+            </div>
         </li>
     </ul>
 </nav>
+<style>
+    .menu-li {
+        color: white !important;
+    }
+
+</style>

@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\banners\CreatedRequest;
-use App\Http\Requests\banners\UpdateRequest;
-use App\Repository\BannersRepository;
+use App\Http\Requests\trips\CreatedRequest;
+use App\Http\Requests\trips\UpdateRequest;
+use App\Repository\TripsRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 
-class BannersController extends Controller
+class TripsController extends Controller
 {
-    private $banners;
+    private $trips;
 
-    public function __Construct(BannersRepository $bannersRepository) {
-        $this->banners = $bannersRepository;
+    public function __Construct(TripsRepository $tripsRepository) {
+        $this->trips = $tripsRepository;
     }
 
     /**
@@ -22,7 +22,7 @@ class BannersController extends Controller
      */
     public function index()
     {
-        return response($this->banners->get() ?? [], 200);
+        return response($this->trips->get() ?? [], 200);
     }
 
     /**
@@ -40,19 +40,20 @@ class BannersController extends Controller
     {
 
         try {
-            $id = $this->banners->create($request->only([
+            $id = $this->trips->create($request->only([
                 'name',
-                'start_at',
-                'finish_at',
-                'active',
-                'category_banner_id',
-                'description',
+                'start_day',
+                'end_day',
+                'yacht_id',
+                'ocean_id',
+                'count_day',
+                'template_id'
             ]));
         } catch (Exception) {
             return response(_('api.error_500'), 500);
         }
 
-        return response( route('admin.banners.show', [
+        return response( route('admin.trips.show', [
             'id' => $id
         ] ), 301);
     }
@@ -62,7 +63,7 @@ class BannersController extends Controller
      */
     public function show(string $id)
     {
-        return response($this->banners->findOrFail($id), 200);
+        return response($this->trips->findOrFail($id), 200);
     }
 
     /**
@@ -70,7 +71,7 @@ class BannersController extends Controller
      */
     public function edit(string $id)
     {
-        return response($this->banners->findOrFail($id), 200);
+        return response($this->trips->findOrFail($id), 200);
     }
 
     /**
@@ -78,16 +79,17 @@ class BannersController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
-        $banner = [];
+        $trip = [];
 
         try {
-            $banner = $this->banners->update($id, $request->only([
+            $trip = $this->trips->update($id, $request->only([
                 'name',
-                'start_at',
-                'finish_at',
-                'active',
-                'category_banner_id',
-                'description',
+                'start_day',
+                'end_day',
+                'yacht_id',
+                'ocean_id',
+                'count_day',
+                'template_id'
             ]));
         } catch (ModelNotFoundException) {
             return response(_('api.not_found'), 404);
@@ -95,7 +97,7 @@ class BannersController extends Controller
             return response(_('api.error_500'), 500);
         }
 
-        return response($banner, 200);
+        return response($trip, 200);
     }
 
     /**
@@ -103,7 +105,7 @@ class BannersController extends Controller
      */
     public function destroy(string $id)
     {
-        if ($this->banners->destroy($id)) {
+        if ($this->trips->destroy($id)) {
             return response('success', 200);
         } else {
             abort(500);

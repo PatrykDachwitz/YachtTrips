@@ -9,6 +9,12 @@ use App\Repository\CategoryBannersRepository as CategoryBannersRepositoryInterfa
 use App\Repository\Eloquent\CategoryBannersRepository;
 use App\Repository\TemplatesRepository as TemplatesRepositoryInterface;
 use App\Repository\Eloquent\TemplatesRepository;
+use App\Repository\OceansRepository as OceansRepositoryInterface;
+use App\Repository\Eloquent\OceansRepository;
+use App\Repository\YachtsRepository as YachtsRepositoryInterface;
+use App\Repository\Eloquent\YachtsRepository;
+use App\Repository\TripsRepository as TripsRepositoryInterface;
+use App\Repository\Eloquent\TripsRepository;
 class RepositoryProvider extends ServiceProvider
 {
     /**
@@ -36,6 +42,18 @@ class RepositoryProvider extends ServiceProvider
         $this->app->singleton(
             TemplatesRepositoryInterface::class,
             TemplatesRepository::class
+        );
+        $this->app->singleton(
+            TripsRepositoryInterface::class,
+            TripsRepository::class
+        );
+        $this->app->singleton(
+            OceansRepositoryInterface::class,
+            OceansRepository::class
+        );
+        $this->app->singleton(
+            YachtsRepository::class,
+            YachtsRepository::class
         );
     }
 }

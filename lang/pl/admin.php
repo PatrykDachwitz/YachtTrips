@@ -2,6 +2,9 @@
 
 return [
     'name' => 'Nazwa',
+    'view' => 'Wyświetl',
+    'add' => 'Dodaj',
+    'edit' => 'Edytuj',
     'active' => "Aktywne",
     'category' => "Kategoria",
     'startView' => "Rozpoczęcie wyświetlania",
@@ -9,6 +12,20 @@ return [
     'yes' => "Tak",
     'no' => "Nie",
     'template' => "Szablon",
+    'banner' => "Banner",
+    'oceans' => "Oceany",
+    'trips' => "Podróże",
+    'yachts' => "Jachty",
+    'newTemplate' => "Dodaj szablon",
+    'newBanner' => "Dodaj banner",
+    'newOceans' => "Dodaj oceany",
+    'newTrips' => "Dodaj podróże",
+    'newYachts' => "Dodaj jachty",
+    'listTemplate' => "Lista szablonów",
+    'listBanner' => "Lista bannerów",
+    'listOceans' => "Lista oceanów",
+    'listTrips' => "Lista podróży",
+    'listYachts' => "Lista jachtów",
     /*'category' => "Kategoria",
     'category' => "Kategoria",*/
 ];

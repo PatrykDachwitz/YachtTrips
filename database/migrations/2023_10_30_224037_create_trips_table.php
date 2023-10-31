@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name', 255);
+            $table->timestamp("start_day")->nullable();
+            $table->timestamp('end_day')->nullable();
+            $table->integer('yacht_id');
+            $table->integer("ocean_id");
+            $table->integer("count_day");
+            $table->integer('template_id');
+            $table->softDeletes();
         });
     }
 

@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\BannersController;
 use App\Http\Controllers\api\categoryBannersController;
 use App\Http\Controllers\api\FolderController;
+use App\Http\Controllers\api\YachtsController;
+use App\Http\Controllers\api\TripsController;
+use App\Http\Controllers\api\TemplatesController;
+use App\Http\Controllers\api\OceansController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +35,7 @@ Route::group([
 Route::resource('banners', BannersController::class);
 
 Route::resource('folders', FolderController::class);
+Route::resource('yachts', YachtsController::class);
+Route::resource('trips', TripsController::class);
+Route::resource('templates', TemplatesController::class);
+Route::resource('oceans', OceansController::class);

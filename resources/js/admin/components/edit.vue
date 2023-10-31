@@ -13,7 +13,7 @@ import {
 } from "@/primary_function/updateFormCreateEditView.js";
 
 
-const { url, urlApi } = getUrl();
+const { urlUpdate, urlApi } = getUrl();
 const { data, error } = useFetch(urlApi);
 
 watch(data, ()  => {
@@ -25,7 +25,7 @@ watch(data, ()  => {
 function save() {
     let formData = downloadDataForm();
 
-    let { dataPut, errorPut } = useFetchPut(urlApi, formData);
+    let { dataPut, errorPut } = useFetchPut(urlUpdate, formData);
     watch(dataPut, () => {
         updateIssetInput(dataPut);
     })

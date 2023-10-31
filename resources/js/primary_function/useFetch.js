@@ -84,12 +84,14 @@ export function getUrl() {
     const url = ref(null);
     const urlApi = ref(null);
     const urlCreate = ref(null);
+    const urlUpdate = ref(null);
 
     url.value = getUrlBuDataSetName('data-url');
     urlApi.value = getUrlBuDataSetName('data-url-api');
     urlCreate.value = getUrlBuDataSetName('data-url-create');
+    urlUpdate.value = getUrlBuDataSetName('data-url-update');
 
-    return { url, urlApi, urlCreate };
+    return { url, urlApi, urlCreate, urlUpdate };
 }
 
 

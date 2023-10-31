@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\banners\CreatedRequest;
-use App\Http\Requests\banners\UpdateRequest;
-use App\Repository\BannersRepository;
+use App\Http\Requests\oceans\CreatedRequest;
+use App\Http\Requests\oceans\UpdateRequest;
+use App\Repository\OceansRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 
-class BannersController extends Controller
+class OceansController extends Controller
 {
-    private $banners;
+    private $ocean;
 
-    public function __Construct(BannersRepository $bannersRepository) {
-        $this->banners = $bannersRepository;
+    public function __Construct(OceansRepository $oceansRepository) {
+        $this->ocean = $oceansRepository;
     }
 
     /**
@@ -22,7 +22,7 @@ class BannersController extends Controller
      */
     public function index()
     {
-        return response($this->banners->get() ?? [], 200);
+        return response($this->ocean->get() ?? [], 200);
     }
 
     /**
@@ -40,19 +40,14 @@ class BannersController extends Controller
     {
 
         try {
-            $id = $this->banners->create($request->only([
-                'name',
-                'start_at',
-                'finish_at',
-                'active',
-                'category_banner_id',
-                'description',
+            $id = $this->ocean->create($request->only([
+                'name'
             ]));
         } catch (Exception) {
             return response(_('api.error_500'), 500);
         }
 
-        return response( route('admin.banners.show', [
+        return response( route('admin.oceans.show', [
             'id' => $id
         ] ), 301);
     }
@@ -62,7 +57,7 @@ class BannersController extends Controller
      */
     public function show(string $id)
     {
-        return response($this->banners->findOrFail($id), 200);
+        return response($this->ocean->findOrFail($id), 200);
     }
 
     /**
@@ -70,7 +65,7 @@ class BannersController extends Controller
      */
     public function edit(string $id)
     {
-        return response($this->banners->findOrFail($id), 200);
+        return response($this->ocean->findOrFail($id), 200);
     }
 
     /**
@@ -78,16 +73,11 @@ class BannersController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
-        $banner = [];
+        $ocean = [];
 
         try {
-            $banner = $this->banners->update($id, $request->only([
+            $ocean = $this->ocean->update($id, $request->only([
                 'name',
-                'start_at',
-                'finish_at',
-                'active',
-                'category_banner_id',
-                'description',
             ]));
         } catch (ModelNotFoundException) {
             return response(_('api.not_found'), 404);
@@ -95,7 +85,7 @@ class BannersController extends Controller
             return response(_('api.error_500'), 500);
         }
 
-        return response($banner, 200);
+        return response($ocean, 200);
     }
 
     /**
@@ -103,7 +93,7 @@ class BannersController extends Controller
      */
     public function destroy(string $id)
     {
-        if ($this->banners->destroy($id)) {
+        if ($this->ocean->destroy($id)) {
             return response('success', 200);
         } else {
             abort(500);
