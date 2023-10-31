@@ -52,7 +52,7 @@ class RepositoryProvider extends ServiceProvider
             OceansRepository::class
         );
         $this->app->singleton(
-            YachtsRepository::class,
+            YachtsRepositoryInterface::class,
             YachtsRepository::class
         );
     }

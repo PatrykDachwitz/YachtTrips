@@ -9,4 +9,5 @@ interface TemplatesRepository
 
     public function update(int $id, array $updateData);
     public function create(array $data);
+    public function destroy(int $id);
 }

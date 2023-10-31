@@ -2,36 +2,67 @@
 
 namespace App\Repository\Eloquent;
 
+use App\Models\Ocean;
+use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class OceansRepository implements \App\Repository\OceansRepository
 {
+    private $ocean;
+
+    public function __construct(Ocean $ocean)
+    {
+        $this->ocean = $ocean;
+    }
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        $this->ocean->all();
     }
 
     public function get()
     {
-        // TODO: Implement get() method.
+        $this->ocean->get();
     }
 
     public function findOrFail(int $id)
     {
-        // TODO: Implement findOrFail() method.
+        $this->ocean->findOrFail($id);
     }
 
     public function destroy(int $id)
     {
-        // TODO: Implement destroy() method.
+        if ($this->ocean->destroy($id)) {
+            return response('success', 200);
+        } else {
+            abort(500);
+        }
     }
 
     public function create(array $data)
     {
-        // TODO: Implement create() method.
+        $ocean = new $this->ocean();
+
+        $ocean->name = $data['name'];
+
+        $ocean->save();
+        return $ocean->id;
     }
 
     public function update(int $id, array $updateData)
     {
-        // TODO: Implement update() method.
+        try {
+            $ocean = $this->ocean->findOrFail($id);
+
+            $ocean->name = $updateData['name'] ?? $ocean->name;
+
+            $ocean->save();
+            return $ocean;
+        } catch (ModelNotFoundException) {
+            throw new ModelNotFoundException('Model not found');
+        } catch (Exception) {
+            throw new Exception('Error update model');
+        }
+
     }
 }
