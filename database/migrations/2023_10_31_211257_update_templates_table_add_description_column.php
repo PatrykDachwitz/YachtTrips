@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('templates', function (Blueprint $table) {
             $table->longText('description');
+            $table->softDeletes();
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('templates', function (Blueprint $table) {
             $table->dropColumn('description');
+            $table->dropSoftDeletes();
         });
     }
 };

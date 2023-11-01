@@ -12,6 +12,7 @@ return [
     'yes' => "Tak",
     'no' => "Nie",
     'template' => "Szablon",
+    'templates' => "Szablony",
     'banner' => "Banner",
     'oceans' => "Oceany",
     'trips' => "Podróże",
