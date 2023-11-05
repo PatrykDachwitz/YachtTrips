@@ -33,7 +33,7 @@ class File extends Seeder
             'size' => 5023,
             'author_id' => 1,
             'mime' => "image/png",
-            'folder_id' => 1
+            'folder_id' => 2
         ];
 
         for ($i = 1; $i <= 8; $i++) {
@@ -45,7 +45,7 @@ class File extends Seeder
                 'size' => 5023,
                 'author_id' => 1,
                 'mime' => "image/jpg",
-                'folder_id' => 1
+                'folder_id' => 2
             ];
         }
         for ($i = 2; $i <= 9; $i++) {
@@ -69,7 +69,21 @@ class File extends Seeder
         DB::table('files')->insertOrIgnore($filesCustom);
         DB::table('pivot_images')->insertOrIgnore($filesPivot);
 
+
         $file->factory()->count(70)->create();
-        $folder->factory()->count(4)->create();
+        $folder->create([
+            'id' => 1,
+            'path' => '/files',
+            'parent' => 0,
+            'name' => 'files',
+        ]);
+
+        $folder->create([
+            'id' => 2,
+            'path' => '/files/banners',
+            'parent' => 1,
+            'name' => 'banners',
+        ]);
+        $folder->factory()->count(30)->create();
     }
 }

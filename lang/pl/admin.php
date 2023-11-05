@@ -27,6 +27,7 @@ return [
     'listOceans' => "Lista oceanów",
     'listTrips' => "Lista podróży",
     'listYachts' => "Lista jachtów",
+    'availablePlace' => "Dostępne miejsca",
     /*'category' => "Kategoria",
     'category' => "Kategoria",*/
 ];

@@ -54,19 +54,19 @@ export function useFetchPut(url, updateDate) {
         body: updateDate,
     })
         .then(response => {
-            if (response.status !== 200) throw Error('Error status');
-            else return response.json();
-        })
-        .then(jsonRes => {
-            console.log("DAne odp")
-            console.log(jsonRes)
-            dataPut.value = jsonRes;
+            if (response.status == 422) {
+                errorPut.value = response.json();
+            } else if (response.status == 200) {
+                dataPut.value = response.json();
+            } else {
+                throw Error('Error status');
+            }
         })
         .catch(err => {
-            console.error("ERror")
-            console.error(err)
-            errorPut.value = err;
+
+            console.info(err);
         })
+
 
     return { dataPut, errorPut };
 }

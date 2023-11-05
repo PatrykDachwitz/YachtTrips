@@ -15,7 +15,7 @@
         @include('admin.menu')
     </div>
     <div class="dashboard-content">
-        <div class="windowAction rounded-3 shadow" id="app">
+        <div class="windowAction rounded-3 shadow position-relative" id="app">
 
         </div>
     </div>

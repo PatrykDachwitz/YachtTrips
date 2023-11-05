@@ -18,7 +18,7 @@ class FolderFactory extends Factory
     {
         return [
             'path' => "/files/" . fake()->name(),
-            'parent' => rand(0, 3),
+            'parent' => rand(1, 15),
             'name' => fake()->name(),
         ];
     }

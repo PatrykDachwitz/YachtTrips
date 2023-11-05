@@ -2,24 +2,27 @@
 import {inject} from "vue";
 
 defineProps([
-    'name'
+    'folder'
 ])
 
 const urlApiFileManager = inject('urlApiFileManager');
 
 function openFolder(idFolder) {
-    urlApiFileManager.value = `http://127.0.0.1:8000/api/folders/${idFolder}`;
+    console.log(idFolder)
+    let newUrlApi = `http://127.0.0.1:8000/api/folders/${idFolder}`;
+    console.log(newUrlApi);
+    urlApiFileManager.value = newUrlApi;
 }
 
 </script>
 
 <template>
-    <div class="col-1 overflow-hidden" @click="openFolder(1)">
+    <div class="col-2 col-lg-1 overflow-hidden d-flex flex-column align-items-center justify-content-top" @click="openFolder(folder.id)">
         <div>
             <img src="/file_preview/folder.png" width="70" height="70"/>
         </div>
         <div class="text-center">
-            {{ name }}
+            {{ folder.name }}
         </div>
     </div>
 </template>
