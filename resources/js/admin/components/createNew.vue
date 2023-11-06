@@ -18,12 +18,12 @@ import {
 import {getLangContent} from "@/primary_function/language.js";
 
 const lang = ref(getLangContent());
-// const errors = ref([])
-// provide('errors', errors);
+const errors = ref([])
+provide('errors', errors);
 const { urlUpdate, urlApi } = getUrl();
 const { data, error } = useFetch(urlApi);
 const activeSelected = ref(false)
-const selectedFiles = ref([]);
+const selectedFiles = ref([null]);
 const activeFileManager = ref(false);
 const currentComponentFileManager = ref('emptySupport')
 const supportComponent = {
@@ -94,8 +94,17 @@ function  activeManager() {
                      <image-form class="graphic-container py-4"  v-for="image in data.images" :image="image" :key="image.id" />
                 </div>
 
-                <div>
-                    <image-form class="graphic-container py-4"  v-for="file in selectedFiles" :image="file" :key="file.id" />
+                <div v-if="activeSelected">
+                <!--    <image-form class="graphic-container py-4"  v-for="imageCustom in selectedFiles" :image="imageCustom" />-->
+                    <div v-for="imageCustom in selectedFiles">
+                        {{imageCustom}}
+
+                        tests
+                    </div>
+
+                    testse
+
+
                 </div>
 
             </div>

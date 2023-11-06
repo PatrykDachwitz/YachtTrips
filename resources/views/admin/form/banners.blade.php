@@ -2,11 +2,6 @@
     <div class="col-md-10">
         <label for="validationCustom02" class="form-label">@lang('admin.name')</label>
         <input type="email" class="form-control" id="validationCustom02" name="name" data-form-main>
-
-        <div class="invalid-feedback">
-            Please provide a valid zip.
-        </div>
-
     </div>
 
     <div class="col-md-2">
@@ -15,9 +10,6 @@
             <option value="1">@lang('admin.yes')</option>
             <option value="0">@lang('admin.no')</option>
         </select>
-        <div class="invalid-feedback">
-            Please provide a valid zissddffp.
-        </div>
     </div>
 
     <div class="col-md-4">
@@ -26,10 +18,7 @@
     </div>
     <div class="col-md-4">
         <label for="finish_at" class="form-label">@lang('admin.endView')</label>
-        <input type="text" class="form-control is-invalid" id="created_at" name="finish_at"  data-form-main>
-        <div class="invalid-feedback">
-            Please provifdsde a valid zip.
-        </div>
+        <input type="text" class="form-control" id="created_at" name="finish_at"  data-form-main>
     </div>
 
 
@@ -41,6 +30,4 @@
             @endforeach
         </select>
     </div>
-
-
 </form>

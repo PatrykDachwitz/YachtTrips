@@ -7,7 +7,7 @@ defineProps([
 const numberFile = ref(null);
 const selectedFiles = inject('selectedFiles');
 const activeSelected = inject('activeSelected');
-
+console.info(`selectedFiles: ${selectedFiles.value}`)
 function positionFiles() {
     return selectedFiles.length;
 }
@@ -31,18 +31,21 @@ function updateStatusActiveNewFile() {
     }
 }
 function updateFile(file) {
-    console.log(file);
-    if (numberFile.value === null) {
-        numberFile.value = positionFiles();
-        selectedFiles.value.push = file;
-    } else {
-        selectedFiles.value[numberFile.value] = null;
-        numberFile.value = null;
-    }
+    console.log(`file: ${file}`);
+    selectedFiles.value.push(file)
 
-    updateStatusActiveNewFile();
-    console.log(selectedFiles.value);
-    updateBackGroundFile(file.id);
+    // console.log(file);
+    // if (numberFile.value === null) {
+    //     numberFile.value = positionFiles();
+    //     selectedFiles.value.push = file;
+    // } else {
+    //     selectedFiles.value[numberFile.value] = null;
+    //     numberFile.value = null;
+    // }
+    //
+    // updateStatusActiveNewFile();
+    // console.log(selectedFiles.value);
+    // updateBackGroundFile(file.id);
 }
 
 </script>

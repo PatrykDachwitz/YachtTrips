@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@include('admin.form.banners')
+@include('admin.form.yachts')
 
 @section('script')
     <input type="hidden" data-url value="{{ route('yachts.index') }}">

@@ -28,6 +28,12 @@ return [
     'listTrips' => "Lista podróży",
     'listYachts' => "Lista jachtów",
     'availablePlace' => "Dostępne miejsca",
+    'startDay' => "Pierwszy dzień",
+    'endDay' => "Ostatni dzień",
+    'countDay' => "Ilość dni",
+    'ocean' => "Ocean",
+    'yacht' => "Jacht",
+
     /*'category' => "Kategoria",
     'category' => "Kategoria",*/
 ];

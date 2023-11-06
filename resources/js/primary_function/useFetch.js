@@ -1,4 +1,12 @@
-import { ref, toValue, watchEffect } from "vue";
+import {inject, ref, toValue, watchEffect} from "vue";
+import {createAlerts} from "@/primary_function/alerts.js";
+
+function createAlert(status) {
+    //createAlerts(status);
+    // const errorsAlert = inject('errors');
+    // console.log(errorsAlert);
+    // errorsAlert.value.push(status);
+}
 
 export function useFetch(url) {
     const data = ref(null)
@@ -18,13 +26,16 @@ export function useFetch(url) {
                if (res.status !== 200) throw Error(res.status);
                else return res.json();
            })
-           .then((json) => (data.value = json))
+           .then((json) => {
+               data.value = json;
+               createAlert(200);
+           })
            .catch((err) => {
-               error.value = 404;
+               createAlert(err);
+               error.value = err;
            })
     });
 
-    //console.log(date);
     return { data, error }
 }
 
@@ -35,7 +46,11 @@ export function useFetchDeleted(urlApi) {
         method: "delete"
     })
         .then(response => {
+            createAlert(response.status);
             status.value = response.status;
+        })
+        .catch(err => {
+            createAlert(err)
         });
 
     return { status };
@@ -55,15 +70,18 @@ export function useFetchPut(url, updateDate) {
     })
         .then(response => {
             if (response.status == 422) {
+                createAlert(422);
                 errorPut.value = response.json();
             } else if (response.status == 200) {
+                createAlert(200);
                 dataPut.value = response.json();
             } else {
-                throw Error('Error status');
+                createAlert(response.status);
+                throw Error(response.status);
             }
         })
         .catch(err => {
-
+            createAlert(err);
             console.info(err);
         })
 
@@ -108,15 +126,17 @@ export function useFetchPost(url, updateDate) {
         body: updateDate,
     })
         .then(response => {
-            if (response.status !== 200) throw Error('Error status');
+            if (response.status !== 200) throw Error(response.status);
             else return response.json();
         })
         .then(jsonRes => {
             console.log("Dane odp")
             console.log(jsonRes)
+            createAlert(200);
             dataPost.value = jsonRes;
         })
         .catch(err => {
+            createAlert(err);
             console.error("Error")
             console.error(err)
             errorPost.value = err;

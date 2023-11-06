@@ -2,6 +2,10 @@
 
 import contents from './dashboard/contents.vue';
 import navbar from './dashboard/navbar.vue';
+import alert from "@/admin/components/elements/alert.vue";
+import {inject, provide, ref} from "vue";
+
+const errors = inject('errors');
 
 defineProps([
     'name',
@@ -11,6 +15,9 @@ defineProps([
 </script>
 
 <template>
+
+    <div class="alerts position-absolute bottom-0 end-0 m-0" data-errors-alerts>
+    </div>
 
     <navbar
         :name="name"

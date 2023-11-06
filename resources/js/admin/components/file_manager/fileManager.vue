@@ -8,7 +8,7 @@ const url = ref('http://127.0.0.1:8000/api/folders/1');
 const { data, error} = useFetch(url);
 
 const activeFileManager = inject('activeFileManager');
-console.log(activeFileManager);
+//console.log(activeFileManager);
 function closeManager() {
     console.log(activeFileManager);
     activeFileManager.value = false;

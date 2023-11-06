@@ -20,7 +20,9 @@
         </div>
     </div>
 </div>
-
+<div style="display: none" data-language>
+    @json(__('vue'))
+</div>
 @vite(['resources/js/admin/app.js'])
 @yield('script')
 
