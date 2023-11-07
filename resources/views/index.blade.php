@@ -13,12 +13,13 @@
     @include('elements.menu')
 
 
-    @foreach($contents as $content)
-        @include('mainPage.' . $content->templates->name, [
-            'content' => $content
-        ])
-    @endforeach
-
+    @section('content')
+        @foreach($contents as $content)
+            @include('mainPage.' . $content->templates->name, [
+                'content' => $content
+            ])
+        @endforeach
+    @show
 </div>
 @include('elements.footer')
 

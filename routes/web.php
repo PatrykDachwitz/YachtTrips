@@ -24,6 +24,12 @@ use App\Http\Controllers\admin\ManagerFilesController;
 
 //MainPage
 Route::get('/', MainPageController::class);
+Route::get('/travels', function () {
+    return view('travels');
+});
+Route::get('/trip', function () {
+    return view('trip');
+});
 
 //CMS routing
 Route::group([

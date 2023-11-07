@@ -1,4 +1,4 @@
-<nav class="menu d-flex flex-wrap w-100 align-items-center justify-content-center position-fixed z-1 bg-gray justify-content-between px-2 py-1">
+<nav class="menu d-flex flex-wrap w-100 align-items-center justify-content-center z-1 bg-gray justify-content-between px-2 py-1 bg-dark">
     <a class="fs-4 text-decoration-none text-white">
         BoatsTrip
     </a>
