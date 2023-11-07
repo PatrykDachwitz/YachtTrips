@@ -30,6 +30,9 @@ Route::get('/travels', function () {
 Route::get('/trip', function () {
     return view('trip');
 });
+Route::get('/koszyk', function () {
+    return view('koszyk2');
+});
 
 //CMS routing
 Route::group([
