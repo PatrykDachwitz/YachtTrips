@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/sass/app.scss',
                 'resources/sass/admin/app.scss',
                 'resources/js/app.js',
+                'resources/js/cart.js',
                 'resources/js/admin/app.js',
                 'resources/js/admin/list.js',
                 'resources/js/admin/show.js',
