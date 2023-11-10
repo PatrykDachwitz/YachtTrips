@@ -5,8 +5,20 @@ function offSliders(categorySliders) {
     banner.classList.remove('selected');
     banner.classList.add('d-none');
 
+    //add d-none class in img
+
+    // const bannerImg = document.querySelectorAll(`div[data-img-id]`);
+    //
+    // bannerImg.forEach(image => {
+    //     if (!image.classList.contains("d-none")) {
+    //         banner.classList.add('d-none')
+    //     }
+    // });
+
     return banner.dataset.id;
 }
+
+
 function getLastFirstNumber(categorySliders) {
     const banners = document.querySelectorAll(`div[data-category-banner='${categorySliders}']`);
 
@@ -20,6 +32,10 @@ function selectSlider(categorySliders, id) {
     const banner = document.querySelector(`div[data-category-banner='${categorySliders}'][data-id='${id}']`);
     banner.classList.add('selected');
     banner.classList.remove('d-none');
+
+    //new update image
+    // const bannerImg = document.querySelector(`div[data-category-banner='${categorySliders}'][data-img-id='${id}']`);
+    // bannerImg.classList.remove('d-none');
 }
 
 function nextSlider(categorySliders) {

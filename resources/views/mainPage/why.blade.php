@@ -1,27 +1,43 @@
-<div class="sliders bg-gray py-5">
+<div class="bg-gray d-flex flex-column pt-3 pt-xl-0">
 
-    @if(!empty($content->description))
-        <h2 class="d-flex w-100 justify-content-center pb-4 d-xxl-none"><b>{{ $content->description }}</b></h2>
-    @endif
-
-    <div class="sliders-image m-0 p-0 d-flex justify-content-center align-items-center">
-        <div>
+    <div class="d-flex flex-column flex-xl-row">
+        <div class="d-flex justify-content-center w-xl-50 p-4 align-items-center">
             <picture>
-                <source srcset="http://127.0.0.1/mobil-slide1.jpg" media="(max-width: 767px)" width="700" height="444" >
-                <source srcset="http://127.0.0.1/slide1233.jpg" media="(max-width: 1400px)" width="500" height="263" >
-                <img src="http://127.0.0.1/slide1222.jpg" width="950" height="550" class="rounded-4"  />
+                @foreach($content->banners[0]->images as $image)
+                    @switch($image->pivot->device)
+                        {{--                        @case("tablet")--}}
+                        {{--                            <source media="(max-width: 1400px)" srcset='{{ "{$image->path}/{$image->name}.webp" }}' width="500" height="265" type="image/webp"/>--}}
+                        {{--                            <source media="(max-width: 1400px)" srcset='{{ "{$image->path}/{$image->name}.{$image->extension}" }}' width="500" height="265"/>--}}
+                        {{--                            @break--}}
+                        @case('mobile')
+                            <source media="(max-width: 1200px)" srcset='{{ "{$image->path}/{$image->name}.webp" }}' type="image/webp" width="700" height="445"/>
+                            <source media="(max-width: 1200px)" srcset='{{ "{$image->path}/{$image->name}.{$image->extension}" }}' width="700" height="445"/>
+                            @break
+                        @case('pc')
+                            <source srcset='{{ "{$image->path}/{$image->name}.webp" }}' media="(min-width: 1200spx)" type="image/webp"/>
+                            <img srcset='{{ "{$image->path}/{$image->name}.{$image->extension}" }}' src='{{ "{$image->path}/{$image->name}.{$image->extension}" }}' class="img-fluid rounded-2 overflow-hidden border-grayLight-1" width="950" height="550" alt="{{ $content->description }}"/>
+                            @break
+                    @endswitch
+                @endforeach
             </picture>
         </div>
-    </div>
-
-    <div class="sliders-content-text m-0 px-5 px-xxl-0 ps-xxl-5 pe-xxl-0 pt-5 pt-xxl-0 d-flex flex-column align-items-end justify-content-center align-items-xxl-start">
-        <div class="customSizeTextContainer">
-            <h2 class="fs-2 pb-4 d-none d-xxl-block"><b>{{ $content->banners[0]->name }}</b></h2>
-            <div>
-                {!! $content->banners[0]->descriptions !!}
+        <div class="d-flex flex-column w-xl-50 justify-content-xl-center">
+            <h2 class="fs-2 d-flex justify-content-center justify-content-xl-start ps-3"><b>{{ $content->banners[0]->name }}</b></h2>
+            <div class="p-3 px-4 fs-5">
+                {!! $content->banners[0]->description !!}
             </div>
         </div>
-
     </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+

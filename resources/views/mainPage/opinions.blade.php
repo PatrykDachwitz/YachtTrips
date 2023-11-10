@@ -1,8 +1,16 @@
 <div class="w-100 m-0 g-4 row mt-2 mb-5">
-    @if(!empty($content->description))
-        <h2 class="w-100 text-center"><b>{{ $content->description }}</b></h2>
-    @endif
 
+    @if(!empty($content->name))
+        <h2 class="text-center mt-4 mb-2"><b>{{ $content->name }}</b></h2>
+    @endempty
+
+    @if(!empty($content->description))
+        <div class="d-none d-lg-flex justify-content-center">
+            <p class="fs-4 w-50 text-center">
+                {{ $content->description }}
+            </p>
+        </div>
+    @endempty
 
     @foreach($content->banners ?? [] as $banner)
 
@@ -21,16 +29,20 @@
                 d-xxl-block
             @endif
             ">
-            <div class="p-3 d-flex align-items-center flex-wrap bg-gray border-1 rounded-3 shadow">
-                <div class="pe-4">
+
+            <div class="d-flex border-grayLight-1 shadow-sm p-3 rounded-2 overflow-hidden h-100 bg-gray">
+                <div class="d-flex align-items-center me-3">
                     <picture>
-                        <img src="http://127.0.0.1/slide12.jpg" width="70" height="70" class="rounded-circle"/>
+                        <source srcset='{{ "{$banner->images[0]->path}/{$banner->images[0]->name}.webp" }}' type="image/webp"/>
+                        <img src='{{ "{$banner->images[0]->path}/{$banner->images[0]->name}.{$banner->images[0]->extension}" }}' width="70" height="70" class="rounded-circle border-grayLight-1"/>
                     </picture>
                 </div>
-                <div class="d-flex flex-column justify-content-between">
-                    <h3 class="fs-5"><b>{{ $banner->name }}</b></h3>
-                    <p class="m-0 p-0 fs-6">{{ $banner->descriptions }}</p>
-                    <div class="starsContainer d-flex align-items-center justify-content-start">
+                <div class="d-flex flex-column justify-content-start">
+                    <h5 class="fs-5"><b>{{ $banner->name }}</b></h5>
+                    <div>
+                        {{ $banner->description }}
+                    </div>
+                    <div>
                         @for($i = 0; $i < 5; $i++)
                             <img src="https://static.vecteezy.com/system/resources/previews/009/342/559/non_2x/mobile-game-golden-star-clipart-design-illustration-free-png.png" width="20" height="20"/>
                         @endfor

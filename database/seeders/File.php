@@ -150,6 +150,236 @@ class File extends Seeder
         $filesCustom = array_merge($filesCustom, $filesOceans);
         $filesPivot = array_merge($filesPivot, $pivotOceans);
 
+        //Build structure for why my files
+        $filesWhy = [
+            [
+                "name" => 'why_mobile',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'why_tablet',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'why_pc',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ],
+        ];
+        $pivotWhy = [
+            [
+                "device" => 'mobile',
+                "file_id" => 9,
+                "place_id" => 7,
+            ], [
+                "device" => 'tablet',
+                "file_id" => 10,
+                "place_id" => 7,
+            ], [
+                "device" => 'pc',
+                "file_id" => 11,
+                "place_id" => 7,
+            ],
+        ];
+
+        $filesCustom = array_merge($filesCustom, $filesWhy);
+        $filesPivot = array_merge($filesPivot, $pivotWhy);
+
+
+        //Build structure for yachts my files
+        $filesYacht = [
+            [
+                "name" => 'aquavista_mobile',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'aquavista_pc',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'seaserenity_mobile',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'seaserenity_pc',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'starbreeze_mobile',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'starbreeze_pc',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ],
+        ];
+        $pivotYacht = [
+            [
+                "device" => 'mobile',
+                "file_id" => 12,
+                "place_id" => 9,
+            ], [
+                "device" => 'pc',
+                "file_id" => 13,
+                "place_id" => 9,
+            ], [
+                "device" => 'mobile',
+                "file_id" => 14,
+                "place_id" => 10,
+            ], [
+                "device" => 'pc',
+                "file_id" => 15,
+                "place_id" => 10,
+            ], [
+                "device" => 'mobile',
+                "file_id" => 16,
+                "place_id" => 8,
+            ], [
+                "device" => 'pc',
+                "file_id" => 17,
+                "place_id" => 8,
+            ],
+        ];
+
+        $filesCustom = array_merge($filesCustom, $filesYacht);
+        $filesPivot = array_merge($filesPivot, $pivotYacht);
+
+
+        //Build structure for people my files
+        $filesPeople = [
+            [
+                "name" => 'people_1',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'people_2',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'people_3',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'people_4',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'people_5',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'people_6',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ],
+        ];
+        $pivotPeople = [
+            [
+                "device" => 'pc',
+                "file_id" => 18,
+                "place_id" => 11,
+            ], [
+                "device" => 'pc',
+                "file_id" => 19,
+                "place_id" => 12,
+            ], [
+                "device" => 'pc',
+                "file_id" => 20,
+                "place_id" => 13,
+            ], [
+                "device" => 'pc',
+                "file_id" => 21,
+                "place_id" => 14,
+            ], [
+                "device" => 'pc',
+                "file_id" => 22,
+                "place_id" => 15,
+            ], [
+                "device" => 'pc',
+                "file_id" => 23,
+                "place_id" => 16,
+            ],
+        ];
+
+        $filesCustom = array_merge($filesCustom, $filesPeople);
+        $filesPivot = array_merge($filesPivot, $pivotPeople);
+
 
 
         DB::table('files')->insertOrIgnore($filesCustom);

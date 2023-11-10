@@ -1,9 +1,16 @@
 <div class="w-100">
 
-    @if(!empty($content->description))
-        <h2 class="text-center mt-4 mb-2"><b>{{ $content->description }}</b></h2>
+    @if(!empty($content->name))
+        <h2 class="text-center mt-4 mb-2"><b>{{ $content->name }}</b></h2>
     @endempty
 
+    @if(!empty($content->description))
+        <div class="d-none d-md-flex justify-content-center">
+            <p class="fs-4 w-50 text-center">
+                {{ $content->description }}
+            </p>
+        </div>
+    @endempty
     <div class="d-flex flex-wrap justify-content-center align-items-center">
         <div class="oceans">
 
@@ -17,7 +24,7 @@
 
             <div class="d-flex" data-slider-container="oceans">
                 @foreach($content->banners ?? [] as $banner)
-                    <div class="ocean m-4 shadow
+                    <div class="ocean m-4 shadow border-grayLight-1
 
                         @switch($loop->index)
                             @case(0)
@@ -57,7 +64,7 @@
                             <strong class="fs-4">
                                 {{ $banner->name }}
                             </strong>
-                            <a class="btn fs-5 btn-dark">@lang('pages.check')</a>
+                            <a class="btn fs-5 btn-outline-dark">@lang('pages.check')</a>
                         </div>
                     </div>
                 @endforeach
