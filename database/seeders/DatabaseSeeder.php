@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(GeneratedBanners::class);
         $this->call(File::class);
+        $this->call(Pages::class);
     }
 }

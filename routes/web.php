@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\TripController;
 use App\Http\Controllers\admin\YachtController;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\admin\ManagerFilesController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::get('/trip', function () {
 Route::get('/koszyk/summary', function () {
     return view('summary');
 });
+
+Route::get('/{id}', PageController::class)
+    ->name('pages');
 
 //CMS routing
 Route::group([
