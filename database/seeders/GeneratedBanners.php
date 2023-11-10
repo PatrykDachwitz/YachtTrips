@@ -49,46 +49,36 @@ class GeneratedBanners extends Seeder
 
         $banners = [
             [
-                "name" => "MainBanner",
+                "name" => "🌊 Czekamy na Ciebie na Pokładzie!",
                 "description" => trim('
-                <h2 class="fs-1">Lorem Ipsum is simply</h2>
-                <p class="w-25">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially u</p>
+                <div class="my-4">
+                Przekonaj się, dlaczego podróż morską z nami to wybór, który pamięta się na zawsze.<br />
+                Gwarantujemy niezapomnianą podróż!
+                </div>
                 <div>
-                    <a class="btn btn-info">Sprawdz ofertę</a>
+                    <a class="btn btn-light text-dark fs-4">Rezerwuj teraz!</a>
                 </div>
                 '),
                 "category_banner_id" => 1,
             ], [
-                "name" => "Ocean karaibski",
-                "description" => 'Egzotyczne wakacje na Karaibach! 🌴⛵',
-                "category_banner_id" => 2,
-            ], [
-                "name" => "Ocean Pacyfik",
-                "description" => 'Odkryj tajemnice Pacyfiku na luksusowym jachcie! 🌊⛴️',
+                "name" => "Ocean Spokojny",
+                "description" => null,
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Atlantycki",
-                "description" => 'Przygoda na Atlantyku! 🌊⛵',
+                "description" => null,
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Indyjski",
-                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+                "description" => null,
                 "category_banner_id" => 2,
-            ],  [
-                "name" => "Ocean Indyjski",
-                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+            ], [
+                "name" => "Ocean Arktyczny",
+                "description" => null,
                 "category_banner_id" => 2,
-            ],  [
-                "name" => "Ocean Indyjski",
-                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
-                "category_banner_id" => 2,
-            ],  [
-                "name" => "Ocean Indyjski",
-                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
-                "category_banner_id" => 2,
-            ],  [
-                "name" => "Ocean Indyjski",
-                "description" => 'Zanurz się w przyrodzie Indyjskiego Oceanu! 🌏🚤',
+            ], [
+                "name" => "Ocean Południowy",
+                "description" => null,
                 "category_banner_id" => 2,
             ], [
                 "name" => "Dlaczego Wybrać Nasze Wycieczki?",

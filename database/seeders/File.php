@@ -20,51 +20,137 @@ class File extends Seeder
         $file = new \App\Models\File();
         $folder = new Folder();
 
-
-
         $filesCustom = [];
         $filesPivot = [];
 
-        $filesCustom[] = [
-            "name" => 'slider12',
-            "extension" => 'jpg',
-            'path' => '/files/banners',
-            'preview_path' => '/file_preview/png.png',
-            'size' => 5023,
-            'author_id' => 1,
-            'mime' => "image/png",
-            'folder_id' => 2
-        ];
 
-        for ($i = 1; $i <= 8; $i++) {
-            $filesCustom[] = [
-                "name" => $i,
+        //Build structure for main banner files
+        $filesMainBanners = [
+            [
+                "name" => 'banner_main_pc',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
-                'preview_path' => '/file_preview/png.png',
-                'size' => 5023,
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
                 'author_id' => 1,
                 'mime' => "image/jpg",
                 'folder_id' => 2
-            ];
-        }
-        for ($i = 2; $i <= 9; $i++) {
-            $filesPivot[] = [
+            ], [
+                "name" => 'banner_main_tablet',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'banner_main_mobile',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ],
+        ];
+        $pivotMainBanners = [
+            [
                 "device" => 'mobile',
-                "file_id" => $i,
-                "place_id" => $i,
-            ];
-            $filesPivot[] = [
-                "device" => 'pc',
-                "file_id" => $i,
-                "place_id" => $i,
-            ];
-            $filesPivot[] = [
+                "file_id" => 3,
+                "place_id" => 1,
+            ], [
                 "device" => 'tablet',
-                "file_id" => $i,
-                "place_id" => $i,
-            ];
-        }
+                "file_id" => 2,
+                "place_id" => 1,
+            ], [
+                "device" => 'pc',
+                "file_id" => 1,
+                "place_id" => 1,
+            ],
+        ];
+
+        $filesCustom = array_merge($filesCustom, $filesMainBanners);
+        $filesPivot = array_merge($filesPivot, $pivotMainBanners);
+
+        //Build structure for oceans sliders
+        $filesOceans = [
+            [
+                "name" => 'ocean_arktyczny',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'ocean_atlantycki',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'ocean_indyjski',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'ocean_poludniowy',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ], [
+                "name" => 'ocean_spokojny',
+                "extension" => 'jpg',
+                'path' => '/files/banners',
+                'preview_path' => '/file_preview/jpg.png',
+                'size' => 5024,
+                'author_id' => 1,
+                'mime' => "image/jpg",
+                'folder_id' => 2
+            ]
+        ];
+        $pivotOceans = [
+            [
+                "device" => 'pc',
+                "file_id" => 4,
+                "place_id" => 5,
+            ], [
+                "device" => 'pc',
+                "file_id" => 5,
+                "place_id" => 3,
+            ], [
+                "device" => 'pc',
+                "file_id" => 6,
+                "place_id" => 4,
+            ], [
+                "device" => 'pc',
+                "file_id" => 7,
+                "place_id" => 6,
+            ], [
+                "device" => 'pc',
+                "file_id" => 8,
+                "place_id" => 2,
+            ],
+        ];
+
+        $filesCustom = array_merge($filesCustom, $filesOceans);
+        $filesPivot = array_merge($filesPivot, $pivotOceans);
+
+
 
         DB::table('files')->insertOrIgnore($filesCustom);
         DB::table('pivot_images')->insertOrIgnore($filesPivot);

@@ -1,14 +1,16 @@
 <script setup>
-
+import { inject, ref } from "vue";
 import CartContent from "@/components/cart/cartContent.vue";
+
+const lang = inject('lang');
 </script>
 
 <template>
     <cart-content>
-            <span class="fs-2"><strong>Dostawa i wysyłka</strong></span>
+            <span class="fs-2"><strong>{{ lang['deliveryPayment'] }}</strong></span>
         <div class="d-flex flex-column mt-3">
             <div class="border-grayLight-1 rounded-2 p-3 shadow-sm">
-                <h3 class="fs-2">Dostawa</h3>
+                <h3 class="fs-2">{{ lang['delivery'] }}</h3>
                 <div class="  d-flex justify-content-between align-items-center p-3 mb-2 rounded-2 border-grayLight-1">
                     <div class="rounded-2 overflow-hidden">
                         <picture>
@@ -20,17 +22,17 @@ import CartContent from "@/components/cart/cartContent.vue";
                             Kurier DPD
                         </div>
                         <div>
-                            Koszt: <strong>120zł</strong>
+                            {{ lang['cost'] }}:&nbsp;<strong>120zł</strong>
                         </div>
                     </div>
                     <div class="btn btn-outline-dark">
-                        Wybierz
+                        {{ lang['selected'] }}
                     </div>
                 </div>
             </div>
 
             <div class="border-grayLight-1 mt-4 rounded-2 p-3 shadow-sm">
-                <h3 class="fs-2">Płatnośc</h3>
+                <h3 class="fs-2">{{ lang['payment'] }}</h3>
                 <div class="  d-flex justify-content-between align-items-center p-3 mb-2 rounded-2 border-grayLight-1">
                     <div class="rounded-2 overflow-hidden">
                         <picture>
@@ -42,11 +44,11 @@ import CartContent from "@/components/cart/cartContent.vue";
                             Kurier DPD
                         </div>
                         <div>
-                            Koszt: <strong>120zł</strong>
+                            {{ lang['cost'] }}:&nbsp;<strong>120zł</strong>
                         </div>
                     </div>
                     <div class="btn btn-outline-dark">
-                        Wybierz
+                        {{ lang['selected'] }}
                     </div>
                 </div>
             </div>
