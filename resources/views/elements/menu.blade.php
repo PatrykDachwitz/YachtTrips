@@ -1,5 +1,5 @@
 <nav class="menu d-flex flex-wrap w-100 align-items-center justify-content-center z-1 bg-gray justify-content-between px-2 py-1 bg-dark">
-    <a class="fs-4 text-decoration-none text-white">
+    <a class="fs-4 text-decoration-none text-white" href="/">
         BoatsTrip
     </a>
     <div class=" d-md-flex menu-content justify-content-md-end pe-0 pe-md-0">

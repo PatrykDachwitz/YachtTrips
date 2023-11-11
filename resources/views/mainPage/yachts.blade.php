@@ -15,7 +15,7 @@
     <div class="d-flex flex-column flex-xl-row-reverse">
 
         @foreach($content->banners ?? [] as $banner)
-            <div class="d-flex justify-content-center w-xl-50 p-4 align-items-center @if($loop->index !== 0) d-none @endif" data-category-banner="sliders" data-img-id="{{ $banner->id }}">
+            <div class="d-flex justify-content-center w-xl-50 p-4 align-items-center @if($loop->index !== 0) d-none @endif"  data-image-slider="yachts">
                 @foreach($banner->images ?? [] as $image)
                     @switch($image->pivot->device)
                         @case('mobile')
@@ -33,13 +33,13 @@
 
         <div class="d-flex w-xl-50 justify-content-xl-end">
             <div class="d-flex align-items-center">
-                <button class="btn btn-dark fs-3 ms-4" data-category-banner="sliders" data-button="back">
+                <button class="btn btn-dark fs-3 ms-4" data-button-slider="yachts" data-button="previous">
                     <strong><</strong>
                 </button>
             </div>
 
             @foreach($content->banners ?? [] as $banner)
-                <div class="d-flex flex-column justify-content-center w-xl-75 px-5 @if($loop->index == 1) selected @else d-none @endif" data-category-banner="sliders" data-id="{{ $banner->id }}">
+                <div class="d-flex flex-column justify-content-center w-xl-75 px-5 @if($loop->index !== 0) d-none @endif" data-content-slider="yachts">
                     <h2 class="fs-2"><b>{{ $banner->name }}</b></h2>
                     <div class="fs-5">
                         {{ $banner->description }}
@@ -48,7 +48,7 @@
             @endforeach
 
             <div class="d-flex align-items-center">
-                <button class="btn btn-dark fs-3 me-4 me-xl-0" data-category-banner="sliders" data-button="next">
+                <button class="btn btn-dark fs-3 me-4 me-xl-0" data-button-slider="yachts" data-button="next">
                     <strong>></strong>
                 </button>
             </div>

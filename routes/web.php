@@ -31,8 +31,8 @@ Route::get('/travels', function () {
 Route::get('/trip', function () {
     return view('trip');
 });
-Route::get('/koszyk/summary', function () {
-    return view('summary');
+Route::get('/koszyk', function () {
+    return view('koszyk2');
 });
 
 Route::get('/{id}', PageController::class)
