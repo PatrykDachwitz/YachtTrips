@@ -21,6 +21,7 @@
         <input type="text" class="form-control" id="created_at" name="finish_at"  data-form-main>
     </div>
 
+    @csrf
 
     <div class="col-md-4">
         <label for="category_banner_id" class="form-label">@lang('admin.active')</label>

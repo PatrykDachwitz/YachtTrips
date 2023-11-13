@@ -4,6 +4,8 @@
         <input type="email" class="form-control" id="inputEmail4" name="name" data-form-main>
     </div>
 
+    @csrf
+
     <div class="col-md-10">
         <label for="inputEmail4" class="form-label">@lang('admin.availablePlace')</label>
         <input type="email" class="form-control" id="inputEmail4" name="places_available" data-form-main>

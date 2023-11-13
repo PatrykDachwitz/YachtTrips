@@ -9,17 +9,12 @@ import imageForm from "@/admin/components/elements/imageForm.vue"
 import { changeJsonToArray } from "@/primary_function/conversionType.js";
 import {
     changePositionForm,
-    downloadDataForm,
-    updateValueInform,
-    active,
-    updateIssetInput,
-    updateErrorsInForm, clearValidAndInvalidContent, updateForm
+    active, updateValueInform,
 } from "@/primary_function/updateFormCreateEditView.js";
 import {getLangContent} from "@/primary_function/language.js";
+import {FormController} from "@/primary_function/formController.js";
 
 const lang = ref(getLangContent());
-// const errors = ref([])
-// provide('errors', errors);
 const { urlUpdate, urlApi } = getUrl();
 const { data, error } = useFetch(urlApi);
 const activeSelected = ref(false)
@@ -30,6 +25,10 @@ const supportComponent = {
     fileManager,
     emptySupport
 }
+
+const formController = new FormController('data-show-form', urlUpdate.value);
+formController.setCurrenActiveImages(true);
+formController.setAdditionalInputsName('description', false);
 
 provide('lang', lang);
 provide('selectedFiles', selectedFiles);
@@ -63,7 +62,7 @@ function  activeManager() {
 
         <template v-slot:header>
             <div>
-                <img src="/files/icons/save.png" class="pointer" alt="save" width="25" height="25" @click="updateForm"/>
+                <img src="/files/icons/save.png" class="pointer" alt="save" width="25" height="25" @click="formController.getInputsToSend()"/>
             </div>
         </template>
         <template v-slot:content>

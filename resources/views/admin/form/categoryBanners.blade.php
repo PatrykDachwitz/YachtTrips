@@ -12,6 +12,7 @@
         </select>
     </div>
 
+    @csrf
 
     <div class="col-md-4">
         <label for="template_id" class="form-label">@lang('admin.template')</label>

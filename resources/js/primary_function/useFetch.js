@@ -60,7 +60,8 @@ export function useFetchPut(url, updateDate) {
     const errorPut = ref(null);
     const dataPut = ref(null);
 
-    fetch(toValue(url), {
+
+    fetch(url, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json',
@@ -87,7 +88,9 @@ export function useFetchPut(url, updateDate) {
 
 
     return { dataPut, errorPut };
+
 }
+
 
 function getUrlBuDataSetName(dataSet) {
     try {

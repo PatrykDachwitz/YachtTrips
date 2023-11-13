@@ -4,6 +4,8 @@
         <input type="email" class="form-control" id="inputEmail4" name="name" data-form-main>
     </div>
 
+    @csrf
+
     <div class="col-md-4">
         <label for="start_day" class="form-label">@lang('admin.startDay')</label>
         <input type="text" class="form-control" id="start_day" name="start_day" data-form-main>

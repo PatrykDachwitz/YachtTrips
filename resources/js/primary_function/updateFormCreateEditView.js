@@ -1,7 +1,3 @@
-import {changeFormDataToJson, changeJsonToArray} from "@/primary_function/conversionType.js";
-import {useFetchPut} from "@/primary_function/useFetch.js";
-import {watch} from "vue";
-
 export function changePositionForm() {
     const formShow = document.querySelector('form[data-show-form]');
     const containerForm = document.querySelector('[data-show-form-container]');
@@ -20,25 +16,6 @@ export function active(content) {
     document.querySelector(`div[data-content-show='${content}']`).classList.remove('d-none');
 }
 
-function getAllInput(classInput = null) {
-    if (classInput == null) {
-        return document.querySelectorAll('*[data-form-main]');
-    } else {
-        return document.querySelectorAll(`*.${classInput}[data-form-main]`);
-    }
-}
-
-function getErrorContainer(errors, name) {
-    const container = document.createElement('div');
-    container.classList.add('invalid-feedback');
-    container.dataset.errorsContent = name;
-
-    container.innerText = errors;
-
-    return container;
-}
-
-
 function setInvalidInInput(input, errors) {
 
     input.parentElement.appendChild(getErrorContainer(errors, input.name));
@@ -50,31 +27,12 @@ function setValidInInput(input) {
     input.classList.add('is-valid')
 }
 
-function clearErrorsContainer() {
-
-}
-
-function clearSelectClass(inputs, classClear) {
-    inputs.forEach(input => {
-        input.classList.remove(`${classClear}`);
-    });
-}
-
 function clearContentErrorInputs(inputs) {
     inputs.forEach(input => {
         let errorContent = document.querySelector(`div[data-errors-content='${input.name}']`);
 
         input.parentElement.removeChild(errorContent);
     });
-}
-export function clearValidAndInvalidContent() {
-    const invalidInputs = getAllInput('is-invalid');
-    const validInputs = getAllInput('is-valid');
-
-    clearSelectClass(invalidInputs, 'is-invalid');
-    clearSelectClass(validInputs, 'is-valid');
-
-    clearContentErrorInputs(invalidInputs);
 }
 
 export function updateErrorsInForm(errors) {
@@ -115,36 +73,6 @@ function changeValueInForm(name, value) {
     }
 }
 
-export function downloadDataForm() {
-    let form = document.querySelector('form[data-show-form]');
-
-    let formData =  new FormData(form);
-    let jsonData = changeFormDataToJson(formData);
-
-    return jsonData;
-}
-
-export function updateIssetInput(data) {
-    const dataJson = changeJsonToArray(data);
-
-    updateValueInform(dataJson);
-}
-
-export function updateForm() {
-    let formData = downloadDataForm();
-
-    let { dataPut, errorPut } = useFetchPut(urlUpdate, formData);
-    watch(dataPut, () => {
-        clearValidAndInvalidContent();
-        updateIssetInput(dataPut);
-    })
-
-    watch(errorPut, () => {
-        errorPut.value.then(test => {
-            updateErrorsInForm(test.errors);
-        })
-    })
 
 
-}
 

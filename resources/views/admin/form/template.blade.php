@@ -3,4 +3,6 @@
         <label for="inputEmail4" class="form-label">@lang('admin.name')</label>
         <input type="email" class="form-control" id="inputEmail4" name="name" data-form-main>
     </div>
+
+    @csrf
 </form>
