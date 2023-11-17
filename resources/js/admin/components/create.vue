@@ -1,55 +1,77 @@
 <script setup>
-import {ref, provide, watch } from 'vue'
+
+import {ref, provide, watch, inject} from 'vue'
 import { useFetch, getUrl, useFetchPut } from "../../primary_function/useFetch.js";
 import dashboard from "@/admin/components/dashboard.vue";
-import alert from "@/admin/components/elements/alert.vue"
+import fileManager from '@/admin/components/file_manager/fileManager.vue';
+import emptySupport from "@/admin/components/emptySupport.vue"
+import imageForm from "@/admin/components/elements/imageForm.vue"
 import { changeJsonToArray } from "@/primary_function/conversionType.js";
 import {
     changePositionForm,
-    downloadDataForm,
-    updateValueInform,
-    active,
-    updateIssetInput
+    active, updateValueInform,
 } from "@/primary_function/updateFormCreateEditView.js";
+import {getLangContent} from "@/primary_function/language.js";
+import {FormController} from "@/primary_function/formController.js";
 
+const lang = ref(getLangContent());
+const urlCreate = getUrl();
 
-const { url, urlApi } = getUrl();
-const { data, error } = useFetch(urlApi);
-
-watch(data, ()  => {
-    const dataForm = changeJsonToArray(data)
-    updateValueInform(dataForm);
-
-    changePositionForm();
-});
-function save() {
-    let formData = downloadDataForm();
-
-    let { dataPut, errorPut } = useFetchPut(urlApi, formData);
-    watch(dataPut, () => {
-        updateIssetInput(dataPut);
-    })
+const activeSelected = ref(false)
+const selectedFiles = ref([]);
+const activeFileManager = ref(false);
+const currentComponentFileManager = ref('emptySupport')
+const supportComponent = {
+    fileManager,
+    emptySupport
 }
 
+const formController = new FormController('data-show-form', urlUpdate.value);
+formController.setCurrenActiveImages(true);
+formController.setAdditionalInputsName('description', false);
 
+provide('lang', lang);
+provide('selectedFiles', selectedFiles);
+provide('activeFileManager', activeFileManager);
+provide('activeSelected', activeSelected);
 provide('urlApiCurrent', urlApi);
 
+watch(data, ()  => {
+
+    const dataForm = changeJsonToArray(data)
+    updateValueInform(dataForm);
+    changePositionForm();
+
+});
+
+function  activeManager() {
+    activeFileManager.value = true;
+
+    if (currentComponentFileManager.value !== "fileManager") {
+        currentComponentFileManager.value = "fileManager";
+    }
+
+}
 </script>
 
 <template>
+
     <dashboard
-        name="Lista"
+    name="Lista"
     >
+
         <template v-slot:header>
             <div>
-                <img src="/files/icons/save.png" alt="save" width="25" height="25" @click="save"/>
+                <img src="/files/icons/save.png" class="pointer" alt="save" width="25" height="25" @click="formController.create()"/>
             </div>
         </template>
         <template v-slot:content>
-            <div class="bg-gray p-2 " style="border-bottom: 1.5px solid #d3d3d3">
-                <a class="btn btn-dark" @click="active('info')">Informacje</a>
-                <a class="btn btn-dark mx-2" @click="active('media')">Media</a>
-                <a class="btn btn-dark" @click="active('content')">Kontent</a>
+            <component :is="supportComponent[currentComponentFileManager]" v-if="activeFileManager"></component>
+
+            <div class="bg-gray p-2 " style="border-bottom: 1.5px solid #d3d3d3" v-if="lang">
+                <a class="btn btn-dark" @click="active('info')">{{ lang['information'] }}</a>
+                <a class="btn btn-dark mx-2" @click="active('media')">{{ lang['media'] }}</a>
+                <a class="btn btn-dark" @click="active('content')">{{ lang['contents'] }}</a>
             </div>
 
             <div data-show-form-container class="" data-content-show="info">
@@ -57,22 +79,24 @@ provide('urlApiCurrent', urlApi);
 
             <div data-show-form-container class="p-4 d-none" data-content-show="content">
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Treść</label>
+                    <label for="exampleFormControlTextarea1" class="form-label">{{ lang['contents'] }}</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 100%" name="description"></textarea>
                 </div>
             </div>
 
             <div class="p-5 d-none" data-content-show="media">
                 <div style="border-bottom: 1.5px solid #d3d3d3">
-                    <button class="btn btn-outline-dark btn-add"><strong>+</strong></button>
-                    Grafika
+                    <button class="btn btn-outline-dark btn-add" @click="activeManager"><strong>+</strong></button>
+                    {{ lang['graphics'] }}
                 </div>
+                <div v-if="data !== null">
+                     <image-form class="graphic-container py-4"  v-for="image in data.images" :image="image" :key="image.id" />
+                </div>
+
                 <div>
-                    <!--//*<image-form v-for="image in date.images" :image="image" :key="image.id"/>*/-->
+                    <image-form class="graphic-container py-4"  v-for="file in selectedFiles" :image="file" :key="file.id" />
                 </div>
-            </div>
-            <div class="position-absolute bottom-0 end-0 me-3">
-                <alert v-for="errort in fakeErrorrs" :error="errort"/>
+
             </div>
         </template>
 
@@ -92,5 +116,8 @@ div.graphic-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.pointer {
+    cursor: pointer;
 }
 </style>

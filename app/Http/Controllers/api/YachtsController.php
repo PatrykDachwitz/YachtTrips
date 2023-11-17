@@ -26,14 +26,6 @@ class YachtsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        abort(404);
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(CreatedRequest $request)
@@ -57,14 +49,6 @@ class YachtsController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        return response($this->yachts->findOrFail($id), 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
     {
         return response($this->yachts->findOrFail($id), 200);
     }

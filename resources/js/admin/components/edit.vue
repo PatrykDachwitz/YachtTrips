@@ -62,7 +62,7 @@ function  activeManager() {
 
         <template v-slot:header>
             <div>
-                <img src="/files/icons/save.png" class="pointer" alt="save" width="25" height="25" @click="formController.getInputsToSend()"/>
+                <img src="/files/icons/save.png" class="pointer" alt="save" width="25" height="25" @click="formController.update()"/>
             </div>
         </template>
         <template v-slot:content>

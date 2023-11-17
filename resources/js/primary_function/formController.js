@@ -112,9 +112,25 @@ export class FormController {
         });
     }
 
+    create() {
+        const updateData = this.getInputsToSend();
+        console.log(updateData);
+        let { dataPut, errorPut } = useFetchPut(this.urlApi, updateData);
+
+        watch(dataPut, () => {
+            this.clearValidAndInvalidContent();
+            this.updateIssetInput(dataPut);
+        })
+
+        watch(errorPut, () => {
+            errorPut.value.then(test => {
+                this.updateErrorsInForm(test.errors);
+            })
+        })
+    }
     update() {
         const updateData = this.getInputsToSend();
-
+        console.log(updateData);
         let { dataPut, errorPut } = useFetchPut(this.urlApi, updateData);
 
         watch(dataPut, () => {

@@ -26,14 +26,6 @@ class BannersController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        abort(404);
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(CreatedRequest $request)
@@ -65,20 +57,13 @@ class BannersController extends Controller
         return response($this->banners->findOrFail($id), 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        return response($this->banners->findOrFail($id), 200);
-    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateRequest $request, int $id)
     {
-        $banner = [];
+        /*$banner = [];
 
         try {
             $banner = $this->banners->update($id, $request->only([
@@ -94,8 +79,10 @@ class BannersController extends Controller
         } catch (Exception) {
             return response(_('api.error_500'), 500);
         }
+*/
+       // return response($banner, 200);
 
-        return response($banner, 200);
+        return $request->validated();
     }
 
     /**

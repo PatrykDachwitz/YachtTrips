@@ -25,13 +25,6 @@ class OceansController extends Controller
         return response($this->ocean->get() ?? [], 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        abort(404);
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -60,13 +53,6 @@ class OceansController extends Controller
         return response($this->ocean->findOrFail($id), 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        return response($this->ocean->findOrFail($id), 200);
-    }
 
     /**
      * Update the specified resource in storage.

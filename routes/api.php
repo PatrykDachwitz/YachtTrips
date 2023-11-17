@@ -21,21 +21,21 @@ use App\Http\Controllers\api\OceansController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 Route::group([
     'prefix' => "banners/",
     "as" => "banners."
 ], function () {
-    Route::resource('category', categoryBannersController::class);
+    Route::apiResource('category', categoryBannersController::class);
 });
 
-Route::resource('banners', BannersController::class);
+Route::apiResource('banners', BannersController::class);
 
-Route::resource('folders', FolderController::class);
-Route::resource('yachts', YachtsController::class);
-Route::resource('trips', TripsController::class);
-Route::resource('templates', TemplatesController::class);
-Route::resource('oceans', OceansController::class);
+Route::apiResource('folders', FolderController::class);
+Route::apiResource('yachts', YachtsController::class);
+Route::apiResource('trips', TripsController::class);
+Route::apiResource('templates', TemplatesController::class);
+Route::apiResource('oceans', OceansController::class);
