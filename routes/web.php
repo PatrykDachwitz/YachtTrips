@@ -25,8 +25,8 @@ use App\Http\Controllers\PageController;
 
 //MainPage
 Route::get('/', MainPageController::class);
-Route::get('/travels', function () {
-    return view('travels');
+Route::get('/trips', function () {
+    return view('trips');
 });
 Route::get('/trip', function () {
     return view('trip');
