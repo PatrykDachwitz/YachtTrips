@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Repository\Eloquent;
 
 use App\Models\Trip;
@@ -10,6 +10,36 @@ class TripsRepository implements \App\Repository\TripsRepository
 {
     private $trip;
 
+    private function useFilters(array $filters = []) {
+
+        $tripQuery = $this->trip->newQuery();
+
+        foreach ($filters ?? [] as $key => $filter) {
+            switch ($key) {
+                case "start_day":
+                    $tripQuery->where('start_day', '>=', "{$filter} 00:00:00");
+                    break;
+                case "end_day":
+                    $tripQuery->where('end_day', '<=', "{$filter} 23:59:59");
+                    break;
+                case "yacht_id":
+                    $tripQuery->whereIn('yacht_id', $filter['*']);
+                    break;
+                case "ocean_id":
+                    $tripQuery->whereIn('ocean_id', $filter['*']);
+                    break;
+                case "template_id":
+                    $tripQuery->whereIn('template_id', $filter['*']);
+                    break;
+                case "count_day":
+                    $tripQuery->whereIn('count_day', $filter['*']);
+                    break;
+            }
+        }
+
+        return $tripQuery;
+    }
+
     public function __construct(Trip $trip)
     {
         $this->trip = $trip;
@@ -17,12 +47,15 @@ class TripsRepository implements \App\Repository\TripsRepository
 
     public function getAll()
     {
+        dd($this->trip->get());
         $this->trip->all();
     }
 
-    public function get()
+    public function get(int $paginated = 40, array $filters = [])
     {
-        $this->trip->get();
+        $trips = $this->useFilters($filters);
+
+        return $trips->paginate($paginated);
     }
 
     public function findOrFail(int $id)

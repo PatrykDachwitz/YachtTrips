@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GeneratedBanners::class);
         $this->call(File::class);
         $this->call(Pages::class);
+        $this->call(Trips::class);
     }
 }

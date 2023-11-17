@@ -4,7 +4,7 @@ namespace App\Http\Requests\trips;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
+class FiltersRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,12 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', "min:6", "max:255", "string"],
-            'start_day' => ['required', 'date_format:Y-m-d H:i:s'],
-            'end_day' => ['required', 'date_format:Y-m-d H:i:s'],
-            'yacht_id' => ['required', 'min:1', 'integer'],
-            'ocean_id' => ['required', 'min:1', 'integer'],
-            'count_day' => ['required', 'min:1', 'integer'],
-            'template_id' => ['required', 'integer'],
+            'filters.start_day' => ['date_format:Y-m-d'],
+            'filters.end_day' => ['date_format:Y-m-d'],
+            'filters.yacht_id.*' => ['integer'],
+            'filters.ocean_id.*' => ['integer'],
+            'filters.template_id.*' => ['integer'],
+            'filters.count_day.*' => ['integer'],
         ];
     }
 }

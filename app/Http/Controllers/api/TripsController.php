@@ -1,13 +1,17 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\trips\CreatedRequest;
+use App\Http\Requests\trips\FiltersRequest;
 use App\Http\Requests\trips\UpdateRequest;
+use App\Models\Trip;
 use App\Repository\TripsRepository;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
+use MongoDB\Driver\Query;
 
 class TripsController extends Controller
 {
@@ -20,9 +24,16 @@ class TripsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(FiltersRequest $request)
     {
-        return response($this->trips->get() ?? [], 200);
+        return response($this->trips->get(40, $request->only([
+            'filters.start_day',
+            'filters.end_day',
+            'filters.yacht_id.*',
+            'filters.ocean_id.*',
+            'filters.template_id.*',
+            'filters.count_day.*',
+        ])['filters']), 200);
     }
 
     /**
@@ -53,7 +64,7 @@ class TripsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         return response($this->trips->findOrFail($id), 200);
     }

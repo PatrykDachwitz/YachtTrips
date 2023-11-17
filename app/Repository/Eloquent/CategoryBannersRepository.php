@@ -11,7 +11,7 @@ class CategoryBannersRepository implements \App\Repository\CategoryBannersReposi
 
     private $category;
 
-    public function __Construct(CategoryBanner $categoryBanner) {
+    public function __construct(CategoryBanner $categoryBanner) {
         $this->category = $categoryBanner;
     }
 
