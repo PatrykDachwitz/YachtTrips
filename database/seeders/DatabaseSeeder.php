@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(File::class);
         $this->call(Pages::class);
         $this->call(Trips::class);
+        $this->call(Yacht::class);
+        $this->call(Ocean::class);
     }
 }
