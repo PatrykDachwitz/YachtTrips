@@ -15,8 +15,8 @@
 @section('script')
 @vite(['resources/js/trips.js'])
 
-    <input type="hidden" value="{{ route('yachts.index') }}" name="yacht_id" data-url-filters>
-<!--
-<input type="hidden" value="{{ route('oceans.index') }}" name="ocean_id" data-url-filters>
-    <input type="hidden" value="" name="count_day" data-url-filters>-->
+    <input type="hidden" value="{{ route('yachts.index') }}" name="yacht_id" data-url-filters-yachts>
+
+<input type="hidden" value="{{ route('oceans.index') }}" name="ocean_id" data-url-filters-oceans>
+    <!--<input type="hidden" value="" name="count_day" data-url-filters>-->
 @endsection

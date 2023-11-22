@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
@@ -13,7 +13,7 @@ class OceansController extends Controller
 {
     private $ocean;
 
-    public function __Construct(OceansRepository $oceansRepository) {
+    public function __construct(OceansRepository $oceansRepository) {
         $this->ocean = $oceansRepository;
     }
 

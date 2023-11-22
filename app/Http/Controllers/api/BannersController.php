@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
@@ -13,7 +13,7 @@ class BannersController extends Controller
 {
     private $banners;
 
-    public function __Construct(BannersRepository $bannersRepository) {
+    public function __construct(BannersRepository $bannersRepository) {
         $this->banners = $bannersRepository;
     }
 

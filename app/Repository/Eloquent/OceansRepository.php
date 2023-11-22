@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Repository\Eloquent;
 
 use App\Models\Ocean;
@@ -17,17 +17,17 @@ class OceansRepository implements \App\Repository\OceansRepository
 
     public function getAll()
     {
-        $this->ocean->all();
+        return $this->ocean->all();
     }
 
     public function get()
     {
-        $this->ocean->get();
+        return $this->ocean->get();
     }
 
     public function findOrFail(int $id)
     {
-        $this->ocean->findOrFail($id);
+        return $this->ocean->findOrFail($id);
     }
 
     public function destroy(int $id)

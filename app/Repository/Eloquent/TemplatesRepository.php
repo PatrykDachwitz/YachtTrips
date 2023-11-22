@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Repository\Eloquent;
 
 use App\Models\Template;
@@ -15,12 +15,12 @@ class TemplatesRepository implements \App\Repository\TemplatesRepository
 
     public function get()
     {
-        $this->template->get();
+        return $this->template->get();
     }
 
     public function findOrFail(int $id)
     {
-        $this->template->findOrFail($id);
+        return $this->template->findOrFail($id);
     }
 
     public function update(int $id, array $updateData)

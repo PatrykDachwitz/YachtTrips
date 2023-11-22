@@ -92,7 +92,7 @@ export function useFetchPut(url, updateDate) {
 }
 
 
-function getUrlBuDataSetName(dataSet) {
+export function getUrlByDataSetName(dataSet) {
     try {
         const url = document.querySelector(`input[${dataSet}]`).value ?? "";
         return url;
@@ -107,10 +107,10 @@ export function getUrl() {
     const urlCreate = ref(null);
     const urlUpdate = ref(null);
 
-    url.value = getUrlBuDataSetName('data-url');
-    urlApi.value = getUrlBuDataSetName('data-url-api');
-    urlCreate.value = getUrlBuDataSetName('data-url-create');
-    urlUpdate.value = getUrlBuDataSetName('data-url-update');
+    url.value = getUrlByDataSetName('data-url');
+    urlApi.value = getUrlByDataSetName('data-url-api');
+    urlCreate.value = getUrlByDataSetName('data-url-create');
+    urlUpdate.value = getUrlByDataSetName('data-url-update');
 
     return { url, urlApi, urlCreate, urlUpdate };
 }

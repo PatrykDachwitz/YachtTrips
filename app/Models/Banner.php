@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,4 +19,32 @@ class Banner extends Model
         return $this->belongsToMany(File::class, "pivot_images", "place_id")
             ->withPivot('device');
     }
+
+
+    protected $casts = [
+        'name' => 'string',
+        'deleted_at' => 'timestamp',
+        'start_at' => 'timestamp',
+        'finish_at' => 'timestamp',
+        'active' => 'boolean',
+        'category_banner_id' => 'integer',
+        'description' => 'longText',
+    ];
+
+    protected $fillable = [
+        'name',
+        'description',
+        'category_banner_id',
+        'active',
+        'finish_at',
+        'start_at',
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'deleted_at',
+        'updated_at',
+        'category_banner_id',
+    ];
+
 }
