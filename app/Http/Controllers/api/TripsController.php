@@ -26,14 +26,20 @@ class TripsController extends Controller
      */
     public function index(FiltersRequest $request)
     {
-        return response($this->trips->get(40, $request->only([
-            'filters.start_day',
-            'filters.end_day',
-            'filters.yacht_id.*',
-            'filters.ocean_id.*',
-            'filters.template_id.*',
-            'filters.count_day.*',
-        ])['filters']), 200);
+        try {
+            $filters = $request->only([
+                'filters.start_day',
+                'filters.end_day',
+                'filters.yacht_id.*',
+                'filters.ocean_id.*',
+                'filters.template_id.*',
+                'filters.count_day.*',
+            ])['filters'];
+        } catch (Exception) {
+            $filters = [];
+        }
+
+        return response($this->trips->get(40, $filters), 200);
     }
 
     /**
