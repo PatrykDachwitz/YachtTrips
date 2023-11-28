@@ -13,6 +13,7 @@ import {
 } from "@/primary_function/updateFormCreateEditView.js";
 import {getLangContent} from "@/primary_function/language.js";
 import {FormController} from "@/primary_function/formController.js";
+import calendar from "@/components/calendar.vue";
 
 const lang = ref(getLangContent());
 const { urlUpdate, urlApi } = getUrl();
@@ -23,14 +24,18 @@ const activeFileManager = ref(false);
 const currentComponentFileManager = ref('emptySupport')
 const supportComponent = {
     fileManager,
+    calendar,
     emptySupport
 }
-
+const activeCalendar = ref('emptySupport');
+const locationDataSet = ref(null);
 const formController = new FormController('data-show-form', urlUpdate.value);
 formController.setCurrenActiveImages(true);
 formController.setAdditionalInputsName('description', false);
 
 provide('lang', lang);
+provide('activeCalendar', activeCalendar);
+provide('locationDataSet', locationDataSet);
 provide('selectedFiles', selectedFiles);
 provide('activeFileManager', activeFileManager);
 provide('activeSelected', activeSelected);
@@ -41,9 +46,24 @@ watch(data, ()  => {
     const dataForm = changeJsonToArray(data)
     updateValueInform(dataForm);
     changePositionForm();
+    runCalendar();
 
 });
 
+function runCalendar() {
+    const calendarInputs = document.querySelectorAll('[data-calendar-input]');
+
+    calendarInputs.forEach(calendarInput => {
+        calendarInput.addEventListener('click', () => {
+            if (activeCalendar.value === "calendar") {
+                activeCalendar.value = "emptySupport";
+            } else {
+                activeCalendar.value = "calendar";
+                locationDataSet.value = calendarInput.dataset.calendarInput;
+            }
+        })
+    });
+}
 function  activeManager() {
     activeFileManager.value = true;
 
@@ -56,10 +76,7 @@ function  activeManager() {
 
 <template>
 
-    <dashboard
-    name="Lista"
-    >
-
+    <dashboard name="Lista" >
         <template v-slot:header>
             <div>
                 <img src="/files/icons/save.png" class="pointer" alt="save" width="25" height="25" @click="formController.update()"/>
@@ -67,6 +84,10 @@ function  activeManager() {
         </template>
         <template v-slot:content>
             <component :is="supportComponent[currentComponentFileManager]" v-if="activeFileManager"></component>
+            <!--Komponent dedykowany kalendarzowi-->
+            <component :is="supportComponent[activeCalendar]" :locationByDataSet="locationDataSet"> </component>
+
+
 
             <div class="bg-gray p-2 " style="border-bottom: 1.5px solid #d3d3d3" v-if="lang">
                 <a class="btn btn-dark" @click="active('info')">{{ lang['information'] }}</a>

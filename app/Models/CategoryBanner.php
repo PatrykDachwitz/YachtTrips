@@ -28,8 +28,8 @@ class CategoryBanner extends Model
         'name' => 'string',
         'deleted_at' => 'timestamp',
         'active' => 'boolean',
-        'description' => 'longText',
-        'template_id' => 'longText',
+        'description' => 'string',
+        'template_id' => 'string',
     ];
 
     protected $fillable = [

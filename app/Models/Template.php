@@ -14,7 +14,7 @@ class Template extends Model
     protected $casts = [
         'name' => 'string',
         'deleted_at' => 'timestamp',
-        'description' => 'longText',
+        'description' => 'string',
     ];
 
     protected $fillable = [

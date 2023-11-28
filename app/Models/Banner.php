@@ -28,7 +28,7 @@ class Banner extends Model
         'finish_at' => 'timestamp',
         'active' => 'boolean',
         'category_banner_id' => 'integer',
-        'description' => 'longText',
+        'description' => 'string',
     ];
 
     protected $fillable = [
