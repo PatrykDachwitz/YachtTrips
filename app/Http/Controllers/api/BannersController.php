@@ -61,28 +61,30 @@ class BannersController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(UpdateRequest $request, int $id)
     {
-        /*$banner = [];
+        $banner = [];
 
         try {
+
             $banner = $this->banners->update($id, $request->only([
                 'name',
                 'start_at',
                 'finish_at',
                 'active',
                 'category_banner_id',
-                'description',
+                'images.*.id',
+                'images.*.devices',
             ]));
+
         } catch (ModelNotFoundException) {
             return response(_('api.not_found'), 404);
-        } catch (Exception) {
-            return response(_('api.error_500'), 500);
+        } catch (Exception $e) {
+            return response($e->getMessage(), 500);
         }
-*/
-       // return response($banner, 200);
 
-        return $request->validated();
+        return response($banner, 200);
     }
 
     /**

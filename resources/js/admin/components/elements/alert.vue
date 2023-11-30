@@ -1,8 +1,15 @@
 <script setup>
 defineProps([
-    'error'
+    'mesage',
+    'code',
+    'id',
 ])
-console.error('error')
+
+function removeAlert(id) {
+    let alert = document.querySelector([`div[data-id-error="${id}"]`]);
+
+    alert.parentElement.removeChild(alert);
+}
 </script>
 
 <template>
@@ -18,10 +25,10 @@ console.error('error')
         </symbol>
     </svg>
 
-    <div class="alert alert-warning alert-dismissible fade show mb-3 me-3" role="alert">
+    <div class="alert alert-warning alert-dismissible fade show mb-3 me-3" role="alert" :data-id-error="id">
         <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" width="25" height="25"><use xlink:href="#exclamation-triangle-fill"/></svg>
-        {{ error }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {{ mesage }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" @click="removeAlert(id)" ></button>
     </div>
 </template>
 

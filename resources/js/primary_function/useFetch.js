@@ -1,17 +1,29 @@
 import {inject, ref, toValue, watchEffect} from "vue";
 import {createAlerts} from "@/primary_function/alerts.js";
 
-function createAlert(status) {
-    //createAlerts(status);
-    // const errorsAlert = inject('errors');
-    // console.log(errorsAlert);
-    // errorsAlert.value.push(status);
+
+export function addAlert(status) {
+    const errors = inject('errors')
+    const lang = inject('lang')
+    let countAlerts = errors.value.length
+    let id =
+
+    errors.value.push({
+        mesage: mesage,
+        id: id,
+        status: status,
+    });
+
+    setTimeout(() => {
+        errors.value.splice(countAlerts, 1);
+    }, 5000)
 }
+
 
 export function useFetch(url) {
     const data = ref(null)
     const error = ref(null)
-
+    const status = ref(null);
 
     watchEffect(() => {
        error.value = null;
@@ -22,18 +34,24 @@ export function useFetch(url) {
                'Accept': 'application/json',
            },
        })
-           .then((res) => {
-               if (res.status !== 200) throw Error(res.status);
-               else return res.json();
+           .then((response) => {
+               status.value = response.status;
+
+               if (response.status !== 200) throw Error('Error status code');
+               else {
+                   status.value = 200;
+                   return response.json()
+               }
            })
            .then((json) => {
                data.value = json;
-               createAlert(200);
            })
            .catch((err) => {
-               createAlert(err);
+               if (status.value === null) status.value = 500;
                error.value = err;
            })
+
+        addAlert(status.value);
     });
 
     return { data, error }
@@ -41,25 +59,29 @@ export function useFetch(url) {
 
 export function useFetchDeleted(urlApi) {
     const status = ref(null);
-    console.log(urlApi)
+
     fetch(urlApi, {
         method: "delete"
     })
         .then(response => {
-            createAlert(response.status);
             status.value = response.status;
+            if (response.status !== 200) {
+                throw Error('Error status code');
+            }
         })
         .catch(err => {
-            createAlert(err)
+            if (status.value === null) {
+                status.value = 500;
+            }
         });
 
-    return { status };
+    addAlert(status.value);
 }
 
 export function useFetchPut(url, updateDate) {
     const errorPut = ref(null);
     const dataPut = ref(null);
-
+    const status = ref(null)
 
     fetch(url, {
         method: "PUT",
@@ -70,25 +92,26 @@ export function useFetchPut(url, updateDate) {
         body: updateDate,
     })
         .then(response => {
-            if (response.status == 422) {
-                createAlert(422);
-                errorPut.value = response.json();
-            } else if (response.status == 200) {
-                createAlert(200);
-                dataPut.value = response.json();
+            status.value = response.status;
+
+            if (response.status === 200) {
+                return response.json();
             } else {
-                createAlert(response.status);
-                throw Error(response.status);
+                throw Error('Error status code');
             }
         })
-        .catch(err => {
-            createAlert(err);
-            console.info(err);
+        .then( (json) => {
+            dataPut.value = json;
         })
-
+        .catch(err => {
+            if (status.value === null) {
+                status.value = 500;
+            }
+            errorPut.value = err;
+        })
+    addAlert(status.value);
 
     return { dataPut, errorPut };
-
 }
 
 
@@ -119,6 +142,7 @@ export function getUrl() {
 export function useFetchPost(url, updateDate) {
     const errorPost = ref(null);
     const dataPost = ref(null);
+    const status = ref(null)
 
     fetch(toValue(url), {
         method: "POST",
@@ -129,21 +153,21 @@ export function useFetchPost(url, updateDate) {
         body: updateDate,
     })
         .then(response => {
-            if (response.status !== 200) throw Error(response.status);
+            status.value = response.status
+            if (response.status !== 200) throw Error('Error response code');
             else return response.json();
         })
         .then(jsonRes => {
-            console.log("Dane odp")
-            console.log(jsonRes)
-            createAlert(200);
             dataPost.value = jsonRes;
         })
         .catch(err => {
-            createAlert(err);
-            console.error("Error")
-            console.error(err)
+            if (status.value === null) {
+                status.value = 500;
+            }
             errorPost.value = err;
         })
+
+    addAlert(status.value);
 
     return { dataPost, errorPost };
 }

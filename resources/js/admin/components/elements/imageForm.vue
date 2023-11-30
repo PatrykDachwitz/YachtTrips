@@ -1,10 +1,14 @@
 <script setup>
 defineProps(['image'])
 
+function deleteImage(id) {
+    let containerImage = document.querySelector(`div[data-image-container="${id}"]`);
+    containerImage.parentElement.removeChild(containerImage);
+}
 </script>
 
 <template>
-    <div class="graphic-container py-4" >
+    <div class="graphic-container py-4" :data-image-container="image.id">
         <picture>
             <img :src="`${image.path}/${image.name}.${image.extension}`" width="200"/>
         </picture>
@@ -30,7 +34,7 @@ defineProps(['image'])
             </div>
         </fieldset>
 
-        <button class="btn btn-danger">Usuń</button>
+        <button class="btn btn-danger" @click="deleteImage(image.id)">Usuń</button>
     </div>
 </template>
 

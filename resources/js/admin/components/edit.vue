@@ -11,11 +11,9 @@ import {
     changePositionForm,
     active, updateValueInform,
 } from "@/primary_function/updateFormCreateEditView.js";
-import {getLangContent} from "@/primary_function/language.js";
 import {FormController} from "@/primary_function/formController.js";
 import calendar from "@/components/calendar.vue";
 
-const lang = ref(getLangContent());
 const { urlUpdate, urlApi } = getUrl();
 const { data, error } = useFetch(urlApi);
 const activeSelected = ref(false)
@@ -33,7 +31,7 @@ const formController = new FormController('data-show-form', urlUpdate.value);
 formController.setCurrenActiveImages(true);
 formController.setAdditionalInputsName('description', false);
 
-provide('lang', lang);
+const lang = inject('lang');
 provide('activeCalendar', activeCalendar);
 provide('locationDataSet', locationDataSet);
 provide('selectedFiles', selectedFiles);

@@ -3,12 +3,14 @@ declare(strict_types=1);
 namespace App\Repository\Eloquent;
 
 use App\Models\Banner;
+use App\Services\images\ConvertRequestToPivotData;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 
 class BannersRepository implements \App\Repository\BannersRepository
 {
 
+    use ConvertRequestToPivotData;
     private $banner;
 
     public function __construct(Banner $banner) {
@@ -23,8 +25,9 @@ class BannersRepository implements \App\Repository\BannersRepository
 
     public function update(int $id, array $updateData)
     {
+
         try {
-            $banner = $this->banner->findOrFail($id);
+            $banner = $this->banner->with('images')->findOrFail($id);
 
             $banner->name = $updateData['name'] ?? $banner->name;
             $banner->start_at = $updateData['start_at'] ?? $banner->start_at;
@@ -33,12 +36,14 @@ class BannersRepository implements \App\Repository\BannersRepository
             $banner->category_banner_id = $updateData['category_banner_id'] ?? $banner->category_banner_id;
             $banner->description = $updateData['description'] ?? $banner->description;
 
+            $banner->images()->sync($this->getConvertImages($updateData['images']));
+
             $banner->save();
             return $banner;
         } catch (ModelNotFoundException) {
             throw new ModelNotFoundException('Model not found');
-        } catch (Exception) {
-            throw new Exception('Error update model');
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
         }
     }
 

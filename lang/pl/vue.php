@@ -27,5 +27,8 @@ return [
         "Październik",
         "Listopad",
         "Grudzień"
-    ]
+    ],
+    'errors_status' => [
+        "500" => "test"
+    ],
 ];
