@@ -41,7 +41,7 @@ class BannersController extends Controller
                 'description',
             ]));
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response( route('admin.banners.show', [
@@ -79,7 +79,7 @@ class BannersController extends Controller
             ]));
 
         } catch (ModelNotFoundException) {
-            return response(_('api.not_found'), 404);
+            abort(404);
         } catch (Exception $e) {
             return response($e->getMessage(), 500);
         }
@@ -90,7 +90,7 @@ class BannersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         if ($this->banners->destroy($id)) {
             return response('success', 200);

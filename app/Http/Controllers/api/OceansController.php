@@ -37,7 +37,7 @@ class OceansController extends Controller
                 'name'
             ]));
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response( route('admin.oceans.show', [
@@ -48,7 +48,7 @@ class OceansController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         return response($this->ocean->findOrFail($id), 200);
     }
@@ -66,9 +66,9 @@ class OceansController extends Controller
                 'name',
             ]));
         } catch (ModelNotFoundException) {
-            return response(_('api.not_found'), 404);
+            abort(404);
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response($ocean, 200);
@@ -77,7 +77,7 @@ class OceansController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         if ($this->ocean->destroy($id)) {
             return response('success', 200);

@@ -37,7 +37,7 @@ class YachtsController extends Controller
                 'places_available',
             ]));
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response( route('admin.yachts.show', [
@@ -66,9 +66,9 @@ class YachtsController extends Controller
                 'places_available'
             ]));
         } catch (ModelNotFoundException) {
-            return response(_('api.not_found'), 404);
+            abort(404);
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response($yacht, 200);
@@ -77,7 +77,7 @@ class YachtsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         if ($this->yachts->destroy($id)) {
             return response('success', 200);

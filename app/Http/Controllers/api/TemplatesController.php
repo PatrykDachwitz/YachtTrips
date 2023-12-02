@@ -37,7 +37,7 @@ class TemplatesController extends Controller
                 'description'
             ]));
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response( route('admin.templates.show', [
@@ -66,9 +66,9 @@ class TemplatesController extends Controller
                 'description'
             ]));
         } catch (ModelNotFoundException) {
-            return response(_('api.not_found'), 404);
+            abort(404);
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response($template, 200);
@@ -77,7 +77,7 @@ class TemplatesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         if ($this->templates->destroy($id)) {
             return response('success', 200);

@@ -59,7 +59,7 @@ class TripsController extends Controller
                 'template_id'
             ]));
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response( route('admin.trips.show', [
@@ -93,9 +93,9 @@ class TripsController extends Controller
                 'template_id'
             ]));
         } catch (ModelNotFoundException) {
-            return response(_('api.not_found'), 404);
+            abort(404);
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response($trip, 200);
@@ -104,7 +104,7 @@ class TripsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         if ($this->trips->destroy($id)) {
             return response('success', 200);

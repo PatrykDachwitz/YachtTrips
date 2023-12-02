@@ -1,5 +1,5 @@
 import {CustomFormData} from "@/primary_function/CustomFormData.js";
-import {ref, watch} from 'vue';
+import {inject, ref, watch} from 'vue';
 import {useFetchPut} from "@/primary_function/useFetch.js";
 
 import {changeJsonToArray} from "@/primary_function/conversionType.js";
@@ -11,8 +11,7 @@ export class FormController {
     urlApi;
     activeImages = false;
     additionalInputsName = [];
-    customJson
-
+    customJson;
     constructor(mainForm, urlApi) {
         this.mainForm = document.querySelector(`form[${mainForm}]`);
         this.customFormData = new CustomFormData();
@@ -129,8 +128,9 @@ export class FormController {
         })
     }
     update() {
+
         const updateData = this.getInputsToSend();
-        console.log(updateData);
+
         let { dataPut, errorPut } = useFetchPut(this.urlApi, updateData);
 
         watch(dataPut, () => {

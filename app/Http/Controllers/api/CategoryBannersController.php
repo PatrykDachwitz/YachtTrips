@@ -38,7 +38,7 @@ class categoryBannersController extends Controller
                 'template_id',
             ]));
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response( route('admin.banners.category.show', [
@@ -49,7 +49,7 @@ class categoryBannersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         return response($this->category->findOrFail($id), 200);
     }
@@ -58,7 +58,7 @@ class categoryBannersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRequest $request, string $id)
+    public function update(UpdateRequest $request, int $id)
     {
         $banner = [];
 
@@ -70,9 +70,9 @@ class categoryBannersController extends Controller
                 'template_id',
             ]));
         } catch (ModelNotFoundException) {
-            return response(_('api.not_found'), 404);
+            abort(404);
         } catch (Exception) {
-            return response(_('api.error_500'), 500);
+            abort(500);
         }
 
         return response($banner, 200);
@@ -81,7 +81,7 @@ class categoryBannersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         if ($this->category->destroy($id)) {
             return response('success', 200);

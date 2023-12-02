@@ -1,18 +1,8 @@
 <script setup>
-defineProps([
-    'mesage',
-    'code',
-    'id',
-])
-
-function removeAlert(id) {
-    let alert = document.querySelector([`div[data-id-error="${id}"]`]);
-
-    alert.parentElement.removeChild(alert);
-}
 </script>
 
 <template>
+
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check-circle-fill" viewBox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
@@ -25,11 +15,7 @@ function removeAlert(id) {
         </symbol>
     </svg>
 
-    <div class="alert alert-warning alert-dismissible fade show mb-3 me-3" role="alert" :data-id-error="id">
-        <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" width="25" height="25"><use xlink:href="#exclamation-triangle-fill"/></svg>
-        {{ mesage }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" @click="removeAlert(id)" ></button>
-    </div>
+
 </template>
 
 <style scoped>
