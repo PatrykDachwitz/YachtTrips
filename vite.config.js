@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/js/admin/show.js',
                 'resources/js/admin/file_manager.js',
                 'resources/js/trips.js',
+                'resources/js/trip.js',
                 'resources/js/mainPage.js',
             ],
             refresh: true,

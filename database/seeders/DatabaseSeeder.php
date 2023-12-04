@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Trips::class);
         $this->call(Yacht::class);
         $this->call(Ocean::class);
+        $this->call(TripsRooms::class);
+        $this->call(Gallery::class);
     }
 }

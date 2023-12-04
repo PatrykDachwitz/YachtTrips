@@ -11,7 +11,7 @@
 <body>
 <div class="container-fluid d-flex flex-column m-0 p-0 overflow-hidden">
     @include('elements.menu')
-
+    {{ dump($trip) }}
     <div class="product d-flex">
         <div class=" w-50 px-5 pt-5 ">
             <div class="__main w-100 rounded-2 overflow-hidden">
@@ -58,9 +58,8 @@
             </div>
         </div>
 
-
         <div class="product-configurator w-50 pt-5 px-2 d-flex flex-column justify-content-start">
-            <h2 class="fs-1 mb-3">Tytuł nazwa produkt</h2>
+            <h2 class="fs-1 mb-3">{{ $trip->name }}</h2>
             <div class="row w-75 bg-gray p-3 shadow-sm overflow-hidden rounded-2 g-2">
                 <div class="col-md-6">
                     <label for="category_banner_id" class="form-label">Ocean</label>
@@ -87,25 +86,50 @@
             <div class="row w-75 bg-gray p-3 shadow-sm overflow-hidden rounded-2 g-2 my-3">
                 <div class="col-md-6">
                     <label for="validationCustom02" class="form-label">Ilość dorosłych</label>
-                    <input type="email" class="form-control" id="validationCustom02" name="name" data-form-main>
+                    <select class="form-select" name="category_banner_id" data-form-main>
+                        @for($i = 0; $i <= $trip->rooms_active_max_adults; $i++)
+                            <option value="{{ $i }}" @if($i === 0) selected @endif>{{ $i }}</option>
+                        @endfor
+                    </select>
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom02" class="form-label">Ilość dzieci</label>
-                    <input type="email" class="form-control" id="validationCustom02" name="name" data-form-main>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">Ilość łużek</label>
-                    <input type="email" class="form-control" id="validationCustom02" name="name" data-form-main>
-                </div>
-                <div class="col-md-6">
-                    <label for="validationCustom02" class="form-label">Ilość pokoji</label>
-                    <input type="email" class="form-control" id="validationCustom02" name="name" data-form-main>
-                </div>
-                <div class="col-md-6">
-                    <label for="category_banner_id" class="form-label">Tryp</label>
                     <select class="form-select" name="category_banner_id" data-form-main>
-                        <option selected>Podstawowe</option>
-                        <option selected>Premium</option>
+                        @for($i = 0; $i <= $trip->rooms_active_max_kids; $i++)
+                            <option value="{{ $i }}" @if($i === 0) selected @endif>{{ $i }}</option>
+                        @endfor
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Ilość Podwujnych łużek</label>
+                    <select class="form-select" name="category_banner_id" data-form-main>
+                        @for($i = 0; $i <= $trip->rooms_active_max_double_beds; $i++)
+                            <option value="{{ $i }}" @if($i === 0) selected @endif>{{ $i }}</option>
+                        @endfor
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Ilość pojedynczych łużek</label>
+                    <select class="form-select" name="category_banner_id" data-form-main>
+                        @for($i = 0; $i <= $trip->rooms_active_max_single_beds; $i++)
+                            <option value="{{ $i }}" @if($i === 0) selected @endif>{{ $i }}</option>
+                        @endfor
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Ilość dzięceicych łużek</label>
+                    <select class="form-select" name="category_banner_id" data-form-main>
+                        @for($i = 0; $i <= $trip->rooms_active_max_kids_beds; $i++)
+                            <option value="{{ $i }}" @if($i === 0) selected @endif>{{ $i }}</option>
+                        @endfor
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Premium</label>
+                    <select class="form-select" name="category_banner_id" data-form-main>
+                        @for($i = 0; $i <= $trip->rooms_active_max_premium; $i++)
+                            <option value="{{ $i }}" @if($i === 0) selected @endif>{{ $i }}</option>
+                        @endfor
                     </select>
                 </div>
             </div>
@@ -127,7 +151,8 @@
 @include('elements.footer')
 
 @vite([ 'resources/sass/app.scss',
-                'resources/js/app.js'])
+                'resources/js/app.js',
+                'resources/js/trip.js'])
 
 
 <style>

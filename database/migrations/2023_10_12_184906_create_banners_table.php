@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('start_at')->nullable();
             $table->timestamp('finish_at')->nullable();
             $table->boolean('active')->default(false);
-            $table->integer('category')->default(0);
+            $table->integer('category_banner_id')->default(0);
             $table->softDeletes();
         });
     }

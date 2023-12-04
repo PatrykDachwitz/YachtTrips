@@ -16,6 +16,11 @@ class Trips extends Seeder
     {
         DB::table('trips')->truncate();
 
+        Trip::factory()->count(1)->create([
+            'ocean_id' => 1,
+            'price_adult' => 100,
+            'price_kids' => 50,
+        ]);
         Trip::factory()->count(10)->create();
     }
 }

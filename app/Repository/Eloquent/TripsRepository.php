@@ -48,7 +48,7 @@ class TripsRepository implements \App\Repository\TripsRepository
     public function getAll()
     {
         dd($this->trip->get());
-        $this->trip->all();
+        return $this->trip->all();
     }
 
     public function get(int $paginated = 40, array $filters = [])
@@ -60,7 +60,14 @@ class TripsRepository implements \App\Repository\TripsRepository
 
     public function findOrFail(int $id)
     {
-        $this->trip->findOrFail($id);
+        return $this->trip
+
+            ->availableRooms()
+            ->with('rooms')
+            ->with('oceans')
+            ->with('yachts')
+            ->with('images')
+            ->findOrFail($id);
     }
 
     public function destroy(int $id)

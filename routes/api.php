@@ -9,6 +9,8 @@ use App\Http\Controllers\api\YachtsController;
 use App\Http\Controllers\api\TripsController;
 use App\Http\Controllers\api\TemplatesController;
 use App\Http\Controllers\api\OceansController;
+use App\Http\Controllers\api\OrdersController;
+use App\Http\Controllers\api\BooksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +41,6 @@ Route::apiResource('yachts', YachtsController::class);
 Route::apiResource('trips', TripsController::class);
 Route::apiResource('templates', TemplatesController::class);
 Route::apiResource('oceans', OceansController::class);
+
+Route::apiResource('orders', OrdersController::class);
+Route::apiResource('booking', BooksController::class);

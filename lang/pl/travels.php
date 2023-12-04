@@ -2,25 +2,18 @@
 
 return [
     'availableTrips' => 'Dostępne wycieczki',
-    'check' => 'Sprawdź',
+    'countAdult' => 'Ilość osób dorosłych',
+    'countChild' => 'Ilość dzieci',
+    'countDoubleBeds' => 'Ilość podwójnych łóżek',
+    'countSingleBeds' => 'Ilość pojedynczych łóżek',
+    'countKidsBeds' => 'Ilość dziecięcych łóżek',
+    'premiumRoom' => 'Pokój vip',
+    'yes' => 'Tak',
+    'no' => 'Nie',
+    'price' => 'Cena',
+    'ocean' => 'Ocean',
+    'yacht' => 'Jacht',
+    'startDayTravel' => 'Data rozpoczęcia wycieczki',
+    'endDayTravel' => 'Data zakończenia wycieczki',
+    'bookTrip' => 'Zarezerwuj wycieczkę',
 ];
-
-
-/*
- *
- * <style>
-    .filters {
-        @media only screen and (min-width: 992px) {
-            flex: 20% 0;
-        }
-        @media only screen and (max-width: 992px) {
-            flex: 0;
-        }
-    }
-
-    .contents-proucts {
-        flex: 1;
-    }
-</style>
-
- */

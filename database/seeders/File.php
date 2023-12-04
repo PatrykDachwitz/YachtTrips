@@ -400,6 +400,12 @@ class File extends Seeder
             'parent' => 1,
             'name' => 'banners',
         ]);
+        $folder->create([
+            'id' => 3,
+            'path' => '/files/gallery',
+            'parent' => 1,
+            'name' => 'gallery',
+        ]);
         $folder->factory()->count(30)->create();
     }
 }

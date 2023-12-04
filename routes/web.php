@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\YachtController;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\admin\ManagerFilesController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TripController as TripControllerClient;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,7 @@ Route::get('/', MainPageController::class);
 Route::get('/trips', function () {
     return view('trips');
 });
-Route::get('/trip', function () {
-    return view('trip');
-});
+Route::get('/trips/{slug}', TripControllerClient::class);
 Route::get('/koszyk', function () {
     return view('koszyk2');
 });

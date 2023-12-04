@@ -80,6 +80,7 @@ export function useFetchPut(url, updateDate) {
         .then(response => {
             if (response.status === 200) {
                 addAlert(200);
+                console.log(response.json())
                 return response.json();
             } else {
                 addAlert(response.status);
@@ -138,6 +139,7 @@ export function useFetchPost(url, updateDate) {
         body: updateDate,
     })
         .then(response => {
+            console.info(response.json());
             if (response.status !== 200) {
                 status.value = response.status
                 addAlert(response.status);

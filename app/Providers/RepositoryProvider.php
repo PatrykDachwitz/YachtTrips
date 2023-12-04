@@ -15,6 +15,10 @@ use App\Repository\YachtsRepository as YachtsRepositoryInterface;
 use App\Repository\Eloquent\YachtsRepository;
 use App\Repository\TripsRepository as TripsRepositoryInterface;
 use App\Repository\Eloquent\TripsRepository;
+use App\Repository\OrdersRepository as OrdersRepositoryInterface;
+use App\Repository\Eloquent\OrdersRepository;
+use App\Repository\BooksRepository as BooksRepositoryInterface;
+use App\Repository\Eloquent\BooksRepository;
 class RepositoryProvider extends ServiceProvider
 {
     /**
@@ -54,6 +58,16 @@ class RepositoryProvider extends ServiceProvider
         $this->app->singleton(
             YachtsRepositoryInterface::class,
             YachtsRepository::class
+        );
+
+        $this->app->singleton(
+            OrdersRepositoryInterface::class,
+            OrdersRepository::class
+        );
+
+        $this->app->singleton(
+            BooksRepositoryInterface::class,
+            BooksRepository::class
         );
     }
 }

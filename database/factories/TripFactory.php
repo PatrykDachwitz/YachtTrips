@@ -25,6 +25,8 @@ class TripFactory extends Factory
             'ocean_id' => rand(1, 14),
             'template_id' => rand(1, 14),
             'count_day' => 5,
+            'price_adult' => rand(100, 250),
+            'price_kids' => rand(10, 100),
         ];
     }
 }
