@@ -48,7 +48,8 @@ export function useFetchDeleted(urlApi) {
     const status = ref(null);
 
     fetch(urlApi, {
-        method: "delete"
+        method: "delete",
+        'X-CSRF-Token': getCsrfToken(),
     })
         .then(response => {
 
@@ -76,6 +77,7 @@ export function useFetchPut(url, updateDate) {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            'X-CSRF-Token': getCsrfToken(),
         },
         body: updateDate,
     })
@@ -117,11 +119,13 @@ export function getUrl() {
     const urlApi = ref(null);
     const urlCreate = ref(null);
     const urlUpdate = ref(null);
+    const urlApiDelete = ref(null);
 
     url.value = getUrlByDataSetName('data-url');
     urlApi.value = getUrlByDataSetName('data-url-api');
     urlCreate.value = getUrlByDataSetName('data-url-create');
     urlUpdate.value = getUrlByDataSetName('data-url-update');
+    urlApiDelete.value = getUrlByDataSetName('data-url-delete');
 
     return { url, urlApi, urlCreate, urlUpdate };
 }

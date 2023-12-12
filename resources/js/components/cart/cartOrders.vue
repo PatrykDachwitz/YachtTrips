@@ -7,6 +7,7 @@ const availableView = inject('availableView');
 const currentView = inject('currentView');
 
 function updatePersonalData() {
+    const formWithUpdateData = document.querySelector('form[data-cart-personal-data-form]')
 
 }
 function updateNextView() {

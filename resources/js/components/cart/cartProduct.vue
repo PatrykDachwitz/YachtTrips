@@ -1,11 +1,26 @@
 <script setup>
-import {inject} from "vue";
-
+import {inject, onMounted} from "vue";
+import {useFetchDeleted} from "@/primary_function/useFetch.js";
 defineProps([
     'product'
 ]);
 
-const lang = inject('lang')
+const urlDeleteBooks = inject('urlDeleteBooks');
+const lang = inject('lang');
+const urlApi = inject('urlApi');
+
+function deleteBook(idBook) {
+    let date = new Date();
+    let linkDeleteBook = `${urlDeleteBooks}${idBook}`;
+
+
+    let { errors } = useFetchDeleted(linkDeleteBook);
+
+    if (errors === []) {
+        urlApi.value += `?ts=${date.getTime()}`;
+    }
+}
+
 </script>
 
 <template>
@@ -30,7 +45,7 @@ const lang = inject('lang')
                 {{ lang['price'] }}:&nbsp;&nbsp<strong>{{ product.price }} zł</strong>
             </div>
         </div>
-        <div class="btn btn-danger">
+        <div class="btn btn-danger" @click="deleteBook(product.id)">
             {{ lang['delete'] }}
         </div>
     </div>

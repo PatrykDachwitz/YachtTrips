@@ -44,5 +44,7 @@ Route::apiResource('oceans', OceansController::class);
 Route::apiResource('method_payments', MethodPaymentsController::class);
 Route::get('orders/show/{sessionId}', [OrdersController::class, "showBySession"])
     ->name('orders.showBySession');
+Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySession"])
+    ->name('orders.updateBySession');
 Route::apiResource('orders', OrdersController::class);
 Route::apiResource('booking', BooksController::class);

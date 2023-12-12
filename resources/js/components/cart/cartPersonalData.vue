@@ -17,7 +17,7 @@ function updatePersonalData() {
     <cart-content>
         <span class="fs-2"><strong>{{  lang['personalDataContact'] }}</strong></span>
 
-        <form class="row g-3">
+        <form class="row g-3" data-cart-personal-data-form>
             <div class="col-md-6">
                 <label for="personal_first_name" class="form-label">{{  lang['firstName'] }}</label>
                 <input type="text" class="form-control" id="personal_first_name" name="personal_first_name" :placeholder="lang['firstNameFake']" :value="order.personal_first_name" required>

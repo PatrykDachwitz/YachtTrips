@@ -2,15 +2,8 @@
 import CartContent from "@/components/cart/cartContent.vue";
 import { inject, ref } from "vue";
 import CartProduct from "@/components/cart/cartProduct.vue";
-
 const lang = inject('lang');
 const order = inject('order');
-
-console.info(order);
-
-
-
-
 </script>
 
 <template>

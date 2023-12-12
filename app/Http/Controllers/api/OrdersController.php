@@ -42,10 +42,20 @@ class OrdersController extends Controller
     }
     public function showBySession(string $sessionId)
     {
-        $sessionIdCorrect = Session::getId();
+        /*$sessionCorrect = Session::getId();
 
-       /* if ($sessionId !== $sessionIdCorrect) {
-            return response(__('vue.errors_status.403'), 403);
+        if($sessionId !== $sessionCorrect) {
+            abort(425);
+        }*/
+
+        return $this->orders->findBySession($sessionId);
+    }
+    public function updateBySession(string $sessionId)
+    {
+       /* $sessionCorrect = Session::getId();
+
+        if($sessionId !== $sessionCorrect) {
+            abort(425);
         }*/
 
         return $this->orders->findBySession($sessionId);
