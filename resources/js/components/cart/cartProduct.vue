@@ -16,8 +16,12 @@ function deleteBook(idBook) {
 
     let { errors } = useFetchDeleted(linkDeleteBook);
 
-    if (errors === []) {
+    if (errors.value !== null) {
+        //Dodanie inforamcji o błędzie
+    } else {
+        console.info(urlApi.value)
         urlApi.value += `?ts=${date.getTime()}`;
+        console.info(urlApi.value)
     }
 }
 

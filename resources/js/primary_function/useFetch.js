@@ -14,7 +14,7 @@ export function useFetch(url) {
 
     watchEffect(() => {
        error.value = null;
-
+        console.log('newUrl')
        fetch(toValue(url), {
            headers: {
                'Content-Type': 'application/json',
@@ -46,11 +46,15 @@ export function useFetch(url) {
 
 export function useFetchDeleted(urlApi) {
     const status = ref(null);
+    const errors = ref(null);
 
     fetch(urlApi, {
+        headers: {
+            'X-CSRF-Token': getCsrfToken(),
+        },
         method: "delete",
-        'X-CSRF-Token': getCsrfToken(),
-    })
+        })
+
         .then(response => {
 
             if (response.status === 200) {
@@ -61,10 +65,13 @@ export function useFetchDeleted(urlApi) {
             }
         })
         .catch(err => {
+            errors.value = err;
             if (status.value === null) {
                 addAlert(500);
             }
         });
+
+    return {errors};
 }
 
 export function useFetchPut(url, updateDate) {

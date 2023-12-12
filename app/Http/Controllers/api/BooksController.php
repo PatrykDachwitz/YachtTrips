@@ -77,8 +77,12 @@ class BooksController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
-        //
+        if ($this->boking->destroy($id)) {
+            return response('success', 200);
+        } else {
+            return response('errors', 500);
+        }
     }
 }
