@@ -45,4 +45,13 @@ class OrdersRepository implements \App\Repository\OrdersRepository
     {
         // TODO: Implement update() method.
     }
+
+    public function findBySession(string $sessionId)
+    {
+
+        return $this->orders
+            ->with('books')
+            ->where('session_id', $sessionId)
+            ->first();
+    }
 }

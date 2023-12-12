@@ -11,7 +11,7 @@ use App\Http\Controllers\api\TemplatesController;
 use App\Http\Controllers\api\OceansController;
 use App\Http\Controllers\api\OrdersController;
 use App\Http\Controllers\api\BooksController;
-
+use App\Http\Controllers\api\MethodPaymentsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,6 +41,8 @@ Route::apiResource('yachts', YachtsController::class);
 Route::apiResource('trips', TripsController::class);
 Route::apiResource('templates', TemplatesController::class);
 Route::apiResource('oceans', OceansController::class);
-
+Route::apiResource('method_payments', MethodPaymentsController::class);
+Route::get('orders/show/{sessionId}', [OrdersController::class, "showBySession"])
+    ->name('orders.showBySession');
 Route::apiResource('orders', OrdersController::class);
 Route::apiResource('booking', BooksController::class);

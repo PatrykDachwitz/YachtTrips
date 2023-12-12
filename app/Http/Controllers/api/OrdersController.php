@@ -40,6 +40,16 @@ class OrdersController extends Controller
     {
         //
     }
+    public function showBySession(string $sessionId)
+    {
+        $sessionIdCorrect = Session::getId();
+
+       /* if ($sessionId !== $sessionIdCorrect) {
+            return response(__('vue.errors_status.403'), 403);
+        }*/
+
+        return $this->orders->findBySession($sessionId);
+    }
 
     /**
      * Update the specified resource in storage.

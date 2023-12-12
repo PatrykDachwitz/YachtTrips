@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\YachtController;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\admin\ManagerFilesController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TripController as TripControllerClient;
 
 /*
@@ -30,9 +31,7 @@ Route::get('/trips', function () {
     return view('trips');
 });
 Route::get('/trips/{slug}', TripControllerClient::class);
-Route::get('/koszyk', function () {
-    return view('koszyk2');
-});
+Route::get('/koszyk', OrderController::class);
 
 Route::get('/{id}', PageController::class)
     ->name('pages');

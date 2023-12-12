@@ -1,11 +1,14 @@
 <?php
-
+declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\books\createRequest;
 use App\Repository\BooksRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Session;
+use Laravel\Sanctum\Sanctum;
 
 class BooksController extends Controller
 {
@@ -29,6 +32,14 @@ class BooksController extends Controller
      */
     public function store(createRequest $request)
     {
+        $sessionId = $request->only('session_id');
+        $sessionCorrect = Session::getId();
+
+        if(Gate::denies('create-books') && $sessionId['session_id'] !== $sessionCorrect) {
+            abort(425);
+        }
+
+
         $booking = $this->boking->create(
             $request->only([
                 'trip_id',

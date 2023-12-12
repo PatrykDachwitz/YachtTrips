@@ -11,6 +11,7 @@ class Book extends Model
     use HasFactory;
     use SoftDeletes;
 
+
     protected $casts = [
         "trip_id" => "integer",
         "order_id" => "integer",
@@ -29,4 +30,9 @@ class Book extends Model
       'created_at',
       'deleted_at',
     ];
+
+
+    public function trips() {
+        return $this->belongsTo(Trip::class, "trip_id", "id");
+    }
 }

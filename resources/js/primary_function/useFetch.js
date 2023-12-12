@@ -2,7 +2,9 @@ import {inject, ref, toValue, watchEffect} from "vue";
 import {addAlert} from "@/primary_function/alerts.js";
 
 
-
+function getCsrfToken() {
+    return document.querySelector('meta[name="X-CSRF-Token"]').content;
+}
 
 
 export function useFetch(url) {
@@ -135,6 +137,7 @@ export function useFetchPost(url, updateDate) {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            'X-CSRF-Token': getCsrfToken(),
         },
         body: updateDate,
     })

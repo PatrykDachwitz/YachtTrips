@@ -20,6 +20,8 @@
 <div style="display: none" data-language>
     @json(__('pages'))
 </div>
+<input type="hidden" value="{{ route('orders.showBySession', ['sessionId' => $sessionId]) }}" data-url-api/>
+
 @vite([
     'resources/sass/app.scss',
     'resources/js/app.js',

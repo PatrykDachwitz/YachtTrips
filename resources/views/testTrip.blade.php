@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
+<meta name="X-CSRF-Token" content="{{ csrf_token() }}">
 </head>
 <body>
 <div class="container-fluid d-flex flex-column m-0 p-0 overflow-hidden">

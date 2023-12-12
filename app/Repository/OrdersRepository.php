@@ -7,6 +7,8 @@ interface OrdersRepository
     public function get();
     public function findOrFail(int $id);
 
+    public function findBySession(string $sessionId);
+
     public function findOrCreatBySession(string $sessionId);
 
     public function destroy(int $id);
