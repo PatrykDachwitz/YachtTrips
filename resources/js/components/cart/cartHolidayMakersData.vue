@@ -1,34 +1,51 @@
 <script setup>
 import { inject, ref } from "vue";
 import CartContent from "@/components/cart/cartContent.vue";
+import PeopleHolidaysFullName from "@/components/cart/peopleHolidaysFullName.vue";
 
+const order = inject('order');
 const lang = inject('lang');
+const selectBook = ref(0);
+
+function getCountBooking() {
+    return order.value.books.length - 1;
+}
+function nextBook() {
+    let countBooking = getCountBooking();
+    selectBook.value++;
+    if (selectBook.value > countBooking) {
+        selectBook.value = 0;
+    }
+}
+
+function previousBook() {
+    let countBooking = getCountBooking();
+    selectBook.value--;
+    if (selectBook.value < 0) {
+        selectBook.value = countBooking;
+    }
+}
 </script>
 
 <template>
     <cart-content>
         <span class="fs-2"><strong>{{ lang['holidaysMarketsData'] }}</strong></span>
-        <div class="d-flex flex-column mt-3">
+        <div class="d-flex flex-column mt-3" v-if="order !== null">
 
-            <div class="shadow-sm d-flex justify-content-between align-items-center border-grayLight-1 p-2 overflow-hidden rounded-2 mb-2">
+            <template v-for="(booking, index) in order.books">
+                <div :class="'shadow-sm d-flex justify-content-center align-items-center border-grayLight-1 p-2 overflow-hidden rounded-2 mb-2 flex-column ' + [index === selectBook ? '' : 'd-none']">
 
-                <div class="fs-5">
-                    <strong>Wyceiczka na karaiby</strong>
-                </div>
-                <div>
-                    {{ lang['personal'] }}:&nbsp;<strong>dorosła</strong>
-                </div>
+                    <div class="d-flex align-items-center">
+                        <div class="btn-outline-dark fs-5 pointer" @click="previousBook"><strong>&lt;</strong></div>
+                        <span class="fs-3 mx-3">{{ booking.trips.name }}</span>
+                        <div class="btn-outline-dark fs-5 pointer" @click="nextBook"><strong>></strong></div>
+                    </div>
 
-                <div class="d-flex align-items-center">
-                    <label for="firstName" class="form-label m-0 p-0"><span>{{ lang['firstName'] }}:&nbsp;</span></label>
-                    <input type="text" class="form-control" id="firstName" name="firstName[]" :placeholder="lang['firstNameFake']" required>
+                    <people-holidays-full-name v-for="adult in booking.count_adult" age="adult" :book_id="booking.id"/>
+                    <people-holidays-full-name v-for="kid in booking.count_adult" age="kid" :book_id="booking.id"/>
                 </div>
-                <div class="d-flex align-items-center ms-2">
-                    <label for="firstName" class="form-label m-0 p-0">{{ lang['lastName'] }}:&nbsp;</label>
-                    <input type="text" class="form-control" id="firstName" name="lastName[]" :placeholder="lang['lastNameFake']" required>
-                </div>
+            </template>
 
-            </div>
         </div>
     </cart-content>
 </template>

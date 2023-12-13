@@ -29,8 +29,9 @@ function updateNextView() {
             updatePersonalData();
             break;
         case "cartDeliveryPayment":
+            currentView.value++;
             break;
-        case "cartPersonalData":
+        case "cartHolidayMakersData":
             break;
         default:
             currentView.value++;

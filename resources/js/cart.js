@@ -18,7 +18,7 @@ const availableView = ref([
     CartDeliveryPayment,
     CartHolidayMakersData,
 ]);
-const currentView = ref(0);
+const currentView = ref(3);
 const activeError = ref(false);
 
 createApp(cart)

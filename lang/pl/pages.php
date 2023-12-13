@@ -47,4 +47,6 @@ return [
   'check' => "Sprawdz",
   'correspondenceAddress' => "Adres korespondencji",
   'errorCart' => "Coś poszło nie tak, spróbuj jeszcze raz!",
+  'adult' => "dorosła",
+  'kid' => "dziecko",
 ];
