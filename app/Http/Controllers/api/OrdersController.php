@@ -50,8 +50,21 @@ class OrdersController extends Controller
 
         return $this->orders->findBySession($sessionId);
     }
-    public function updateBySession(string $sessionId)
+    public function updateBySession(UpdateRequest $updateRequest, string $sessionId)
     {
+        if ($this->orders->updateBySession($sessionId, $updateRequest->only([
+            'personal_mail',
+            'personal_phone',
+            'personal_first_name',
+            'personal_last_name',
+            'address',
+            'correspondenceAddress',
+        ]))) {
+            return response($this->orders->findBySession($sessionId), 200);
+        } else {
+            abort(500);
+        }
+
        /* $sessionCorrect = Session::getId();
 
         if($sessionId !== $sessionCorrect) {

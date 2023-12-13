@@ -91,10 +91,10 @@ export function useFetchPut(url, updateDate) {
         .then(response => {
             if (response.status === 200) {
                 addAlert(200);
-                console.log(response.json())
                 return response.json();
             } else {
                 addAlert(response.status);
+                errorPut.value = response.json();
                 throw Error(`${response.status}`);
             }
         })
@@ -105,7 +105,6 @@ export function useFetchPut(url, updateDate) {
             if (status.value === null) {
                 addAlert(500);
             }
-            errorPut.value = err;
         })
 
     return { dataPut, errorPut };

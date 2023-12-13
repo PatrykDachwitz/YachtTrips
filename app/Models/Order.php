@@ -21,10 +21,17 @@ class Order extends Model
         "personal_last_name" => 'string',
         "address" => 'string',
         "price" => 'integer',
+        "correspondenceAddress" => 'string',
     ];
 
     protected $fillable = [
-        "session_id"
+        "session_id",
+        "personal_mail",
+        "personal_phone",
+        "personal_first_name",
+        "personal_last_name",
+        'address',
+        'correspondenceAddress',
     ];
 
     protected $hidden = [

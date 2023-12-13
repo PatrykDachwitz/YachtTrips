@@ -20,7 +20,7 @@ class OrdersRepository implements \App\Repository\OrdersRepository
 
     public function findOrFail(int $id)
     {
-        // TODO: Implement findOrFail() method.
+        return $this->orders->findOrFail($id);
     }
 
     public function findOrCreatBySession(string $sessionId)
@@ -46,6 +46,8 @@ class OrdersRepository implements \App\Repository\OrdersRepository
         // TODO: Implement update() method.
     }
 
+
+
     public function findBySession(string $sessionId)
     {
 
@@ -53,5 +55,27 @@ class OrdersRepository implements \App\Repository\OrdersRepository
             ->with('books')
             ->where('session_id', $sessionId)
             ->first();
+    }
+
+    public function deincrementPrice(int $id,string $price)
+    {
+        $order = $this->findOrFail($id);
+
+        $order->price -= $price;
+        return $order->save();
+    }
+
+    public function updateBySession(string $sessionId, array $data)
+    {
+        $updateOrder = $this->findBySession($sessionId);
+
+        $updateOrder->personal_mail = $data['personal_mail'] ?? $updateOrder->personal_mail;
+        $updateOrder->personal_phone = $data['personal_phone'] ?? $updateOrder->personal_phone;
+        $updateOrder->personal_first_name = $data['personal_first_name'] ?? $updateOrder->personal_first_name;
+        $updateOrder->personal_last_name = $data['personal_last_name'] ?? $updateOrder->personal_last_name;
+        $updateOrder->address = $data['address'] ?? $updateOrder->address;
+        $updateOrder->correspondenceAddress = $data['correspondenceAddress'] ?? $updateOrder->correspondenceAddress;
+
+        return $updateOrder->save();
     }
 }

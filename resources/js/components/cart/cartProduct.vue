@@ -7,21 +7,23 @@ defineProps([
 
 const urlDeleteBooks = inject('urlDeleteBooks');
 const lang = inject('lang');
+const activeError = inject('activeError');
 const urlApi = inject('urlApi');
-
+function activeErrorInCart() {
+    activeError.value = true;
+    setTimeout(()=> {
+        activeError.value = false;
+    }, 500);
+}
 function deleteBook(idBook) {
     let date = new Date();
     let linkDeleteBook = `${urlDeleteBooks}${idBook}`;
-
-
     let { errors } = useFetchDeleted(linkDeleteBook);
 
     if (errors.value !== null) {
-        //Dodanie inforamcji o błędzie
+        activeErrorInCart();
     } else {
-        console.info(urlApi.value)
         urlApi.value += `?ts=${date.getTime()}`;
-        console.info(urlApi.value)
     }
 }
 

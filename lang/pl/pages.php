@@ -11,7 +11,7 @@ return [
   'firstNameFake' => 'Jan',
   'lastNameFake' => 'Kowalski',
   'emailFake' => 'jan.kowalski@gmail.com',
-  'numberPhoneFake' => '+48 123 123 123',
+  'numberPhoneFake' => '123 123 123',
   'contentsFake' => 'Przykładowa wiadomość ..',
   'next' => 'Następny',
   'previous' => 'Poprzedni',
@@ -46,4 +46,5 @@ return [
   'cost' => "Koszt",
   'check' => "Sprawdz",
   'correspondenceAddress' => "Adres korespondencji",
+  'errorCart' => "Coś poszło nie tak, spróbuj jeszcze raz!",
 ];

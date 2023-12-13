@@ -1,19 +1,32 @@
 <script setup>
-import { inject, ref } from "vue";
+import {inject, ref, watch} from "vue";
+import {CustomFormData} from "@/primary_function/CustomFormData.js";
+import {FormController} from "@/primary_function/formController.js";
 
 const lang = inject('lang');
 const order = inject('order');
 const availableView = inject('availableView');
 const currentView = inject('currentView');
+const urlUpdate = inject('urlUpdate');
+const urlApi = inject('urlApi');
+
 
 function updatePersonalData() {
-    const formWithUpdateData = document.querySelector('form[data-cart-personal-data-form]')
+    const form = new FormController('data-cart-personal-data-form', urlUpdate.value)
 
+    const { dataPut, errorPut } = form.update();
+
+    watch(dataPut, () => {
+        let date = new Date();
+        urlApi.value += `?ts=${date.getTime()}`;
+        currentView.value++;
+    })
 }
 function updateNextView() {
 
     switch (availableView.value[currentView.value].__name) {
         case "cartPersonalData":
+            updatePersonalData();
             break;
         case "cartDeliveryPayment":
             break;

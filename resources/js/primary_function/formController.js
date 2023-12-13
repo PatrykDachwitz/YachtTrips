@@ -4,6 +4,7 @@ import {useFetchPut} from "@/primary_function/useFetch.js";
 
 import {changeJsonToArray} from "@/primary_function/conversionType.js";
 import {CustomJson} from "@/primary_function/CustomJson.js";
+import data from "bootstrap/js/src/dom/data.js";
 export class FormController {
 
     mainForm;
@@ -138,12 +139,16 @@ export class FormController {
             this.updateIssetInput(dataPut);
         })
 
+        console.log(dataPut);
+
         watch(errorPut, () => {
+
             errorPut.value.then(test => {
                 this.updateErrorsInForm(test.errors);
             })
         })
 
+        return { dataPut, errorPut }
     }
 
     updateErrorsInForm(errors) {

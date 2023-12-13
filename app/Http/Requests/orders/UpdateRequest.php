@@ -2,9 +2,10 @@
 declare(strict_types=1);
 namespace App\Http\Requests\orders;
 
+use App\Rules\NumberPhoneRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class updateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +23,13 @@ class updateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "personal_mail" => ['required', "string"],
-            "personal_phone" => ['required', "string"],
+            "personal_mail" => ['required', "email"],
+            "personal_phone" => ['required', new NumberPhoneRule],
             "personal_first_name" => ['required', "string"],
             "personal_last_name" => ['required', "string"],
             "address" => ['required', "string"],
-            "price" => ['required', 'min:1', "integer"],
+            "correspondenceAddress" => ["string"],
+            "price" => ['min:1', "integer"],
         ];
     }
 }

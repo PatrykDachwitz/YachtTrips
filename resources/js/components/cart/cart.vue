@@ -6,6 +6,7 @@ import CartPersonalData from "@/components/cart/cartPersonalData.vue";
 import CartDeliveryPayment from "@/components/cart/cartDeliveryPayment.vue";
 import CartHolidayMakersData from "@/components/cart/cartHolidayMakersData.vue";
 
+const activeError = inject('activeError');
 const order = inject('order');
 const lang = inject('lang');
 const availableView = inject('availableView');
@@ -22,6 +23,12 @@ const list = ref([
 
 <template>
 
+    <div v-if="activeError === true" class="position-absolute top-0 start-0 min-vh-100 w-100 d-flex justify-content-center align-items-center" style="z-index: 99999999999">
+        <div class="bg-danger rounded-1 text-white py-2 px-5 fs-5">
+            <strong>{{ lang.errorCart }}</strong>
+        </div>
+    </div>
+
     <div class="d-flex justify-content-center my-3 d-none">
 
         <div class="position-relative">
@@ -29,8 +36,6 @@ const list = ref([
             <div class="test"></div>
             <div class="test bg-success w-50"></div>
         </div>
-
-
     </div>
     <div class="d-flex flex-column-reverse flex-lg-row cart-container-left justify-content-center">
         <div class="flex-1">

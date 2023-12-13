@@ -19,11 +19,13 @@ const availableView = ref([
     CartHolidayMakersData,
 ]);
 const currentView = ref(0);
+const activeError = ref(false);
 
 createApp(cart)
     .provide('lang', lang)
     .provide('order', order)
     .provide('urlApi', urlApi)
+    .provide('activeError', activeError)
     .provide('urlUpdate', urlUpdate)
     .provide('urlDeleteBooks', urlDeleteBooks)
     .provide('currentView', currentView)

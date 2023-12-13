@@ -33,7 +33,11 @@ class BooksRepository implements \App\Repository\BooksRepository
 
     public function destroy(int $id)
     {
-       return $this->booking->destroy($id);
+
+        $booking = $this->booking->findOrFail($id);
+        $this->orders->deincrementPrice($booking->order_id, $booking->price);
+
+        return $this->booking->destroy($id);
     }
 
     public function create(array $data)
