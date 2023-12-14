@@ -28,7 +28,9 @@ class BooksRepository implements \App\Repository\BooksRepository
 
     public function findOrFail(int $id)
     {
-        // TODO: Implement findOrFail() method.
+        return $this->booking
+            ->with('vacationers')
+            ->findOrFail($id);
     }
 
     public function destroy(int $id)

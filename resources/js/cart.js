@@ -10,7 +10,7 @@ import CartHolidayMakersData from "@/components/cart/cartHolidayMakersData.vue";
 const lang = ref(getLangContent());
 const { urlApi, urlUpdate } = getUrl();
 const urlDeleteBooks = getUrlByDataSetName('data-url-delete-book');
-
+console.error(urlApi);
 const {data: order} = useFetch(urlApi);
 const availableView = ref([
     CartSummary,

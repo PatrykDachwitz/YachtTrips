@@ -31,8 +31,11 @@ class Book extends Model
       'deleted_at',
     ];
 
-
     public function trips() {
         return $this->belongsTo(Trip::class, "trip_id", "id");
+    }
+
+    public function vacationers() {
+        return $this->hasMany(Vacationer::class);
     }
 }

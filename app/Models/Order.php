@@ -41,6 +41,8 @@ class Order extends Model
     ];
 
     public function books() {
-        return $this->hasMany(Book::class)->with('trips');
+        return $this->hasMany(Book::class)
+            ->with('trips')
+            ->with('vacationers');
     }
 }
