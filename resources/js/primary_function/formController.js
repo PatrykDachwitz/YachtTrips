@@ -140,6 +140,7 @@ export class FormController {
         })
 
         console.log(dataPut);
+        console.log(errorPut);
 
         watch(errorPut, () => {
 

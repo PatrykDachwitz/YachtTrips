@@ -25,12 +25,33 @@ function previousBook() {
         selectBook.value = countBooking;
     }
 }
+
+function getFirstPosition(booking, countVacationer, age) {
+    let countRegisterVacationer = 0;
+
+    if (booking.vacationers !== []) {
+        console.log(age)
+        booking.vacationers.forEach(vacationer => {
+            if (vacationer.age === age) countRegisterVacationer++;
+        });
+
+        let availableVacationer = countVacationer - countRegisterVacationer;
+
+        if (availableVacationer > 0) {
+            return availableVacationer
+        } else {
+            return 0;
+        }
+    } else {
+        return countVacationer;
+    }
+}
 </script>
 
 <template>
     <cart-content>
         <span class="fs-2"><strong>{{ lang['holidaysMarketsData'] }}</strong></span>
-        <div class="d-flex flex-column mt-3" v-if="order !== null">
+        <form class="d-flex flex-column mt-3" v-if="order !== null" data-cart-vacationers-data-form>
 
             <template v-for="(booking, index) in order.books">
                 <div :class="'shadow-sm d-flex justify-content-center align-items-center border-grayLight-1 p-2 overflow-hidden rounded-2 mb-2 flex-column ' + [index === selectBook ? '' : 'd-none']">
@@ -41,12 +62,13 @@ function previousBook() {
                         <div class="btn-outline-dark fs-5 pointer" @click="nextBook"><strong>></strong></div>
                     </div>
 
-                    <people-holidays-full-name v-for="adult in booking.count_adult" age="adult" :book_id="booking.id"/>
-                    <people-holidays-full-name v-for="kid in booking.count_adult" age="kid" :book_id="booking.id"/>
+                    <people-holidays-full-name v-for="vacationer in booking.vacationers" :vacationer="vacationer" :book_id="booking.id" />
+                    <people-holidays-full-name v-for="vacationer in (getFirstPosition(booking, booking.count_adult, 'adult'))" :vacationer="{age: 'adult'}" :book_id="booking.id"/>
+                    <people-holidays-full-name v-for="vacationer in (getFirstPosition(booking, booking.count_kids, 'kid'))" :vacationer="{age: 'kid'}" :book_id="booking.id"/>
                 </div>
             </template>
 
-        </div>
+        </form>
     </cart-content>
 </template>
 

@@ -10,6 +10,7 @@ import CartHolidayMakersData from "@/components/cart/cartHolidayMakersData.vue";
 const lang = ref(getLangContent());
 const { urlApi, urlUpdate } = getUrl();
 const urlDeleteBooks = getUrlByDataSetName('data-url-delete-book');
+const urlUpdateVacationers = getUrlByDataSetName('data-url-vacationers-updateGroup');
 console.error(urlApi);
 const {data: order} = useFetch(urlApi);
 const availableView = ref([
@@ -28,6 +29,7 @@ createApp(cart)
     .provide('activeError', activeError)
     .provide('urlUpdate', urlUpdate)
     .provide('urlDeleteBooks', urlDeleteBooks)
+    .provide('urlUpdateVacationers', urlUpdateVacationers)
     .provide('currentView', currentView)
     .provide('availableView', availableView)
     .mount("#cart")

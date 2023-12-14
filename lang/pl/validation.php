@@ -151,6 +151,7 @@ return [
     'ulid' => 'Pole :attribute musi być poprawnym ULID.',
     'uuid' => 'Pole :attribute musi być poprawnym UUID.',
     'phone_error_format' => 'Pole :attribute posiada niepopawny format.',
+    'age_not_available' => 'Wartość pola :attribute nie jest dostepna.',
 
     /*
     |--------------------------------------------------------------------------

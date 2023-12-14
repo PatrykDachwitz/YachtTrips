@@ -9,6 +9,7 @@ const availableView = inject('availableView');
 const currentView = inject('currentView');
 const urlUpdate = inject('urlUpdate');
 const urlApi = inject('urlApi');
+const urlUpdateVacationers = inject('urlUpdateVacationers');
 
 
 function updatePersonalData() {
@@ -22,6 +23,18 @@ function updatePersonalData() {
         currentView.value++;
     })
 }
+function updateVacationers() {
+    console.log(urlUpdateVacationers);
+    const form = new FormController('data-cart-vacationers-data-form', urlUpdateVacationers)
+
+    const { dataPut, errorPut } = form.update();
+
+   /* watch(dataPut, () => {
+        let date = new Date();
+        urlApi.value += `?ts=${date.getTime()}`;
+        currentView.value++;
+    })*/
+}
 function updateNextView() {
 
     switch (availableView.value[currentView.value].__name) {
@@ -32,6 +45,7 @@ function updateNextView() {
             currentView.value++;
             break;
         case "cartHolidayMakersData":
+            updateVacationers();
             break;
         default:
             currentView.value++;

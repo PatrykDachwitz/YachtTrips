@@ -20,6 +20,7 @@
 <input type="hidden" value="{{ route('orders.showBySession', ['sessionId' => $sessionId]) }}" data-url-api/>
 <input type="hidden" value="{{ route('orders.updateBySession', ['sessionId' => $sessionId]) }}" data-url-update/>
 <input type="hidden" value="{{ route('booking.index') . '/' }}" data-url-delete-book/>
+<input type="hidden" value="{{ route('vacationers.updateGroup') }}" data-url-vacationers-updateGroup/>
 
 
 

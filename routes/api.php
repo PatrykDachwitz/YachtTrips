@@ -1,17 +1,18 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\BannersController;
+use App\Http\Controllers\api\BooksController;
 use App\Http\Controllers\api\categoryBannersController;
 use App\Http\Controllers\api\FolderController;
-use App\Http\Controllers\api\YachtsController;
-use App\Http\Controllers\api\TripsController;
-use App\Http\Controllers\api\TemplatesController;
+use App\Http\Controllers\api\MethodPaymentsController;
 use App\Http\Controllers\api\OceansController;
 use App\Http\Controllers\api\OrdersController;
-use App\Http\Controllers\api\BooksController;
-use App\Http\Controllers\api\MethodPaymentsController;
+use App\Http\Controllers\api\TemplatesController;
+use App\Http\Controllers\api\TripsController;
+use App\Http\Controllers\api\VacationersController;
+use App\Http\Controllers\api\YachtsController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -48,3 +49,6 @@ Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySessi
     ->name('orders.updateBySession');
 Route::apiResource('orders', OrdersController::class);
 Route::apiResource('booking', BooksController::class);
+Route::apiResource('vacationers', VacationersController::class);
+Route::put('vacationers/update/group', [VacationersController::class, 'updateGroup'])
+    ->name('vacationers.updateGroup');
