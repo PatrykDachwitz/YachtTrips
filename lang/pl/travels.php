@@ -25,4 +25,6 @@ return [
     'startDay' => "Początkowa data",
     'endDay' => "Końcowa data",
     'dateRange' => "Zakres dat",
+    'optionsNotExpansion' => "Zmniejsz",
+    'optionsExpansion' => "Roszesz opcji filtracji",
 ];

@@ -7,6 +7,7 @@ import ProductsNavigation from "@/components/products/productsNavigation.vue";
 const products = inject('products');
 const lang = inject('language');
 
+console.log(products)
 </script>
 
 <template>

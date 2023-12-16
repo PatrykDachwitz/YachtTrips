@@ -11,7 +11,7 @@ function updateUrl(newUrl) {
 </script>
 
 <template>
-    <section class="w-100 d-flex justify-content-center mt-5">
+    <section class="w-100 d-flex justify-content-center mt-5" v-if="products.last_page > 1">
         <template v-for="(linkProducts, index) in products.links">
             <div class="mx-1">
                 {{ products.links.current_page}}

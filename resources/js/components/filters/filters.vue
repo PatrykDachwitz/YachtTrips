@@ -2,6 +2,7 @@
 
 import {inject, ref} from 'vue';
 import {getUrlByDataSetName, useFetch} from "@/primary_function/useFetch.js";
+import FilterVariable from "@/components/filters/filterVariable.vue";
 
 const oceansUrl = ref(getUrlByDataSetName('data-url-filters-oceans'));
 const yachtsUrl = ref(getUrlByDataSetName('data-url-filters-yachts'));
@@ -29,25 +30,18 @@ function updateUrlApi() {
         <div class="position-static bg-gray shadow p-4 m-3 m-xxl-4">
             <h2 class="fs-3">{{ lang['filters'] }}</h2>
             <hr />
-            <h4 class="fs-4">{{ lang['oceans'] }}</h4>
-            <div v-if="oceans !== null">
-                <div class="form-check" v-for="ocean in oceans">
-                    <input class="form-check-input" type="checkbox" :value="ocean.id" name="oceans[]" :data-ocean-id="ocean.id">
-                    <label class="form-check-label" :data-ocean-id="ocean.id">
-                        {{ ocean.name }}
-                    </label>
-                </div>
-            </div>
 
-            <h4 class="fs-4">{{ lang['yachts'] }}</h4>
-            <div v-if="yachts !== null">
-                <div class="form-check" v-for="yacht in yachts">
-                    <input class="form-check-input" type="checkbox" :value="yacht.id" name="yachts[]" :data-ocean-id="yacht.id">
-                    <label class="form-check-label" :data-ocean-id="yacht.id">
-                        {{ yacht.name }}
-                    </label>
-                </div>
-            </div>
+            <template v-if="oceans !== null">
+                <h4 class="fs-4">{{ lang['oceans'] }}</h4>
+
+                <filter-variable :variables="oceans" nameInput="oceans" />
+            </template>
+
+            <template v-if="yachts !== null">
+                <h4 class="fs-4">{{ lang['yachts'] }}</h4>
+
+                <filter-variable :variables="yachts" nameInput="yachts" />
+            </template>
 
             <h4 class="fs-4">{{ lang['dateRange'] }}</h4>
             <div>
