@@ -11,6 +11,7 @@ interface TripsRepository
     public function findOrFail(int $id);
 
     public function destroy(int $id);
+    public function getIdBySlug(string $slug);
 
     public function create(array $data);
     public function update(int $id, array $updateData);
