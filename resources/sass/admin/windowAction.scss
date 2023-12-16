@@ -2,10 +2,11 @@
     width: 95%;
     min-height: 90%;
     max-height: 90%;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 
     &Content {
         flex: 1;

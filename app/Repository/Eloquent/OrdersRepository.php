@@ -15,7 +15,7 @@ class OrdersRepository implements \App\Repository\OrdersRepository
 
     public function get()
     {
-        // TODO: Implement get() method.
+        $this->orders->get();
     }
 
     public function findOrFail(int $id)
@@ -33,7 +33,7 @@ class OrdersRepository implements \App\Repository\OrdersRepository
 
     public function destroy(int $id)
     {
-        // TODO: Implement destroy() method.
+        $this->orders->destroy($id);
     }
 
     public function create(array $data)

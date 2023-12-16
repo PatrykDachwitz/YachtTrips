@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\folders\CreateRequest;
 use App\Models\Folder;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class FolderController extends Controller
      */
     public function index()
     {
-       // return resource()
+
     }
 
 

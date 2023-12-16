@@ -5,7 +5,8 @@ defineProps([
     'file'
 ])
 const numberFile = ref(null);
-const selectedFiles = inject('selectedFiles');
+const selectedFiles = ref([])
+
 const activeSelected = inject('activeSelected');
 console.info(`selectedFiles: ${selectedFiles.value}`)
 function positionFiles() {
@@ -51,7 +52,7 @@ function updateFile(file) {
 </script>
 
 <template>
-    <div class="col-2 col-lg-1 overflow-hidden d-flex flex-column align-items-center justify-content-top p-1" @click="updateFile(file)" :data-file-id="file.id">
+    <div class="col-2 col-lg-1 overflow-hidden d-flex flex-column align-items-center justify-content-top p-1 single-element-file-manager" @click="updateFile(file)" :data-file-id="file.id">
         <div>
             <img :src="file.preview_path" width="70" height="70"/>
         </div>

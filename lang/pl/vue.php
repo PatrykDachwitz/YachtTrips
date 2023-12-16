@@ -45,4 +45,5 @@ return [
         "501" => "Serwer nie jest w stanie zrealizować żądania.",
         "503" => "Serwer jest chwilowo niedostępny.",
     ],
+    'previousFolder' => "Poprzedni folder",
 ];

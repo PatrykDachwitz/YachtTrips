@@ -1,44 +1,51 @@
 <script setup>
-import { ref, provide } from 'vue'
+import {ref, provide, watch} from 'vue'
 import {useFetch} from "@/primary_function/useFetch.js";
 import File from "@/admin/components/file_manager/file.vue";
-import Folder from "@/admin/components/file_manager/folder.vue";
-const folders = ref([]);
+import FoldersManager from "@/admin/components/file_manager/foldersManager.vue";
+import {getLangContent} from "@/primary_function/language.js";
+import NavBar from "@/admin/components/file_manager/navBar.vue";
+
 const url = ref('http://127.0.0.1:8000/api/folders/1');
 const { data, error} = useFetch(url);
+const lang = getLangContent();
 
+
+provide('data', data);
+provide('lang', lang);
+provide('url', url);
 provide("urlApiFileManager", url);
 
 </script>
 
 <template>
-    <div>
+
+    <div class="position-relative">
         <div class="bg-dark p-2 ps-3">
             <div class="fs-4 text-white">
                 Menadżer plików
             </div>
+            <nav-bar />
+        </div>
 
-            <div class="noTypicalBorder fs-4 pt-1">
-                <a class="pe-2"><b>&lt</b></a>
-                <a><b>></b></a>
-                <a class="ps-2"><b>+</b></a>
+
+        <div class="testDivStyle" v-if="data !== null">
+            <div class="bg-success min-vh-100 m-0 p-0 position-fixed w-100 sendContent" @click="console.log('test')">
+
+            </div>
+            <div class="row p-4 g-1 fielsCurretn">
+                <folders-manager />
+                <file v-for="file in data.content.files" :file="file" />
             </div>
         </div>
-
-        <div class="row p-4 g-1" v-if="data !== null">
-            <folder v-for="folder in data.folders" :folder="folder" />
-            <file v-for="file in data.content.files" :name="file.name" :src="file.preview_path" />
-
-        </div>
-
     </div>
 
 </template>
 
 <style scoped>
-.sendFile {
-
-
+.sendContent {
+max-width: 100%;
+z-index: 10;
 }
 .noTypicalBorder a {
     color: #fff;

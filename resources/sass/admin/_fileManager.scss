@@ -1,0 +1,11 @@
+$colorHoverElementFileManager: rgba(133,133,133, .3);
+
+.single-element-file-manager:hover {
+    background-color: $colorHoverElementFileManager;
+    border: 2px solid $colorHoverElementFileManager;
+    border-radius: 10px;
+}
+
+.single-element-file-manager {
+    z-index: 100;
+}

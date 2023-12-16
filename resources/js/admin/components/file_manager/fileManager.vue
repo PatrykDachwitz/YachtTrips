@@ -3,6 +3,7 @@ import {ref, provide, inject} from 'vue'
 import {useFetch} from "@/primary_function/useFetch.js";
 import File from "@/admin/components/file_manager/file.vue";
 import Folder from "@/admin/components/file_manager/folder.vue";
+import NavBar from "@/admin/components/file_manager/navBar.vue";
 
 const url = ref('http://127.0.0.1:8000/api/folders/1');
 const { data, error} = useFetch(url);
@@ -30,11 +31,7 @@ provide("urlApiFileManager", url);
                 </div>
             </div>
 
-            <div class="noTypicalBorder fs-4 pt-1">
-                <a class="pe-2"><b>&lt</b></a>
-                <a><b>></b></a>
-                <a class="ps-2"><b>+</b></a>
-            </div>
+            <nav-bar />
         </div>
 
         <div class="row p-4 g-1" v-if="data !== null">
