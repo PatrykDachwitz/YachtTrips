@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\MethodPayment;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(Ocean::class);
         $this->call(TripsRooms::class);
         $this->call(Gallery::class);
+
+        DB::table('method_payments')->truncate();
 
         MethodPayment::factory()->create([
             "id" => 1,

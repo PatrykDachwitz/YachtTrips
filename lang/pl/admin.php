@@ -33,7 +33,4 @@ return [
     'countDay' => "Ilość dni",
     'ocean' => "Ocean",
     'yacht' => "Jacht",
-
-    /*'category' => "Kategoria",
-    'category' => "Kategoria",*/
 ];

@@ -30,7 +30,8 @@ Route::get('/', MainPageController::class);
 Route::get('/trips', function () {
     return view('trips');
 });
-Route::get('/trips/{slug}', TripControllerClient::class);
+Route::get('/trips/{slug}', TripControllerClient::class)
+->name('trips.auction');
 Route::get('/koszyk', OrderController::class);
 
 Route::get('/{id}', PageController::class)

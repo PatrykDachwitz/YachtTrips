@@ -48,5 +48,11 @@ return [
   'correspondenceAddress' => "Adres korespondencji",
   'errorCart' => "Coś poszło nie tak, spróbuj jeszcze raz!",
   'adult' => "dorosła",
-  'kid' => "dziecko",
+  'countDay' => "Ilość dni",
+  'ocean' => "Ocean",
+  'yacht' => "Jacht",
+  'filters' => "Filtry",
+  'filtred' => "Filtruj",
+  'startDay' => "Początkowa data",
+  'endDay' => "Końcowa data",
 ];

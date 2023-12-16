@@ -3,3 +3,4 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Yacht Trips</title>
 <meta name="X-CSRF-Token" content="{{ csrf_token() }}">
+@vite(['resources/sass/app.scss'])

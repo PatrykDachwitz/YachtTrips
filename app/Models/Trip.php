@@ -14,6 +14,7 @@ class Trip extends Model
 
     protected $fillable = [
         'name',
+        'slug',
         'start_day',
         'end_day',
         'yacht_id',
@@ -24,6 +25,7 @@ class Trip extends Model
 
     protected $casts = [
       'name' => 'string',
+      'slug' => 'string',
       'start_day' => 'timestamp',
       'end_day' => 'timestamp',
       'yacht_id' => 'integer',
@@ -49,11 +51,22 @@ class Trip extends Model
     protected $appends = [
         'start_travel',
         'end_travel',
+        'url',
+        'minimal_price',
     ];
 
     public function getStartTravelAttribute() {
         $date = Carbon::createFromTimestamp($this->start_day);
         return $date->format('d-m-Y');
+    }
+    public function getUrlAttribute() {
+        return route('trips.auction', [
+            'slug' => $this->slug
+        ]);
+    }
+
+    public function getMinimalPriceAttribute() {
+        return ($this->rooms_active_min_room_tripprice + $this->price_adult);
     }
 
     public function getEndTravelAttribute() {
@@ -70,6 +83,7 @@ class Trip extends Model
     public function scopeAvailableRooms() {
         return $this
                 ->withMax('roomsActive', 'double_beds')
+                ->withMin('roomsActive', 'room_trip.price')
                 ->withMax('roomsActive', 'single_beds')
                 ->withMax('roomsActive', 'kids_beds')
                 ->withMax('roomsActive', 'adults')
@@ -89,7 +103,8 @@ class Trip extends Model
         return $this->belongsToMany(Room::class)
             ->wherePivot('available', true)
             ->withPivot('available')
-            ->withPivot('number_room');
+            ->withPivot('number_room')
+            ->withPivot('price');
     }
 
     public function oceans() {

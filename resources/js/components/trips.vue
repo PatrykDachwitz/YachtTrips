@@ -2,7 +2,7 @@
 
 import filters from '@/components/filters/filters.vue';
 import {inject, provide, ref} from "vue";
-import Calendar from "@/components/calendar.vue";
+import ListProducts from "@/components/products/listProducts.vue";
 
 //const filtersInputs = "data-url-filters"
 
@@ -21,8 +21,10 @@ provide('language', lang);
 </script>
 
 <template>
-    <div class="d-flex justify-content-between">
-        <calendar/>
+    <div class="d-flex justify-content-between align-items-start">
+
+        <filters />
+        <list-products />
 
     </div>
 </template>

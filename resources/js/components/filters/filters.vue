@@ -1,55 +1,35 @@
 <script setup>
 
-import {inject, ref, watch} from 'vue';
+import {inject, ref} from 'vue';
 import {getUrlByDataSetName, useFetch} from "@/primary_function/useFetch.js";
 
 const oceansUrl = ref(getUrlByDataSetName('data-url-filters-oceans'));
 const yachtsUrl = ref(getUrlByDataSetName('data-url-filters-yachts'));
 
-const { data: oceans, error: oceansError } = useFetch(oceansUrl);
-const { data: yachts, error: yachtsError } = useFetch(yachtsUrl);
+const { data: oceans } = useFetch(oceansUrl);
+const { data: yachts } = useFetch(yachtsUrl);
 
-console.log(`oceansUrl: ${oceansUrl.value}`);
-console.log(`yachtsUrl: ${yachtsUrl.value}`);
+const lang = inject('lang');
+const urlApi = inject('urlApi');
+const products = inject('products');
+function updateUrlApi() {
+    const formController = document.querySelector('form[data-form-files]');
+    const formInputs = new FormData(formController);
+    const searchParams = new URLSearchParams(formInputs);
 
-const lang = inject('language');
-const url = inject('language');
-
-function updateFilters() {
-    const oceans = document.querySelectorAll(`[name="oceans[]"]`)
-    const yachts = document.querySelectorAll(`[name="yachts[]"]`)
-    const startDay = document.querySelector('[name="start_day"]').value;
-    const endDay = document.querySelector('[name="end_day"]').value;
-
-
-    const oceansFilters = [];
-
-    oceans.forEach(ocean => {
-        if (ocean.checked === true) oceansFilters.push(ocean.value);
-    })
-
-    const yachtFilters = [];
-
-    yachts.forEach(yacht => {
-        if (yacht.checked === true) yachtFilters.push(yacht.value);
-    })
-
-
-
-    console.log('oceans');
-    console.log(oceansFilters);
-    console.log('yachts');
-    console.log(yachtFilters);
+    urlApi.value = `${products.value.path}?page=${products.value.current_page}&${searchParams.toString()}`;
 }
+
+
 
 </script>
 
 <template>
-    <div class="filters  d-flex justify-content-center rounded-2 overflow-hidden d-none d-lg-block">
+    <form class="filters  d-flex justify-content-center rounded-2 overflow-hidden d-none d-lg-block" data-form-files>
         <div class="position-static bg-gray shadow p-4 m-3 m-xxl-4">
-            <h2 class="fs-3">{{ lang.filters }}</h2>
+            <h2 class="fs-3">{{ lang['filters'] }}</h2>
             <hr />
-            <h4 class="fs-4">{{ lang.oceans }}</h4>
+            <h4 class="fs-4">{{ lang['oceans'] }}</h4>
             <div v-if="oceans !== null">
                 <div class="form-check" v-for="ocean in oceans">
                     <input class="form-check-input" type="checkbox" :value="ocean.id" name="oceans[]" :data-ocean-id="ocean.id">
@@ -59,7 +39,7 @@ function updateFilters() {
                 </div>
             </div>
 
-            <h4 class="fs-4">{{ lang.yachts }}</h4>
+            <h4 class="fs-4">{{ lang['yachts'] }}</h4>
             <div v-if="yachts !== null">
                 <div class="form-check" v-for="yacht in yachts">
                     <input class="form-check-input" type="checkbox" :value="yacht.id" name="yachts[]" :data-ocean-id="yacht.id">
@@ -69,27 +49,27 @@ function updateFilters() {
                 </div>
             </div>
 
-            <h4 class="fs-4">{{ lang.dateRange }}</h4>
+            <h4 class="fs-4">{{ lang['dateRange'] }}</h4>
             <div>
                 <div class="col-12">
-                    <label for="start_day" class="form-label mb-0">{{ lang.startDay }}</label>
+                    <label for="start_day" class="form-label mb-0">{{ lang['startDay'] }}</label>
                     <input type="text" class="form-control" id="created_at" name="start_day">
                 </div>
                 <hr class="my-2"/>
                 <div class="col-12">
-                    <label for="end_day" class="form-label mb-0">{{ lang.endDay }}</label>
+                    <label for="end_day" class="form-label mb-0">{{ lang['endDay'] }}</label>
                     <input type="text" class="form-control" id="end_day" name="end_day">
                 </div>
             </div>
 
             <div class="mt-3 w-100">
-                <a class="btn btn-outline-dark w-100" @click="updateFilters">
-                    {{ lang.filtred }}
+                <a class="btn btn-outline-dark w-100" @click="updateUrlApi">
+                    {{ lang['filtred'] }}
                 </a>
             </div>
 
         </div>
-    </div>
+    </form>
 </template>
 
 <style scoped>

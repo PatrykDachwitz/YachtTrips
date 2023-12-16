@@ -10,11 +10,16 @@
 
         </div>
     </div>
+    <div style="display: none" data-language>
+        @json(__('travels'))
+    </div>
 @endsection
 
 @section('script')
+
 @vite(['resources/js/trips.js'])
 
+<input type="hidden" value="{{ route('trips.index') }}" data-url-api/>
     <input type="hidden" value="{{ route('yachts.index') }}" name="yacht_id" data-url-filters-yachts>
 
 <input type="hidden" value="{{ route('oceans.index') }}" name="ocean_id" data-url-filters-oceans>
