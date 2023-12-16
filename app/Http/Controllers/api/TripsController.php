@@ -39,6 +39,8 @@ class TripsController extends Controller
             $filters = [];
         }
 
+//        return response($filters, 200);
+
         return response($this->trips->get(40, $filters), 200);
     }
 

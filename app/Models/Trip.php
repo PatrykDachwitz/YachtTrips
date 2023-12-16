@@ -53,6 +53,7 @@ class Trip extends Model
         'end_travel',
         'url',
         'minimal_price',
+        'images',
     ];
 
     public function getStartTravelAttribute() {
@@ -73,11 +74,19 @@ class Trip extends Model
         $date = Carbon::createFromTimestamp($this->end_day);
         return $date->format('d-m-Y');
     }
+    public function getImagesAttribute() {
+        return $this->belongsToMany(File::class);
+
+    }
 
     public function images() {
         return $this->belongsToMany(File::class)
             ->withPivot('default')
             ->orderByPivot('position');
+    }
+    public function imagesCategory() {
+        return $this->belongsToMany(File::class)
+            ->wherePivot('default', true);
     }
 
     public function scopeAvailableRooms() {

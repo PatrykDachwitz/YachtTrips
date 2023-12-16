@@ -55,7 +55,9 @@ class TripsRepository implements \App\Repository\TripsRepository
     {
         $trips = $this->useFilters($filters);
 
-        return $trips->paginate($paginated);
+        return $trips
+            ->with('imagesCategory')
+            ->paginate($paginated);
     }
 
     public function findOrFail(int $id)

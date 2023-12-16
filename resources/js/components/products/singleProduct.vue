@@ -11,10 +11,12 @@ const lang = inject('lang');
     <div class="col-6 col-md-4 col-lg-3 col-xxl-2">
         <div class=" shadow rounded-2 overflow-hidden shadow-sm">
 
-            <div>
+            <div v-if="product.images_category !== []">
 
-                <img src="http://127.0.0.1/slide1.jpg" width="245" height="150" class="w-100"/>
-
+                <picture v-for="image in product.images_category">
+                    <source :srcset="image.link_webp" type="image/webp">
+                    <img :src="image.link_image" width="245" height="150" class="w-100"/>
+                </picture>
             </div>
 
             <div class="p-2 d-flex ocean-content flex-column justify-content-between">
