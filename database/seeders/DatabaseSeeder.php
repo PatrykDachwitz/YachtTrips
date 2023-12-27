@@ -3,7 +3,8 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\MethodPayment;
+
+use Database\Seeders\files\CategoriesSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,34 +16,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(GeneratedBanners::class);
-        $this->call(File::class);
-        $this->call(Pages::class);
-        $this->call(Trips::class);
-        $this->call(Yacht::class);
-        $this->call(Ocean::class);
-        $this->call(TripsRooms::class);
-        $this->call(Gallery::class);
+        DB::table('books')->truncate();
+        DB::table('orders')->truncate();
+        DB::table('peoples')->truncate();
+        DB::table('vacationers')->truncate();
 
-        DB::table('method_payments')->truncate();
+        $this->call(FoldersSeeder::class);
+        $this->call(TemplatesSeeder::class);
+        $this->call(CategoryBannersSeeders::class);
+        $this->call(BannersSeeders::class);
+        $this->call(MethodsPaymentSeeder::class);
+        $this->call(OceanSeeder::class);
+        $this->call(PagesSeeder::class);
+        $this->call(RoomsSeeder::class);
+        $this->call(YachtsSeeder::class);
+        $this->call(TripsSeeder::class);
+        $this->call(FilesSeeder::class);
+        $this->call(BannersImagesSeeder::class);
+        $this->call(RoomTripSeeder::class);
 
-        MethodPayment::factory()->create([
-            "id" => 1,
-            "url_payment" => route('method_payments.show', [
-                'method_payment' => 1
-            ]),
-        ]);
-        MethodPayment::factory()->create([
-            "id" => 2,
-            "url_payment" => route('method_payments.show', [
-                'method_payment' => 2
-            ]),
-        ]);
-        MethodPayment::factory()->create([
-            "id" => 3,
-            "url_payment" => route('method_payments.show', [
-                'method_payment' => 3
-            ]),
-        ]);
+        DB::table('file_trip')->truncate();
+        $this->call(CategoriesTripSeeder::class);
+        $this->call(GalleryTripSeeder::class);
+
     }
 }

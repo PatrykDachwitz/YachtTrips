@@ -3,7 +3,9 @@ declare(strict_types=1);
 namespace Database\Factories;
 
 use Carbon\Carbon;
+use Illuminate\Bus\DatabaseBatchRepository;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -113,13 +115,28 @@ class TripFactory extends Factory
         $firstDayTrip = rand(5, 12);
         $lastDayTrip = (rand(5, 12) + $firstDayTrip);
 
+        $oceansId = (DB::table('oceans')
+            ->select('id')
+            ->get())->toArray();
+
+        $yachtsId = (DB::table('yachts')
+            ->select('id')
+            ->get())->toArray();
+
+        $templatesId = (DB::table('yachts')
+            ->select('id')
+            ->where('id', '>', 6)
+            ->get())->toArray();
+
+
+
         return [
             'name' => $currentName,
             'start_day' => Carbon::now()->addDays($firstDayTrip),
             'end_day' => Carbon::now()->addDays($lastDayTrip),
-            'yacht_id' => rand(1, 14),
-            'ocean_id' => rand(1, 14),
-            'template_id' => rand(1, 14),
+            'yacht_id' => $yachtsId[array_rand($yachtsId)]->id ?? 0,
+            'ocean_id' => $oceansId[array_rand($oceansId)]->id ?? 0,
+            'template_id' => $templatesId[array_rand($templatesId)]->id ?? 0,
             'count_day' => ($lastDayTrip - $firstDayTrip),
             'price_adult' => rand(100, 500),
             'price_kids' => rand(10, 200),
