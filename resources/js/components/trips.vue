@@ -1,7 +1,7 @@
 <script setup>
 
 import filters from '@/components/filters/filters.vue';
-import {inject, provide, ref} from "vue";
+import {inject, onMounted, provide, ref} from "vue";
 import ListProducts from "@/components/products/listProducts.vue";
 
 //const filtersInputs = "data-url-filters"

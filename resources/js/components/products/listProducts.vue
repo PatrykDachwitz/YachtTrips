@@ -1,5 +1,5 @@
 <script setup>
-import {inject, ref} from "vue";
+import {inject, onMounted, ref} from "vue";
 import SingleProduct from "@/components/products/singleProduct.vue";
 import Filters from "@/components/filters/filters.vue";
 import ProductsNavigation from "@/components/products/productsNavigation.vue";
@@ -7,7 +7,6 @@ import ProductsNavigation from "@/components/products/productsNavigation.vue";
 const products = inject('products');
 const lang = inject('language');
 
-console.log(products)
 </script>
 
 <template>

@@ -18,7 +18,7 @@
                 <hr class="text-white m-0 p-0" style="height: 3px" />
             </div>
             <ul class="list-unstyled d-flex flex-column flex-md-row justify-content-start my-2 ps-4 ps-md-0">
-                <li class="mb-1 mb-md-0 border-end-grayMenu-1"><a class="text-white text-decoration-none mx-2 fs-5" href="{{ route('trips.index') }}">@lang('menu.availableTrips')</a></li>
+                <li class="mb-1 mb-md-0 border-end-grayMenu-1"><a class="text-white text-decoration-none mx-2 fs-5" href="{{ route('page.trips.index') }}">@lang('menu.availableTrips')</a></li>
                 <li class="mb-1 mb-md-0 border-end-grayMenu-1" ><a class="text-white text-decoration-none mx-2 fs-5">@lang('menu.availableYachts')</a></li>
                 <li class="mb-1 mb-md-0" ><a class="text-white text-decoration-none mx-2 fs-5" >@lang('menu.availableOceans')</a></li>
             </ul>

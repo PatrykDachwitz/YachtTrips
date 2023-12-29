@@ -1,6 +1,6 @@
 <script setup>
 
-import {inject, ref} from 'vue';
+import {inject, ref, watch} from 'vue';
 import {getUrlByDataSetName, useFetch} from "@/primary_function/useFetch.js";
 import FilterVariable from "@/components/filters/filterVariable.vue";
 
@@ -21,7 +21,12 @@ function updateUrlApi() {
     urlApi.value = `${products.value.path}?page=${products.value.current_page}&${searchParams.toString()}`;
 }
 
-
+watch(oceans, () => {
+    const loadingPage = document.querySelector('div.loading-page');
+    setTimeout(()=> {
+        loadingPage.parentElement.removeChild(loadingPage);
+    }, 100);
+});
 
 </script>
 

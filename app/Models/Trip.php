@@ -61,7 +61,7 @@ class Trip extends Model
         return $date->format('d-m-Y');
     }
     public function getUrlAttribute() {
-        return route('trips.auction', [
+        return route('page.trips.show', [
             'slug' => $this->slug
         ]);
     }

@@ -1,5 +1,5 @@
 <script setup>
-import {inject} from "vue";
+import {inject, onMounted} from "vue";
 
 const products = inject('products');
 const urlApi = inject('urlApi');

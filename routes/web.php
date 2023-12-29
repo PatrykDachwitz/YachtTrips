@@ -33,7 +33,7 @@ Route::get('/', MainPageController::class);
 //Trips Controller
 Route::group([
     'prefix' => 'trips/',
-    'as' => "trips.",
+    'as' => "page.trips.",
 ], function () {
     Route::get('', [TripsController::class, 'index'])
         ->name('index');
