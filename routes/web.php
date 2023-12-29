@@ -11,6 +11,7 @@ use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\admin\ManagerFilesController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TripsController;
 use App\Http\Controllers\TripController as TripControllerClient;
 
 /*
@@ -29,13 +30,19 @@ use App\Http\Controllers\TripController as TripControllerClient;
 Route::get('/', MainPageController::class);
 
 
-Route::get('/trips', function () {
-    return view('trips');
-})->name('trips.index');
-Route::get('/trips/{slug}', TripControllerClient::class)
-->name('trips.auction');
-Route::get('/koszyk', OrderController::class);
+//Trips Controller
+Route::group([
+    'prefix' => 'trips/',
+    'as' => "trips.",
+], function () {
+    Route::get('', [TripsController::class, 'index'])
+        ->name('index');
+    Route::get('{slug}', [TripsController::class, 'show'])
+        ->name('show');
+});
 
+//Pages and cart Controller
+Route::get('/koszyk', OrderController::class);
 Route::get('/{slug}', PageController::class)
     ->name('pages');
 
