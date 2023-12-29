@@ -14,6 +14,7 @@ class YachtsSeeder extends Seeder
     {
         $yachts = [
             [
+                'id' => 12,
                 "name" => 'aquavista_mobile',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -23,6 +24,7 @@ class YachtsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 13,
                 "name" => 'aquavista_pc',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -32,6 +34,7 @@ class YachtsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 14,
                 "name" => 'seaserenity_mobile',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -41,6 +44,7 @@ class YachtsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 15,
                 "name" => 'seaserenity_pc',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -50,6 +54,7 @@ class YachtsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 16,
                 "name" => 'starbreeze_mobile',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -59,6 +64,7 @@ class YachtsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 17,
                 "name" => 'starbreeze_pc',
                 "extension" => 'jpg',
                 'path' => '/files/banners',

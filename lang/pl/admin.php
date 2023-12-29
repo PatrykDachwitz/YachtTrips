@@ -31,6 +31,6 @@ return [
     'startDay' => "Pierwszy dzień",
     'endDay' => "Ostatni dzień",
     'countDay' => "Ilość dni",
-    'ocean' => "OceanSeeder",
+    'ocean' => "Ocean",
     'yacht' => "Jacht",
 ];

@@ -14,6 +14,7 @@ class WhySeeder extends Seeder
     {
         $why = [
             [
+                'id' => 9,
                 "name" => 'why_mobile',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -23,6 +24,7 @@ class WhySeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 10,
                 "name" => 'why_tablet',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -32,6 +34,7 @@ class WhySeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 11,
                 "name" => 'why_pc',
                 "extension" => 'jpg',
                 'path' => '/files/banners',

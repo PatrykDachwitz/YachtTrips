@@ -14,6 +14,7 @@ class ReviewsSeeder extends Seeder
     {
         $reviews = [
             [
+                'id' => 18,
                 "name" => 'people_1',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -23,6 +24,7 @@ class ReviewsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 19,
                 "name" => 'people_2',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -32,6 +34,7 @@ class ReviewsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 20,
                 "name" => 'people_3',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -41,6 +44,7 @@ class ReviewsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 21,
                 "name" => 'people_4',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -50,6 +54,7 @@ class ReviewsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 22,
                 "name" => 'people_5',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -59,6 +64,7 @@ class ReviewsSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 23,
                 "name" => 'people_6',
                 "extension" => 'jpg',
                 'path' => '/files/banners',

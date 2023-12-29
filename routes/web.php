@@ -27,14 +27,16 @@ use App\Http\Controllers\TripController as TripControllerClient;
 
 //MainPage
 Route::get('/', MainPageController::class);
+
+
 Route::get('/trips', function () {
     return view('trips');
-});
+})->name('trips.index');
 Route::get('/trips/{slug}', TripControllerClient::class)
 ->name('trips.auction');
 Route::get('/koszyk', OrderController::class);
 
-Route::get('/{id}', PageController::class)
+Route::get('/{slug}', PageController::class)
     ->name('pages');
 
 //CMS routing

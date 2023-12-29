@@ -24,9 +24,9 @@ class FilesSeeder extends Seeder
 
         $this->call(MainBannersSeeder::class);
         $this->call(OceansSeeder::class);
-        $this->call(ReviewsSeeder::class);
-        $this->call(WhySeeder::class);
         $this->call(YachtsSeeder::class);
+        $this->call(WhySeeder::class);
+        $this->call(ReviewsSeeder::class);
         $this->call(CategoriesSeeder::class);
         $this->call(GallerySeeder::class);
     }

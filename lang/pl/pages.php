@@ -49,7 +49,7 @@ return [
   'errorCart' => "Coś poszło nie tak, spróbuj jeszcze raz!",
   'adult' => "dorosła",
   'countDay' => "Ilość dni",
-  'ocean' => "OceanSeeder",
+  'ocean' => "Ocean",
   'yacht' => "Jacht",
   'filters' => "Filtry",
   'filtred' => "Filtruj",

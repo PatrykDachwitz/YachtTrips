@@ -19,6 +19,8 @@ use App\Repository\OrdersRepository as OrdersRepositoryInterface;
 use App\Repository\Eloquent\OrdersRepository;
 use App\Repository\BooksRepository as BooksRepositoryInterface;
 use App\Repository\Eloquent\BooksRepository;
+use App\Repository\PagesRepository as PagesRepositoryInterface;
+use App\Repository\Eloquent\PagesRepository;
 class RepositoryProvider extends ServiceProvider
 {
     /**
@@ -68,6 +70,11 @@ class RepositoryProvider extends ServiceProvider
         $this->app->singleton(
             BooksRepositoryInterface::class,
             BooksRepository::class
+        );
+
+        $this->app->singleton(
+            PagesRepositoryInterface::class,
+            PagesRepository::class
         );
     }
 }

@@ -30,6 +30,6 @@ class OceanSeeder extends Seeder
         ];
 
         DB::table('oceans')->truncate();
-        DB::table('oceans')->insertOrIgnore($oceans);
+        DB::table('oceans')->insert($oceans);
     }
 }

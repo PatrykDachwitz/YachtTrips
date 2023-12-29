@@ -1,12 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
     @include('elements.header')
 </head>
 <body>
 <div class="container-fluid d-flex flex-column m-0 p-0 overflow-hidden">
-    @include('elements.menu')
 
+    @include('elements.menu', [
+    'backGroundColor' => "bg-gray"
+    ])
 
     @section('content')
         @foreach($contents as $content)
@@ -15,12 +17,13 @@
             ])
         @endforeach
     @show
+
 </div>
 @include('elements.footer')
 
-@vite([ 'resources/sass/app.scss',
-                'resources/js/mainPage.js',
-                'resources/js/app.js',
-])
+@vite([
+    'resources/js/mainPage.js',
+    'resources/js/app.js',
+    ])
 </body>
 </html>

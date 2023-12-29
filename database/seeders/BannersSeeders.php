@@ -25,28 +25,28 @@ class BannersSeeders extends Seeder
                 Gwarantujemy niezapomnianą podróż!
                 </div>
                 <div>
-                    <a class="btn btn-light text-dark fs-4">Rezerwuj teraz!</a>
+                    <a class="btn btn-light text-dark fs-5">Rezerwuj teraz!</a>
                 </div>
                 '),
                 "category_banner_id" => 1,
             ], [
-                "name" => "OceanSeeder Spokojny",
+                "name" => "Ocean Spokojny",
                 "description" => null,
                 "category_banner_id" => 2,
             ], [
-                "name" => "OceanSeeder Atlantycki",
+                "name" => "Ocean Atlantycki",
                 "description" => null,
                 "category_banner_id" => 2,
             ], [
-                "name" => "OceanSeeder Indyjski",
+                "name" => "Ocean Indyjski",
                 "description" => null,
                 "category_banner_id" => 2,
             ], [
-                "name" => "OceanSeeder Arktyczny",
+                "name" => "Ocean Arktyczny",
                 "description" => null,
                 "category_banner_id" => 2,
             ], [
-                "name" => "OceanSeeder Południowy",
+                "name" => "Ocean Południowy",
                 "description" => null,
                 "category_banner_id" => 2,
             ], [

@@ -14,6 +14,7 @@ class MainBannersSeeder extends Seeder
     {
         $mainBanners = [
             [
+                'id' => 1,
                 "name" => 'banner_main_pc',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -23,6 +24,7 @@ class MainBannersSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 2,
                 "name" => 'banner_main_tablet',
                 "extension" => 'jpg',
                 'path' => '/files/banners',
@@ -32,6 +34,7 @@ class MainBannersSeeder extends Seeder
                 'mime' => "image/jpg",
                 'folder_id' => 2
             ], [
+                'id' => 3,
                 "name" => 'banner_main_mobile',
                 "extension" => 'jpg',
                 'path' => '/files/banners',

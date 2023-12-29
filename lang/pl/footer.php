@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'companyName' => 'BoatsTrip Sp.z.o.o.k',
+    'companyName' => 'YachtTrip Sp.z.o.o.k',
     'companyStreet' => 'ul. warszawska 23, Warszawska',
     'companyCityAndPostalCode' => '64-200 Warszawa',
     'companyNip' => 'NIP: 123-123-123',

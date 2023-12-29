@@ -9,8 +9,8 @@
 
     @section('content')
         @isset($content)
-            <div class="d-flex container-fluid justify-content-center">
-                <div class="container-1920 p-5">
+            <div class="d-flex container-fluid justify-content-center" style="margin-top: 65px">
+                <div class="container-1920 px-5 pb-5 pt-3">
                     <h1 class="fs-1 pb-3"><strong>{{ $content->name }}</strong></h1>
                     <div>{!! $content->description ?? "" !!}</div>
                 </div>

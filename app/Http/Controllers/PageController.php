@@ -3,27 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Repository\PagesRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Exception;
 class PageController extends Controller
 {
+    private $pages;
+    public function __construct(PagesRepository $pages)
+    {
+        $this->pages = $pages;
+    }
+
     /**
      * Handle the incoming request.
      */
-    public function __invoke(string $id)
+    public function __invoke(string $slug)
     {
-        $pages = new Page();
+        $pages = $this->pages
+        ->getBySlug($slug);
 
-        try {
-            $searchPage = $pages->findOrFail($id);
-        } catch (ModelNotFoundException) {
-            abort(404);
-        } catch (Exception) {
-            abort(404);
-        }
+        if (is_null($pages)) abort(404);
+
         return view('pages', [
-            'content' => $searchPage
+            'content' => $pages
         ]);
     }
 }
