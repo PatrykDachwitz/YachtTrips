@@ -5,9 +5,12 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\oceans\CreatedRequest;
 use App\Http\Requests\oceans\UpdateRequest;
+use App\Models\User;
 use App\Repository\OceansRepository;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 
 class OceansController extends Controller
 {
@@ -15,6 +18,8 @@ class OceansController extends Controller
 
     public function __construct(OceansRepository $oceansRepository) {
         $this->ocean = $oceansRepository;
+        $user = User::find(1);
+        Auth::login($user);
     }
 
     /**
@@ -59,6 +64,7 @@ class OceansController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
+        if (Gate::denies('oceans.update')) abort(403);
         $ocean = [];
 
         try {

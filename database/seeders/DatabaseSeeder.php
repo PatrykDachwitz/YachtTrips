@@ -39,5 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesTripSeeder::class);
         $this->call(GalleryTripSeeder::class);
 
+        $this->call(AdminSeeder::class);
+
     }
 }

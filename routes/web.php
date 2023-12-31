@@ -13,6 +13,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TripsController;
 use App\Http\Controllers\TripController as TripControllerClient;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,11 @@ use App\Http\Controllers\TripController as TripControllerClient;
 
 
 //MainPage
-Route::get('/', MainPageController::class);
-
+Route::middleware('auth:sanctum')->get('/', MainPageController::class);
+Route::view('/login', "login")
+    ->name('login');
+Route::POST('/login', LoginController::class)
+    ->name('login');
 
 //Trips Controller
 Route::group([
