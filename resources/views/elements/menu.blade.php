@@ -1,4 +1,4 @@
-<nav class="menu d-flex flex-wrap w-100 z-1 justify-content-center position-fixed py-2 {{ $backGroundColor ?? 'bg-dark' }}">
+<nav class="menu d-flex flex-wrap w-100 z-1 justify-content-center position-fixed py-2 top-0 {{ $backGroundColor ?? 'bg-dark' }}">
     <div class="d-flex w-100 px-2 align-items-center" style="max-width: 1920px">
         <a class="fs-5 text-decoration-none text-white" href="/">
             <picture>

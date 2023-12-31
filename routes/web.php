@@ -40,11 +40,12 @@ Route::group([
     Route::get('{slug}', [TripsController::class, 'show'])
         ->name('show');
 });
-
+Route::view('/tript', 'templateTrips');
 //Pages and cart Controller
 Route::get('/koszyk', OrderController::class);
 Route::get('/{slug}', PageController::class)
     ->name('pages');
+
 
 //CMS routing
 Route::group([
@@ -168,4 +169,5 @@ Route::group([
     });
 
 });
+
 
