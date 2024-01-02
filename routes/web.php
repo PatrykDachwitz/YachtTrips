@@ -28,7 +28,8 @@ use App\Http\Controllers\Auth\LoginController;
 
 
 //MainPage
-Route::middleware('auth:sanctum')->get('/', MainPageController::class);
+Route::get('/', MainPageController::class);
+
 Route::view('/login', "login")
     ->name('login');
 Route::POST('/login', LoginController::class)
@@ -53,8 +54,9 @@ Route::get('/{slug}', PageController::class)
 
 //CMS routing
 Route::group([
- "as" => "admin.",
- "prefix" => "admin/"
+     "as" => "admin.",
+     "prefix" => "admin/",
+    "middleware" => "auth:sanctum"
 ], function () {
     Route::get('file_manager', ManagerFilesController::class);
 

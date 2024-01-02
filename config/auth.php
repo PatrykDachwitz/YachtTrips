@@ -111,5 +111,12 @@ return [
     */
 
     'password_timeout' => 10800,
-
+    'security_level' => [
+        "api" => [
+            'view' => env('security_level_api_view', 0),
+            'update' => env('security_level_api_update', 1),
+            'delete' => env('security_level_api_delete', 2),
+            'create' => env('security_level_api_create', 1),
+        ]
+    ]
 ];

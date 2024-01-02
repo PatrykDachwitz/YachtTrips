@@ -8,6 +8,7 @@ use App\Http\Requests\templates\UpdateRequest;
 use App\Repository\TemplatesRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
+use Illuminate\Support\Facades\Gate;
 
 class TemplatesController extends Controller
 {
@@ -30,7 +31,7 @@ class TemplatesController extends Controller
      */
     public function store(CreatedRequest $request)
     {
-
+        if(Gate::denies('api.create')) abort(403);
         try {
             $id = $this->templates->create($request->only([
                 'name',
@@ -48,8 +49,9 @@ class TemplatesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
+        if(Gate::denies('api.view')) abort(403);
         return response($this->templates->findOrFail($id), 200);
     }
 
@@ -58,6 +60,7 @@ class TemplatesController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
+        if(Gate::denies('api.update')) abort(403);
         $template = [];
 
         try {
@@ -79,6 +82,7 @@ class TemplatesController extends Controller
      */
     public function destroy(int $id)
     {
+        if(Gate::denies('api.delete')) abort(403);
         if ($this->templates->destroy($id)) {
             return response('success', 200);
         } else {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ReservationsController extends Controller
 {
@@ -20,7 +21,7 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Gate::denies('api.create')) abort(403);
     }
 
     /**
@@ -28,7 +29,7 @@ class ReservationsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if(Gate::denies('api.view')) abort(403);
     }
 
     /**
@@ -36,7 +37,7 @@ class ReservationsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if(Gate::denies('api.update')) abort(403);
     }
 
     /**
@@ -44,6 +45,6 @@ class ReservationsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if(Gate::denies('api.delete')) abort(403);
     }
 }

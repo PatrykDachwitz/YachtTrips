@@ -18,8 +18,6 @@ class OceansController extends Controller
 
     public function __construct(OceansRepository $oceansRepository) {
         $this->ocean = $oceansRepository;
-        $user = User::find(1);
-        Auth::login($user);
     }
 
     /**
@@ -36,7 +34,7 @@ class OceansController extends Controller
      */
     public function store(CreatedRequest $request)
     {
-
+        if(Gate::denies('api.create')) abort(403);
         try {
             $id = $this->ocean->create($request->only([
                 'name'
@@ -55,6 +53,7 @@ class OceansController extends Controller
      */
     public function show(int $id)
     {
+        if(Gate::denies('api.view')) abort(403);
         return response($this->ocean->findOrFail($id), 200);
     }
 
@@ -64,7 +63,8 @@ class OceansController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
-        if (Gate::denies('oceans.update')) abort(403);
+        if(Gate::denies('api.update')) abort(403);
+
         $ocean = [];
 
         try {
@@ -85,6 +85,7 @@ class OceansController extends Controller
      */
     public function destroy(int $id)
     {
+        if(Gate::denies('api.delete')) abort(403);
         if ($this->ocean->destroy($id)) {
             return response('success', 200);
         } else {

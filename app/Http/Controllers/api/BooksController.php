@@ -32,12 +32,8 @@ class BooksController extends Controller
      */
     public function store(createRequest $request)
     {
-        $sessionId = $request->only('session_id');
-        $sessionCorrect = Session::getId();
 
-        if(Gate::denies('create-books') && $sessionId['session_id'] !== $sessionCorrect) {
-            abort(425);
-        }
+        if(Gate::denies('api.create') && $request->input('session_id') !== Session::getId()) abort(403);
 
 
         $booking = $this->boking->create(
@@ -63,6 +59,8 @@ class BooksController extends Controller
      */
     public function show(int $id)
     {
+        if(Gate::denies('api.view')) abort(403);
+
         return $this->boking
             ->findOrFail($id);
     }
@@ -72,7 +70,7 @@ class BooksController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if(Gate::denies('api.update')) abort(403);
     }
 
     /**
@@ -80,6 +78,8 @@ class BooksController extends Controller
      */
     public function destroy(int $id)
     {
+        if(Gate::denies('api.delete')) abort(403);
+
         if ($this->boking->destroy($id)) {
             return response('success', 200);
         } else {

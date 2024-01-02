@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\orders\updateRequest;
 use App\Repository\OrdersRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 
 class OrdersController extends Controller
@@ -30,7 +31,7 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Gate::denies('api.create')) abort(403);
     }
 
     /**
@@ -38,20 +39,23 @@ class OrdersController extends Controller
      */
     public function show(string $id)
     {
-        //
+        if(Gate::denies('api.view')) abort(403);
     }
     public function showBySession(string $sessionId)
     {
-        /*$sessionCorrect = Session::getId();
-
-        if($sessionId !== $sessionCorrect) {
+        if($sessionId !== \session()->getId()) {
             abort(425);
-        }*/
+        }
 
         return $this->orders->findBySession($sessionId);
     }
     public function updateBySession(UpdateRequest $updateRequest, string $sessionId)
     {
+
+        if($sessionId !== \session()->getId()) {
+            abort(425);
+        }
+
         if ($this->orders->updateBySession($sessionId, $updateRequest->only([
             'personal_mail',
             'personal_phone',
@@ -65,11 +69,6 @@ class OrdersController extends Controller
             abort(500);
         }
 
-       /* $sessionCorrect = Session::getId();
-
-        if($sessionId !== $sessionCorrect) {
-            abort(425);
-        }*/
 
         return $this->orders->findBySession($sessionId);
     }
@@ -79,6 +78,7 @@ class OrdersController extends Controller
      */
     public function update(updateRequest $request, int $id)
     {
+        if(Gate::denies('api.update')) abort(403);
 //        "trip_id" => ['required', 'min:1', "integer"],
 //            "number_room" => ['required', 'min:1', "integer"],
 //            "count_adult" => ['required', 'min:1', "integer"],
@@ -90,16 +90,11 @@ class OrdersController extends Controller
 
     }
 
-    public function updateBySessionId(updateRequest $request, string $sessionId) {
-
-
-        return response(json_encode($sessionId));
-    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        if(Gate::denies('api.delete')) abort(403);
     }
 }

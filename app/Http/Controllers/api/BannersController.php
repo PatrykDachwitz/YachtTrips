@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\banners\CreatedRequest;
 use App\Http\Requests\banners\UpdateRequest;
 use App\Repository\BannersRepository;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
 
@@ -30,6 +31,7 @@ class BannersController extends Controller
      */
     public function store(CreatedRequest $request)
     {
+        if(Gate::denies('api.create')) abort(403);
 
         try {
             $id = $this->banners->create($request->only([
@@ -54,6 +56,8 @@ class BannersController extends Controller
      */
     public function show(int $id)
     {
+        if(Gate::denies('api.view')) abort(403);
+
         return response($this->banners->findOrFail($id), 200);
     }
 
@@ -64,6 +68,7 @@ class BannersController extends Controller
 
     public function update(UpdateRequest $request, int $id)
     {
+        if(Gate::denies('api.update')) abort(403);
         $banner = [];
 
         try {
@@ -92,6 +97,8 @@ class BannersController extends Controller
      */
     public function destroy(int $id)
     {
+        if(Gate::denies('api.delete')) abort(403);
+
         if ($this->banners->destroy($id)) {
             return response('success', 200);
         } else {

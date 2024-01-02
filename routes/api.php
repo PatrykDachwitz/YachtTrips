@@ -24,31 +24,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
 
 Route::group([
-    'prefix' => "banners/",
-    "as" => "banners."
+    'middleware' => "auth:sanctum"
 ], function () {
-    Route::apiResource('category', categoryBannersController::class);
+    Route::group([
+        'prefix' => "banners/",
+        "as" => "banners."
+    ], function () {
+        Route::apiResource('category', categoryBannersController::class);
+    });
+
+    Route::apiResource('banners', BannersController::class);
+
+    Route::apiResource('folders', FolderController::class);
+    Route::apiResource('yachts', YachtsController::class);
+    Route::apiResource('trips', TripsController::class);
+    Route::apiResource('templates', TemplatesController::class);
+    Route::apiResource('oceans', OceansController::class);
+    Route::apiResource('method_payments', MethodPaymentsController::class);
+
+    Route::apiResource('orders', OrdersController::class);
+    Route::apiResource('booking', BooksController::class);
+    Route::apiResource('vacationers', VacationersController::class);
 });
 
-Route::apiResource('banners', BannersController::class);
-
-Route::apiResource('folders', FolderController::class);
-Route::apiResource('yachts', YachtsController::class);
-Route::apiResource('trips', TripsController::class);
-Route::apiResource('templates', TemplatesController::class);
-Route::apiResource('oceans', OceansController::class);
-Route::apiResource('method_payments', MethodPaymentsController::class);
+Route::put('vacationers/update/group', [VacationersController::class, 'updateGroup'])
+    ->name('vacationers.updateGroup');
 Route::get('orders/show/{sessionId}', [OrdersController::class, "showBySession"])
     ->name('orders.showBySession');
 Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySession"])
     ->name('orders.updateBySession');
-Route::apiResource('orders', OrdersController::class);
-Route::apiResource('booking', BooksController::class);
-Route::apiResource('vacationers', VacationersController::class);
-Route::put('vacationers/update/group', [VacationersController::class, 'updateGroup'])
-    ->name('vacationers.updateGroup');

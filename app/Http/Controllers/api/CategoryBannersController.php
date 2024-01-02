@@ -8,6 +8,7 @@ use App\Repository\CategoryBannersRepository;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class categoryBannersController extends Controller
 {
@@ -30,6 +31,7 @@ class categoryBannersController extends Controller
      */
     public function store(Request $request)
     {
+        if(Gate::denies('api.create')) abort(403);
         try {
             $id = $this->category->create($request->only([
                 'name',
@@ -51,6 +53,8 @@ class categoryBannersController extends Controller
      */
     public function show(int $id)
     {
+        if(Gate::denies('api.view')) abort(403);
+
         return response($this->category->findOrFail($id), 200);
     }
 
@@ -60,6 +64,8 @@ class categoryBannersController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
+        if(Gate::denies('api.update')) abort(403);
+
         $banner = [];
 
         try {
@@ -83,6 +89,8 @@ class categoryBannersController extends Controller
      */
     public function destroy(int $id)
     {
+        if(Gate::denies('api.delete')) abort(403);
+
         if ($this->category->destroy($id)) {
             return response('success', 200);
         } else {

@@ -8,6 +8,7 @@ use App\Http\Requests\yachts\UpdateRequest;
 use App\Repository\Eloquent\YachtsRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
+use Illuminate\Support\Facades\Gate;
 
 class YachtsController extends Controller
 {
@@ -31,6 +32,8 @@ class YachtsController extends Controller
     public function store(CreatedRequest $request)
     {
 
+        if(Gate::denies('api.create')) abort(403);
+
         try {
             $id = $this->yachts->create($request->only([
                 'name',
@@ -48,8 +51,10 @@ class YachtsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
+        if(Gate::denies('api.view')) abort(403);
+
         return response($this->yachts->findOrFail($id), 200);
     }
 
@@ -58,6 +63,7 @@ class YachtsController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
+        if(Gate::denies('api.update')) abort(403);
         $yacht = [];
 
         try {
@@ -79,6 +85,7 @@ class YachtsController extends Controller
      */
     public function destroy(int $id)
     {
+        if(Gate::denies('api.delete')) abort(403);
         if ($this->yachts->destroy($id)) {
             return response('success', 200);
         } else {

@@ -11,6 +11,7 @@ use App\Repository\TripsRepository;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
+use Illuminate\Support\Facades\Gate;
 use MongoDB\Driver\Query;
 
 class TripsController extends Controller
@@ -26,6 +27,7 @@ class TripsController extends Controller
      */
     public function index(FiltersRequest $request)
     {
+
         try {
             $filters = $request->only([
                 'filters.start_day',
@@ -49,6 +51,8 @@ class TripsController extends Controller
      */
     public function store(CreatedRequest $request)
     {
+
+        if(Gate::denies('api.create')) abort(403);
 
         try {
             $id = $this->trips->create($request->only([
@@ -74,6 +78,7 @@ class TripsController extends Controller
      */
     public function show(int $id)
     {
+        if(Gate::denies('api.view')) abort(403);
         return response($this->trips->findOrFail($id), 200);
     }
 
@@ -82,6 +87,8 @@ class TripsController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
+        if(Gate::denies('api.update')) abort(403);
+
         $trip = [];
 
         try {
@@ -108,6 +115,7 @@ class TripsController extends Controller
      */
     public function destroy(int $id)
     {
+        if(Gate::denies('api.delete')) abort(403);
         if ($this->trips->destroy($id)) {
             return response('success', 200);
         } else {

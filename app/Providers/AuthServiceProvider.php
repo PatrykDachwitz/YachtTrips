@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use App\Policies\ApiPolicy;
 use App\Policies\BannersPolicy;
 use App\Policies\BooksPolicy;
 use App\Policies\CategoryBannersPolicy;
@@ -23,7 +24,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        'create-books'
+        ApiPolicy::class
     ];
 
     /**
@@ -33,16 +34,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();;
 
-        Gate::define('create-books', function () {
-           return false;
-        });
 
-        Gate::resource('oceans', OceanPolicy::class);
-        Gate::resource('oceans', BannersPolicy::class);
-        Gate::resource('oceans', CategoryBannersPolicy::class);
-        Gate::resource('oceans', BooksPolicy::class);
-        Gate::resource('oceans', OrdersPolicy::class);
-        Gate::resource('oceans', TripsPolicy::class);
-        Gate::resource('oceans', TripsPolicy::class);
+        Gate::resource('api', ApiPolicy::class);
     }
 }
