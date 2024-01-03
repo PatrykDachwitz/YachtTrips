@@ -11,6 +11,8 @@ use App\Http\Controllers\api\TemplatesController;
 use App\Http\Controllers\api\TripsController;
 use App\Http\Controllers\api\VacationersController;
 use App\Http\Controllers\api\YachtsController;
+use App\Http\Controllers\api\FilesController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,19 +36,19 @@ Route::group([
     ], function () {
         Route::apiResource('category', categoryBannersController::class);
     });
-
     Route::apiResource('banners', BannersController::class);
-
-    Route::apiResource('folders', FolderController::class);
     Route::apiResource('yachts', YachtsController::class);
     Route::apiResource('trips', TripsController::class);
     Route::apiResource('templates', TemplatesController::class);
     Route::apiResource('oceans', OceansController::class);
     Route::apiResource('method_payments', MethodPaymentsController::class);
-
     Route::apiResource('orders', OrdersController::class);
     Route::apiResource('booking', BooksController::class);
     Route::apiResource('vacationers', VacationersController::class);
+    Route::apiResource('folders', FolderController::class);
+
+
+
 });
 
 Route::put('vacationers/update/group', [VacationersController::class, 'updateGroup'])
@@ -55,3 +57,6 @@ Route::get('orders/show/{sessionId}', [OrdersController::class, "showBySession"]
     ->name('orders.showBySession');
 Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySession"])
     ->name('orders.updateBySession');
+Route::apiResource('files', FilesController::class);
+
+

@@ -8,17 +8,18 @@ use Illuminate\Support\Facades\Auth;
 class ApiPolicy
 {
 
-    private $user;
+    private $security;
     /**
      * Create a new policy instance.
      */
     public function __construct()
     {
-        $this->user = Auth::user();
+        $user = Auth::user();
+        $this->security = $user->security;
     }
 
     public function hasRequiredSecurityLevel(int $securityLevel) {
-        if ($this->user->security >= $securityLevel) {
+        if ($this->security >= $securityLevel) {
             return true;
         } else {
             return false;

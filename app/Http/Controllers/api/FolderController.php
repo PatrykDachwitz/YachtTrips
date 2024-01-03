@@ -3,16 +3,17 @@ declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\folders\CreateRequest;
-use App\Models\Folder;
+use App\Repository\FoldersRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class FolderController extends Controller
 {
 
     private $folder;
 
-    public function __construct(Folder $folder)
+    public function __construct(FoldersRepository $folder)
     {
         $this->folder = $folder;
     }
@@ -22,7 +23,8 @@ class FolderController extends Controller
      */
     public function index()
     {
-
+        return $this->folder
+            ->get();
     }
 
 
@@ -31,19 +33,19 @@ class FolderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Gate::denies('api.create')) abort(403);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
-        $childFolders = $this->folder->where("parent", $id)->get();
-        $contentFolder = $this->folder->with('files')->find($id);
+        if (Gate::denies('api.view')) abort(403);
+
         return response([
-            'content' => $contentFolder,
-            'folders' => $childFolders,
+            'content' => $this->folder->findOrFail($id),
+            'folders' => $this->folder->findByParentId($id),
         ]);
 
     }
@@ -54,7 +56,7 @@ class FolderController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if (Gate::denies('api.update')) abort(403);
     }
 
     /**
@@ -62,6 +64,6 @@ class FolderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if (Gate::denies('api.delete')) abort(403);
     }
 }

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace App\Repository;
 
-interface FoldersRepository
+interface FilesRepository
 {
     public function get();
     public function findOrFail(int $id);
@@ -13,5 +13,4 @@ interface FoldersRepository
 
     public function update(int $id, array $data);
 
-    public function findByParentId(int $id);
 }

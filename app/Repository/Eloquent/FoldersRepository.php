@@ -22,6 +22,7 @@ class FoldersRepository implements \App\Repository\FoldersRepository
     public function findOrFail(int $id)
     {
         return $this->folder
+            ->with('files')
             ->findOrFail($id);
     }
 
@@ -53,5 +54,12 @@ class FoldersRepository implements \App\Repository\FoldersRepository
         $updateFolder->save();
 
         return $updateFolder;
+    }
+
+    public function findByParentId(int $id)
+    {
+        return $this->folder
+            ->where("parent", $id)
+            ->get();
     }
 }

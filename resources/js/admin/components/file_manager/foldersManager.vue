@@ -5,14 +5,17 @@ import SingleFolder from "@/admin/components/file_manager/singleFolder.vue";
 const data = inject('data');
 const lang = inject('lang');
 
+
 </script>
 
 <template v-if="data !== null">
 
     <single-folder :folder="{
-        url: data.urlParent,
+        url: data.content.urlParent,
         name: lang['previousFolder']
-    }" />
+    }"
+    v-if="data.content.id > 1"
+    />
     <single-folder v-for="folder in data.folders" :folder="folder" />
 </template>
 

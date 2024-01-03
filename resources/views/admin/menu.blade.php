@@ -1,8 +1,66 @@
-<nav class="offcanvas-body p-4" data-bs-theme="dark">
-    <a class="navbar-brand" href="#">Yacht trips</a>
+<nav class="offcanvas-body p-4" data-bs-theme="dark" style="min-width: 220px !important;">
+    <div class="d-flex align-items-center">
+        <picture>
+            <source srcset="/files/icons/avatar.webp" type="image/webp">
+            <img src="/files/icons/avatar.webp" alt="Avatar admin" class="me-2" width="25" height="25"/>
+        </picture>
+        <strong class="fs-5">{{ auth()->user()->name }}</strong>
+    </div>
 
     <hr />
 
+
+    <ul class="list-unstyled">
+        <li>
+            <div class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed" data-bs-toggle="collapse" data-bs-target="#banners" aria-expanded="false">
+                <div class="pe-1 d-flex align-items-center icons-menu">
+                    <picture>
+                        <source srcset="/files/icons/plus.webp" type="image/webp">
+                        <img src="/files/icons/plus.png" width="20" height="20" class="plus">
+                    </picture>
+                </div>
+                Zawartość
+            </div>
+        </li>
+        <li>
+            <div class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed" data-bs-toggle="collapse" data-bs-target="#banners" aria-expanded="false">
+                <div class="pe-1 d-flex align-items-center icons-menu">
+                    <picture>
+                        <source srcset="/files/icons/plus.webp" type="image/webp">
+                        <img src="/files/icons/plus.png" width="20" height="20" class="plus">
+                    </picture>
+                </div>
+                Menadżer plików
+            </div>
+        </li>
+        <li>
+            <div class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed" data-bs-toggle="collapse" data-bs-target="#banners" aria-expanded="false">
+                <div class="pe-1 d-flex align-items-center icons-menu">
+                    <picture>
+                        <source srcset="/files/icons/plus.webp" type="image/webp">
+                        <img src="/files/icons/plus.png" width="20" height="20" class="plus">
+                    </picture>
+                </div>
+                Menadżer plików
+            </div>
+        </li>
+        <li>
+            <div class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed" data-bs-toggle="collapse" data-bs-target="#banners" aria-expanded="false">
+                <div class="pe-1 d-flex align-items-center icons-menu">
+                    <picture>
+                        <source srcset="/files/icons/plus.webp" type="image/webp">
+                        <img src="/files/icons/plus.png" width="20" height="20" class="plus">
+                    </picture>
+                </div>
+                Menadżer plików
+            </div>
+        </li>
+    </ul>
+
+    <hr />
+
+    <a>@lang('admin.logOut')</a>
+    <!--
     <ul class="list-unstyled ps-0">
         <li>
             <div class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed" data-bs-toggle="collapse" data-bs-target="#banners" aria-expanded="false">
@@ -110,6 +168,8 @@
             </div>
         </li>
     </ul>
+
+    -->
 </nav>
 <style>
     div div.icons-menu img.plus {

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\CategoryBannerController;
@@ -50,6 +51,7 @@ Route::view('/tript', 'templateTrips');
 Route::get('/koszyk', OrderController::class);
 Route::get('/{slug}', PageController::class)
     ->name('pages');
+
 
 
 //CMS routing

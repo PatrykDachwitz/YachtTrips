@@ -7,6 +7,33 @@ function getCsrfToken() {
 }
 
 
+export function useFetchSendFiles(files) {
+    const data = ref(null)
+    const error = ref(null)
+    const status = ref(null);
+
+    fetch("http://127.0.0.1:8000/api/files", {
+
+        method: "POST",
+        headers: {
+            //'Content-Type': 'application/json',
+            //'Accept': 'application/json',
+            'X-CSRF-Token': getCsrfToken(),
+        },
+        body: files,
+
+    })
+        .then((response) => {
+           console.info(response.status);
+           console.info(response.json());
+        })
+
+    ;
+
+    return { data, error, status }
+}
+
+
 export function useFetch(url) {
     const data = ref(null)
     const error = ref(null)
@@ -19,6 +46,7 @@ export function useFetch(url) {
            headers: {
                'Content-Type': 'application/json',
                'Accept': 'application/json',
+               'X-CSRF-Token': getCsrfToken(),
            },
        })
            .then((response) => {
