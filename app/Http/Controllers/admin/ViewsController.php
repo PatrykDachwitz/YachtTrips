@@ -7,9 +7,8 @@ use App\Repository\CategoryBannersRepository;
 use App\Repository\OceansRepository;
 use App\Repository\TemplatesRepository;
 use App\Repository\YachtsRepository;
-use Illuminate\Http\Request;
 
-class TestController extends Controller
+class ViewsController extends Controller
 {
     private $categoryBanners, $templates, $yachts, $oceans;
     public function __construct(CategoryBannersRepository $categoryBannersRepository, TemplatesRepository $templatesRepository, YachtsRepository $yachtsRepository, OceansRepository $oceansRepository)

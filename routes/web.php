@@ -1,22 +1,15 @@
 <?php
 
-use App\Http\Controllers\admin\BookingController;
-use App\Http\Controllers\admin\ClientsController;
-use App\Http\Controllers\admin\PaymentsController;
-use App\Http\Controllers\admin\RoomsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\BannerController;
-use App\Http\Controllers\admin\CategoryBannerController;
-use App\Http\Controllers\admin\OceanController;
-use App\Http\Controllers\admin\TripController;
-use App\Http\Controllers\admin\YachtController;
 use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\admin\ManagerFilesController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TripsController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\admin\OrdersController as OrdersControllerAdmin;
+use App\Http\Controllers\admin\ViewsController as PageAdminController;
+use App\Http\Controllers\Auth\LogOutController;
+use App\Http\Controllers\admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +30,9 @@ Route::view('/login', "login")
     ->name('login');
 Route::POST('/login', LoginController::class)
     ->name('login');
-
+Route::get('/admin', DashboardController::class)
+    ->middleware('auth:sanctum')
+    ->name('admin.dashboard');
 //Trips Controller
 Route::group([
     'prefix' => 'trips/',
@@ -49,6 +44,8 @@ Route::group([
         ->name('show');
 });
 Route::view('/tript', 'templateTrips');
+
+
 //Pages and cart Controller
 Route::get('/koszyk', OrderController::class);
 Route::get('/{slug}', PageController::class)
@@ -60,27 +57,23 @@ Route::get('/{slug}', PageController::class)
 Route::group([
      "as" => "admin.",
      "prefix" => "admin/",
-    "middleware" => "auth:sanctum"
+     "middleware" => "auth:sanctum"
 ], function () {
 
-
     Route::get('file_manager', ManagerFilesController::class);
+    Route::post('/logout', LogOutController::class)
+        ->name('logout');
 
 
-    Route::get('{views}', [\App\Http\Controllers\admin\TestController::class, 'index'])
+    Route::get('{views}', [PageAdminController::class, 'index'])
         ->name('views.index');
-    Route::get('{views}/create', [\App\Http\Controllers\admin\TestController::class, 'create'])
+    Route::get('{views}/create', [PageAdminController::class, 'create'])
         ->name('views.create');
-    Route::put('{views}/{id}/edit', [\App\Http\Controllers\admin\TestController::class, 'edit'])
+    Route::put('{views}/{id}/edit', [PageAdminController::class, 'edit'])
         ->name('views.edit');
-    Route::get('{views}/{id}', [\App\Http\Controllers\admin\TestController::class, 'show'])
+    Route::get('{views}/{id}', [PageAdminController::class, 'show'])
         ->name('views.show');
 
-
-    Route::get('logout', function () {
-
-    })
-    ->name('logout');
 });
 
 

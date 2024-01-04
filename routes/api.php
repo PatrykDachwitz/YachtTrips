@@ -12,7 +12,6 @@ use App\Http\Controllers\api\TripsController;
 use App\Http\Controllers\api\VacationersController;
 use App\Http\Controllers\api\YachtsController;
 use App\Http\Controllers\api\FilesController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\PagesController;
 use App\Http\Controllers\api\UserController;
@@ -31,7 +30,7 @@ use App\Http\Controllers\api\RoomsController;
 
 
 Route::group([
-    //'middleware' => "auth:sanctum"
+    'middleware' => "auth:sanctum"
 ], function () {
     Route::group([
         'prefix' => "banners/",
