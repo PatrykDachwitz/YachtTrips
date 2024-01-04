@@ -1,6 +1,9 @@
-import {createApp} from "vue";
-import create from "./components/create.vue";
+import {createApp, ref} from "vue";
+import createNew from "./components/create.vue";
+import {getLangContent} from "@/primary_function/language.js";
+const lang = ref(getLangContent());
 
-createApp(create)
+createApp(createNew)
+    .provide('lang', lang)
     .mount("#app");
 

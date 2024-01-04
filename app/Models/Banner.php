@@ -24,8 +24,8 @@ class Banner extends Model
     protected $casts = [
         'name' => 'string',
         'deleted_at' => 'timestamp',
-        'start_at' => 'timestamp',
-        'finish_at' => 'timestamp',
+        'start_at' => 'datetime: Y-m-d H:i:s',
+        'finish_at' => 'datetime: Y-m-d H:i:s',
         'active' => 'boolean',
         'category_banner_id' => 'integer',
         'description' => 'string',

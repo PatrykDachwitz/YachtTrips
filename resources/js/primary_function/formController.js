@@ -1,6 +1,6 @@
 import {CustomFormData} from "@/primary_function/CustomFormData.js";
 import {inject, ref, watch} from 'vue';
-import {useFetchPut} from "@/primary_function/useFetch.js";
+import {useFetchPost, useFetchPut} from "@/primary_function/useFetch.js";
 
 import {changeJsonToArray} from "@/primary_function/conversionType.js";
 import {CustomJson} from "@/primary_function/CustomJson.js";
@@ -114,16 +114,15 @@ export class FormController {
 
     create() {
         const updateData = this.getInputsToSend();
-        console.log(updateData);
-        let { dataPut, errorPut } = useFetchPut(this.urlApi, updateData);
+        let { dataPost, errorPost } = useFetchPost(this.urlApi, updateData);
 
-        watch(dataPut, () => {
-            this.clearValidAndInvalidContent();
-            this.updateIssetInput(dataPut);
+        watch(dataPost, () => {
+            window.location.href = dataPost.value.url;
         })
 
-        watch(errorPut, () => {
-            errorPut.value.then(test => {
+
+        watch(errorPost, () => {
+            errorPost.value.then(test => {
                 this.updateErrorsInForm(test.errors);
             })
         })

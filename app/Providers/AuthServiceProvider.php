@@ -25,6 +25,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
 
+        Gate::before(function ($user) {
+           if ($user->super_admin) {
+               return true;
+           }
+        });
         Gate::resource('api', ApiPolicy::class);
+        Gate::define('isSuperAdmin', [ApiPolicy::class, 'checkSuperAdmin']);
     }
 }

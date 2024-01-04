@@ -43,9 +43,14 @@ class YachtsController extends Controller
             abort(500);
         }
 
-        return response( route('admin.yachts.show', [
-            'id' => $id
-        ] ), 301);
+        $response = [
+            'url' => route('admin.views.show', [
+                'views' => 'yachts',
+                'id' => $id,
+            ])
+        ];
+
+        return response($response, 301);
     }
 
     /**

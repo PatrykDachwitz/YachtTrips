@@ -3,7 +3,6 @@
 import {ref, provide, watch, inject} from 'vue'
 import { useFetch, getUrl, useFetchPut } from "../../primary_function/useFetch.js";
 import dashboard from "@/admin/components/dashboard.vue";
-import fileManager from '@/admin/components/file_manager/fileManager.vue';
 import emptySupport from "@/admin/components/emptySupport.vue"
 import imageForm from "@/admin/components/elements/imageForm.vue"
 import { changeJsonToArray } from "@/primary_function/conversionType.js";
@@ -21,7 +20,6 @@ const selectedFiles = ref([]);
 const activeFileManager = ref(false);
 const currentComponentFileManager = ref('emptySupport')
 const supportComponent = {
-    fileManager,
     calendar,
     emptySupport
 }

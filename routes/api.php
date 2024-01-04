@@ -14,6 +14,9 @@ use App\Http\Controllers\api\YachtsController;
 use App\Http\Controllers\api\FilesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\PagesController;
+use App\Http\Controllers\api\UserController;
+use App\Http\Controllers\api\RoomsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +49,10 @@ Route::group([
     Route::apiResource('booking', BooksController::class);
     Route::apiResource('vacationers', VacationersController::class);
     Route::apiResource('folders', FolderController::class);
-
+    Route::apiResource('files', FilesController::class);
+    Route::apiResource('users', UserController::class);
+    Route::apiResource('pages', PagesController::class);
+    Route::apiResource('rooms', RoomsController::class);
 
 
 });
@@ -57,6 +63,5 @@ Route::get('orders/show/{sessionId}', [OrdersController::class, "showBySession"]
     ->name('orders.showBySession');
 Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySession"])
     ->name('orders.updateBySession');
-Route::apiResource('files', FilesController::class);
 
 

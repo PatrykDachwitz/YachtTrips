@@ -11,7 +11,6 @@ class Book extends Model
     use HasFactory;
     use SoftDeletes;
 
-
     protected $casts = [
         "trip_id" => "integer",
         "order_id" => "integer",

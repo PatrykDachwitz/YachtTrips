@@ -11,10 +11,17 @@ class MethodPayment extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $table = 'method_payments';
     protected $casts = [
       'name' => 'string',
       'deleted_at' => 'timestamp',
       'price' => 'integer',
-      'url_payment' => 'string',
+      'type' => 'string',
+    ];
+
+    protected $fillable = [
+        'name',
+        'price',
+        'type',
     ];
 }

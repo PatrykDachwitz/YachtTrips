@@ -47,7 +47,6 @@ class TripsRepository implements \App\Repository\TripsRepository
 
     public function getAll()
     {
-        dd($this->trip->get());
         return $this->trip->all();
     }
 
@@ -63,7 +62,6 @@ class TripsRepository implements \App\Repository\TripsRepository
     public function findOrFail(int $id)
     {
         return $this->trip
-
             ->availableRooms()
             ->with('rooms')
             ->with('oceans')

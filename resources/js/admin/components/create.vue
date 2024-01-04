@@ -1,76 +1,72 @@
 <script setup>
 
-import {ref, provide, watch, inject} from 'vue'
-import { useFetch, getUrl, useFetchPut } from "../../primary_function/useFetch.js";
+import {ref, provide, watch, inject, onMounted} from 'vue'
+import { getUrl } from "../../primary_function/useFetch.js";
 import dashboard from "@/admin/components/dashboard.vue";
-import fileManager from '@/admin/components/file_manager/fileManager.vue';
 import emptySupport from "@/admin/components/emptySupport.vue"
-import imageForm from "@/admin/components/elements/imageForm.vue"
-import { changeJsonToArray } from "@/primary_function/conversionType.js";
 import {
     changePositionForm,
     active, updateValueInform,
 } from "@/primary_function/updateFormCreateEditView.js";
-import {getLangContent} from "@/primary_function/language.js";
 import {FormController} from "@/primary_function/formController.js";
+import calendar from "@/components/calendar.vue";
 
-const lang = ref(getLangContent());
-const urlCreate = getUrl();
+
+const { urlApi } = getUrl();
 
 const activeSelected = ref(false)
-const selectedFiles = ref([]);
-const activeFileManager = ref(false);
-const currentComponentFileManager = ref('emptySupport')
 const supportComponent = {
-    fileManager,
+    calendar,
     emptySupport
 }
+const activeCalendar = ref('emptySupport');
+const locationDataSet = ref(null);
 
-const formController = new FormController('data-show-form', urlUpdate.value);
-formController.setCurrenActiveImages(true);
+const formController = new FormController('data-show-form', urlApi.value);
 formController.setAdditionalInputsName('description', false);
 
-provide('lang', lang);
-provide('selectedFiles', selectedFiles);
-provide('activeFileManager', activeFileManager);
+const lang = inject('lang');
+provide('activeCalendar', activeCalendar);
+provide('locationDataSet', locationDataSet);
 provide('activeSelected', activeSelected);
-provide('urlApiCurrent', urlApi);
 
-watch(data, ()  => {
 
-    const dataForm = changeJsonToArray(data)
-    updateValueInform(dataForm);
-    changePositionForm();
+function runCalendar() {
+    const calendarInputs = document.querySelectorAll('[data-calendar-input]');
 
-});
-
-function  activeManager() {
-    activeFileManager.value = true;
-
-    if (currentComponentFileManager.value !== "fileManager") {
-        currentComponentFileManager.value = "fileManager";
-    }
-
+    calendarInputs.forEach(calendarInput => {
+        calendarInput.addEventListener('click', () => {
+            if (activeCalendar.value === "calendar") {
+                activeCalendar.value = "emptySupport";
+            } else {
+                activeCalendar.value = "calendar";
+                locationDataSet.value = calendarInput.dataset.calendarInput;
+            }
+        })
+    });
 }
+onMounted(() => {
+    changePositionForm();
+    runCalendar();
+});
 </script>
 
 <template>
 
-    <dashboard
-    name="Lista"
-    >
-
+    <dashboard name="Lista 12" >
         <template v-slot:header>
             <div>
                 <img src="/files/icons/save.png" class="pointer" alt="save" width="25" height="25" @click="formController.create()"/>
             </div>
         </template>
         <template v-slot:content>
-            <component :is="supportComponent[currentComponentFileManager]" v-if="activeFileManager"></component>
+            <!--Komponent dedykowany kalendarzowi-->
+            <component :is="supportComponent[activeCalendar]" :locationByDataSet="locationDataSet"> </component>
+
+
 
             <div class="bg-gray p-2 " style="border-bottom: 1.5px solid #d3d3d3" v-if="lang">
-                <a class="btn btn-dark" @click="active('info')">{{ lang['information'] }}</a>
-                <a class="btn btn-dark mx-2" @click="active('media')">{{ lang['media'] }}</a>
+                <a class="btn btn-dark me-2" @click="active('info')">{{ lang['information'] }}</a>
                 <a class="btn btn-dark" @click="active('content')">{{ lang['contents'] }}</a>
             </div>
 
@@ -84,20 +80,6 @@ function  activeManager() {
                 </div>
             </div>
 
-            <div class="p-5 d-none" data-content-show="media">
-                <div style="border-bottom: 1.5px solid #d3d3d3">
-                    <button class="btn btn-outline-dark btn-add" @click="activeManager"><strong>+</strong></button>
-                    {{ lang['graphics'] }}
-                </div>
-                <div v-if="data !== null">
-                     <image-form class="graphic-container py-4"  v-for="image in data.images" :image="image" :key="image.id" />
-                </div>
-
-                <div>
-                    <image-form class="graphic-container py-4"  v-for="file in selectedFiles" :image="file" :key="file.id" />
-                </div>
-
-            </div>
         </template>
 
     </dashboard>

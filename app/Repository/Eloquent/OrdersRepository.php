@@ -15,7 +15,7 @@ class OrdersRepository implements \App\Repository\OrdersRepository
 
     public function get()
     {
-        $this->orders->get();
+        return $this->orders->get();
     }
 
     public function findOrFail(int $id)
@@ -33,17 +33,20 @@ class OrdersRepository implements \App\Repository\OrdersRepository
 
     public function destroy(int $id)
     {
-        $this->orders->destroy($id);
+        return $this->orders->destroy($id);
     }
 
     public function create(array $data)
     {
-        // TODO: Implement create() method.
+        return $this->orders->create($data);
     }
 
     public function update(int $id, array $updateData)
     {
-        // TODO: Implement update() method.
+        $order = $this->findOrFail($id);
+        $order->update($updateData);
+
+        return $order->save();
     }
 
 

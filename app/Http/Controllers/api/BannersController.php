@@ -46,9 +46,13 @@ class BannersController extends Controller
             abort(500);
         }
 
-        return response( route('admin.banners.show', [
-            'id' => $id
-        ] ), 301);
+        $response = [
+          'url' => route('admin.views.show', [
+              'views' => 'banners',
+              'id' => $id
+          ])
+        ];
+        return response( json_encode($response), 301);
     }
 
     /**

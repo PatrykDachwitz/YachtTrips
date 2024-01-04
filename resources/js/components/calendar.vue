@@ -36,7 +36,7 @@ function getFullNumberDate(number) {
 }
 
 function constructCorrectDate(day, month, fullYear) {
-    return `${getFullNumberDate(day)}-${getFullNumberDate(month)}-${fullYear}`
+    return `${fullYear}-${getFullNumberDate(month + 1)}-${getFullNumberDate(day)} 00:00:00`;
 }
 function setDate(day, month, fullYear, location) {
     const inputDate = document.querySelector(`input[name="${location}"]`);
@@ -53,7 +53,7 @@ onMounted(() => {
 </script>
 
 <template>
-<div class="position-absolute end-0 top-0 border-grayLight-1 calendars calendars-vue overflow-hidden rounded-2 shadow-sm d-flex flex-column" :data-locationDataSet="locationByDataSet">
+<div class="border-grayLight-1 position-absolute end-0 top-0 border-grayLight-1 calendars calendars-vue overflow-hidden rounded-2 shadow-sm d-flex flex-column" :data-locationDataSet="locationByDataSet">
     <div class="d-flex justify-content-between align-items-center p-2 fs-5">
 
         <div class="pointer" v-if="calendarDate.previousMonth !== null & calendarDate.previousYear !== null" @click="changeCalendar(calendarDate.previousMonth, calendarDate.previousYear)"><b>&lt;</b></div>
@@ -75,6 +75,13 @@ onMounted(() => {
 </div>
 </template>
 <style scoped>
+.pointer {
+    cursor: pointer;
+}
+.day:hover {
+    background-color: grey !important;
+    color: white !important;
+}
  .calendars {
      background-color: rgb(242, 242, 242);
      z-index: 99999999999999999999999999;
@@ -83,6 +90,7 @@ onMounted(() => {
  }
 
  .day {
+     cursor: pointer;
      display: flex;
      justify-content: center;
      align-items: center;

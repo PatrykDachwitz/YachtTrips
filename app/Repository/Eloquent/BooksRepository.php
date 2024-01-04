@@ -18,12 +18,13 @@ class BooksRepository implements \App\Repository\BooksRepository
 
     public function getAll()
     {
-        // TODO: Implement getAll() method.
+        return $this->booking->all();
     }
 
     public function get()
     {
-        // TODO: Implement get() method.
+        return $this->booking
+            ->get();
     }
 
     public function findOrFail(int $id)

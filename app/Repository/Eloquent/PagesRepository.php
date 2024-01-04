@@ -18,4 +18,32 @@ class PagesRepository implements \App\Repository\PagesRepository
             ->where('slug', $slug)
             ->first();
     }
+
+    public function get()
+    {
+        return $this->page->get();
+    }
+
+    public function findOrFail(int $id)
+    {
+        return $this->page->findOrFail($id);
+    }
+
+    public function destroy(int $id)
+    {
+        return $this->page->destroy($id);
+    }
+
+    public function create(array $data)
+    {
+        return $this->page->create($data);
+    }
+
+    public function update(int $id, array $updateData)
+    {
+        $page = $this->findOrFail($id);
+        $page->update($updateData);
+
+        return $page->save();
+    }
 }

@@ -41,8 +41,6 @@ class TripsController extends Controller
             $filters = [];
         }
 
-//        return response($filters, 200);
-
         return response($this->trips->get(40, $filters), 200);
     }
 
@@ -68,9 +66,14 @@ class TripsController extends Controller
             abort(500);
         }
 
-        return response( route('admin.trips.show', [
-            'id' => $id
-        ] ), 301);
+        $response = [
+            'url' => route('admin.views.show', [
+                'views' => "trips",
+                'id' => $id,
+            ])
+        ];
+
+        return response(json_encode($response), 301);
     }
 
     /**

@@ -43,9 +43,14 @@ class OceansController extends Controller
             abort(500);
         }
 
-        return response( route('admin.oceans.show', [
-            'id' => $id
-        ] ), 301);
+        $response = [
+            'url' => route('admin.views.show', [
+                'id' => $id,
+                'views' => 'oceans',
+            ])
+        ];
+
+        return response(json_encode($response), 301);
     }
 
     /**

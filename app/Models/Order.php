@@ -12,7 +12,7 @@ class Order extends Model
     use SoftDeletes;
 
     protected $casts = [
-        "status" => 'string',
+        "status" => 'integer',
         "deleted_at" => 'timestamp',
         "session_id" => 'string',
         "personal_mail" => 'string',
@@ -32,6 +32,8 @@ class Order extends Model
         "personal_last_name",
         'address',
         'correspondenceAddress',
+        'price',
+        'status',
     ];
 
     protected $hidden = [

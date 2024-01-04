@@ -5,4 +5,12 @@ namespace App\Repository;
 interface PagesRepository
 {
     public function getBySlug(string $slug);
+
+    public function get();
+    public function findOrFail(int $id);
+
+    public function destroy(int $id);
+
+    public function create(array $data);
+    public function update(int $id, array $updateData);
 }

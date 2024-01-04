@@ -25,6 +25,14 @@ use App\Repository\FilesRepository as FilesRepositoryInterface;
 use App\Repository\Eloquent\FilesRepository;
 use App\Repository\FoldersRepository as FoldersRepositoryInterface;
 use App\Repository\Eloquent\FoldersRepository;
+use App\Repository\PaymentsRepository as PaymentsRepositoryInterface;
+use App\Repository\Eloquent\PaymentsRepository;
+use App\Repository\RoomsRepository as RoomsRepositoryInterface;
+use App\Repository\Eloquent\RoomsRepository;
+use App\Repository\UsersRepository as UsersRepositoryInterface;
+use App\Repository\Eloquent\UsersRepository;
+use App\Repository\VacationersRepository as VacationersRepositoryInterface;
+use App\Repository\Eloquent\VacationersRepository;
 class RepositoryProvider extends ServiceProvider
 {
     /**
@@ -89,6 +97,22 @@ class RepositoryProvider extends ServiceProvider
         $this->app->singleton(
             FoldersRepositoryInterface::class,
             FoldersRepository::class
+        );
+        $this->app->singleton(
+            PaymentsRepositoryInterface::class,
+            PaymentsRepository::class
+        );
+        $this->app->singleton(
+            RoomsRepositoryInterface::class,
+            RoomsRepository::class
+        );
+        $this->app->singleton(
+            UsersRepositoryInterface::class,
+            UsersRepository::class
+        );
+        $this->app->singleton(
+            VacationersRepositoryInterface::class,
+            VacationersRepository::class
         );
     }
 }

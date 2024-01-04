@@ -181,12 +181,13 @@ export function useFetchPost(url, updateDate) {
         body: updateDate,
     })
         .then(response => {
-            console.info(response.json());
-            if (response.status !== 200) {
+            if (response.status !== 301) {
                 status.value = response.status
                 addAlert(response.status);
+                errorPost.value = response.json();
+                throw Error(`${response.status}`);
             } else {
-                addAlert(200);
+                addAlert(301);
                 return response.json();
             }
         })
@@ -197,7 +198,6 @@ export function useFetchPost(url, updateDate) {
             if (status.value === null) {
                 addAlert(500);
             }
-            errorPost.value = err;
         })
 
     return { dataPost, errorPost };
