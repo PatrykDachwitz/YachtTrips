@@ -20,24 +20,15 @@ class MethodsPaymentSeeder extends Seeder
                 "id" => 1,
                 "name" => "PayPal",
                 "price" => 0,
-                "url_payment" => route('method_payments.show', [
-                    'method_payment' => 1
-                ]),
             ], [
                 "id" => 2,
                 "name" => "Przelew na konto",
-                "price" => 0,
-                "url_payment" => route('method_payments.show', [
-                    'method_payment' => 2
-                ]),
+                "price" => 0
             ], [
 
                 "id" => 3,
                 "name" => "PayU",
                 "price" => 10,
-                "url_payment" => route('method_payments.show', [
-                    'method_payment' => 3
-                ]),
             ]
         ];
 

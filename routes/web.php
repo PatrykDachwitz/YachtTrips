@@ -71,51 +71,12 @@ Route::group([
         ->name('views.index');
     Route::get('{views}/create', [\App\Http\Controllers\admin\TestController::class, 'create'])
         ->name('views.create');
-    Route::put('{views}/{id}', [\App\Http\Controllers\admin\TestController::class, 'edit'])
+    Route::put('{views}/{id}/edit', [\App\Http\Controllers\admin\TestController::class, 'edit'])
         ->name('views.edit');
     Route::get('{views}/{id}', [\App\Http\Controllers\admin\TestController::class, 'show'])
         ->name('views.show');
 
-    /*
-    Route::group([
-        "prefix" => "categories/",
-        "as" => "categories.",
-        ], function () {
-        Route::resource('banners', CategoryBannerController::class)
-            ->only(['index', 'create', 'edit', 'show']);
-    });
 
-
-    Route::resource('banners', BannerController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('oceans', OceanController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('trips', TripController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('pages', PageController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('yachts', YachtController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('orders', OrdersControllerAdmin::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('booking', BookingController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('payments', PaymentsController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('clients', ClientsController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-
-    Route::resource('rooms', RoomsController::class)
-        ->only(['index', 'create', 'edit', 'show']);
-*/
     Route::get('logout', function () {
 
     })

@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('books')->truncate();
         DB::table('orders')->truncate();
-        DB::table('peoples')->truncate();
         DB::table('vacationers')->truncate();
 
         $this->call(FoldersSeeder::class);

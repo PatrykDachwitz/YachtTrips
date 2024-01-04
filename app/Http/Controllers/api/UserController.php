@@ -52,7 +52,7 @@ class UserController extends Controller
         $user = $this->users->create($data);
 
         $response = [
-          'url' => route('admin.views.show', [
+          'url' => route('admin.views.edit', [
               'views' => 'users',
               'id' => $user->id,
           ])

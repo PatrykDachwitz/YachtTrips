@@ -45,7 +45,7 @@ class OrdersController extends Controller
         ]));
 
         $response = [
-            'url' => route('admin.views.show', [
+            'url' => route('admin.views.edit', [
                 'id' => $order->id,
                 'views' => 'orders',
             ])

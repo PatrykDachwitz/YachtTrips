@@ -44,7 +44,7 @@ class categoryBannersController extends Controller
         }
 
         $response = [
-            'url' => route('admin.views.show', [
+            'url' => route('admin.views.edit', [
                 'id' => $id,
                 'views' => "categoryBanners",
             ])

@@ -42,7 +42,7 @@ class RoomsController extends Controller
         ]));
 
         $response = [
-            'url' => route('admin.views.show', [
+            'url' => route('admin.views.edit', [
                 'views' => 'rooms',
                 'id' => $room->id,
             ])

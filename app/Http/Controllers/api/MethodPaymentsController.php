@@ -40,7 +40,7 @@ class MethodPaymentsController extends Controller
         ]));
 
         $response = [
-            'url' => route('admin.views.show', [
+            'url' => route('admin.views.edit', [
                 'id' => $payment->id,
                 'views' => 'methodPayments',
             ])

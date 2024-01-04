@@ -50,7 +50,7 @@ class PagesController extends Controller
         $page = $this->pages->create($this->getDataToCreate($request));
 
         $response = [
-            'url' => route('admin.views.show', [
+            'url' => route('admin.views.edit', [
                 'views' => 'pages',
                 'id' => $page->id
             ])

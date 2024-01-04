@@ -50,7 +50,7 @@ class BooksController extends Controller
         );
 
         $response = [
-            'url' => route('admin.views.show', [
+            'url' => route('admin.views.edit', [
                 'views' => 'booking',
                 'id' => $booking->id
             ])
