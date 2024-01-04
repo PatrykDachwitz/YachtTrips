@@ -13,7 +13,7 @@
             </div>
         @endempty
 
-        @foreach($content->banners ?? [] as $banner)
+        @foreach($content->bannersActive ?? [] as $banner)
 
             <div class="col-12 col-lg-6 col-xxl-4
             @if(in_array($loop->index, [

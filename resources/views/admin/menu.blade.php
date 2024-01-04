@@ -71,18 +71,26 @@
                 </ul>
             </div>
         </li>
+
         <li>
-            <div class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed" data-bs-toggle="collapse" aria-expanded="false">
-                <div class="pe-1 d-flex align-items-center icons-menu">
+            <a href="{{ route('admin.views.index', ['views' => 'users']) }}" class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed test-Input">
+                <div class="pe-1 d-flex align-items-center icons-menu test-Input">
                     <picture>
                         <source srcset="/files/icons/group.webp" type="image/webp">
                         <img src="/files/icons/group.png" width="25" height="25">
                     </picture>
                 </div>
-                <a href="{{ route('admin.logout') }}" >@lang('admin.users')</a>
-            </div>
+                <div class="test-Input d-flex align-items-center">@lang('admin.users')</div>
+            </a>
         </li>
-        <li>
+<style>
+    .test-Input {
+        min-height: 30px;
+        max-height: 30px;
+    }
+</style>
+
+       <!-- <li>
             <div class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed" data-bs-toggle="collapse" aria-expanded="false">
                 <div>
                     <picture>
@@ -92,7 +100,7 @@
                 </div>
                 <a>@lang('admin.files_manager')</a>
             </div>
-        </li>
+        </li>-->
     </ul>
 
     <hr />

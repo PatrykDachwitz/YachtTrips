@@ -4,7 +4,7 @@
         <div class="d-flex flex-column flex-xl-row">
             <div class="d-flex justify-content-center w-xl-50 p-4 align-items-center">
                 <picture>
-                    @foreach($content->banners[0]->images as $image)
+                    @foreach($content->bannersActive[0]->images ?? [] as $image)
                         @switch($image->pivot->device)
                             @case('mobile')
                                 <source media="(max-width: 1200px)" srcset='{{ "{$image->path}/{$image->name}.webp" }}' type="image/webp" width="700" height="445"/>
@@ -19,9 +19,9 @@
                 </picture>
             </div>
             <div class="d-flex flex-column w-xl-50 justify-content-xl-center">
-                <h2 class="fs-3 d-flex justify-content-center justify-content-xl-start ps-3"><b>{{ $content->banners[0]->name }}</b></h2>
+                <h2 class="fs-3 d-flex justify-content-center justify-content-xl-start ps-3"><b>{{ $content->bannersActive[0]->name ?? "" }}</b></h2>
                 <div class="p-3 px-4 fs-5">
-                    {!! $content->banners[0]->description !!}
+                    {!! $content->bannersActive[0]->description ?? "" !!}
                 </div>
             </div>
         </div>

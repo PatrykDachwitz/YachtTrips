@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="d-flex" data-slider-container="oceans">
-                    @foreach($content->banners ?? [] as $banner)
+                    @foreach($content->bannersActive ?? [] as $banner)
                         <div class="ocean m-4 shadow border-grayLight-1
 
                         @switch($loop->index)

@@ -19,7 +19,7 @@ class MainPageController extends Controller
     {
 
         return view('index', [
-            'contents' => $this->banners->getWithContent()
+            'contents' => $this->banners->getWithActiveContent()
         ]);
     }
 }

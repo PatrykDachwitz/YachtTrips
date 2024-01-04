@@ -7,6 +7,7 @@ interface BannersRepository
 
     public function getAll();
 
+
     public function get();
     public function findOrFail(int $id);
 

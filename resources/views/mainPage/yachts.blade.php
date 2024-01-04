@@ -16,7 +16,7 @@
 
         <div class="d-flex flex-column flex-xl-row-reverse">
 
-            @foreach($content->banners ?? [] as $banner)
+            @foreach($content->bannersActive ?? [] as $banner)
                 <div class="d-flex justify-content-center w-xl-50 p-4 align-items-center @if($loop->index !== 0) d-none @endif"  data-image-slider="yachts">
                     @foreach($banner->images ?? [] as $image)
                         @switch($image->pivot->device)
@@ -40,7 +40,7 @@
                     </button>
                 </div>
 
-                @foreach($content->banners ?? [] as $banner)
+                @foreach($content->bannersActive ?? [] as $banner)
                     <div class="d-flex flex-column justify-content-center w-xl-75 px-5 @if($loop->index !== 0) d-none @endif" data-content-slider="yachts">
                         <h2 class="fs-2"><b>{{ $banner->name }}</b></h2>
                         <div class="fs-5">

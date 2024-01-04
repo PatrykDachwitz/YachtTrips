@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Rooms\CreateRequest;
 use App\Http\Requests\Rooms\UpdateRequest;
+use App\Models\Room;
 use App\Repository\RoomsRepository;
 use Illuminate\Support\Facades\Gate;
 
@@ -21,7 +22,7 @@ class RoomsController extends Controller
      */
     public function index()
     {
-        return rescue($this->rooms->get(), 200);
+        return response($this->rooms->get(), 200);
     }
 
     /**

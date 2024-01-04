@@ -73,4 +73,15 @@ class CategoryBannersRepository implements \App\Repository\CategoryBannersReposi
             throw new Exception("Error update category banners");
         }
     }
+
+    public function getWithActiveContent()
+    {
+        return $this->category
+            ->with([
+                'bannersActive',
+                'templates'
+            ])
+            ->where('active', true)
+            ->get();
+    }
 }
