@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'parent' => ['integer'],
-            'name' => ['name'],
+            'name' => ['string', "max:255"],
         ];
     }
 }

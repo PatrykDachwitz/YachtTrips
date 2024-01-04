@@ -24,8 +24,8 @@ class CreateRequest extends FormRequest
     {
         return [
             'age' => ['required', new AgeRule],
-            'first_name' => ['required', 'string'],
-            'last_name' => ['required', 'string'],
+            'first_name' => ['required', 'string', "max:255"],
+            'last_name' => ['required', 'string', "max:255"],
             'book_id' => ['required', 'integer'],
         ];
     }

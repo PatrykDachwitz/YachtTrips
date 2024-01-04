@@ -23,12 +23,12 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "personal_mail" => ['required', "email"],
-            "personal_phone" => ['required', new NumberPhoneRule],
-            "personal_first_name" => ['required', "string"],
-            "personal_last_name" => ['required', "string"],
-            "address" => ['required', "string"],
-            "correspondenceAddress" => ["string"],
+            "personal_mail" => ['required', "email", "max:255"],
+            "personal_phone" => ['required', new NumberPhoneRule, "max:255"],
+            "personal_first_name" => ['required', "string", "max:255"],
+            "personal_last_name" => ['required', "string", "max:255"],
+            "address" => ['required', "string", "max:255"],
+            "correspondenceAddress" => ["string", "max:255"],
             "price" => ['min:1', "integer"],
         ];
     }

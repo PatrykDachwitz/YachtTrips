@@ -23,7 +23,7 @@ class CreateRequest extends FormRequest
     {
         return [
             'parent' => ['required', 'integer'],
-            'name' => ['required', 'name'],
+            'name' => ['required', 'string', "max:255"],
         ];
     }
 }

@@ -16,6 +16,7 @@ class PagesRepository implements \App\Repository\PagesRepository
     {
         return $this->page
             ->where('slug', $slug)
+            ->where('active', true)
             ->first();
     }
 

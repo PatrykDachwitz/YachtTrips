@@ -22,11 +22,11 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string'],
-            'email' => ['email'],
+            'name' => ['string', "max:255"],
+            'email' => ['email', "max:255"],
             'security' => ['integer'],
             'super_admin' => ['boolean'],
-            'password' => ['string', 'confirmed'],
+            'password' => ['string', 'confirmed', "max:255"],
         ];
     }
 }

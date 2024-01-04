@@ -24,8 +24,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'age' => [new AgeRule],
-            'first_name' => ['string'],
-            'last_name' => ['string'],
+            'first_name' => ['string', "max:255"],
+            'last_name' => ['string', "max:255"],
             'book_id' => ['integer'],
         ];
     }

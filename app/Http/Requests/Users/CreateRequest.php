@@ -22,11 +22,11 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
-            'email' => ['required', 'email'],
+            'name' => ['required', 'string', "max:255"],
+            'email' => ['required', 'email', "max:255"],
             'security' => ['required', 'integer'],
             'super_admin' => ['required', 'boolean'],
-            'password' => ['required', 'string', 'confirmed'],
+            'password' => ['required', 'string', 'confirmed', "max:255"],
         ];
     }
 }
