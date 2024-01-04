@@ -1,6 +1,6 @@
 <nav class="offcanvas-body p-4" data-bs-theme="dark" style="min-width: 220px !important;">
     <div class="d-flex align-items-center">
-        <a href="/admin/banners" class="d-flex align-items-center">
+        <a href="{{ route('admin.dashboard') }}" class="d-flex align-items-center text-white text-decoration-none">
             <picture>
                 <source srcset="/files/icons/avatar.webp" type="image/webp">
                 <img src="/files/icons/avatar.webp" alt="Avatar admin" class="me-2" width="30" height="30"/>
@@ -94,11 +94,11 @@
     <hr />
 
     <form method="post" action="{{ route('admin.logout') }}">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-6 ps-0 collapsed">
             @csrf
             <picture>
                 <source srcset="/files/icons/logout.webp" type="image/webp">
-                <img src="/files/icons/logout.png" class="me-2" width="30" height="30">
+                <img src="/files/icons/logout.png" class="me-2" width="25" height="25">
             </picture>
             @lang('admin.logOut')
         </button>
