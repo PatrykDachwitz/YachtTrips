@@ -10,8 +10,8 @@
 </head>
 <body class="antialiased">
 
-<div class="dashboard">
-    <div id="navbar" class="shadow bg-dark text-white">
+<div class="dashboard flex-column flex-lg-row">
+    <div id="navbar" class="shadow bg-dark text-white menu-mobile">
         @include('admin.menu')
     </div>
     <div class="dashboard-content">

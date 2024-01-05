@@ -1,18 +1,17 @@
 .menu {
     &-content {
         flex: 1;
-        @media only screen and (max-width: 767px) {
-            display: flex !important;
-            position: fixed;
+        @media only screen and (max-width: 992px) {
             z-index: 90;
             min-width: 100%;
-            background-color: $bg-menu;
+            border-top: 1px solid $border-color-menu;
+           /* background-color: $bg-menu;
             flex-direction: column;
             justify-content: flex-start;
-            padding-bottom: 15px;
+            padding-bottom: 15px;*/
         }
         & ul {
-            @media only screen and (max-width: 767px) {
+            @media only screen and (max-width: 992px) {
                 min-width: 100%;
             }
         }

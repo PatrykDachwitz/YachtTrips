@@ -18,7 +18,7 @@
                 @endswitch
             @endforeach
         </picture>
-        <div class="banner-text position-absolute z-5 text-white top-0 d-flex flex-column justify-content-end justify-content-md-center align-items-md-start mb-2 mb-md-0 ms-md-5">
+        <div class="banner-text position-absolute z-5 text-white top-0 d-flex flex-column justify-content-end justify-content-md-center align-items-center align-items-md-start mb-2 mb-md-0 ms-md-5">
             <h2 class="fs-2">{{ $content->bannersActive[0]->name }}</h2>
             <div class="fs-5 d-md-flex flex-md-column align-md-items-center w-75 text-center text-md-start mb-4 mb-md-0">
                 {!! $content->bannersActive[0]->description !!}

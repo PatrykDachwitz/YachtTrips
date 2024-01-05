@@ -36,9 +36,21 @@
 .border-top-grayLight-1 {
     border-top: 1px solid #e6e6e6;
 }
+.border-top-grayUltraLight-mobile-1 {
+    @media only screen and (max-width: 992px) {
+        border-top: 1px solid #eeeeee42;
+    }
+}
 
 .border-end-grayMenu-1 {
-    border-right: 1px solid rgba(255, 255, 255, 0.4);
+    @media only screen and (min-width: 992px) {
+        border-right: 1px solid #FFFFFF66;
+    }
+}
+.w-mobile-100 {
+    @media only screen and (max-width: 992px) {
+        width: 100% !important;
+    }
 }
 
 .flex-1 {

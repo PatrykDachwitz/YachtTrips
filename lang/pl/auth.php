@@ -15,7 +15,8 @@ return [
 
     'failed' => 'Podane dane uwierzytelniające nie pasują do naszych rekordów.',
     'password' => 'Podane hasło jest nieprawidłowe.',
-    'throttle' => 'Zbyt wiele prób logowania. Proszę spróbuj ponownie za :seconds sekund.'
+    'throttle' => 'Zbyt wiele prób logowania. Proszę spróbuj ponownie za :seconds sekund.',
+    'errorLogin' => 'Podany adres e-mail lub hasło są nieprawidłowe lub nie istnieją w naszym systemie.'
 
 
 ];

@@ -1,0 +1,22 @@
+.menu-mobile {
+    @media only screen and (max-width: 992px) {
+        position: fixed !important;
+        min-height: 46px !important;
+        max-height: 46px !important;
+        min-width: 100% !important;
+        z-index: 9999;
+    }
+    & nav {
+
+    }
+}
+.dashboard-content {
+    @media only screen and (max-width: 992px) {
+        margin-top: 56px !important;
+    }
+}
+.border-top-grayUltraLight-mobile-1 {
+    @media only screen and (max-width: 992px) {
+        border-top: 1px solid #FFFFFF66;
+    }
+}

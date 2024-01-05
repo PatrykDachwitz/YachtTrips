@@ -12,7 +12,6 @@
     <div class="w-100 min-vh-100 d-flex align-items-center justify-content-center">
         <form class="bg-gray w-25 border-grayLight-1 px-5 py-3 rounded-2 shadow" action="{{ route('login') }}" class="row" method="POST">
 
-            {{ $errors }}
             <div class="d-flex justify-content-center mb-4">
                 <picture>
                     <source srcset="/files/icons/logo-gray.webp" type="image/webp">
@@ -23,6 +22,11 @@
                 <label for="validationCustom02" class="form-label">@lang('login.email')</label>
                 <input type="email" class="form-control" id="validationCustom02" name="email" value="{{ old('email', '') }}" placeholder="@lang('login.emailTemplate')">
             </div>
+
+            @if($errors->any())
+                <div class="text-danger fs-5 mt-2">@lang('auth.errorLogin')</div>
+            @endif
+
             @csrf
             <div class="col-md-12 fs-5 mt-4">
                 <label for="validationCustom02" class="form-label">@lang('login.password')</label>
