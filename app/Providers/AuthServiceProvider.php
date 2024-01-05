@@ -4,6 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use App\Policies\ApiPolicy;
+use App\Policies\SuperAdminPolices;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -31,6 +32,6 @@ class AuthServiceProvider extends ServiceProvider
            }
         });
         Gate::resource('api', ApiPolicy::class);
-        Gate::define('isSuperAdmin', [ApiPolicy::class, 'checkSuperAdmin']);
+        Gate::define('isSuperAdmin', [SuperAdminPolices::class, 'checkSuperAdmin']);
     }
 }

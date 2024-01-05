@@ -69,7 +69,7 @@ Route::group([
         ->name('views.index');
     Route::get('{views}/create', [PageAdminController::class, 'create'])
         ->name('views.create');
-    Route::put('{views}/{id}/edit', [PageAdminController::class, 'edit'])
+    Route::get('{views}/{id}/edit', [PageAdminController::class, 'edit'])
         ->name('views.edit');
     Route::get('{views}/{id}', [PageAdminController::class, 'show'])
         ->name('views.show');
