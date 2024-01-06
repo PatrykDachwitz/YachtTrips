@@ -28,7 +28,7 @@ class UpdateRequest extends FormRequest
             'kids_beds' => ['integer'],
             'adults' => ['integer'],
             'kids' => ['integer'],
-            'price' => ['integer'],
+            'name' => ['string', 'max:255']
         ];
     }
 }

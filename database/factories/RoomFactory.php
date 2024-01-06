@@ -35,6 +35,7 @@ class RoomFactory extends Factory
             'kids_beds' => $kidsBed,
             'adults' => $adultCount,
             'kids' => $kidsBed,
+            'name' => fake()->streetName(),
         ];
     }
 }

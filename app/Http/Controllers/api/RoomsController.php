@@ -39,7 +39,7 @@ class RoomsController extends Controller
             'kids_beds',
             'adults',
             'kids',
-            'price'
+            'name'
         ]));
 
         $response = [
@@ -76,7 +76,7 @@ class RoomsController extends Controller
             'kids_beds',
             'adults',
             'kids',
-            'price'
+            'name'
         ])), 200);
     }
 

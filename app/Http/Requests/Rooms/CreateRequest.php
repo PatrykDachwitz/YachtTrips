@@ -28,7 +28,7 @@ class CreateRequest extends FormRequest
             'kids_beds' => ['required', 'integer'],
             'adults' => ['required', 'integer'],
             'kids' => ['required', 'integer'],
-            'price' => ['required', 'integer'],
+            'name' => ['required', 'string', 'max:255'],
         ];
     }
 }

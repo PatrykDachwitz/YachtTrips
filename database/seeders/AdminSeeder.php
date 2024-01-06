@@ -19,13 +19,21 @@ class AdminSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@admin.pl',
                 'password' => Hash::make('admin'),
-                "super_admin" => false
+                "super_admin" => false,
+                'security' => 0
             ], [
                 'name' => 'Admin2',
                 'email' => 'admin2@admin.pl',
                 'password' => Hash::make('admin2'),
-                "super_admin" => true
-            ],
+                "super_admin" => true,
+                'security' => 1
+            ], [
+                'name' => 'Admin3',
+                'email' => 'admin3@admin.pl',
+                'password' => Hash::make('admin2'),
+                "super_admin" => false,
+                'security' => 4
+            ]
         ];
 
 

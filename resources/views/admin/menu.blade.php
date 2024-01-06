@@ -39,8 +39,8 @@
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ms-4">
                         <li><a href="{{ route('admin.views.index', ['views' => "orders"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.order')</a></li>
                         <li><a href="{{ route('admin.views.index', ['views' => "booking"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.booking')</a></li>
-                        <li><a href="{{ route('admin.views.index', ['views' => "clients"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.client')</a></li>
-                        <li><a href="{{ route('admin.views.index', ['views' => "payments"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.payments')</a></li>
+                       <!-- <li><a href="{{ route('admin.views.index', ['views' => "clients"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.client')</a></li>
+                        <li><a href="{{ route('admin.views.index', ['views' => "payments"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.payments')</a></li>-->
                     </ul>
                 </div>
             </li>

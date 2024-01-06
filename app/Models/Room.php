@@ -13,12 +13,12 @@ class Room extends Model
 
     protected $casts = [
         'premium' => 'boolean',
+        'name' => 'string',
         'double_beds' => 'integer',
         'single_beds' => 'integer',
         'kids_beds' => 'integer',
         'adults' => 'integer',
         'kids' => 'integer',
-        'price' => 'integer',
         'deleted_at' => 'timestamp',
     ];
     protected $fillable = [
@@ -28,7 +28,7 @@ class Room extends Model
         'kids_beds',
         'adults',
         'kids',
-        'price',
+        'name',
     ];
 
     protected $hidden = [

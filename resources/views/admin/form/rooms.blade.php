@@ -1,5 +1,10 @@
 <form class="row g-3 p-3 d-none " data-show-form>
 
+    <div class="col-md-5">
+        <label for="validationCustom02" class="form-label">@lang('admin.name')</label>
+        <input type="text" class="form-control" id="validationCustom02" name="name" data-form-main>
+    </div>
+
     <div class="col-md-2">
         <label for="validationCustom03" class="form-label">@lang('admin.premium')</label>
         <select class="form-select" name="premium" aria-label="Default select example" id="validationCustom03" data-form-main>

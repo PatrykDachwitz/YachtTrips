@@ -34,7 +34,7 @@ class PagesController extends Controller
             'active',
         ]);
 
-        if (is_null($data['slug']) || !isset($data['slug'])) {
+        if (!isset($data['slug']) || is_null($data['slug'])) {
             $data['slug'] = Str::slug($data['name']);
         }
 
