@@ -6,7 +6,7 @@ return [
     'companyCityAndPostalCode' => '64-200 Warszawa',
     'companyNip' => 'NIP: 123-123-123',
     'companyPhone' => 'Tel. +48 123 123 123',
-    'companyMail' => 'E-mail: hello@artforma.com',
+    'companyMail' => 'E-mail: hello@Wycieczki-na-jachcie.pl',
     'information' => 'Informacje',
     'privacyPolicy' => 'Polityka prywatności',
     'statute' => 'Regulamin',

@@ -26,5 +26,5 @@ return [
     'endDay' => "Końcowa data",
     'dateRange' => "Zakres dat",
     'optionsNotExpansion' => "Zmniejsz",
-    'optionsExpansion' => "Roszesz opcji filtracji",
+    'optionsExpansion' => "Rozszerz opcji filtracji",
 ];
