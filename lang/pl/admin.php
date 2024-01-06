@@ -61,10 +61,12 @@ return [
     'personal_first_name' => "Imie",
     'personal_phone' => "Numer telefonu",
     'personal_mail' => "Adres mail",
+    'slug' => "Slug",
     'session_id' => "Numer sesji",
     'status' => "Status",
     'superAdmin' => "Status super admina",
     'passwordConfirmed' => "Powtórz hasło",
     'password' => "Hasło",
     'security' => "Stopień dostępu",
+    'premium' => "Premium",
 ];

@@ -21,7 +21,7 @@ class RoomsRepository implements \App\Repository\RoomsRepository
 
     public function get()
     {
-        return $this->rooms->get();
+        return $this->rooms->paginate(20);
     }
 
     public function findOrFail(int $id)

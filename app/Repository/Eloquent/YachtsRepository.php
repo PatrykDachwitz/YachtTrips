@@ -23,7 +23,7 @@ class YachtsRepository implements \App\Repository\YachtsRepository
 
     public function get()
     {
-        return $this->yacht->get();
+        return $this->yacht->paginate(20);
     }
 
     public function findOrFail(int $id)

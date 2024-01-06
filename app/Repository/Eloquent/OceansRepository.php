@@ -22,7 +22,7 @@ class OceansRepository implements \App\Repository\OceansRepository
 
     public function get()
     {
-        return $this->ocean->get();
+        return $this->ocean->paginate(20);
     }
 
     public function findOrFail(int $id)

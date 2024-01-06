@@ -15,7 +15,7 @@ class OrdersRepository implements \App\Repository\OrdersRepository
 
     public function get()
     {
-        return $this->orders->get();
+        return $this->orders->paginate(20);
     }
 
     public function findOrFail(int $id)

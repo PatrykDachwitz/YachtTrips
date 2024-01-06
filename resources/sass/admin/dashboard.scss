@@ -1,10 +1,11 @@
 .dashboard {
     min-height: 100vh;
+    max-height: 100vh;
     min-width: 100%;
     overflow: hidden;
     display: flex;
     flex-wrap: nowrap;
-
+    justify-content: space-between;
     &-content {
         flex: 1;
         display: flex;
@@ -12,4 +13,11 @@
         align-items: center;
     }
 
+}
+.border-top-navigation-gray-1 {
+    border-top: 1.5px solid #d3d3d3;
+}
+
+.flex-1 {
+    flex: 1;
 }

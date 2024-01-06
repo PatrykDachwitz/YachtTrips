@@ -24,7 +24,7 @@ class BooksRepository implements \App\Repository\BooksRepository
     public function get()
     {
         return $this->booking
-            ->get();
+            ->paginate(20);
     }
 
     public function findOrFail(int $id)

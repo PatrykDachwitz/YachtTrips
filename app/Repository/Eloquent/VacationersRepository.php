@@ -21,7 +21,7 @@ class VacationersRepository implements \App\Repository\VacationersRepository
 
     public function get()
     {
-        return $this->vacationer->get();
+        return $this->vacationer->paginate(20);
     }
 
     public function findOrFail(int $id)

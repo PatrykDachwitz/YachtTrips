@@ -21,7 +21,7 @@ class UsersRepository implements \App\Repository\UsersRepository
 
     public function get()
     {
-        return $this->user->get();
+        return $this->user->paginate(20);
     }
 
     public function findOrFail(int $id)

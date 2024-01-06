@@ -85,7 +85,7 @@ class BannersRepository implements \App\Repository\BannersRepository
 
     public function get()
     {
-        return $this->banner->get();
+        return $this->banner->paginate(20);
     }
 
 }

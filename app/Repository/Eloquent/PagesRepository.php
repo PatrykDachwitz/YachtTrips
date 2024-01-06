@@ -22,7 +22,7 @@ class PagesRepository implements \App\Repository\PagesRepository
 
     public function get()
     {
-        return $this->page->get();
+        return $this->page->paginate(20);
     }
 
     public function findOrFail(int $id)

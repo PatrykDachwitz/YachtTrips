@@ -16,7 +16,7 @@ class CategoryBannersRepository implements \App\Repository\CategoryBannersReposi
     }
 
     public function get() {
-        return $this->category->get();
+        return $this->category->paginate(20);
     }
 
     public function getWithContent()

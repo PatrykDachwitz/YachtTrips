@@ -19,7 +19,7 @@ class PaymentsRepository implements \App\Repository\PaymentsRepository
 
     public function get()
     {
-        return $this->methodPayment->get();
+        return $this->methodPayment->paginate(20);
     }
 
     public function findOrFail(int $id)
