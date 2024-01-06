@@ -22,6 +22,12 @@ const dateForm = ref({
 const { data: trip } = useFetch(urlApi)
 watch(trip, () => {
     calculatePrice();
+
+    const loadingPage = document.querySelector('div.loading-page');
+    setTimeout(()=> {
+        loadingPage.parentElement.removeChild(loadingPage);
+    }, 100);
+
 });
 
 function getAvailableRoom() {
@@ -81,13 +87,14 @@ function reservation() {
     useFetchPost(urlOrders.value, JSON.stringify(inputsSend))
 }
 
+
+
 </script>
 
 <template>
     <gallery v-if="trip !== null" :gallery="trip.images" />
 
     <div class="product-configurator w-50 pt-5 px-2 d-flex flex-column justify-content-start" v-if="trip !== null">
-        <h2 class="fs-1 mb-3">{{ trip.name }}</h2>
 
         <configurator :trip="trip" @updatePrice="(params) => updatePrice(params)"  />
 

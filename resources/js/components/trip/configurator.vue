@@ -9,6 +9,9 @@ const lang = inject('lang');
 </script>
 
 <template>
+    <div class="w-75 text-start">
+        <h2 class="fs-1 mb-3">{{ trip.name }}</h2>
+    </div>
     <div class="row w-75 bg-gray p-3 shadow-sm overflow-hidden rounded-2 g-2">
 
         <div class="col-md-6">
