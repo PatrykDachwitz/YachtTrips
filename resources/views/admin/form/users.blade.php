@@ -16,13 +16,21 @@
     </div>
 
     <div class="col-md-6">
-        <label for="validationCustom02" class="form-label">@lang('admin.password_remember')</label>
-        <input type="password" class="form-control" id="validationCustom02" name="password_remember" placeholder="******" data-form-main>
+        <label for="validationCustom02" class="form-label">@lang('admin.passwordConfirmed')</label>
+        <input type="password" class="form-control" id="validationCustom02" name="password_confirmation" placeholder="******" data-form-main>
     </div>
 
     <div class="col-md-3">
         <label for="validationCustom02" class="form-label">@lang('admin.security')</label>
         <input type="text" class="form-control" id="validationCustom02" name="security" data-form-main>
+    </div>
+
+    <div class="col-md-3">
+        <label for="validationCustom02" class="form-label">@lang('admin.superAdmin')</label>
+        <select class="form-select" name="super_admin" data-form-main>
+            <option value="0" selected>@lang('admin.no')</option>
+            <option value="1">@lang('admin.yes')</option>
+        </select>
     </div>
 
 

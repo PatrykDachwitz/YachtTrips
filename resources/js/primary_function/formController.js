@@ -129,7 +129,10 @@ export class FormController {
     }
     update() {
 
+
         const updateData = this.getInputsToSend();
+
+        console.info(updateData);
 
         let { dataPut, errorPut } = useFetchPut(this.urlApi, updateData);
 

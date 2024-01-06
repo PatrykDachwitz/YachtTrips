@@ -11,7 +11,6 @@ const { data, error} = useFetch(url);
 const activeFileManager = inject('activeFileManager');
 //console.log(activeFileManager);
 function closeManager() {
-    console.log(activeFileManager);
     activeFileManager.value = false;
 }
 provide("urlApiFileManager", url);

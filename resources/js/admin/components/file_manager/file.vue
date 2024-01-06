@@ -8,7 +8,7 @@ const numberFile = ref(null);
 const selectedFiles = ref([])
 
 const activeSelected = inject('activeSelected');
-console.info(`selectedFiles: ${selectedFiles.value}`)
+
 function positionFiles() {
     return selectedFiles.length;
 }
@@ -32,7 +32,6 @@ function updateStatusActiveNewFile() {
     }
 }
 function updateFile(file) {
-    console.log(`file: ${file}`);
     selectedFiles.value.push(file)
 
     // console.log(file);

@@ -43,7 +43,10 @@ Route::group([
     Route::get('{slug}', [TripsController::class, 'show'])
         ->name('show');
 });
-Route::view('/tript', 'templateTrips');
+
+
+Route::view('/oceans', 'pages.oceans')->name('page.oceans');
+Route::view('/yachts', 'pages.yachts')->name('page.yachts');
 
 
 //Pages and cart Controller

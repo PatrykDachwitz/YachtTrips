@@ -22,8 +22,8 @@
         <div class="d-none d-lg-flex menu-content justify-content-md-end pe-0 pe-md-0 flex-column flex-lg-row mt-2 mt-lg-0">
             <ul class="list-unstyled d-flex flex-column flex-lg-row justify-content-start my-2 ps-4 ps-md-0">
                 <li class="mb-1 mb-md-0 border-end-grayMenu-1"><a class="text-white text-decoration-none mx-2 fs-5" href="{{ route('page.trips.index') }}">@lang('menu.availableTrips')</a></li>
-                <li class="mb-1 mb-md-0 border-end-grayMenu-1" ><a class="text-white text-decoration-none mx-2 fs-5">@lang('menu.availableYachts')</a></li>
-                <li class="mb-1 mb-md-0" ><a class="text-white text-decoration-none mx-2 fs-5" >@lang('menu.availableOceans')</a></li>
+                <li class="mb-1 mb-md-0 border-end-grayMenu-1" ><a href="{{ route('page.yachts') }}" class="text-white text-decoration-none mx-2 fs-5">@lang('menu.availableYachts')</a></li>
+                <li class="mb-1 mb-md-0" ><a href="{{ route('page.oceans') }}" class="text-white text-decoration-none mx-2 fs-5" >@lang('menu.availableOceans')</a></li>
                 <li class="mb-1 mb-md-0" ><a class="text-white text-decoration-none mx-2 fs-5 d-lg-none" >@lang('menu.travelsCart')</a></li>
             </ul>
             <div class="d-none d-lg-flex align-items-center ms-3">

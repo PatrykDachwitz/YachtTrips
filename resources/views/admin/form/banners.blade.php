@@ -15,17 +15,17 @@
     <div class="col-md-4">
         <label for="start_at" class="form-label">@lang('admin.startView')</label>
         <div class="position-relative">
-            <input type="text" class="form-control" id="created_at" name="start_at"  data-form-main>
+            <input type="text" class="form-control" id="created_at" name="start_at" style="background-position: right calc(2.4em + 0.1875rem) center;"  data-form-main>
             <picture>
                 <source srcset="/files/icons/calendar.webp" type="image/webp"/>
-                <img src="/files/icons/calendar.png" width="25" height="25" class="position-absolute  top-0 end-0 mt-1 me-2" data-calendar-input="start_at"/>
+                <img src="/files/icons/calendar.png" width="25" height="25" class="position-absolute  top-0 end-0 mt-1 me-2 calendars-input"   data-calendar-input="start_at"/>
             </picture>
         </div>
     </div>
     <div class="col-md-4">
         <label for="finish_at" class="form-label">@lang('admin.endView')</label>
         <div class="position-relative">
-            <input type="text" class="form-control" id="created_at" name="finish_at"  data-form-main>
+            <input type="text" class="form-control" id="created_at" name="finish_at" style="background-position: right calc(2.4em + 0.1875rem) center;"  data-form-main>
             <picture>
                 <source srcset="/files/icons/calendar.webp" type="image/webp"/>
                 <img src="/files/icons/calendar.png" width="25" height="25" class="position-absolute  top-0 end-0 mt-1 me-2" data-calendar-input="finish_at"/>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="X-CSRF-Token" content="{{ csrf_token() }}">
-    <title>CMS - Yacht project</title>
+    <title>Admin</title>
     @vite(['resources/sass/admin/app.scss'])
 
 </head>

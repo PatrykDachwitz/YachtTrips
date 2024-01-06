@@ -24,8 +24,6 @@ export function useFetchSendFiles(files) {
 
     })
         .then((response) => {
-           console.info(response.status);
-           console.info(response.json());
         })
 
     ;
@@ -41,7 +39,6 @@ export function useFetch(url) {
 
     watchEffect(() => {
        error.value = null;
-        console.log(url)
        fetch(toValue(url), {
            headers: {
                'Content-Type': 'application/json',
@@ -64,7 +61,6 @@ export function useFetch(url) {
                data.value = json;
            })
            .catch((err) => {
-               console.error(err);
                if (status.value === null) addAlert(500);
                error.value = err;
            })

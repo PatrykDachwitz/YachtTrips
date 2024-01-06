@@ -20,7 +20,7 @@ provide('urlApiCurrent', urlApi);
             <a :href="urlCreate" v-if="urlCreate !== ''">
                 <picture>
                     <source srcset="/files/icons/add.webp" type="image/webp">
-                    <img src="/files/icons/add.png" width="30" height="30" alt="new content">
+                    <img src="/files/icons/add.png" width="20" height="20" alt="new content">
                 </picture>
             </a>
         </template>

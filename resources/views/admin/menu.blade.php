@@ -73,7 +73,7 @@
                 <div class="collapse ms-2" id="content" style="">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ms-4">
                         <li><a href="{{ route('admin.views.index', ['views' => "banners"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.banner')</a></li>
-                        <li><a href="{{ route('admin.views.index', ['views' => "categoriesBanner"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.categoriesBanner')</a></li>
+                        <li><a href="{{ route('admin.views.index', ['views' => "categoryBanners"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.categoriesBanner')</a></li>
                         <li><a href="{{ route('admin.views.index', ['views' => "pages"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.pages')</a></li>
                     </ul>
                 </div>

@@ -11,7 +11,7 @@ const lang = ref(getLangContent());
 const { urlApi, urlUpdate } = getUrl();
 const urlDeleteBooks = getUrlByDataSetName('data-url-delete-book');
 const urlUpdateVacationers = getUrlByDataSetName('data-url-vacationers-updateGroup');
-console.error(urlApi);
+
 const {data: order} = useFetch(urlApi);
 const availableView = ref([
     CartSummary,

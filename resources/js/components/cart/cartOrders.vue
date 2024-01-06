@@ -24,7 +24,6 @@ function updatePersonalData() {
     })
 }
 function updateVacationers() {
-    console.log(urlUpdateVacationers);
     const form = new FormController('data-cart-vacationers-data-form', urlUpdateVacationers)
 
     const { dataPut, errorPut } = form.update();

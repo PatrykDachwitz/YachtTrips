@@ -63,4 +63,8 @@ return [
     'personal_mail' => "Adress mail",
     'session_id' => "Numer sessji",
     'status' => "Status",
+    'superAdmin' => "Status super admina",
+    'passwordConfirmed' => "Powtórz hasło",
+    'password' => "Hasło",
+    'security' => "Stopień dostępu",
 ];

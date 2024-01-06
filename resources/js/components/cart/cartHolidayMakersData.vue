@@ -30,7 +30,6 @@ function getFirstPosition(booking, countVacationer, age) {
     let countRegisterVacationer = 0;
 
     if (booking.vacationers !== []) {
-        console.log(age)
         booking.vacationers.forEach(vacationer => {
             if (vacationer.age === age) countRegisterVacationer++;
         });
