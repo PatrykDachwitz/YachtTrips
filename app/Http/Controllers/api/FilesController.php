@@ -33,9 +33,13 @@ class FilesController extends Controller
         ];
 
 
-        //dd($request->all());
-
-        $files = $request->file('file');
+        //dd($request->file()->store());
+        $files = $request->file('files');
+        foreach ($files as $file) {
+            dump($file->storePublicly('/files'));
+        }
+            dd($files);
+        $files = $request->file('file')->store();
         //$files->get()
         $file = $request->only('file');
 

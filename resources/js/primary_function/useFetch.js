@@ -24,6 +24,10 @@ export function useFetchSendFiles(files) {
 
     })
         .then((response) => {
+            console.info(response.json())
+        })
+        .catch(err => {
+            console.error(err);
         })
 
     ;
