@@ -1,8 +1,9 @@
 <script setup>
 
-import {inject, ref, watch} from 'vue';
+import {inject, onMounted, ref, watch} from 'vue';
 import {getUrlByDataSetName, useFetch} from "@/primary_function/useFetch.js";
 import FilterVariable from "@/components/filters/filterVariable.vue";
+import {Filters} from "@/primary_function/filters/filters.js";
 
 const oceansUrl = ref(getUrlByDataSetName('data-url-filters-oceans'));
 const yachtsUrl = ref(getUrlByDataSetName('data-url-filters-yachts'));
@@ -13,13 +14,8 @@ const { data: yachts } = useFetch(yachtsUrl);
 const lang = inject('lang');
 const urlApi = inject('urlApi');
 const products = inject('products');
-function updateUrlApi() {
-    const formController = document.querySelector('form[data-form-files]');
-    const formInputs = new FormData(formController);
-    const searchParams = new URLSearchParams(formInputs);
+const filters = ref(null);
 
-    urlApi.value = `${products.value.path}?page=${products.value.current_page}&${searchParams.toString()}`;
-}
 
 watch(oceans, () => {
     const loadingPage = document.querySelector('div.loading-page');
@@ -27,6 +23,13 @@ watch(oceans, () => {
         loadingPage.parentElement.removeChild(loadingPage);
     }, 100);
 });
+
+onMounted(() => {
+    filters.value = new Filters('data-form-files', urlApi.value);
+});
+function updateParamsFilter() {
+    urlApi.value = filters.value.getUpdateUrl();
+}
 
 </script>
 
@@ -39,13 +42,13 @@ watch(oceans, () => {
             <template v-if="oceans !== null">
                 <h4 class="fs-4">{{ lang['oceans'] }}</h4>
 
-                <filter-variable :variables="oceans" nameInput="oceans" />
+                <filter-variable :variables="oceans.data" nameInput="ocean_id" />
             </template>
 
             <template v-if="yachts !== null">
                 <h4 class="fs-4">{{ lang['yachts'] }}</h4>
 
-                <filter-variable :variables="yachts" nameInput="yachts" />
+                <filter-variable :variables="yachts.data" nameInput="yacht_id" />
             </template>
 
             <h4 class="fs-4">{{ lang['dateRange'] }}</h4>
@@ -62,7 +65,7 @@ watch(oceans, () => {
             </div>
 
             <div class="mt-3 w-100">
-                <a class="btn btn-outline-dark w-100" @click="updateUrlApi">
+                <a class="btn btn-outline-dark w-100" @click="updateParamsFilter">
                     {{ lang['filtred'] }}
                 </a>
             </div>

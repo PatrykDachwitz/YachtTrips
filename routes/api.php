@@ -40,7 +40,8 @@ Route::group([
     });
     Route::apiResource('banners', BannersController::class);
     Route::apiResource('yachts', YachtsController::class);
-    Route::apiResource('trips', TripsController::class);
+    Route::apiResource('trips', TripsController::class)
+    ->except('index');
     Route::apiResource('templates', TemplatesController::class);
     Route::apiResource('oceans', OceansController::class);
     Route::apiResource('method_payments', MethodPaymentsController::class);
@@ -62,5 +63,6 @@ Route::get('orders/show/{sessionId}', [OrdersController::class, "showBySession"]
     ->name('orders.showBySession');
 Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySession"])
     ->name('orders.updateBySession');
-
+Route::get('trips', [TripsController::class, 'index'])
+    ->name('trips.index');
 
