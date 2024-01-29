@@ -1,36 +1,51 @@
 <script setup>
 import {useFetchSendFiles} from "@/primary_function/useFetch.js";
+import {inject, watch} from "vue";
+import {updateTimestampUrl} from "@/primary_function/getUpdateUrl.js";
+const data = inject('data');
+const url = inject('url');
 
-function uploadFile(upload) {
+function uploadFile() {
+
     setTimeout(() => {
-        const inputUpload = document.querySelector(`input.sendContent`);
-        console.log(inputUpload);
-        const formData = new FormData();
-        formData.append('file', inputUpload.files[0]);
-        useFetchSendFiles(formData);
+        const inputsUpload = document.querySelector(`input.sendContent[name="files[]"]`);
+        let idFolder = data.value.content.id;
+        let countFiles = inputsUpload.files.length;
+
+        for (let i = 0; i < countFiles; i++) {
+            const formData = new FormData();
+            formData.append('file', inputsUpload.files[i]);
+            formData.append('folder_id', idFolder);
+            console.log(formData);
+            const {data} = useFetchSendFiles(formData);
+            watch(data, () => {
+                url.value = updateTimestampUrl(url.value);
+            });
+        }
+
 
 
 
     }, 100);
 
-   // const formUpload = document.querySelector('form');
-    //let formData = new FormData(formUpload);
-//console.log(inputUpload.files);
-
-/*
-    formData.append('file', files[i].name);
-    useFetchSendFiles(formData);*/
 }
 </script>
 
 <template>
-    
+    <form enctype="multipart/form-data">
+        <input type="file" class="min-vh-100 m-0 p-0 position-absolute w-100 sendContent"
+               multiple
+               name="files[]"
+               @drop="uploadFile"
+
+        />
+
+    </form>
 
 </template>
 
 <style scoped>
 .sendContent {
     max-width: 100%;
-    z-index: 10;
 }
 </style>

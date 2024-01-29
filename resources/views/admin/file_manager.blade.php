@@ -39,22 +39,35 @@
                 </symbol>
             </svg>
         </div>
-        <div class="windowAction rounded-3 shadow position-relative" id="app">
-            <form enctype="multipart/form-data" action="http://127.0.0.1:8000/api/files" method="post">
+        <div class="windowAction rounded-3 shadow" id="app">
+
+        </div>
+        <!--
+
+        <form enctype="multipart/form-data" action="http://127.0.0.1:8000/api/files" method="post">
                 <input type="file" class="bg-success m-0 p-0 w-100"
                        multiple
-                       name="files[]"
+                       name="file"
                 />
+                <input type="hidden" value="1" name="folder_id">
                 @csrf
-                <input type="submit" value="ysli">
-            </form>
-        </div>
+        <input type="submit" value="ysli">
+    </form>
+-->
     </div>
 </div>
 <div style="display: none" data-language>
     @json(__('vue'))
 </div>
-@vite(['resources/js/admin/app.js'])
+
+<div style="display: none">
+    <input type="hidden" value="{{ route('folders.index') }}" data-folder>
+    <input type="hidden" value="{{ route('files.index') }}" data-file>
+</div>
+@vite([
+    'resources/js/admin/app.js',
+    'resources/js/admin/file_manager.js',
+])
 @yield('script')
 
 </body>

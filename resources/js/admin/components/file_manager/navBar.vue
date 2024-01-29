@@ -18,5 +18,4 @@ const url = inject('url');
 </template>
 
 <style scoped>
-
 </style>

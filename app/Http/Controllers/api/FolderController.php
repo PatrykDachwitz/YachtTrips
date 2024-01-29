@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\folders\UpdateRequest;
 use App\Repository\FoldersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,9 +55,14 @@ class FolderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateRequest $request, int $id)
     {
         if (Gate::denies('api.update')) abort(403);
+
+        $this->folder->update($id, $request->only([
+            'parent',
+            'name',
+        ]));
     }
 
     /**

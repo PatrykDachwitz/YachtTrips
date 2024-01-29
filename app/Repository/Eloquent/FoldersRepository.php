@@ -44,12 +44,18 @@ class FoldersRepository implements \App\Repository\FoldersRepository
         return $this->folder->destroy($id);
     }
 
+    private function getPathByNameAndParent(int $parentId, string $name) {
+        $parentFolder = $this->findOrFail($parentId);
+
+        return "{$parentFolder->path}/{$name}";
+    }
     public function update(int $id, array $data)
     {
         $updateFolder = $this->findOrFail($id);
+        $path = $this->getPathByNameAndParent($data['parent'] ?? $updateFolder->parent, $data['name'] ?? $updateFolder->name);
 
         $updateFolder->name = $data['name'] ?? $updateFolder->name;
-        $updateFolder->path = $data['path'] ?? $updateFolder->path;
+        $updateFolder->path = $path ?? $updateFolder->path;
         $updateFolder->parent = $data['parent'] ?? $updateFolder->parent;
         $updateFolder->save();
 

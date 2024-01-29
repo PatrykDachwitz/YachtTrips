@@ -16,7 +16,12 @@ const lang = inject('lang');
     }"
     v-if="data.content.id > 1"
     />
-    <single-folder v-for="folder in data.folders" :folder="folder" />
+    <single-folder v-for="folder in data.folders"
+                   :folder="folder"
+                   @click.right="(e) => {
+             $emit('active-menu', folder.id, 'folder', e.pageY, e.pageX)
+         }"
+    />
 </template>
 
 <style scoped>

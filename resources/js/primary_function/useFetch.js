@@ -17,17 +17,18 @@ export function useFetchSendFiles(files) {
         method: "POST",
         headers: {
             //'Content-Type': 'application/json',
-            //'Accept': 'application/json',
+            'Accept': 'application/json',
             'X-CSRF-Token': getCsrfToken(),
         },
         body: files,
 
     })
         .then((response) => {
-            console.info(response.json())
+            data.value = response.json();
+            addAlert(response.status);
         })
         .catch(err => {
-            console.error(err);
+            addAlert(500);
         })
 
     ;
@@ -131,6 +132,7 @@ export function useFetchPut(url, updateDate) {
             dataPut.value = json;
         })
         .catch(err => {
+            errorPut.value = err;
             if (status.value === null) {
                 addAlert(500);
             }
