@@ -90,7 +90,6 @@ class TripsController extends Controller
      */
     public function show(int $id)
     {
-        if(Gate::denies('api.view')) abort(403);
         return response($this->trips->findOrFail($id), 200);
     }
 

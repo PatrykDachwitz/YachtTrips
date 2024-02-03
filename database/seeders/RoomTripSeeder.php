@@ -33,7 +33,11 @@ class RoomTripSeeder extends Seeder
                 $currentIdRoom = $rooms[array_rand($rooms)]->id;
 
                 for ($j = 0; $j <= rand(5, 20); $j++) {
-                    $tripSelect->rooms()->attach($currentIdRoom, ['number_room' => $numberRoom, "price" => rand(50, 500)]);
+                    $tripSelect->rooms()->attach($currentIdRoom, [
+                        'number_room' => $numberRoom,
+                        "price" => rand(50, 500),
+                        "available" => true,
+                    ]);
                     $numberRoom++;
                 }
             }

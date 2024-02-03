@@ -19,6 +19,8 @@ const dateForm = ref({
     kidsBeds: 0,
     premiumRoom: 0,
 });
+
+console.log(urlApi);
 const { data: trip } = useFetch(urlApi)
 watch(trip, () => {
     calculatePrice();
@@ -84,6 +86,7 @@ function reservation() {
         "price": price.value,
         "session_id": sessionId,
     }
+    console.log(urlOrders.value);
     useFetchPost(urlOrders.value, JSON.stringify(inputsSend))
 }
 

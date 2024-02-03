@@ -27,10 +27,12 @@
                 <li class="mb-1 mb-md-0" ><a class="text-white text-decoration-none mx-2 fs-5 d-lg-none" >@lang('menu.travelsCart')</a></li>
             </ul>
             <div class="d-none d-lg-flex align-items-center ms-3">
-                <picture>
-                    <source srcset="/files/icons/koszyk.webp" type="image/webp">
-                    <img src="/files/icons/koszyk.png" alt="@lang('menu.altCart')" width="35" height="35"/>
-                </picture>
+                <a href="{{ route('cart') }}">
+                    <picture>
+                        <source srcset="/files/icons/koszyk.webp" type="image/webp">
+                        <img src="/files/icons/koszyk.png" alt="@lang('menu.altCart')" width="35" height="35"/>
+                    </picture>
+                </a>
             </div>
         </div>
     </div>

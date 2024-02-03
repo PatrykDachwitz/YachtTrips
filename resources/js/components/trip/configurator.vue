@@ -37,6 +37,8 @@ const lang = inject('lang');
         <div class="col-md-6">
             <label for="rooms_active_max_adults" class="form-label">{{ lang.countAdult }}</label>
             <select class="form-select" name="rooms_active_max_adults" id="rooms_active_max_adults" data-form-main>
+                <option value="0" @click="$emit('updatePrice', {value: 0, name: 'countKids'})" selected>0</option>
+                {{ console.log(trip)}}
                 <option v-for="number in trip.rooms_active_max_adults" :value="number" @click="$emit('updatePrice', {value: number, name: 'countAdult'})">{{ number}}</option>
             </select>
         </div>

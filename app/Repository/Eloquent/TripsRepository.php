@@ -123,7 +123,8 @@ class TripsRepository implements \App\Repository\TripsRepository
 
     public function getIdBySlug(string $slug)
     {
-        $trip = $this->trip->where('slug', $slug)->firstOrFail();
+        $trip = $this->trip->where('slug', $slug)
+            ->firstOrFail();
 
         return $trip->id;
     }

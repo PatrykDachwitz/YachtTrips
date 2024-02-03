@@ -26,6 +26,8 @@ class TripsController extends Controller
     }
 
     public function show(string $slug) {
+
+
         return view('trip', [
             'trip_id' => $this->trips->getIdBySlug($slug),
             'sessionId' => Session::getId()
