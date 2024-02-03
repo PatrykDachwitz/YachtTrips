@@ -7,6 +7,8 @@ use App\Repository\PagesRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Support\Facades\Blade;
+
 class PageController extends Controller
 {
     private $pages;
@@ -26,7 +28,8 @@ class PageController extends Controller
         if (is_null($pages)) abort(404);
 
         return view('pages', [
-            'content' => $pages
+            'content' => $pages,
+            'description' => Blade::render($pages->description ?? "")
         ]);
     }
 }
