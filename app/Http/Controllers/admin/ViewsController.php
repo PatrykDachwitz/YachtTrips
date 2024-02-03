@@ -25,7 +25,7 @@ class ViewsController extends Controller
             case "banners":
                 $result['categoryBanners'] = $this->categoryBanners->get();
                 break;
-            case "categoryBanners":
+            case "banners.category":
                 $result['templates'] = $this->templates->get();
                 break;
             case "trips":
@@ -60,6 +60,7 @@ class ViewsController extends Controller
      */
     public function index(string $views)
     {
+        $views = $this->searchExceptionViewsName($views);
         $finallyResponse = $this->getFinallyVarOnViews([
             'views' => $views
         ], $views);
@@ -72,6 +73,7 @@ class ViewsController extends Controller
      */
     public function create(string $views)
     {
+        $views = $this->searchExceptionViewsName($views);
         $finallyResponse = $this->getFinallyVarOnViews([
             'views' => $views
         ], $views);
@@ -84,6 +86,8 @@ class ViewsController extends Controller
      */
     public function show(string $views, int $id)
     {
+
+        $views = $this->searchExceptionViewsName($views);
         $finallyResponse = $this->getFinallyVarOnViews([
             'views' => $views,
             'id' => $id,
@@ -98,6 +102,7 @@ class ViewsController extends Controller
      */
     public function edit(string $views, string $id)
     {
+        $views = $this->searchExceptionViewsName($views);
         $finallyResponse = $this->getFinallyVarOnViews([
             'views' => $views,
             'id' => $id,

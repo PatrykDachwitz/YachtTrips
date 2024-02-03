@@ -17,6 +17,7 @@
     <div class="col-md-4">
         <label for="template_id" class="form-label">@lang('admin.template')</label>
         <select class="form-select" name="template_id" data-form-main>
+
             @foreach($templates as $template)
                 <option value="{{ $template->id }}">{{ $template->name }}</option>
             @endforeach
