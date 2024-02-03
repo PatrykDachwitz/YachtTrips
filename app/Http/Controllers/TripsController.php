@@ -16,8 +16,13 @@ class TripsController extends Controller
     }
 
 
-    public function index() {
-        return view('trips');
+    public function index(Request $request) {
+
+        return view('trips',
+        [
+            'currentUrl' => $request->url(),
+            'queryHtml' => urldecode($request->getQueryString() ?? ""),
+        ]);
     }
 
     public function show(string $slug) {

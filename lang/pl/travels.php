@@ -18,13 +18,13 @@ return [
     'bookTrip' => 'Zarezerwuj wycieczkę',
     'check' => 'check',
     'countDay' => "Ilość dni",
-    'oceans' => "Ocean",
-    'yachts' => "Jacht",
+    'oceans' => "Oceany",
+    'yachts' => "Jachty",
     'filters' => "Filtry",
     'filtred' => "Filtruj",
     'startDay' => "Początkowa data",
     'endDay' => "Końcowa data",
     'dateRange' => "Zakres dat",
     'optionsNotExpansion' => "Zmniejsz",
-    'optionsExpansion' => "Rozszerz opcji filtracji",
+
 ];

@@ -3,11 +3,13 @@ import {CustomGetParams} from "@/primary_function/filters/customGetParams.js";
 export class Filters {
 
     formFilter;
-    clearUrl;
+    clearUrlApi;
+    urlSite;
     customParamsGet;
-    constructor(formName, url) {
+    constructor(formName, urlApi, urlSite) {
         this.formFilter = document.querySelector('form[data-form-files]');
-        this.clearUrl = url;
+        this.clearUrlApi = urlApi;
+        this.urlSite = urlSite;
     }
 
     getActiveInputs() {
@@ -17,6 +19,8 @@ export class Filters {
             if (inputForm.checked === true) {
                 activeInputs.push(inputForm);
             } else if(inputForm.type === 'text' && inputForm.value !== '') {
+                activeInputs.push(inputForm);
+            } else if(inputForm.type === 'hidden' && inputForm.name === 'page') {
                 activeInputs.push(inputForm);
             }
         })
@@ -33,8 +37,9 @@ export class Filters {
     }
 
     getUpdateUrl() {
-        let newUrlApi = `${this.clearUrl}${this.getParamsForm()}`;
-        console.info(newUrlApi)
-        return newUrlApi;
+        let newParamQuery = this.getParamsForm();
+        let newUrlApi = `${this.clearUrlApi}${newParamQuery}`;
+        let newUrlSite = `${this.urlSite}${newParamQuery}`;
+        return { newUrlApi, newUrlSite };
     }
 }

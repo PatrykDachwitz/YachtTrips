@@ -7,6 +7,7 @@ import {updateTimestampUrl} from "@/primary_function/getUpdateUrl.js";
 const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
 const details = inject('details');
 const url = inject('url');
+const lang = inject('lang');
 const settings = inject('settings');
 
 function sendData(typeAction) {
@@ -45,7 +46,7 @@ function activeForm() {
 <template>
     <div class="position-absolute min-vh-100 w-100 d-flex justify-content-center align-items-center">
         <div class="d-flex flex-column overflow-hidden rounded-2 bg-gray shadow-sm border-gray-1">
-            <div class="bg-dark fs-5 text-white p-1">Podaj nową nazwę pliku
+            <div class="bg-dark fs-5 text-white p-1">{{ lang['getName'] }}
                 <picture>
                     <source srcset="/files/icons/close.webp" type="image/webp">
                     <img src="/files/icons/close.png" width="25" height="25"
@@ -57,7 +58,7 @@ function activeForm() {
 
             <div class="d-flex flex-column p-3">
                 <input v-for="nameInput in settings.inputs" type="text" :name="nameInput" value="" class="form-control mb-2" placeholder="inputSetting.name">
-                <input type="submit" class="btn btn-dark fs-6" value="Zmień nazwę"
+                <input type="submit" class="btn btn-dark fs-6" value="{{ lang['changeName'] }}"
                        @click="activeForm"
                 >
             </div>

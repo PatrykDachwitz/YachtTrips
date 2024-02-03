@@ -19,11 +19,15 @@
 
 
 @section('script')
+    <div style="display: none" data-language>
+        @json(array_merge(__('travels'), __('vue')))
+    </div>
 @vite([
     'resources/js/trips.js',
     ])
 
-    <input type="hidden" value="{{ route('trips.index') }}" data-url-api/>
+    <input type="hidden" value="{{ $currentUrl }}" data-url-current/>
+    <input type="hidden" value="{{ route('trips.index') . "?" . $queryHtml }}" data-url-api/>
     <input type="hidden" value="{{ route('yachts.index') }}" name="yacht_id" data-url-filters-yachts>
     <input type="hidden" value="{{ route('oceans.index') }}" name="ocean_id" data-url-filters-oceans>
     <!--<input type="hidden" value="" name="count_day" data-url-filters>-->

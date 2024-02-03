@@ -42,18 +42,6 @@
         <div class="windowAction rounded-3 shadow" id="app">
 
         </div>
-        <!--
-
-        <form enctype="multipart/form-data" action="http://127.0.0.1:8000/api/files" method="post">
-                <input type="file" class="bg-success m-0 p-0 w-100"
-                       multiple
-                       name="file"
-                />
-                <input type="hidden" value="1" name="folder_id">
-                @csrf
-        <input type="submit" value="ysli">
-    </form>
--->
     </div>
 </div>
 <div style="display: none" data-language>

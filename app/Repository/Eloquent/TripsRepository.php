@@ -17,10 +17,10 @@ class TripsRepository implements \App\Repository\TripsRepository
         foreach ($filters ?? [] as $key => $filter) {
             switch ($key) {
                 case "start_day":
-                    $tripQuery->where('start_day', '>=', "{$filter} 00:00:00");
+                    $tripQuery->where('start_day', '>=', $filter);
                     break;
                 case "end_day":
-                    $tripQuery->where('end_day', '<=', "{$filter} 23:59:59");
+                    $tripQuery->where('end_day', '<=', $filter);
                     break;
                 case "yacht_id":
                     $tripQuery->whereIn('yacht_id', $filter['*']);
@@ -53,6 +53,7 @@ class TripsRepository implements \App\Repository\TripsRepository
     public function get(int $paginated = 40, array $filters = [])
     {
         $trips = $this->useFilters($filters);
+
 
         return $trips
             ->with('imagesCategory')

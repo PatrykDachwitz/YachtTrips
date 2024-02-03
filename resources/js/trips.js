@@ -7,7 +7,6 @@ const lang = ref(getLangContent());
 const { urlApi } = getUrl();
 const { data: products } = useFetch(urlApi);
 
-
 createApp(trips)
     .provide('urlApi', urlApi)
     .provide('lang', lang)

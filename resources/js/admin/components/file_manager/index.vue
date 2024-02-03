@@ -9,6 +9,7 @@ import {getUrlByDataSetName} from "@/primary_function/useFetch.js";
 
 const url = inject('url');
 const data = inject('data');
+const lang = inject('lang');
 const details = ref({active: false});
 provide('details', details);
 const selectContent = ref(true);
@@ -42,7 +43,7 @@ function activeMenu(id = null, type = null, pageY = 0, pageX = 0) {
     <div class=" ">
         <div class="bg-dark p-2 ps-3 navbar-admin-page">
             <div class="fs-4 text-white ">
-                Menadżer plików test
+                {{ lang['nameFileManager'] }}
             </div>
             <nav-bar />
         </div>

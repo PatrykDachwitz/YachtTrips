@@ -3,7 +3,7 @@ import {inject, onMounted} from "vue";
 
 const products = inject('products');
 const urlApi = inject('urlApi');
-console.log(products)
+
 function updateUrl(newUrl) {
     urlApi.value = newUrl;
 }

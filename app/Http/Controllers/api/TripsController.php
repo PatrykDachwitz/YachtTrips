@@ -27,11 +27,8 @@ class TripsController extends Controller
      */
     public function index(FiltersRequest $request)
     {
-
         try {
             $filters = $request->only([
-                'filters.start_day',
-                'filters.end_day',
                 'filters.yacht_id.*',
                 'filters.ocean_id.*',
                 'filters.template_id.*',
@@ -40,6 +37,18 @@ class TripsController extends Controller
         } catch (Exception) {
             $filters = [];
         }
+
+        try {
+            $filtersOther = $request->only([
+                'start_day',
+                'end_day',
+                'page',
+            ]);
+        } catch (Exception) {
+            $filtersOther = [];
+        }
+
+        $filters = array_merge($filters, $filtersOther);
 
         return response($this->trips->get(40, $filters), 200);
     }

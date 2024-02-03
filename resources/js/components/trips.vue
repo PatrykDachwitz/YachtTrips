@@ -3,24 +3,47 @@
 import filters from '@/components/filters/filters.vue';
 import {inject, onMounted, provide, ref} from "vue";
 import ListProducts from "@/components/products/listProducts.vue";
+import Calendar from "@/admin/components/show.vue";
+import calendar from "@/components/calendar.vue";
+import emptySupport from "@/admin/components/emptySupport.vue";
 
 //const filtersInputs = "data-url-filters"
 
-const lang = ref({})
+const activeCalendar = ref('emptySupport');
+const locationDataSet = ref(null);
 
-lang.value.oceans = "oceany";
-lang.value.yachts = "Jachty";
-lang.value.filters = "Filtry";
-lang.value.filtred = "Filtruj";
-lang.value.dateRange = "Podaj zakres dat";
-lang.value.startDay = "Początkowa data";
-lang.value.endDay = "Końcowa data";
+provide('activeCalendar', activeCalendar);
+provide('locationDataSet', locationDataSet);
+
+const supportComponent = {
+    calendar,
+    emptySupport
+}
+
+function runCalendar() {
+    const calendarInputs = document.querySelectorAll('[data-calendar-input]');
+
+    calendarInputs.forEach(calendarInput => {
+        calendarInput.addEventListener('click', () => {
+            if (activeCalendar.value === "calendar") {
+                activeCalendar.value = "emptySupport";
+            } else {
+                activeCalendar.value = "calendar";
+                locationDataSet.value = calendarInput.dataset.calendarInput;
+            }
+        })
+    });
+}
+
+onMounted(() => {
+    runCalendar();
+})
 
 
-provide('language', lang);
 </script>
 
 <template>
+    <component :is="supportComponent[activeCalendar]" :locationByDataSet="locationDataSet"> </component>
     <div class="d-flex justify-content-between align-items-start">
 
         <filters />
@@ -31,18 +54,17 @@ provide('language', lang);
 
 <style scoped>
 .filters {
-    @media only screen and (min-width: 992px) and (max-width: 1600px) {
-        flex: 20% 0;
-    }
-    @media only screen and (max-width: 992px) {
-        flex: 0;
-    }
-    @media only screen and (min-width: 1600px) {
-        flex: 15% 0;
-    }
+    flex: 0;
 }
 
 .contents-proucts {
     flex: 1;
 }
+@media only screen and (min-width: 992px) {
+    .filters {
+        flex: 320px 0;
+    }
+}
 </style>
+
+

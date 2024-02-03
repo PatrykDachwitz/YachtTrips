@@ -68,7 +68,6 @@ export class CustomGetParams {
     getParams() {
         this.readyParams = "";
         this.saveParams = [];
-        console.info(this.inputs);
         this.updateParamsByInputs(this.inputs);
         return `?${this.readyParams}`;
     }

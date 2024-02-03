@@ -8,6 +8,7 @@ import {useFetchPut} from "@/primary_function/useFetch.js";
 const details = inject('details');
 const url = inject('url');
 const data = inject('data');
+const lang = inject('lang');
 function changeLocation() {
     let dataUpdate = getJsonByInputName('select_folder', 'folder_id');
     let updateUrl = geUrlWithIdSource(details.value.id, details.value.type);
@@ -27,7 +28,7 @@ const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
 <template>
     <div class="position-absolute min-vh-100 w-100 d-flex justify-content-center align-items-center">
         <div class="d-flex flex-column overflow-hidden rounded-2 bg-gray shadow-sm border-gray-1">
-            <div class="bg-dark fs-5 text-white p-1">Podaj nową Lokalizację
+            <div class="bg-dark fs-5 text-white p-1">{{ lang['getNewLocation'] }}
                 <picture>
                     <source srcset="/files/icons/close.webp" type="image/webp">
                     <img src="/files/icons/close.png" width="25" height="25"
@@ -41,7 +42,7 @@ const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
                 <select class="form-select" name="select_folder">
                     <option v-for="folder in data.folders" :value="folder.id">{{ folder.name }}</option>
                 </select>
-                <input type="submit" class="btn btn-dark fs-6" value="Zmień lokalizację"
+                <input type="submit" class="btn btn-dark fs-6" value="{{ lang['changeLocation'] }}"
                        @click.prevent="changeLocation"
                 >
             </div>
