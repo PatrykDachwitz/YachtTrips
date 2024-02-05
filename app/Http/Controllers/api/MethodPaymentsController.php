@@ -25,6 +25,11 @@ class MethodPaymentsController extends Controller
         return response($this->methodPayment
             ->get(), 200);
     }
+    public function getActive()
+    {
+        return response($this->methodPayment
+            ->getActive(), 200);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +40,7 @@ class MethodPaymentsController extends Controller
 
         $payment = $this->methodPayment->create($request->only([
             'name',
-            'price',
+            'active',
             'type',
         ]));
 
@@ -68,7 +73,7 @@ class MethodPaymentsController extends Controller
 
         return response($this->methodPayment->update($id, $request->only([
             'name',
-            'price',
+            'active',
             'type',
         ])), 200);
     }

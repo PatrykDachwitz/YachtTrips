@@ -1,7 +1,8 @@
 <script setup>
-import {inject, ref, watch} from "vue";
+import {inject, ref, watch, watchEffect} from "vue";
 import {CustomFormData} from "@/primary_function/CustomFormData.js";
 import {FormController} from "@/primary_function/formController.js";
+import {Vacationers} from "@/primary_function/vacationers.js";
 
 const lang = inject('lang');
 const order = inject('order');
@@ -9,7 +10,7 @@ const availableView = inject('availableView');
 const currentView = inject('currentView');
 const urlUpdate = inject('urlUpdate');
 const urlApi = inject('urlApi');
-const urlUpdateVacationers = inject('urlUpdateVacationers');
+const urlVacationers = inject('urlVacationers');
 
 
 function updatePersonalData() {
@@ -24,15 +25,14 @@ function updatePersonalData() {
     })
 }
 function updateVacationers() {
-    const form = new FormController('data-cart-vacationers-data-form', urlUpdateVacationers)
+    const vacationers = new Vacationers('data-cart-vacationers-data-form', urlVacationers)
+    const updatedVacationers = vacationers.update();
 
-    const { dataPut, errorPut } = form.update();
-
-   /* watch(dataPut, () => {
-        let date = new Date();
-        urlApi.value += `?ts=${date.getTime()}`;
-        currentView.value++;
-    })*/
+    watch(updatedVacationers, () =>{
+        if (updatedVacationers.value === true) {
+            currentView.value++;
+        }
+    });
 }
 function updateNextView() {
 
@@ -41,7 +41,6 @@ function updateNextView() {
             updatePersonalData();
             break;
         case "cartDeliveryPayment":
-            currentView.value++;
             break;
         case "cartHolidayMakersData":
             updateVacationers();

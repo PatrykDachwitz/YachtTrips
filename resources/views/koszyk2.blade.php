@@ -8,7 +8,7 @@
 
     @include('elements.menu')
 
-    <div class="container" id="cart"> </div>
+    <div class="container cart-container" id="cart"> </div>
 
     @include('elements.footer')
 
@@ -20,7 +20,8 @@
 <input type="hidden" value="{{ route('orders.showBySession', ['sessionId' => $sessionId]) }}" data-url-api/>
 <input type="hidden" value="{{ route('orders.updateBySession', ['sessionId' => $sessionId]) }}" data-url-update/>
 <input type="hidden" value="{{ route('booking.index') . '/' }}" data-url-delete-book/>
-<input type="hidden" value="{{ route('vacationers.updateGroup') }}" data-url-vacationers-updateGroup/>
+<input type="hidden" value="{{ route('vacationers.store') }}" data-url-vacationers/>
+<input type="hidden" value="{{ route('method_payments.active') }}" data-url-payments/>
 
 
 

@@ -22,6 +22,7 @@ class Order extends Model
         "address" => 'string',
         "price" => 'integer',
         "correspondenceAddress" => 'string',
+        "checked_rule" => 'integer',
     ];
 
     protected $fillable = [
@@ -34,6 +35,7 @@ class Order extends Model
         'correspondenceAddress',
         'price',
         'status',
+        'checked_rule',
     ];
 
     protected $hidden = [
@@ -46,5 +48,9 @@ class Order extends Model
         return $this->hasMany(Book::class)
             ->with('trips')
             ->with('vacationers');
+    }
+
+    public function status() {
+        return $this->hasOne(Status::class, 'id', 'status_id');
     }
 }

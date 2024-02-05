@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\admin\ViewsController as PageAdminController;
 use App\Http\Controllers\Auth\LogOutController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\SummaryOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\admin\DashboardController;
 |
 */
 
-
+Route::get('/cart/{idOrder}', SummaryOrderController::class);
 //MainPage
 Route::get('/', MainPageController::class);
 
@@ -50,8 +51,9 @@ Route::view('/yachts', 'pages.yachts')->name('page.yachts');
 
 
 //Pages and cart Controller
-Route::get('/koszyk', OrderController::class)
+Route::get('/cart', OrderController::class)
 ->name('cart');
+
 Route::get('/{slug}', PageController::class)
     ->name('pages');
 

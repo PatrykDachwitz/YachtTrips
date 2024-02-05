@@ -48,7 +48,8 @@ Route::group([
     Route::apiResource('orders', OrdersController::class);
     Route::apiResource('booking', BooksController::class)
     ->except('store');
-    Route::apiResource('vacationers', VacationersController::class);
+    Route::apiResource('vacationers', VacationersController::class)
+    ->except('store', 'update');
     Route::apiResource('folders', FolderController::class);
     Route::apiResource('files', FilesController::class);
     Route::apiResource('users', UserController::class);
@@ -58,8 +59,7 @@ Route::group([
 
 });
 
-Route::put('vacationers/update/group', [VacationersController::class, 'updateGroup'])
-    ->name('vacationers.updateGroup');
+
 Route::get('orders/show/{sessionId}', [OrdersController::class, "showBySession"])
     ->name('orders.showBySession');
 Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySession"])
@@ -70,4 +70,10 @@ Route::get('trips/{trip}', [TripsController::class, 'show'])
     ->name('trips.show');
 Route::post('booking', [BooksController::class, 'store'])
     ->name('booking.store');
+Route::get('payments', [MethodPaymentsController::class, 'getActive'])
+    ->name('method_payments.active');
+Route::post('vacationers', [VacationersController::class, 'store'])
+    ->name('vacationers.store');
+Route::put('vacationers/{vacationer}', [VacationersController::class, 'update'])
+    ->name('vacationers.update');
 

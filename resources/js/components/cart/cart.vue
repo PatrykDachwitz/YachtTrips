@@ -1,6 +1,5 @@
 <script setup>
 import {inject, provide, ref} from "vue";
-import CartSummary from "@/components/cart/cartSummary.vue";
 import CartOrders from "@/components/cart/cartOrders.vue";
 import CartPersonalData from "@/components/cart/cartPersonalData.vue";
 import CartDeliveryPayment from "@/components/cart/cartDeliveryPayment.vue";

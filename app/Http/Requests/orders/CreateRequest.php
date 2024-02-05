@@ -30,6 +30,7 @@ class CreateRequest extends FormRequest
             "address" => ['required', "string", "max:255"],
             "correspondenceAddress" => ['required', "string", "max:255"],
             "price" => ['min:1', "integer"],
+            "checked_rule" => ['required', 'in:1'],
         ];
     }
 }

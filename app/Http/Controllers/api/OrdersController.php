@@ -42,6 +42,7 @@ class OrdersController extends Controller
             'address',
             'correspondenceAddress',
             'price',
+            'checked_rule',
         ]));
 
         $response = [
@@ -66,7 +67,7 @@ class OrdersController extends Controller
     public function showBySession(string $sessionId)
     {
         if($sessionId !== \session()->getId()) {
-            abort(425);
+            abort(403);
         }
 
         return $this->orders->findBySession($sessionId);
@@ -85,6 +86,7 @@ class OrdersController extends Controller
             'personal_last_name',
             'address',
             'correspondenceAddress',
+            'checked_rule',
         ]))) {
             return response($this->orders->findBySession($sessionId), 200);
         } else {
@@ -108,6 +110,7 @@ class OrdersController extends Controller
             "personal_first_name",
             "personal_last_name",
             'address',
+            'checked_rule',
             'correspondenceAddress',
             'price',
         ])), 200);

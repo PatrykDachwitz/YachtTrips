@@ -20,7 +20,10 @@ class OrdersRepository implements \App\Repository\OrdersRepository
 
     public function findOrFail(int $id)
     {
-        return $this->orders->findOrFail($id);
+        return $this->orders
+            ->with('books')
+            ->with('status')
+            ->findOrFail($id);
     }
 
     public function findOrCreatBySession(string $sessionId)
@@ -77,6 +80,7 @@ class OrdersRepository implements \App\Repository\OrdersRepository
         $updateOrder->personal_first_name = $data['personal_first_name'] ?? $updateOrder->personal_first_name;
         $updateOrder->personal_last_name = $data['personal_last_name'] ?? $updateOrder->personal_last_name;
         $updateOrder->address = $data['address'] ?? $updateOrder->address;
+        $updateOrder->checked_rule = $data['checked_rule'] ?? $updateOrder->checked_rule;
         $updateOrder->correspondenceAddress = $data['correspondenceAddress'] ?? $updateOrder->correspondenceAddress;
 
         return $updateOrder->save();

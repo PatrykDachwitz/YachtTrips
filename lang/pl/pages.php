@@ -55,4 +55,11 @@ return [
   'filtred' => "Filtruj",
   'startDay' => "Początkowa data",
   'endDay' => "Końcowa data",
+  'checkedRules' => "Zgadzam się z regulaminem oraz polityką prywatności",
+  'reservation' => "Rezerwacja",
+  'waitToPayment' => "Oczekuje na płatność",
+  'Payment' => "Opłacone",
+  'summaryPayment' => "Podsumowanie zamóienia",
+  'statusOrder' => "Status zamówienia",
+  'goToPayment' => "Przejdź do płatności",
 ];

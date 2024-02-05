@@ -21,6 +21,12 @@ class PaymentsRepository implements \App\Repository\PaymentsRepository
     {
         return $this->methodPayment->paginate(20);
     }
+    public function getActive()
+    {
+        return $this->methodPayment
+            ->where('active', 1)
+            ->get();
+    }
 
     public function findOrFail(int $id)
     {

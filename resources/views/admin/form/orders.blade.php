@@ -35,6 +35,13 @@
         <input type="text" class="form-control" id="validationCustom02" name="personal_phone" data-form-main>
     </div>
 
+    <div class="col-md-2">
+        <label for="validationCustom03" class="form-label">@lang('admin.checkedRules')</label>
+        <select class="form-select" name="checked_rules" aria-label="Default select example" id="validationCustom03" data-form-main>
+            <option value="1">@lang('admin.yes')</option>
+            <option value="0">@lang('admin.no')</option>
+        </select>
+    </div>
     <div class="col-md-12">
         <label for="validationCustom02" class="form-label">@lang('admin.address')</label>
         <input type="text" class="form-control" id="validationCustom02" name="address" data-form-main>

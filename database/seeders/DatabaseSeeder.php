@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GalleryTripSeeder::class);
 
         $this->call(AdminSeeder::class);
+        $this->call(StatusesSeed::class);
 
     }
 }

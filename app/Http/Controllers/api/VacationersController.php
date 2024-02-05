@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\vacationers\CreateRequest;
 use App\Http\Requests\vacationers\UpdateRequest;
 use App\Repository\VacationersRepository;
 use Illuminate\Http\Request;
@@ -24,20 +25,13 @@ class VacationersController extends Controller
         return $this->vacationers->get();
     }
 
-    public function updateGroup(UpdateRequest $request) {
-        return response($request->only([
-            'age',
-            'first_name',
-            'last_name',
-            'book_id',
-        ]), 200);
-    }
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
-        if(Gate::denies('api.create')) abort(403);
+//        if(Gate::denies('api.create')) abort(403);
+
 
         $vacationer = $this->vacationers->create($request->only([
             'age',
@@ -71,7 +65,7 @@ class VacationersController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
-        if(Gate::denies('api.update')) abort(403);
+//        if(Gate::denies('api.update') || !this.correctSession()) abort(403);
 
         $vacationer = $this->vacationers->update($id, $request->only([
             'age',

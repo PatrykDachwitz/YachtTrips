@@ -69,4 +69,6 @@ return [
     'password' => "Hasło",
     'security' => "Stopień dostępu",
     'premium' => "Premium",
+    'checkedRules' => "Zgoda z regulaminem",
+    'typePayment' => "Typ płatnośći",
 ];

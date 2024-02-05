@@ -1,5 +1,5 @@
 <script setup>
-import { inject, ref } from "vue";
+import {inject, onMounted, ref} from "vue";
 import CartContent from "@/components/cart/cartContent.vue";
 import PeopleHolidaysFullName from "@/components/cart/peopleHolidaysFullName.vue";
 
@@ -45,6 +45,10 @@ function getFirstPosition(booking, countVacationer, age) {
         return countVacationer;
     }
 }
+
+onMounted(() => {
+
+})
 </script>
 
 <template>
@@ -54,16 +58,14 @@ function getFirstPosition(booking, countVacationer, age) {
 
             <template v-for="(booking, index) in order.books">
                 <div :class="'shadow-sm d-flex justify-content-center align-items-center border-grayLight-1 p-2 overflow-hidden rounded-2 mb-2 flex-column ' + [index === selectBook ? '' : 'd-none']">
-
                     <div class="d-flex align-items-center">
                         <div class="btn-outline-dark fs-5 pointer" @click="previousBook"><strong>&lt;</strong></div>
                         <span class="fs-3 mx-3">{{ booking.trips.name }}</span>
                         <div class="btn-outline-dark fs-5 pointer" @click="nextBook"><strong>></strong></div>
                     </div>
-
-                    <people-holidays-full-name v-for="vacationer in booking.vacationers" :vacationer="vacationer" :book_id="booking.id" />
-                    <people-holidays-full-name v-for="vacationer in (getFirstPosition(booking, booking.count_adult, 'adult'))" :vacationer="{age: 'adult'}" :book_id="booking.id"/>
-                    <people-holidays-full-name v-for="vacationer in (getFirstPosition(booking, booking.count_kids, 'kid'))" :vacationer="{age: 'kid'}" :book_id="booking.id"/>
+                    <people-holidays-full-name v-for="(vacationer, indexVacationer) in booking.vacationers" :vacationer="vacationer" :id="indexVacationer" :book_id="booking.id" />
+                    <people-holidays-full-name v-for="(vacationer, indexVacationer) in (getFirstPosition(booking, booking.count_adult, 'adult'))" :id="booking.vacationers.length + indexVacationer" :vacationer="{age: 'adult'}" :book_id="booking.id"/>
+                    <people-holidays-full-name v-for="(vacationer, indexVacationer) in (getFirstPosition(booking, booking.count_kids, 'kid'))" :id="booking.vacationers.length + indexVacationer" :vacationer="{age: 'kid'}" :book_id="booking.id"/>
                 </div>
             </template>
 

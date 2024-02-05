@@ -15,13 +15,13 @@ class MethodPayment extends Model
     protected $casts = [
       'name' => 'string',
       'deleted_at' => 'timestamp',
-      'price' => 'integer',
+      'active' => 'integer',
       'type' => 'string',
     ];
 
     protected $fillable = [
         'name',
-        'price',
+        'active',
         'type',
     ];
 }

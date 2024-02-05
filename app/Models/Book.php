@@ -31,7 +31,8 @@ class Book extends Model
     ];
 
     public function trips() {
-        return $this->belongsTo(Trip::class, "trip_id", "id");
+        return $this->belongsTo(Trip::class, "trip_id", "id")
+            ->with('imagesCategory');
     }
 
     public function vacationers() {

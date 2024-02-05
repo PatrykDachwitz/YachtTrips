@@ -40,6 +40,14 @@ const order = inject('order');
                 <label for="additional_content" class="form-label">{{  lang['additionalContent'] }}</label>
                 <textarea class="form-control" :value="order.additional_content" id="additional_content" name='additional_content' :placeholder="lang['additionalContentFake']" data-form-main required></textarea>
             </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" name="checked_rule" value="1" type="checkbox" id="flexCheckDefault" data-form-main required>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{ lang['checkedRules'] }}
+                    </label>
+                </div>
+            </div>
             <div class="fs-6 mt-2">
                 {{ lang['requiredInput'] }}
             </div>
