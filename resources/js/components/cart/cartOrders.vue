@@ -3,6 +3,7 @@ import {inject, ref, watch, watchEffect} from "vue";
 import {CustomFormData} from "@/primary_function/CustomFormData.js";
 import {FormController} from "@/primary_function/formController.js";
 import {Vacationers} from "@/primary_function/vacationers.js";
+import {useFetchPut} from "@/primary_function/useFetch.js";
 
 const lang = inject('lang');
 const order = inject('order');
@@ -10,6 +11,7 @@ const availableView = inject('availableView');
 const currentView = inject('currentView');
 const urlUpdate = inject('urlUpdate');
 const urlApi = inject('urlApi');
+const urlUpdateStatus = inject('urlUpdateStatus');
 const urlVacationers = inject('urlVacationers');
 
 
@@ -30,8 +32,20 @@ function updateVacationers() {
 
     watch(updatedVacationers, () =>{
         if (updatedVacationers.value === true) {
-            currentView.value++;
+            updateStatusAndChangeLocationToCompletedCart();
         }
+    });
+}
+
+function updateStatusAndChangeLocationToCompletedCart() {
+    const statusId = {
+        "status_id": 2
+    };
+
+    const { dataPut } = useFetchPut(urlUpdateStatus, JSON.stringify(statusId));
+
+    watch(dataPut, () =>{
+        window.location.href = dataPut.value.url_summary;
     });
 }
 function updateNextView() {
@@ -39,8 +53,6 @@ function updateNextView() {
     switch (availableView.value[currentView.value].__name) {
         case "cartPersonalData":
             updatePersonalData();
-            break;
-        case "cartDeliveryPayment":
             break;
         case "cartHolidayMakersData":
             updateVacationers();

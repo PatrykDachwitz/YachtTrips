@@ -16,13 +16,15 @@ class SummaryOrderController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request, int $idOrder)
+
+    public function __invoke(Request $request, int $idOrder, string $numberOrder)
     {
         $selectedOrder = $this->order
             ->findOrFail($idOrder);
 
-        if ($selectedOrder->session_id !== session()->getId()) abort(403);
-dd($selectedOrder);
+
+        if ($selectedOrder->session_id !== session()->getId() && $selectedOrder->number === $numberOrder) abort(403);
+
         return view('summaryOrder', [
            'order' => $selectedOrder
         ]);

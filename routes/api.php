@@ -64,6 +64,8 @@ Route::get('orders/show/{sessionId}', [OrdersController::class, "showBySession"]
     ->name('orders.showBySession');
 Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySession"])
     ->name('orders.updateBySession');
+Route::put('orders/updateStatus/{sessionId}', [OrdersController::class, "updateStatusBySession"])
+    ->name('orders.updateStatusBySession');
 Route::get('trips', [TripsController::class, 'index'])
     ->name('trips.index');
 Route::get('trips/{trip}', [TripsController::class, 'show'])

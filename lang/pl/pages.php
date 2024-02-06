@@ -62,4 +62,9 @@ return [
   'summaryPayment' => "Podsumowanie zamóienia",
   'statusOrder' => "Status zamówienia",
   'goToPayment' => "Przejdź do płatności",
+  'makeTransfer' => "Wykonaj przelew",
+  'recipient' => "Odbiorca",
+  'numberOrder' => "Zamówienie nr",
+  'numberAccountBank' => "Nr konta",
+  'titlePayment' => "Tytuł przelewu",
 ];

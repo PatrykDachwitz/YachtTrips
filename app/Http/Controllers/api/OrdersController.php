@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\orders\CreateRequest;
 use App\Http\Requests\orders\UpdateRequest;
+use App\Http\Requests\orders\UpdateStatusRequest;
 use App\Repository\OrdersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -87,6 +88,24 @@ class OrdersController extends Controller
             'address',
             'correspondenceAddress',
             'checked_rule',
+        ]))) {
+            return response($this->orders->findBySession($sessionId), 200);
+        } else {
+            abort(500);
+        }
+
+
+        return $this->orders->findBySession($sessionId);
+    }
+    public function updateStatusBySession(UpdateStatusRequest $updateRequest, string $sessionId)
+    {
+
+        if($sessionId !== \session()->getId()) {
+            abort(425);
+        }
+
+        if ($this->orders->updateBySession($sessionId, $updateRequest->only([
+            'status_id',
         ]))) {
             return response($this->orders->findBySession($sessionId), 200);
         } else {

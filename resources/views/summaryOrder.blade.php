@@ -2,34 +2,44 @@
 
 @section('content')
 
-    <section class="d-flex justify-content-center align-items-center" style="margin-top: 150px">
-        <div class="bg-gray shadow p-5">
+    <section class="d-flex justify-content-center align-items-center flex-column" style="margin-top: 150px">
+        <div class="bg-gray shadow p-5 ">
             <div>
                 <h1 class="fs-2">@lang('pages.summaryPayment')</h1>
-                <hr />
-                <ul class="list-unstyled d-flex justify-content-center flex-column">{{ dd($order->status()->name) }}
-                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.summaryPayment')</strong> <span>@lang(`pages.{$order->status}`)</span></li>
-                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.statusOrder')</strong> <span>#{{ $order->number }}</span></li>
-                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.price')</strong> <span>{{ $order->price }} zł</span></li>
+                <ul class="list-unstyled d-flex justify-content-center flex-column">
+                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.summaryPayment')</strong> <strong>@lang("pages.{$order->statusOrder->name}")</strong></li>
+                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.statusOrder')</strong> <strong>#{{ $order->number }}</strong></li>
+                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.price')</strong> <strong>{{ $order->price }} zł</strong></li>
                 </ul>
-                <a class="btn btn-success w-100" href="">@lang('pages.goToPayment')</a>
             </div>
+            <hr />
+            <div>
+                <h2>@lang('pages.makeTransfer')</h2>
+                <ul class="list-unstyled d-flex justify-content-center flex-column">
+                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.recipient')</strong> <span>wycieczki-na-jachcie.pl</span></li>
+                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.numberAccountBank')</strong> <span>1234 1234 1234 1234</span></li>
+                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.titlePayment')</strong> <span>@lang('pages.numberOrder'): {{ $order->number }}</span></li>
+                </ul>
+            </div>
+            <hr />
             <div class="mt-3 flex-column">
                 @foreach($order->books as $book)
-                    <div>
+                    <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <picture>
-                                <source srcset="{{ $book->trips->link_webp }}" type="image/webp">
-                                <img src="{{ $book->trips->link_image }}" />
+                                <source srcset="{{ $book->trips->imagesCategory[0]->link_webp }}" type="image/webp">
+                                <img src="{{ $book->trips->imagesCategory[0]->link_image }}" class="rounded-2" />
                             </picture>
                         </div>
-                        <div>
+                        <div class="fs-5 ms-2 d-flex flex-column">
                             {{ $book->trips->name }}
+                            <strong class="fs-5">@lang('pages.price'): {{ "{$book->price} zł" }}</strong>
                         </div>
                         <div>
-                            {{ "{$book->price} zł" }}
+
                         </div>
                     </div>
+                    <hr />
                 @endforeach
             </div>
         </div>

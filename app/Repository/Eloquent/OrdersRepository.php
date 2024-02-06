@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Repository\Eloquent;
 
 use App\Models\Order;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class OrdersRepository implements \App\Repository\OrdersRepository
 {
@@ -22,16 +23,24 @@ class OrdersRepository implements \App\Repository\OrdersRepository
     {
         return $this->orders
             ->with('books')
-            ->with('status')
+            ->with('statusOrder')
             ->findOrFail($id);
     }
 
     public function findOrCreatBySession(string $sessionId)
     {
-        return $this->orders
-            ->firstOrCreate([
-                'session_id' => $sessionId
+        try {
+            $order = $this->orders
+                ->findOrFail([
+                    'session_id' => $sessionId
+                ]);
+        } catch (ModelNotFoundException) {
+            $order = $this->create([
+                'session_id' => $sessionId,
+                'number' => uniqid()
             ]);
+        }
+        return $order;
     }
 
     public function destroy(int $id)
@@ -41,6 +50,8 @@ class OrdersRepository implements \App\Repository\OrdersRepository
 
     public function create(array $data)
     {
+
+        $data['number'] = uniqid();
         return $this->orders->create($data);
     }
 

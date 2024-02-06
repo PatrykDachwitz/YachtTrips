@@ -22,6 +22,8 @@ class Order extends Model
         "address" => 'string',
         "price" => 'integer',
         "correspondenceAddress" => 'string',
+        "number" => 'string',
+        "url_summary" => 'string',
         "checked_rule" => 'integer',
     ];
 
@@ -34,7 +36,7 @@ class Order extends Model
         'address',
         'correspondenceAddress',
         'price',
-        'status',
+        'number',
         'checked_rule',
     ];
 
@@ -44,13 +46,22 @@ class Order extends Model
         'created_at',
     ];
 
+    protected $appends = [
+        'url_summary'
+    ];
+
     public function books() {
         return $this->hasMany(Book::class)
             ->with('trips')
             ->with('vacationers');
     }
-
-    public function status() {
+    public function getUrlSummaryAttribute() {
+        return route('summaryOrder', [
+            'idOrder' => $this->id,
+            'numberOrder' => $this->number,
+        ]);
+    }
+    public function statusOrder() {
         return $this->hasOne(Status::class, 'id', 'status_id');
     }
 }

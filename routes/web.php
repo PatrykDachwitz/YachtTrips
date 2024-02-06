@@ -23,7 +23,8 @@ use App\Http\Controllers\SummaryOrderController;
 |
 */
 
-Route::get('/cart/{idOrder}', SummaryOrderController::class);
+Route::get('/cart/{idOrder}-{numberOrder}', SummaryOrderController::class)
+->name('summaryOrder');
 //MainPage
 Route::get('/', MainPageController::class);
 

@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('name');
             $table->softDeletes();
         });
+
+        Schema::table('orders', function (Blueprint $table) {
+            $table->integer('status_id')->default(1)->change();
+        });
     }
 
     /**
@@ -25,5 +29,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('statuses');
+
+        Schema::table('orders', function (Blueprint $table) {
+            $table->integer('status_id')->default(0)->change();
+        });
     }
 };
