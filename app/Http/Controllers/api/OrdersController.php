@@ -77,7 +77,7 @@ class OrdersController extends Controller
     {
 
         if($sessionId !== \session()->getId()) {
-            abort(425);
+            abort(403);
         }
 
         if ($this->orders->updateBySession($sessionId, $updateRequest->only([
@@ -101,19 +101,12 @@ class OrdersController extends Controller
     {
 
         if($sessionId !== \session()->getId()) {
-            abort(425);
+            abort(403);
         }
 
-        if ($this->orders->updateBySession($sessionId, $updateRequest->only([
+        return $this->orders->updateBySession($sessionId, $updateRequest->only([
             'status_id',
-        ]))) {
-            return response($this->orders->findBySession($sessionId), 200);
-        } else {
-            abort(500);
-        }
-
-
-        return $this->orders->findBySession($sessionId);
+        ]));
     }
 
     /**

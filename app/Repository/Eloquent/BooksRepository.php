@@ -31,6 +31,7 @@ class BooksRepository implements \App\Repository\BooksRepository
     {
         return $this->booking
             ->with('vacationers')
+            ->with('order')
             ->findOrFail($id);
     }
 

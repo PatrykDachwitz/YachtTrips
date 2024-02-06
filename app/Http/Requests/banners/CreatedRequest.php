@@ -28,6 +28,7 @@ class CreatedRequest extends FormRequest
             'active' => ["required", "boolean"],
             'category_banner_id' => ["required", "integer", "min:1"],
             'description' => ['string'],
+            'href' => ['string'],
         ];
     }
 }

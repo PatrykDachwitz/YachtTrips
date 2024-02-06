@@ -26,7 +26,7 @@ class UpdateRequest extends FormRequest
             'age' => [new AgeRule],
             'first_name' => ['string', "max:255"],
             'last_name' => ['string', "max:255"],
-            'book_id' => ['integer'],
+            'book_id' => ['required', 'integer'],
         ];
     }
 }

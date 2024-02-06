@@ -38,4 +38,8 @@ class Book extends Model
     public function vacationers() {
         return $this->hasMany(Vacationer::class);
     }
+
+    public function order() {
+        return $this->belongsTo(Order::class);
+    }
 }

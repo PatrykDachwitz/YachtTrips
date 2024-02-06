@@ -71,6 +71,7 @@ class OrdersRepository implements \App\Repository\OrdersRepository
         return $this->orders
             ->with('books')
             ->where('session_id', $sessionId)
+            ->where('status_id', 1)
             ->first();
     }
 
@@ -87,13 +88,16 @@ class OrdersRepository implements \App\Repository\OrdersRepository
         $updateOrder = $this->findBySession($sessionId);
 
         $updateOrder->personal_mail = $data['personal_mail'] ?? $updateOrder->personal_mail;
+        $updateOrder->status_id = $data['status_id'] ?? $updateOrder->status_id;
         $updateOrder->personal_phone = $data['personal_phone'] ?? $updateOrder->personal_phone;
         $updateOrder->personal_first_name = $data['personal_first_name'] ?? $updateOrder->personal_first_name;
         $updateOrder->personal_last_name = $data['personal_last_name'] ?? $updateOrder->personal_last_name;
         $updateOrder->address = $data['address'] ?? $updateOrder->address;
         $updateOrder->checked_rule = $data['checked_rule'] ?? $updateOrder->checked_rule;
         $updateOrder->correspondenceAddress = $data['correspondenceAddress'] ?? $updateOrder->correspondenceAddress;
+        $updateOrder->save();
 
-        return $updateOrder->save();
+        return $updateOrder;
     }
+
 }

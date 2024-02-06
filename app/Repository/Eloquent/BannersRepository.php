@@ -31,6 +31,7 @@ class BannersRepository implements \App\Repository\BannersRepository
 
             $banner->name = $updateData['name'] ?? $banner->name;
             $banner->start_at = $updateData['start_at'] ?? $banner->start_at;
+            $banner->href = $updateData['href'] ?? $banner->href;
             $banner->finish_at = $updateData['finish_at'] ?? $banner->finish_at;
             $banner->active = $updateData['active'] ?? $banner->active;
             $banner->category_banner_id = $updateData['category_banner_id'] ?? $banner->category_banner_id;
@@ -56,6 +57,7 @@ class BannersRepository implements \App\Repository\BannersRepository
             $banner->start_at = $data['start_at'] ?? "";
             $banner->finish_at = $data['finish_at'] ?? "";
             $banner->active = $data['active'];
+            $banner->href = $data['href'] ?? null;
             $banner->category_banner_id = $data['category_banner_id'];
             $banner->description = $data['description'] ?? "";
 

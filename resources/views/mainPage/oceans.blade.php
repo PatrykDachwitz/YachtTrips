@@ -68,7 +68,7 @@
                                 <strong class="fs-4">
                                     {{ $banner->name }}
                                 </strong>
-                                <a class="btn fs-6 btn-outline-dark">@lang('pages.check')</a>
+                                <a class="btn fs-6 btn-outline-dark" href="{{ $banner->href }}">@lang('pages.check')</a>
                             </div>
                         </div>
                     @endforeach

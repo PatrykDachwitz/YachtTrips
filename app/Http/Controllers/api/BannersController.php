@@ -41,6 +41,7 @@ class BannersController extends Controller
                 'active',
                 'category_banner_id',
                 'description',
+                'href',
             ]));
         } catch (Exception) {
             abort(500);
@@ -82,6 +83,7 @@ class BannersController extends Controller
                 'start_at',
                 'finish_at',
                 'active',
+                'href',
                 'category_banner_id',
                 'images.*.id',
                 'images.*.devices',

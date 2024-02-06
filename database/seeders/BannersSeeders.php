@@ -25,35 +25,42 @@ class BannersSeeders extends Seeder
                 Gwarantujemy niezapomnianą podróż!
                 </div>
                 <div>
-                    <a class="btn btn-light text-dark fs-5">Rezerwuj teraz!</a>
+                    <a class="btn btn-light text-dark fs-5" href="/trips">Rezerwuj teraz!</a>
                 </div>
                 '),
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 1,
             ], [
                 "name" => "Ocean Spokojny",
                 "description" => null,
                 "active" => true,
+                "href" => null,
+                "href" => "/trips?&filters[ocean_id][0]=1",
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Atlantycki",
                 "description" => null,
                 "active" => true,
+                "href" => "/trips?&filters[ocean_id][0]=2",
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Indyjski",
                 "description" => null,
                 "active" => true,
+                "href" => "/trips?&filters[ocean_id][0]=3",
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Arktyczny",
                 "description" => null,
                 "active" => true,
+                "href" => "/trips?&filters[ocean_id][0]=4",
                 "category_banner_id" => 2,
             ], [
                 "name" => "Ocean Południowy",
                 "description" => null,
                 "active" => true,
+                "href" => "/trips?&filters[ocean_id][0]=5",
                 "category_banner_id" => 2,
             ], [
                 "name" => "Dlaczego Nasze Wycieczki?",
@@ -67,51 +74,61 @@ class BannersSeeders extends Seeder
                     </ul>
                 '),
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 4,
             ], [
                 "name" => "StarBreeze",
                 "description" => 'StarBreeze to klejnot nieba i morza. Z 150 miejscami dla gości, ten jacht zapewnia intymność i wyjątkowe widoki. Na jego pokładzie znajdziesz "Gwiezdne Obserwatorium" - idealne miejsce do zachwycania się nocnym niebem. Podaruj sobie niezapomniane chwile pod gwiazdami na pokładzie StarBreeze.',
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 3,
             ], [
                 "name" => "AquaVista",
                 "description" => 'AquaVista to jacht dla miłośników nie tylko oceanu, ale także kina. Z 200 miejscami dla gości, ten statek oferuje unikatową atrakcję - "Podwodne Kino Morskie". Przeżyj niezwykłe doświadczenie oglądania filmów pod wodą, jednocześnie ciesząc się komfortem i elegancją na pokładzie AquaVista.',
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 3,
             ], [
                 "name" => "SeaSerenity",
                 "description" => 'SeaSerenity to oaza spokoju na falach oceanu. Z 280 miejscami, ten jacht oferuje wyjątkowy komfort i relaks. "Serenity Spa Deck" to miejsce, gdzie luksus spotyka się z morzem, umożliwiając gościom korzystanie z zabiegów wellness przy jednoczesnym podziwianiu krajobrazów otwartego morza. Odkryj harmonię na pokładzie SeaSerenity.',
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 3,
             ], [
                 "name" => $faker->name(),
                 "description" => "Ekskluzywna podróż jachtem z YachtTrips to była najbardziej niesamowita przygoda w moim życiu!",
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 5,
             ], [
                 "name" => $faker->name(),
                 "description" => "Rejs jachtem z YachtTrips to był strzał w dziesiątkę! Jacht 'Perłowy Wiatr' był luksusowy, jedzenie wyśmienite, a widoki niesamowite.",
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 5,
             ], [
                 "name" => $faker->name(),
                 "description" => "Nasz rejs z YachtTrips był absolutnie fantastyczny! Jacht 'Morski Raj' był elegancki, czysty, a atmosfera była niesamowita.",
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 5,
             ], [
                 "name" => $faker->name(),
                 "description" => "Niezapomniane wrażenia! Jacht 'Słońce Morza' był doskonale przygotowany, a załoga sprawiła, że czuliśmy się jak prawdziwi goście VIP.",
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 5,
             ], [
                 "name" => $faker->name(),
                 "description" => "Nigdy wcześniej nie doświadczyłam takiego luksusu! YachtTrips przekroczyła moje oczekiwania. Jacht 'Błękitny Horizont' był piękny.",
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 5,
             ], [
                 "name" => $faker->name(),
                 "description" => "Szczerze polecam! YachtTrips dostarczyła nam niezapomniane wspomnienia. Jacht 'Złote Fale' był nie tylko elegancki, ale także bardzo komfortowy.",
                 "active" => true,
+                "href" => null,
                 "category_banner_id" => 5,
             ],
         ];

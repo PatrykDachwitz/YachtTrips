@@ -5,15 +5,18 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\vacationers\CreateRequest;
 use App\Http\Requests\vacationers\UpdateRequest;
+use App\Repository\BooksRepository;
+use App\Repository\OrdersRepository;
 use App\Repository\VacationersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class VacationersController extends Controller
 {
-    private $vacationers;
-    public function __construct(VacationersRepository $vacationersRepository)
+    private $vacationers, $books;
+    public function __construct(VacationersRepository $vacationersRepository, BooksRepository $booksRepository)
     {
+        $this->books = $booksRepository;
         $this->vacationers = $vacationersRepository;
     }
 
@@ -30,8 +33,13 @@ class VacationersController extends Controller
      */
     public function store(CreateRequest $request)
     {
-//        if(Gate::denies('api.create')) abort(403);
+        if(Gate::denies('api.update')) {
+            $order = ($this->books->findOrFail($request->input('book_id')))->order;
 
+            if (session()->getId() !== $order->session_id) {
+                abort(403);
+            }
+        }
 
         $vacationer = $this->vacationers->create($request->only([
             'age',
@@ -65,7 +73,13 @@ class VacationersController extends Controller
      */
     public function update(UpdateRequest $request, int $id)
     {
-//        if(Gate::denies('api.update') || !this.correctSession()) abort(403);
+        if(Gate::denies('api.update')) {
+            $order = ($this->books->findOrFail($request->input('book_id')))->order;
+
+            if (session()->getId() !== $order->session_id) {
+                abort(403);
+            }
+        }
 
         $vacationer = $this->vacationers->update($id, $request->only([
             'age',

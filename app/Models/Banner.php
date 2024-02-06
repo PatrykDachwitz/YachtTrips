@@ -29,6 +29,7 @@ class Banner extends Model
         'active' => 'boolean',
         'category_banner_id' => 'integer',
         'description' => 'string',
+        'href' => 'string',
     ];
 
     protected $fillable = [
@@ -38,6 +39,7 @@ class Banner extends Model
         'active',
         'finish_at',
         'start_at',
+        'href',
     ];
 
     protected $hidden = [

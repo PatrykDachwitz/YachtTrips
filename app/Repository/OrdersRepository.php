@@ -13,6 +13,7 @@ interface OrdersRepository
 
     public function destroy(int $id);
 
+
     public function deincrementPrice(int $id,string $price);
 
     public function updateBySession(string $sessionId, array $data);

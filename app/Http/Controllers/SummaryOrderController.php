@@ -2,6 +2,8 @@
 declare(strict_types=1);
 namespace App\Http\Controllers;
 
+
+use App\Repository\BooksRepository;
 use App\Repository\OrdersRepository;
 use Illuminate\Http\Request;
 
@@ -19,6 +21,7 @@ class SummaryOrderController extends Controller
 
     public function __invoke(Request $request, int $idOrder, string $numberOrder)
     {
+
         $selectedOrder = $this->order
             ->findOrFail($idOrder);
 
