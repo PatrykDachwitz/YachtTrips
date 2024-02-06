@@ -28,15 +28,10 @@ class FoldersRepository implements \App\Repository\FoldersRepository
 
     public function create(array $data)
     {
+        $data['path'] = $this->getPathByNameAndParent($data['parent'], $data['name']);
 
-        $folder = new $this->folder();
-
-        $folder->name = $data['name'];
-        $folder->path = $data['path'];
-        $folder->parent = $data['parent'];
-        $folder->save();
-
-        return $folder;
+        return $this->folder
+            ->create($data);
     }
 
     public function destroy(array|string $id)

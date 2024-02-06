@@ -183,6 +183,7 @@ export function useFetchPost(url, updateDate) {
         body: updateDate,
     })
         .then(response => {
+
             if (response.status !== 301) {
                 status.value = response.status
                 addAlert(response.status);

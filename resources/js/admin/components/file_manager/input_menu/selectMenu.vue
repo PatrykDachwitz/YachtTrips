@@ -28,7 +28,7 @@ const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
 <template>
     <div class="position-absolute min-vh-100 w-100 d-flex justify-content-center align-items-center">
         <div class="d-flex flex-column overflow-hidden rounded-2 bg-gray shadow-sm border-gray-1">
-            <div class="bg-dark fs-5 text-white p-1">{{ lang['getNewLocation'] }}
+            <div class="bg-dark fs-5 text-white p-1 px-2 d-flex justify-content-between">{{ lang['getNewLocation'] }}
                 <picture>
                     <source srcset="/files/icons/close.webp" type="image/webp">
                     <img src="/files/icons/close.png" width="25" height="25"
@@ -40,6 +40,9 @@ const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
 
             <div class="d-flex flex-column p-3">
                 <select class="form-select" name="select_folder">
+                    <template v-if="data.content.parent > 0">
+                        <option :value="data.content.parent">{{ lang['previousFolder'] }}</option>
+                    </template>
                     <option v-for="folder in data.folders" :value="folder.id">{{ folder.name }}</option>
                 </select>
                 <input type="submit" class="btn btn-dark fs-6" value="{{ lang['changeLocation'] }}"

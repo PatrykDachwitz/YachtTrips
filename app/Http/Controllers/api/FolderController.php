@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\folders\CreateRequest;
 use App\Http\Requests\folders\UpdateRequest;
 use App\Repository\FoldersRepository;
 use Illuminate\Http\Request;
@@ -32,9 +33,15 @@ class FolderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateRequest $request)
     {
         if (Gate::denies('api.create')) abort(403);
+
+        return $this->folder->create($request->only([
+        'name',
+        'parent',
+        ]));
+
     }
 
     /**
@@ -59,7 +66,7 @@ class FolderController extends Controller
     {
         if (Gate::denies('api.update')) abort(403);
 
-        $this->folder->update($id, $request->only([
+        return $this->folder->update($id, $request->only([
             'parent',
             'name',
         ]));

@@ -15,6 +15,12 @@ class Folder extends Model
         'name' => 'string',
     ];
 
+    protected $fillable = [
+        'path',
+        'parent',
+        'name',
+    ];
+
     protected $appends = [
       'url',
       'urlParent',

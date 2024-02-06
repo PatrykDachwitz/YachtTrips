@@ -1,7 +1,7 @@
 <script setup>
-import {inject} from "vue";
-import {useFetchPut} from "@/primary_function/useFetch.js";
-import {getJsonByInputName} from "@/primary_function/menu_file_manager/valueInput.js";
+import {inject, reactive, ref, watch} from "vue";
+import {getUrlByDataSetName, useFetchPost, useFetchPut} from "@/primary_function/useFetch.js";
+import {getJsonByInputName, getJsonOryginalByInputName} from "@/primary_function/menu_file_manager/valueInput.js";
 import {geUrlWithIdSource} from "@/primary_function/menu_file_manager/urlByIdSourceAndTypeMethod.js";
 import {updateTimestampUrl} from "@/primary_function/getUpdateUrl.js";
 const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
@@ -9,6 +9,7 @@ const details = inject('details');
 const url = inject('url');
 const lang = inject('lang');
 const settings = inject('settings');
+const data = inject('data');
 
 function sendData(typeAction) {
     switch (typeAction) {
@@ -19,20 +20,9 @@ function sendData(typeAction) {
 }
 
 function updateData() {
-
-}
-
-function createData() {
-
-}
-function activeForm() {
     let nameInput = settings.value.inputs[0];
     let dataUpdate = getJsonByInputName(nameInput, nameInput);
     let updateUrl = geUrlWithIdSource(details.value.id, details.value.type);
-
-    console.log(dataUpdate)
-    console.log(updateUrl)
-
     useFetchPut(updateUrl, dataUpdate);
 
     setTimeout(() => {
@@ -41,12 +31,37 @@ function activeForm() {
 
     actualSelectOptionsInMenu.value = false;
 }
+
+function createData() {
+
+    const urlCreateFolder = getUrlByDataSetName('data-folder');
+    let nameInput = settings.value.inputs[0];
+    let dataCreate = getJsonOryginalByInputName(nameInput, 'name');
+    dataCreate['parent'] = data.value.content.id;
+
+    useFetchPost(urlCreateFolder, JSON.stringify(dataCreate));
+
+    setTimeout(() => {
+        url.value = updateTimestampUrl(url.value);
+    }, 100);
+
+    actualSelectOptionsInMenu.value = false;
+}
+
+function activeForm() {
+
+    if (settings.value.action === 'createFolder') {
+        createData();
+    } else {
+        updateData();
+    }
+}
 </script>
 
 <template>
     <div class="position-absolute min-vh-100 w-100 d-flex justify-content-center align-items-center">
         <div class="d-flex flex-column overflow-hidden rounded-2 bg-gray shadow-sm border-gray-1">
-            <div class="bg-dark fs-5 text-white p-1">{{ lang['getName'] }}
+            <div class="bg-dark fs-5 text-white p-1 px-2 d-flex justify-content-between">{{ lang['getName'] }}
                 <picture>
                     <source srcset="/files/icons/close.webp" type="image/webp">
                     <img src="/files/icons/close.png" width="25" height="25"

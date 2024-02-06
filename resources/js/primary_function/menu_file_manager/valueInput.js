@@ -9,3 +9,11 @@ export function getJsonByInputName(nameInput, name) {
 
     return JSON.stringify(valueSendToUpload);
 }
+
+export function getJsonOryginalByInputName(nameInput, name) {
+    let valueInput = getValueInputByInputName(nameInput);
+    const valueSendToUpload = {};
+    valueSendToUpload[name] = valueInput;
+
+    return valueSendToUpload;
+}

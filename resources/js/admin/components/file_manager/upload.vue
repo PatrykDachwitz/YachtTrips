@@ -33,9 +33,10 @@ function uploadFile() {
 
 <template>
     <form enctype="multipart/form-data">
-        <input type="file" class="min-vh-100 m-0 p-0 position-absolute w-100 sendContent"
+        <input type="file" class="p-3 bg-gray w-100 sendContent"
                multiple
                name="files[]"
+               @input="uploadFile"
                @drop="uploadFile"
 
         />

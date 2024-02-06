@@ -67,7 +67,8 @@ Route::group([
      "middleware" => "auth:sanctum"
 ], function () {
 
-    Route::get('file_manager', ManagerFilesController::class);
+    Route::get('file_manager', ManagerFilesController::class)
+    ->name('fileManager');
     Route::post('/logout', LogOutController::class)
         ->name('logout');
 

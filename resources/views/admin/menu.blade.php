@@ -40,7 +40,6 @@
                         <li><a href="{{ route('admin.views.index', ['views' => "orders"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.order')</a></li>
                         <li><a href="{{ route('admin.views.index', ['views' => "booking"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.booking')</a></li>
                        <li><a href="{{ route('admin.views.index', ['views' => "clients"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.client')</a></li>
-                        <li><a href="{{ route('admin.views.index', ['views' => "method_payments"]) }}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">@lang('admin.payments')</a></li>
                     </ul>
                 </div>
             </li>
@@ -78,7 +77,17 @@
                     </ul>
                 </div>
             </li>
-
+             <li>
+                <div class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed">
+                    <div>
+                        <picture>
+                            <source srcset="/files/icons/file-management.webp" type="image/webp">
+                            <img src="/files/icons/file-management.png" width="25" height="25">
+                        </picture>
+                    </div>
+                    <a class="text-decoration-none fs-5 btn btn-toggle" href="{{ route('admin.fileManager') }}">@lang('admin.files_manager')</a>
+                </div>
+            </li>
             <li>
                 <a href="{{ route('admin.views.index', ['views' => 'users']) }}"
                    class="btn btn-toggle d-inline-flex align-items-center rounded border-0 fs-5 ps-0 collapsed">

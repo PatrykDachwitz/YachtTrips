@@ -54,6 +54,7 @@ function activeMenu(id = null, type = null, pageY = 0, pageX = 0) {
             @click.right="(e) => {activeMenu(null, null, e.pageY, e.pageX)}"
         >
 
+            <upload></upload>
             <menu-files
                 :details="details"
                 />

@@ -27,7 +27,7 @@ function deleteDate() {
 <template>
     <div class="position-absolute top-0 left-0 min-vh-100 w-100 d-flex justify-content-center align-items-center">
         <div class="d-flex flex-column overflow-hidden rounded-2 bg-gray shadow-sm border-gray-1">
-            <div class="bg-dark fs-5 text-white p-1">
+            <div class="bg-dark fs-5 text-white p-1 px-2 d-flex justify-content-between">
                 {{ lang['confirmDeletedFile'] }}
                 <picture>
                     <source srcset="/files/icons/close.webp" type="image/webp">

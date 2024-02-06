@@ -26,7 +26,7 @@ function activeCorrectOptions(optionsMenu) {
                 inputs: [
                     'folder'
                 ],
-                action: "create"
+                action: "createFolder"
             }
             break;
         case "changeLocation":
