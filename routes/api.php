@@ -39,11 +39,13 @@ Route::group([
         Route::apiResource('category', categoryBannersController::class);
     });
     Route::apiResource('banners', BannersController::class);
-    Route::apiResource('yachts', YachtsController::class);
+    Route::apiResource('yachts', YachtsController::class)
+    ->except('index');
     Route::apiResource('trips', TripsController::class)
     ->except('index', 'show');
     Route::apiResource('templates', TemplatesController::class);
-    Route::apiResource('oceans', OceansController::class);
+    Route::apiResource('oceans', OceansController::class)
+    ->except('index');
     Route::apiResource('method_payments', MethodPaymentsController::class);
     Route::apiResource('orders', OrdersController::class);
     Route::apiResource('booking', BooksController::class)
@@ -66,6 +68,10 @@ Route::put('orders/update/{sessionId}', [OrdersController::class, "updateBySessi
     ->name('orders.updateBySession');
 Route::put('orders/updateStatus/{sessionId}', [OrdersController::class, "updateStatusBySession"])
     ->name('orders.updateStatusBySession');
+Route::get('yachts', [YachtsController::class, 'index'])
+    ->name('yachts.index');
+Route::get('oceans', [OceansController::class, 'index'])
+    ->name('oceans.index');
 Route::get('trips', [TripsController::class, 'index'])
     ->name('trips.index');
 Route::get('trips/{trip}', [TripsController::class, 'show'])
