@@ -1,11 +1,12 @@
 import {createApp, provide, ref} from "vue";
-import cart from "@/components/cart/cart.vue";
+
 import {getLangContent} from "@/primary_function/language.js";
 import {getUrl, getUrlByDataSetName, useFetch} from "@/primary_function/useFetch.js";
 import CartPersonalData from "@/components/cart/cartPersonalData.vue";
 import CartDeliveryPayment from "@/components/cart/cartDeliveryPayment.vue";
 import CartHolidayMakersData from "@/components/cart/cartHolidayMakersData.vue";
 import CartSummary from "@/components/cart/cartSummary.vue";
+import cart from "@/components/cart/cart.vue";
 
 const lang = ref(getLangContent());
 const paymentsAvailableUrl = getUrlByDataSetName('data-url-payments');

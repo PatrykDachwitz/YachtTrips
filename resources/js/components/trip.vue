@@ -1,8 +1,10 @@
 <script setup>
-import {inject, ref, watch} from "vue";
+import {inject, provide, ref, watch} from "vue";
 import Configurator from "@/components/trip/configurator.vue";
 import {useFetch, useFetchPost, useFetchPut} from "@/primary_function/useFetch.js";
 import Gallery from "@/components/trip/gallery.vue";
+import InfoAboutCart from "@/components/trip/infoAboutCart.vue";
+import infoAboutCart from "@/components/trip/infoAboutCart.vue";
 
 const urlApi = inject('urlApi');
 const urlOrders = inject('urlOrders');
@@ -20,8 +22,9 @@ const dateForm = ref({
     premiumRoom: 0,
 });
 
-console.log(urlApi);
-const { data: trip } = useFetch(urlApi)
+
+const { data: trip } = useFetch(urlApi);
+
 watch(trip, () => {
     calculatePrice();
 
@@ -61,6 +64,8 @@ function getAvailableRoom() {
     return roomSelected;
 }
 
+const tripDetail = ref(null);
+provide('tripDetail', tripDetail);
 function calculatePrice() {
     let priceAdult = dateForm.value.countAdult * trip.value.price_adult;
     let priceKids = dateForm.value.countKids * trip.value.price_kids;
@@ -75,7 +80,7 @@ function updatePrice({value, name}) {
 }
 
 function reservation() {
-    const inputsSend = {
+    tripDetail.value = {
         "trip_id": trip.value.id,
         "number_room": selectRoom.value.pivot.number_room,
         "count_adult": dateForm.value.countAdult,
@@ -86,22 +91,33 @@ function reservation() {
         "price": price.value,
         "session_id": sessionId,
     }
-    console.log(urlOrders.value);
-    useFetchPost(urlOrders.value, JSON.stringify(inputsSend))
+    const {dataPost} = useFetchPost(urlOrders.value, JSON.stringify(tripDetail.value));
+
+    watch(dataPost, () => {
+        tripDetail.value.url = dataPost.value.url;
+        tripDetail.value.trip = trip.value;
+        nameWindow.value = 'infoAboutCart';
+    });
 }
 
-
-
+const windowCart = ref({
+    infoAboutCart
+})
+const nameWindow = ref('emptyWindow')
+provide('nameWindow', nameWindow);
 </script>
 
 <template>
+    <template v-if="trip !== null">
+    <component :is="windowCart[nameWindow]" />
+    </template>
     <gallery v-if="trip !== null" :gallery="trip.images" />
 
-    <div class="product-configurator w-50 pt-5 px-2 d-flex flex-column justify-content-start" v-if="trip !== null">
+    <div class="product-configurator w-100 max-lg-50 pt-5 px-2 d-flex flex-column justify-content-start align-items-center justify-content-lg-between align-items-xxl-start" v-if="trip !== null">
 
         <configurator :trip="trip" @updatePrice="(params) => updatePrice(params)"  />
 
-        <div class="d-flex justify-content-end w-75 align-items-center">
+        <div class="d-flex justify-content-end w-100 max-lg-75 align-items-center">
             <div class="fs-4">{{ lang.price }}:&nbsp;<strong>{{ price }} zł</strong></div>
             <div class="btn btn-dark fs-5 ms-3" @click="reservation" >{{ lang.bookTrip }}</div>
         </div>

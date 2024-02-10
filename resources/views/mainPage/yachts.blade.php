@@ -35,13 +35,13 @@
 
             <div class="d-flex w-xl-50 justify-content-xl-end">
                 <div class="d-flex align-items-center">
-                    <button class="btn btn-dark fs-3 ms-4" data-button-slider="yachts" data-button="previous">
+                    <button class="btn btn-dark fs-3 ms-2" data-button-slider="yachts" data-button="previous">
                         <strong><</strong>
                     </button>
                 </div>
 
                 @foreach($content->bannersActive ?? [] as $banner)
-                    <div class="d-flex flex-column justify-content-center w-xl-75 px-5 @if($loop->index !== 0) d-none @endif" data-content-slider="yachts">
+                    <div class="d-flex flex-column justify-content-center w-xl-75 px-2 px-lg-4 @if($loop->index !== 0) d-none @endif" data-content-slider="yachts">
                         <h2 class="fs-2"><b>{{ $banner->name }}</b></h2>
                         <div class="fs-5">
                             {{ $banner->description }}
@@ -50,7 +50,7 @@
                 @endforeach
 
                 <div class="d-flex align-items-center">
-                    <button class="btn btn-dark fs-3 me-4 me-xl-0" data-button-slider="yachts" data-button="next">
+                    <button class="btn btn-dark fs-3 me-2 me-xl-0" data-button-slider="yachts" data-button="next">
                         <strong>></strong>
                     </button>
                 </div>

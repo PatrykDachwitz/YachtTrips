@@ -9,10 +9,10 @@ const lang = inject('lang');
 </script>
 
 <template>
-    <div class="w-75 text-start">
+    <div class="w-100 max-lg-75 text-start">
         <h2 class="fs-1 mb-3">{{ trip.name }}</h2>
     </div>
-    <div class="row w-75 bg-gray p-3 shadow-sm overflow-hidden rounded-2 g-2">
+    <div class="row w-100 max-lg-75 bg-gray p-3 shadow-sm overflow-hidden rounded-2 g-2">
 
         <div class="col-md-6">
             <label for="oceans" class="form-label">{{ lang.ocean }}</label>
@@ -33,12 +33,11 @@ const lang = inject('lang');
 
     </div>
 
-    <div class="row w-75 bg-gray p-3 shadow-sm overflow-hidden rounded-2 g-2 my-3">
+    <div class="row w-100 max-lg-75 bg-gray p-3 shadow-sm overflow-hidden rounded-2 g-2 my-3">
         <div class="col-md-6">
             <label for="rooms_active_max_adults" class="form-label">{{ lang.countAdult }}</label>
             <select class="form-select" name="rooms_active_max_adults" id="rooms_active_max_adults" data-form-main>
                 <option value="0" @click="$emit('updatePrice', {value: 0, name: 'countKids'})" selected>0</option>
-                {{ console.log(trip)}}
                 <option v-for="number in trip.rooms_active_max_adults" :value="number" @click="$emit('updatePrice', {value: number, name: 'countAdult'})">{{ number}}</option>
             </select>
         </div>

@@ -26,5 +26,7 @@ return [
     'endDay' => "Końcowa data",
     'dateRange' => "Zakres dat",
     'optionsNotExpansion' => "Zmniejsz",
-
+    'summaryCart' => 'Wycieczkę dodano do koszyka ',
+    'continueShopping' => 'Kontynuj zakupy',
+    'goToCart' => 'Przejdz do koszyka',
 ];

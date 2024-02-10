@@ -6,12 +6,12 @@
 
             <div class="d-flex flex-column align-items-center mb-4">
                 <h1 class="fs-1 text-center"><strong>@lang('templatesOceans.heading.namePage')</strong></h1>
-                <p class="fs-4 mt-2 text-center w-75">@lang('templatesOceans.content.oceans')</p>
+                <p class="d-none d-lg-block fs-4 mt-2 text-center w-75">@lang('templatesOceans.content.oceans')</p>
             </div>
 
             <div class="d-flex flex-column flex-lg-row justify-content-lg-center">
 
-                <div class="flex-50 d-flex align-items-center justify-content-start p-5 p-lg-0 justify-content-lg-end">
+                <div class="flex-50 d-flex align-items-center justify-content-start p-2 p-lg-0 justify-content-lg-end">
                     <div class="w-75 ms-5 ms-lg-0 me-lg-5">
                         <h4 class="fs-3 mb-4 pt-3"><strong>@lang('templatesOceans.heading.pacific')</strong></h4>
                         <div>
@@ -55,7 +55,7 @@
 
             <div class="d-flex flex-column flex-lg-row justify-content-lg-center">
 
-                <div class="flex-50 d-flex align-items-center justify-content-start p-5 p-lg-0 justify-content-lg-end">
+                <div class="flex-50 d-flex align-items-center justify-content-start p-2 p-lg-0 justify-content-lg-end">
                     <div class="w-75 ms-5 ms-lg-0 me-lg-5">
                         <h4 class="fs-3 mb-4 pt-3"><strong>@lang('templatesOceans.heading.indian')</strong></h4>
                         <div>
@@ -99,7 +99,7 @@
 
             <div class="d-flex flex-column flex-lg-row justify-content-lg-center">
 
-                <div class="flex-50 d-flex align-items-center justify-content-start p-5 p-lg-0 justify-content-lg-end">
+                <div class="flex-50 d-flex align-items-center justify-content-start p-2 p-lg-0 justify-content-lg-end">
                     <div class="w-75 ms-5 ms-lg-0 me-lg-5">
                         <h4 class="fs-3 mb-4 pt-3"><strong>@lang('templatesOceans.heading.antarctic')</strong></h4>
                         <div>

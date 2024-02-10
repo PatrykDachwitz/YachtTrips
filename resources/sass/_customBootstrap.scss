@@ -82,3 +82,12 @@
 .loading-page {
     z-index: 9999999;
 }
+
+@media (min-width: 1900px) {
+    .max-lg-50 {
+        max-width: 50%;
+    }
+    .max-lg-75 {
+        max-width: 50%;
+    }
+}

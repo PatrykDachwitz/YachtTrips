@@ -7,7 +7,7 @@
 <div class="container-fluid d-flex flex-column m-0 p-0 overflow-hidden">
     @include('elements.loadingPage')
     @include('elements.menu')
-    <div class="container product d-flex" id="app" style="margin-top: 60px">
+    <div class="container product d-flex flex-column flex-lg-row product-main-container" id="app" style="margin-top: 60px !important;min-width: 100% !important;">
 
 
     </div>
@@ -16,8 +16,8 @@
             <div style="max-width: 1900px" class="mt-5">
                 <div class="d-flex flex-column flex-lg-row justify-content-lg-center">
 
-                    <div class="flex-50 d-flex align-items-center justify-content-start p-5 p-lg-0 justify-content-lg-end">
-                        <div class="w-75 ms-5 ms-lg-0 me-lg-5">
+                    <div class="flex-50 d-flex align-items-center justify-content-center p-0 justify-content-lg-end">
+                        <div class="w-75 mx-lg-5">
                             <h4 class="fs-3 mb-4 pt-3"><strong>@lang('templatesTrip.heading.travel')</strong></h4>
                             <p class="fs-5">@lang('templatesTrip.content.travel')</p>
                         </div>
@@ -33,8 +33,8 @@
 
                 <div class="d-flex flex-column justify-content-lg-center flex-lg-row-reverse">
 
-                    <div class="flex-50 d-flex align-items-center justify-content-start p-5 p-lg-0">
-                        <div class="w-75 ms-5">
+                    <div class="flex-50 d-flex align-items-center justify-content-center justify-content-lg-start p-0">
+                        <div class="w-75 ms-lg-5">
                             <h4 class="fs-3 mb-4 pt-3"><strong>@lang('templatesTrip.heading.yacht')</strong></h4>
                             <p class="fs-5">@lang('templatesTrip.content.yacht')</p>
                         </div>
@@ -50,8 +50,8 @@
 
                 <div class="d-flex flex-column flex-lg-row justify-content-lg-center">
 
-                    <div class="flex-50 d-flex align-items-center justify-content-start p-5 p-lg-0 justify-content-lg-end">
-                        <div class="w-75 ms-5 ms-lg-0 me-lg-5">
+                    <div class="flex-50 d-flex align-items-center justify-content-center p-0 justify-content-lg-end">
+                        <div class="w-75 mx-lg-5">
                             <h4 class="fs-3 mb-4 pt-3"><strong>@lang('templatesTrip.heading.premium')</strong></h4>
                             <p class="fs-5">@lang('templatesTrip.content.premium')</p>
                         </div>

@@ -39,7 +39,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class=" w-50 px-5 pt-5 ">
+    <div class="w-100 max-lg-50 px-lg-5 pt-5 d-flex flex-column align-items-xxl-end">
         <div class="trip_gallery--main w-100 rounded-2 overflow-hidden position-relative">
 
             <template v-for="image in gallery">
@@ -65,7 +65,7 @@ onMounted(() => {
 
         </div>
 
-        <div class="my-2 d-flex overflow-hidden flex-wrap justify-content-evenly">
+        <div class="my-2 d-flex overflow-hidden flex-wrap justify-content-evenly card-mini__container">
             <template v-for="(image, index) in gallery">
                 <div class="overflow-hidden rounded-3 mx-1 mb-2 card-mini" v-if="image.pivot.default === 0" >
                     <picture>
@@ -80,11 +80,15 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.trip_gallery--main {
-    max-width: 690px;
-    max-height: 576px;
+@media (min-width: 1200px) {
+    .trip_gallery--main {
+        max-width: 690px;
+        max-height: 576px;
+    }
+    .card-mini__container {
+        max-width: 690px;
+    }
 }
-
 .btn-prev {
     transform: rotate(90deg);
 }

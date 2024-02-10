@@ -1,4 +1,4 @@
-<nav class="menu d-flex flex-wrap w-100 z-1 justify-content-center position-fixed py-2 top-0 {{ $backGroundColor ?? 'bg-dark' }}">
+<nav class="menu d-flex flex-wrap w-100 z-1 align-items-center justify-content-center position-fixed py-2 top-0 {{ $backGroundColor ?? 'bg-dark' }}">
     <div class="d-flex w-100 px-2 align-items-center justify-content-between flex-column flex-lg-row" style="max-width: 1920px">
        <div class="d-flex justify-content-between w-mobile-100">
            <a class="fs-5 text-decoration-none text-white" href="/">
@@ -26,7 +26,7 @@
                 <li class="mb-1 mb-md-0" ><a href="{{ route('page.oceans') }}" class="text-white text-decoration-none mx-2 fs-5" >@lang('menu.availableOceans')</a></li>
                 <li class="mb-1 mb-md-0" ><a class="text-white text-decoration-none mx-2 fs-5 d-lg-none" >@lang('menu.travelsCart')</a></li>
             </ul>
-            <div class="d-none d-lg-flex align-items-center ms-3">
+            <div class="d-flex align-items-center ms-3">
                 <a href="{{ route('cart') }}">
                     <picture>
                         <source srcset="/files/icons/koszyk.webp" type="image/webp">
