@@ -51,6 +51,9 @@
 <div style="display: none">
     <input type="hidden" value="{{ route('folders.index') }}" data-folder>
     <input type="hidden" value="{{ route('files.index') }}" data-file>
+    <input type="hidden" value="{{ route('files.show', [
+    'folder' => 1
+]) }}" data-folder-url-main>
 </div>
 @vite([
     'resources/js/admin/app.js',

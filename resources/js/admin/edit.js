@@ -1,9 +1,9 @@
 import {createApp, ref} from "vue";
 import edit from "./components/edit.vue";
 import {getLangContent} from "@/primary_function/language.js";
-import {useFetch} from "@/primary_function/useFetch.js";
+import {getUrlByDataSetName, useFetch} from "@/primary_function/useFetch.js";
 const lang = ref(getLangContent());
-const urlFileManager = ref('http://127.0.0.1:8000/api/folders/1');
+const urlFileManager = ref(getUrlByDataSetName('data-folder-url-main'));
 const { data:dataFilesManager, error} = useFetch(urlFileManager);
 const editViewActive = ref(false);
 const selectImage = ref([]);
