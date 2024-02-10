@@ -14,7 +14,5 @@ function getUrlByType(type) {
 }
 
 export function geUrlWithIdSource(id, type) {
-    console.info(`id: ${id}`)
-    console.info(`type: ${type}`)
     return `${getUrlByType(type)}/${id}`;
 }

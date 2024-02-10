@@ -12,10 +12,8 @@ function uploadFile() {
         let idFolder = dataFilesManager.value.content.id;
         let countFiles = inputsUpload.files.length;
 
-        console.log(countFiles);
 
         for (let i = 0; i < countFiles; i++) {
-            console.log('stest');
             const formData = new FormData();
             formData.append('file', inputsUpload.files[i]);
             formData.append('folder_id', idFolder);

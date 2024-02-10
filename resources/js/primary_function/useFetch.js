@@ -12,7 +12,9 @@ export function useFetchSendFiles(files) {
     const error = ref(null)
     const status = ref(null);
 
-    fetch("http://127.0.0.1:8000/api/files", {
+    const url = getUrlByDataSetName('data-file')
+
+    fetch(url, {
 
         method: "POST",
         headers: {
