@@ -2,24 +2,26 @@
 import {useFetchSendFiles} from "@/primary_function/useFetch.js";
 import {inject, watch} from "vue";
 import {updateTimestampUrl} from "@/primary_function/getUpdateUrl.js";
-const data = inject('data');
-const url = inject('url');
+const dataFilesManager = inject('dataFilesManager');
+const urlFileManager = inject('urlFileManager');
 
 function uploadFile() {
 
     setTimeout(() => {
         const inputsUpload = document.querySelector(`input.sendContent[name="files[]"]`);
-        let idFolder = data.value.content.id;
+        let idFolder = dataFilesManager.value.content.id;
         let countFiles = inputsUpload.files.length;
 
+        console.log(countFiles);
+
         for (let i = 0; i < countFiles; i++) {
+            console.log('stest');
             const formData = new FormData();
             formData.append('file', inputsUpload.files[i]);
             formData.append('folder_id', idFolder);
-            console.log(formData);
             const {data} = useFetchSendFiles(formData);
             watch(data, () => {
-                url.value = updateTimestampUrl(url.value);
+                urlFileManager.value = updateTimestampUrl(urlFileManager.value);
             });
         }
 
@@ -37,7 +39,6 @@ function uploadFile() {
                multiple
                name="files[]"
                @input="uploadFile"
-               @drop="uploadFile"
 
         />
 

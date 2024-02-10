@@ -6,6 +6,8 @@ defineProps([
 ])
 
 const activeMenuFile = inject('activeMenuFile');
+const editViewActive = inject('editViewActive');
+const selectImage = inject('selectImage');
 
 
 function positionFiles() {
@@ -22,12 +24,20 @@ function updateBackGroundFile(id) {
     }
 }
 
+function selectFile(file) {
+    if (!editViewActive.value) return null
+    else {
+        selectImage.value.push(file);
+    }
 
+}
 </script>
 
 <template>
     <div class="col-2 col-lg-1 overflow-hidden d-flex flex-column align-items-center justify-content-top p-1 single-element-file-manager"
          :data-file-id="file.id"
+         @click.left="selectFile(file)"
+
          @click.right="(e) => {
              $emit('active-menu', file.id, 'file', e.pageY, e.pageX)
          }"

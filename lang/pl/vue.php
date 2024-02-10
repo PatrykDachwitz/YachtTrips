@@ -55,5 +55,6 @@ return [
     'confirmDeletedFile' => 'Potwierdź usunięcie pliku',
     'getNewLocation' => 'Podaj nową Lokalizację',
     'changeLocation' => 'Zmień lokalizację',
-    'getName' => 'Podaj nazw pliku',
+    'getName' => 'Podaj nazwę pliku',
+    'newName' => "Nowa nazwa"
 ];

@@ -12,6 +12,7 @@ import {
 } from "@/primary_function/updateFormCreateEditView.js";
 import {FormController} from "@/primary_function/formController.js";
 import calendar from "@/components/calendar.vue";
+import Index from "@/admin/components/file_manager/index.vue";
 
 const { urlUpdate, urlApi } = getUrl();
 const { data, error } = useFetch(urlApi);
@@ -23,6 +24,7 @@ const supportComponent = {
     calendar,
     emptySupport
 }
+const dataFilesManager = inject('dataFilesManager');
 const activeCalendar = ref('emptySupport');
 const locationDataSet = ref(null);
 const formController = new FormController('data-show-form', urlUpdate.value);
@@ -79,6 +81,11 @@ function  activeManager() {
             </div>
         </template>
         <template v-slot:content>
+            <template v-if="dataFilesManager !== null" >
+                <div class="m-5 position-absolute rounded-2 shadow-sm bg-light border-gray-1 file-manager__container-edit-view overflow-y-scroll overflow-x-hidden">
+                    <index />
+                </div>
+            </template>
             <component :is="supportComponent[currentComponentFileManager]" v-if="activeFileManager"></component>
             <!--Komponent dedykowany kalendarzowi-->
             <component :is="supportComponent[activeCalendar]" :locationByDataSet="locationDataSet"> </component>
@@ -124,8 +131,12 @@ function  activeManager() {
 div.lists {
     flex: 1;
 }
-
-.text
+.file-manager__container-edit-view {
+    top: 50px;
+    max-height: 700px;
+    z-index: 150 !important;
+}
+.text {}
 .btn-add {
     border-radius: 100%;
 }

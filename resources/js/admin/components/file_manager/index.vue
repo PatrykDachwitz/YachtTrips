@@ -7,8 +7,8 @@ import Upload from "@/admin/components/file_manager/upload.vue";
 import MenuFiles from "@/admin/components/file_manager/menuFiles.vue";
 import {getUrlByDataSetName} from "@/primary_function/useFetch.js";
 
-const url = inject('url');
-const data = inject('data');
+const urlFileManager = inject('urlFileManager');
+const dataFilesManager = inject('dataFilesManager');
 const lang = inject('lang');
 const details = ref({active: false});
 provide('details', details);
@@ -49,7 +49,7 @@ function activeMenu(id = null, type = null, pageY = 0, pageX = 0) {
         </div>
 
 
-        <div v-if="data !== null"
+        <div v-if="dataFilesManager !== null"
              class="mainContainerFileManager"
             @click.right="(e) => {activeMenu(null, null, e.pageY, e.pageX)}"
         >
@@ -65,7 +65,7 @@ function activeMenu(id = null, type = null, pageY = 0, pageX = 0) {
                 />
                 <file
                     @active-menu="activeMenu"
-                    v-for="file in data.content.files"
+                    v-for="file in dataFilesManager.content.files"
                     :file="file" />
             </div>
         </div>

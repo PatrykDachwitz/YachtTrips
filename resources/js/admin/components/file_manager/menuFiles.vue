@@ -50,7 +50,7 @@ function activeCorrectOptions(optionsMenu) {
 </script>
 
 <template>
-    <component :is="availableOptions[actualSelectOptionsInMenu]" style="left:0 !important;top: 0 !important;"></component>
+    <component :is="availableOptions[actualSelectOptionsInMenu]" style="left:0 !important;top: 0 !important; z-index:120 !important;"></component>
 
     <div class="position-absolute bg-gray border-gray-1 menuFile px-3 py-2 d-flex flex-column rounded-2 shadow-sm" :style="`top: ${parseInt(details.pageY) ?? 0}px; left: ${parseInt(details.pageX) ?? 0}px`" v-if="details.active === true">
         <strong class="pointer"
@@ -65,7 +65,7 @@ function activeCorrectOptions(optionsMenu) {
             >{{ lang['changeName'] }}</strong>
         <hr class="hr my-1 py-0" />
         <strong class="pointer"
-           @click="activeCorrectOptions('inputDeletedMenu')"
+           @click="activeCorrectOptions('InputDeletedMenu')"
         >{{ lang['deleteFile'] }}</strong>
         <hr class="hr my-1 py-0" />
         <strong class="pointer" @click="details.active = false;">{{ lang['closeMenu'] }}</strong>

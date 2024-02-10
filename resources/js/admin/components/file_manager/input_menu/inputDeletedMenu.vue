@@ -7,14 +7,14 @@ import {geUrlWithIdSource} from "@/primary_function/menu_file_manager/urlByIdSou
 
 const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
 const details = inject('details');
-const url = inject('url');
+const urlFileManager = inject('urlFileManager');
 const lang = inject('lang');
 function deleteDate() {
     let urlApi = geUrlWithIdSource(details.value.id, details.value.type);
     useFetchDeleted(urlApi);
 
     setTimeout(() => {
-        url.value = updateTimestampUrl(url.value);
+        urlFileManager.value = updateTimestampUrl(urlFileManager.value);
     }, 100);
 
 
@@ -25,7 +25,7 @@ function deleteDate() {
 </script>
 
 <template>
-    <div class="position-absolute top-0 left-0 min-vh-100 w-100 d-flex justify-content-center align-items-center">
+    <div class="position-absolute top-0 left-0 min-vh-100 w-100 d-flex justify-content-center align-items-center deleted">
         <div class="d-flex flex-column overflow-hidden rounded-2 bg-gray shadow-sm border-gray-1">
             <div class="bg-dark fs-5 text-white p-1 px-2 d-flex justify-content-between">
                 {{ lang['confirmDeletedFile'] }}
@@ -39,7 +39,7 @@ function deleteDate() {
             </div>
 
             <div class="d-flex flex-column p-3">
-                <input type="submit" class="btn btn-dark fs-6" value="{{ lang['deleteFile'] }}"
+                <input type="submit" class="btn btn-dark fs-6" :value="lang['deleteFile']"
                        @click="deleteDate"
                 >
             </div>

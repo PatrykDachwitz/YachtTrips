@@ -2,21 +2,21 @@
 import {inject} from "vue";
 import SingleFolder from "@/admin/components/file_manager/singleFolder.vue";
 
-const data = inject('data');
+const dataFilesManager = inject('dataFilesManager');
 const lang = inject('lang');
 
 
 </script>
 
-<template v-if="data !== null">
+<template v-if="dataFilesManager !== null">
 
     <single-folder :folder="{
-        url: data.content.urlParent,
+        url: dataFilesManager.content.urlParent,
         name: lang['previousFolder']
     }"
-    v-if="data.content.id > 1"
+    v-if="dataFilesManager.content.id > 1"
     />
-    <single-folder v-for="folder in data.folders"
+    <single-folder v-for="folder in dataFilesManager.folders"
                    :folder="folder"
                    @click.right="(e) => {
              $emit('active-menu', folder.id, 'folder', e.pageY, e.pageX)

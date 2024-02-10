@@ -6,8 +6,8 @@ import {updateTimestampUrl} from "@/primary_function/getUpdateUrl.js";
 import {useFetchPut} from "@/primary_function/useFetch.js";
 
 const details = inject('details');
-const url = inject('url');
-const data = inject('data');
+const urlFileManager = inject('urlFileManager');
+const dataFilesManager = inject('dataFilesManager');
 const lang = inject('lang');
 function changeLocation() {
     let dataUpdate = getJsonByInputName('select_folder', 'folder_id');
@@ -16,7 +16,7 @@ function changeLocation() {
     useFetchPut(updateUrl, dataUpdate);
 
     setTimeout(() => {
-        url.value = updateTimestampUrl(url.value);
+        urlFileManager.value = updateTimestampUrl(urlFileManager.value);
     }, 100);
 
     actualSelectOptionsInMenu.value = false;
@@ -40,12 +40,12 @@ const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
 
             <div class="d-flex flex-column p-3">
                 <select class="form-select" name="select_folder">
-                    <template v-if="data.content.parent > 0">
-                        <option :value="data.content.parent">{{ lang['previousFolder'] }}</option>
+                    <template v-if="dataFilesManager.content.parent > 0">
+                        <option :value="dataFilesManager.content.parent">{{ lang['previousFolder'] }}</option>
                     </template>
-                    <option v-for="folder in data.folders" :value="folder.id">{{ folder.name }}</option>
+                    <option v-for="folder in dataFilesManager.folders" :value="folder.id">{{ folder.name }}</option>
                 </select>
-                <input type="submit" class="btn btn-dark fs-6" value="{{ lang['changeLocation'] }}"
+                <input type="submit" class="btn btn-dark fs-6 mt-1" :value="lang['changeLocation']"
                        @click.prevent="changeLocation"
                 >
             </div>

@@ -6,10 +6,10 @@ import {geUrlWithIdSource} from "@/primary_function/menu_file_manager/urlByIdSou
 import {updateTimestampUrl} from "@/primary_function/getUpdateUrl.js";
 const actualSelectOptionsInMenu = inject('actualSelectOptionsInMenu');
 const details = inject('details');
-const url = inject('url');
+const urlFileManager = inject('urlFileManager');
 const lang = inject('lang');
 const settings = inject('settings');
-const data = inject('data');
+const dataFilesManager = inject('dataFilesManager');
 
 function sendData(typeAction) {
     switch (typeAction) {
@@ -26,7 +26,7 @@ function updateData() {
     useFetchPut(updateUrl, dataUpdate);
 
     setTimeout(() => {
-        url.value = updateTimestampUrl(url.value);
+        urlFileManager.value = updateTimestampUrl(urlFileManager.value);
     }, 100);
 
     actualSelectOptionsInMenu.value = false;
@@ -37,12 +37,12 @@ function createData() {
     const urlCreateFolder = getUrlByDataSetName('data-folder');
     let nameInput = settings.value.inputs[0];
     let dataCreate = getJsonOryginalByInputName(nameInput, 'name');
-    dataCreate['parent'] = data.value.content.id;
+    dataCreate['parent'] = dataFilesManager.value.content.id;
 
     useFetchPost(urlCreateFolder, JSON.stringify(dataCreate));
 
     setTimeout(() => {
-        url.value = updateTimestampUrl(url.value);
+        urlFileManager.value = updateTimestampUrl(urlFileManager.value);
     }, 100);
 
     actualSelectOptionsInMenu.value = false;
@@ -72,8 +72,8 @@ function activeForm() {
             </div>
 
             <div class="d-flex flex-column p-3">
-                <input v-for="nameInput in settings.inputs" type="text" :name="nameInput" value="" class="form-control mb-2" placeholder="inputSetting.name">
-                <input type="submit" class="btn btn-dark fs-6" value="{{ lang['changeName'] }}"
+                <input v-for="nameInput in settings.inputs" type="text" :name="nameInput" value="" class="form-control mb-2" :placeholder="lang['newName']">
+                <input type="submit" class="btn btn-dark fs-6" :value="lang['changeName']"
                        @click="activeForm"
                 >
             </div>

@@ -5,13 +5,13 @@
      'folder'
  ]);
 
- const url = inject('url')
+ const urlFileManager = inject('urlFileManager')
 </script>
 
 <template>
     <div class="col-2 col-lg-1 overflow-hidden d-flex flex-column align-items-center justify-content-top pointer single-element-file-manager single-element-file-manager__folder"
          :data-id="folder.id"
-         @click="url = folder.url"
+         @click="urlFileManager = folder.url"
 
     >
         <div>
