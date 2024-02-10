@@ -2,7 +2,7 @@
 
 return [
     'nameCompany' => "Wycieczki-na-jachcie.pl",
-    'availableTrips' => "Dostępne wycieczek",
+    'availableTrips' => "Dostępne wycieczki",
     'availableYachts' => "Poznaj naszą flotę",
     'availableOceans' => "Oceany na których pływamy",
     'altLogo' => "Logo Wycieczki-na-jachcie.pl",
