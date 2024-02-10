@@ -5,7 +5,7 @@ import {useFetch} from "@/primary_function/useFetch.js";
 const lang = ref(getLangContent());
 const urlFileManager = ref('http://127.0.0.1:8000/api/folders/1');
 const { data:dataFilesManager, error} = useFetch(urlFileManager);
-const editViewActive = ref(true);
+const editViewActive = ref(false);
 const selectImage = ref([]);
 
 createApp(edit)

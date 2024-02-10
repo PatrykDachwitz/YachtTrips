@@ -17,7 +17,7 @@ import Index from "@/admin/components/file_manager/index.vue";
 const { urlUpdate, urlApi } = getUrl();
 const { data, error } = useFetch(urlApi);
 const activeSelected = ref(false)
-const selectedFiles = ref([]);
+const selectImage = inject('selectImage');
 const activeFileManager = ref(false);
 const currentComponentFileManager = ref('emptySupport')
 const supportComponent = {
@@ -26,6 +26,7 @@ const supportComponent = {
 }
 const dataFilesManager = inject('dataFilesManager');
 const activeCalendar = ref('emptySupport');
+const editViewActive = inject('editViewActive');
 const locationDataSet = ref(null);
 const formController = new FormController('data-show-form', urlUpdate.value);
 formController.setCurrenActiveImages(true);
@@ -34,7 +35,6 @@ formController.setAdditionalInputsName('description', false);
 const lang = inject('lang');
 provide('activeCalendar', activeCalendar);
 provide('locationDataSet', locationDataSet);
-provide('selectedFiles', selectedFiles);
 provide('activeFileManager', activeFileManager);
 provide('activeSelected', activeSelected);
 provide('urlApiCurrent', urlApi);
@@ -82,7 +82,7 @@ function  activeManager() {
         </template>
         <template v-slot:content>
             <template v-if="dataFilesManager !== null" >
-                <div class="m-5 position-absolute rounded-2 shadow-sm bg-light border-gray-1 file-manager__container-edit-view overflow-y-scroll overflow-x-hidden">
+                <div class="m-5 position-absolute rounded-2 shadow-sm bg-light border-gray-1 file-manager__container-edit-view overflow-y-scroll overflow-x-hidden" v-if="editViewActive === true">
                     <index />
                 </div>
             </template>
@@ -110,7 +110,7 @@ function  activeManager() {
 
             <div class="p-5 d-none" data-content-show="media">
                 <div style="border-bottom: 1.5px solid #d3d3d3">
-                    <button class="btn btn-outline-dark btn-add" @click="activeManager"><strong>+</strong></button>
+                    <button class="btn btn-outline-dark btn-add" @click="editViewActive = true"><strong>+</strong></button>
                     {{ lang['graphics'] }}
                 </div>
                 <div v-if="data !== null">
@@ -118,7 +118,7 @@ function  activeManager() {
                 </div>
 
                 <div>
-                    <image-form class="graphic-container py-4"  v-for="file in selectedFiles" :image="file" :key="file.id" />
+                    <image-form class="graphic-container py-4"  v-for="file in selectImage" :image="file" :key="file.id" />
                 </div>
 
             </div>

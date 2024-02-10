@@ -22,5 +22,12 @@ return [
         'joga' => "Gotowy na dawkę sportowej adrenaliny? Nasze sesje fitness oraz aktywności sportowe na pokładzie to więcej niż tylko trening – to możliwość czerpania radości z ruchu w otoczeniu oceanicznych horyzontów. Zajęcia prowadzone przez profesjonalnych instruktorów pozwolą Ci utrzymać formę podczas rejsu. Od jogi na pokładzie po wodne sporty rekreacyjne – znajdź swoją ulubioną aktywność i ciesz się energią w towarzystwie błękitów oceanu.",
         'party' => "Powitaj wieczór w naszym ekskluzywnym barze na pokładzie! To miejsce, gdzie elegancja spotyka się z przyjemnością w sercu oceanu. Odkryj niepowtarzalną atmosferę i wysmakowane koktajle podczas spotkań towarzyskich z widokiem na morski horyzont. Wieczorne imprezy z muzyką na żywo lub sety DJ-a tworzą niezapomnianą rozrywkę, zapewniającą magię chwil spędzonych w otoczeniu szumu fal i gwiazd na niebie.",
         'spa' => "Zanurz się w pełen luksusu świat naszego basenu i kompleksu Spa na pokładzie jachtu. Nasza elegancka przestrzeń Spa oferuje nie tylko profesjonalne zabiegi, ale również bezkompromisowy komfort wraz z widokiem na nieskończoność oceanu. Basen z panoramicznym widokiem na morze to oaza relaksu, gdzie goście mogą odprężyć się w eleganckim otoczeniu oraz skorzystać z różnorodnych udogodnień, zapewniających kompletną regenerację ciała i umysłu.",
-    ]
+    ],
+    'deadline' => 'Termin',
+    'countRoom' => 'Ilość pokoi',
+    'countPeople' => 'Ilość osób',
+    'adults' => 'Dorosłych',
+    'kid' => 'Dzieci',
+    'price' => 'Cena',
+    'delete' => 'Usuń',
 ];

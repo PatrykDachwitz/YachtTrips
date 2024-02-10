@@ -18,9 +18,9 @@ function deleteImage(id) {
         <div class="col-md-6 me-5 w-25 ms-5">
             <label for="inputPassword4" class="form-label">Nazwa</label>
             <select class="form-select" name='images["devices"][]' aria-label="Default select example">
-                <option value="pc" :selected="image.pivot.device == 'pc'">Pc</option>
-                <option value="mobile" :selected="image.pivot.device == 'mobile'">Mobile</option>
-                <option value="tablet" :selected="image.pivot.device == 'tablet'">Tablet</option>
+                <option value="pc">Pc</option>
+                <option value="mobile" >Mobile</option>
+                <option value="tablet" >Tablet</option>
             </select>
         </div>
         <fieldset class="d-flex w-50" disabled>

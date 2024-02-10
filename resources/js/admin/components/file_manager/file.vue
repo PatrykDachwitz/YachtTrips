@@ -28,6 +28,7 @@ function selectFile(file) {
     if (!editViewActive.value) return null
     else {
         selectImage.value.push(file);
+        editViewActive.value = false;
     }
 
 }

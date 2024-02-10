@@ -29,4 +29,11 @@ return [
     'summaryCart' => 'Wycieczkę dodano do koszyka ',
     'continueShopping' => 'Kontynuj zakupy',
     'goToCart' => 'Przejdz do koszyka',
+    'deadline' => 'Termin',
+    'countRoom' => 'Ilość pokoi',
+    'countPeople' => 'Ilość osób',
+    'adults' => 'Dorosłych',
+    'kid' => 'Dzieci',
+    'price' => 'Cena',
+    'delete' => 'Usuń',
 ];
