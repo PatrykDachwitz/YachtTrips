@@ -16,7 +16,7 @@ return [
     'startDayTravel' => 'Data rozpoczęcia wycieczki',
     'endDayTravel' => 'Data zakończenia wycieczki',
     'bookTrip' => 'Zarezerwuj wycieczkę',
-    'check' => 'check',
+    'check' => 'Sprawdź ofertę',
     'countDay' => "Ilość dni",
     'oceans' => "Oceany",
     'yachts' => "Jachty",
