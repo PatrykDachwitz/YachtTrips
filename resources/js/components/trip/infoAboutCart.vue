@@ -18,7 +18,7 @@ function deactivateAboutProduct() {
         <info-about-cart-product/>
         <div class="d-flex justify-content-end">
             <button class="btn btn-outline-dark me-1" @click="deactivateAboutProduct">{{ lang['continueShopping'] }}</button>
-            <a class="btn btn-dark">{{ lang['goToCart'] }}</a>
+            <a class="btn btn-dark" :href="tripDetail.url">{{ lang['goToCart'] }}</a>
         </div>
     </div>
 </div>

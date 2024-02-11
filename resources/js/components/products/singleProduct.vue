@@ -9,7 +9,7 @@ const lang = inject('lang');
 
 <template>
     <div class="col-6 col-md-4 col-lg-3 col-xxl-2">
-        <div class=" shadow rounded-2 overflow-hidden shadow-sm">
+        <div class=" shadow rounded-2 overflow-hidden shadow-sm listing-product__container">
 
             <div v-if="product.images_category !== []">
 
@@ -23,9 +23,8 @@ const lang = inject('lang');
                 <p class="fs-5 mb-0">
                     {{ product.name }}
                 </p>
-                <div class="w-100 d-flex justify-content-end fs-6 align-items-center">
-                    Cena od&nbsp;<strong>{{ product.minimal_price }} zł</strong>
-                    <hr />
+                <div class="w-100 d-flex fs-6 align-items-center justify-content-between">
+                    <strong>od: {{ product.minimal_price }} zł</strong>
                     <a class="ms-2 btn fs-6 btn-dark" :href="product.url">{{ lang['check'] }}</a>
                 </div>
             </div>
@@ -35,5 +34,10 @@ const lang = inject('lang');
 </template>
 
 <style scoped>
-
+.listing-product__container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 </style>

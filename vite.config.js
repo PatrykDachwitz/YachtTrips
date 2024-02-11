@@ -13,6 +13,8 @@ export default defineConfig({
                 'resources/js/admin/app.js',
                 'resources/js/admin/list.js',
                 'resources/js/admin/show.js',
+                'resources/js/admin/create.js',
+                'resources/js/admin/edit.js',
                 'resources/js/admin/file_manager.js',
                 'resources/js/trips.js',
                 'resources/js/trip.js',

@@ -3,7 +3,6 @@ import {inject} from "vue";
 
 const lang = inject('lang');
 const tripDetail = inject('tripDetail');
-console.log(tripDetail)
 </script>
 
 <template>

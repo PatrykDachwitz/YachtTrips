@@ -53,7 +53,8 @@ class BooksController extends Controller
             'url' => route('admin.views.edit', [
                 'views' => 'booking',
                 'id' => $booking->id
-            ])
+            ]),
+            'urlClient' => route('cart')
         ];
 
         return response(json_encode($response), 301);

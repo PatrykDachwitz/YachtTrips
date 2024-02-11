@@ -9,7 +9,7 @@ import infoAboutCart from "@/components/trip/infoAboutCart.vue";
 const urlApi = inject('urlApi');
 const urlOrders = inject('urlOrders');
 const sessionId = inject('sessionId');
-console.info(urlOrders)
+
 const lang = inject('lang');
 const price = inject('price');
 const selectRoom = inject('selectRoom');
@@ -94,7 +94,7 @@ function reservation() {
     const {dataPost} = useFetchPost(urlOrders.value, JSON.stringify(tripDetail.value));
 
     watch(dataPost, () => {
-        tripDetail.value.url = dataPost.value.url;
+        tripDetail.value.url = dataPost.value.urlClient;
         tripDetail.value.trip = trip.value;
         nameWindow.value = 'infoAboutCart';
     });
