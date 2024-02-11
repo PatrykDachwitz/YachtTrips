@@ -7,8 +7,8 @@
             <div>
                 <h1 class="fs-2">@lang('pages.summaryPayment')</h1>
                 <ul class="list-unstyled d-flex justify-content-center flex-column">
-                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.summaryPayment')</strong> <strong>@lang("pages.{$order->statusOrder->name}")</strong></li>
-                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.statusOrder')</strong> <strong>#{{ $order->number }}</strong></li>
+                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.statusOrder')</strong> <strong>@lang("pages.{$order->statusOrder->name}")</strong></li>
+                    <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.numberOrder')</strong> <strong>#{{ $order->number }}</strong></li>
                     <li class="d-flex w-100 justify-content-between"><strong>@lang('pages.price')</strong> <strong>{{ $order->price }} zł</strong></li>
                 </ul>
             </div>

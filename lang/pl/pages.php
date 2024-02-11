@@ -59,7 +59,7 @@ return [
     'reservation' => "Rezerwacja",
     'waitToPayment' => "Oczekuje na płatność",
     'Payment' => "Opłacone",
-    'summaryPayment' => "Podsumowanie zamóienia",
+    'summaryPayment' => "Podsumowanie zamówienia",
     'statusOrder' => "Status zamówienia",
     'goToPayment' => "Przejdź do płatności",
     'makeTransfer' => "Wykonaj przelew",
