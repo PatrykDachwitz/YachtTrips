@@ -33,7 +33,7 @@
 
             <div class="d-flex flex-column justify-content-lg-center flex-lg-row-reverse">
 
-                <div class="flex-50 d-flex align-items-center justify-content-start p-5 p-lg-0">
+                <div class="flex-50 d-flex align-items-center justify-content-start p-2 p-lg-0">
                     <div class="w-75 ms-5">
                         <h4 class="fs-3 mb-4 pt-3"><strong>@lang('templatesOceans.heading.atlantic')</strong></h4>
                         <div>
@@ -77,7 +77,7 @@
 
             <div class="d-flex flex-column justify-content-lg-center flex-lg-row-reverse">
 
-                <div class="flex-50 d-flex align-items-center justify-content-start p-5 p-lg-0">
+                <div class="flex-50 d-flex align-items-center justify-content-start p-2 p-lg-0">
                     <div class="w-75 ms-5">
                         <h4 class="fs-3 mb-4 pt-3"><strong>@lang('templatesOceans.heading.arctic')</strong></h4>
                         <div>

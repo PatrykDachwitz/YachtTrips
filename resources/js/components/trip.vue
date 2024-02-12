@@ -27,7 +27,6 @@ const { data: trip } = useFetch(urlApi);
 
 watch(trip, () => {
     calculatePrice();
-
     const loadingPage = document.querySelector('div.loading-page');
     setTimeout(()=> {
         loadingPage.parentElement.removeChild(loadingPage);
@@ -63,23 +62,48 @@ function getAvailableRoom() {
 
     return roomSelected;
 }
-
+provide('trip', trip);
 const tripDetail = ref(null);
 provide('tripDetail', tripDetail);
 function calculatePrice() {
     let priceAdult = dateForm.value.countAdult * trip.value.price_adult;
     let priceKids = dateForm.value.countKids * trip.value.price_kids;
 
+
     selectRoom.value = getAvailableRoom();
 
     price.value = priceAdult + priceKids + selectRoom.value.pivot.price;
+
 }
-function updatePrice({value, name}) {
-    dateForm.value[name] = value;
+function getValueByNameInput(name) {
+    return document.querySelector(`[name="${name}"]`).value;
+}
+
+function getCustomParam() {
+    let customValueInputs = [];
+    customValueInputs['double_beds'] = parseInt(document.querySelector(`[name="rooms_active_max_double_beds"]`).value)
+    customValueInputs['kids'] = parseInt(document.querySelector(`[name="rooms_active_max_kids"]`).value)
+    customValueInputs['kids_beds'] = parseInt(document.querySelector(`[name="rooms_active_max_kids_beds"]`).value)
+    customValueInputs['single_beds'] = parseInt(document.querySelector(`[name="rooms_active_max_single_beds"]`).value)
+    customValueInputs['premium'] = parseInt(document.querySelector(`[name="rooms_active_max_premium"]`).value)
+    customValueInputs['adults'] = parseInt(document.querySelector(`[name="rooms_active_max_adults"]`).value)
+    return customValueInputs;
+}
+
+
+function updatePrice(nameInput, nameDataBase) {
+    let valueInputs = getCustomParam();
+    dateForm.value['doubleBeds'] = valueInputs['double_beds'];
+    dateForm.value['countKids'] = valueInputs['kids'];
+    dateForm.value['kidsBeds'] = valueInputs['kids_beds'];
+    dateForm.value['singleBeds'] = valueInputs['single_beds'];
+    dateForm.value['premiumRoom'] = valueInputs['premium'];
+    dateForm.value['countAdult'] = valueInputs['adults'];
     calculatePrice();
 }
 
 function reservation() {
+
     tripDetail.value = {
         "trip_id": trip.value.id,
         "number_room": selectRoom.value.pivot.number_room,
@@ -91,6 +115,8 @@ function reservation() {
         "price": price.value,
         "session_id": sessionId,
     }
+
+
     const {dataPost} = useFetchPost(urlOrders.value, JSON.stringify(tripDetail.value));
 
     watch(dataPost, () => {
@@ -115,11 +141,11 @@ provide('nameWindow', nameWindow);
 
     <div class="product-configurator w-100 max-lg-50 pt-5 px-2 d-flex flex-column justify-content-start align-items-center justify-content-lg-between align-items-xxl-start" v-if="trip !== null">
 
-        <configurator :trip="trip" @updatePrice="(params) => updatePrice(params)"  />
+        <configurator @updatePrice="(nameInput, nameDataBase) => updatePrice(nameInput, nameDataBase)"  />
 
         <div class="d-flex justify-content-end w-100 max-lg-75 align-items-center">
             <div class="fs-4">{{ lang.price }}:&nbsp;<strong>{{ price }} zł</strong></div>
-            <div class="btn btn-dark fs-5 ms-3" @click="reservation" >{{ lang.bookTrip }}</div>
+            <div class="btn btn-dark fs-5 ms-3" @click="reservation()" >{{ lang.bookTrip }}</div>
         </div>
     </div>
 

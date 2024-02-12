@@ -23,7 +23,7 @@ const lang = inject('lang');
                 <p class="fs-5 mb-0">
                     {{ product.name }}
                 </p>
-                <div class="w-100 d-flex fs-6 align-items-center justify-content-between">
+                <div class="w-100 d-flex fs-6 align-items-center flex-column flex-xl-row justify-content-between">
                     <strong>od: {{ product.minimal_price }} zł</strong>
                     <a class="ms-2 btn fs-6 btn-dark" :href="product.url">{{ lang['check'] }}</a>
                 </div>

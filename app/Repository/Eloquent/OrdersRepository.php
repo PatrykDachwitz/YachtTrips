@@ -30,15 +30,17 @@ class OrdersRepository implements \App\Repository\OrdersRepository
     public function findOrCreatBySession(string $sessionId)
     {
         try {
-            $order = $this->orders
-                ->findOrFail([
-                    'session_id' => $sessionId
-                ]);
+            $order = $this->findBySession($sessionId);
+                if (isset($order->id)) {
+                    return $order;
+                } else {
+                    return $this->create([
+                        'session_id' => $sessionId,
+                        'number' => uniqid()
+                    ]);
+                }
         } catch (ModelNotFoundException) {
-            $order = $this->create([
-                'session_id' => $sessionId,
-                'number' => uniqid()
-            ]);
+
         }
         return $order;
     }

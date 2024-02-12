@@ -9,7 +9,7 @@ export class CustomJson {
         const margeJson = {};
 
         this.jsonsValue.forEach(item => {
-            console.log(item);
+
             if (item !== {}) {
                 Object.keys(item).map(key => (
                     margeJson[key] = item[key]

@@ -23,11 +23,9 @@ export class Filters {
         let optionsId = [];
 
         data.value.forEach(value => {
-            console.log(value);
             optionsId.push(value.id);
         })
 
-        console.log(optionsId)
         return optionsId;
     }
 
@@ -41,7 +39,6 @@ export class Filters {
                 let options = this.#addOptionVariables(data);
                 this.optionsFilters.value[name] = options;
 
-                console.error(this.optionsFilters.value);
             });
         });
     }

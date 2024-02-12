@@ -1,9 +1,11 @@
 <script setup>
 import CartContent from "@/components/cart/cartContent.vue";
-import { inject, ref } from "vue";
+import {inject, ref, watch} from "vue";
 import CartProduct from "@/components/cart/cartProduct.vue";
 const lang = inject('lang');
 const order = inject('order');
+
+
 </script>
 
 <template>
