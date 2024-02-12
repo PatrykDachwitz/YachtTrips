@@ -1,6 +1,8 @@
 @extends('admin.layout')
 
-@include("admin.form.{$views}")
+@section('form-content')
+    @include("admin.form.{$views}")
+@endsection
 
 @section('script')
     <input type="hidden" data-url value="{{ route("{$views}.index") }}">

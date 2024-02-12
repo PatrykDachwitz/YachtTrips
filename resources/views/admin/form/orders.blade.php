@@ -51,6 +51,13 @@
         <label for="validationCustom02" class="form-label">@lang('admin.correspondenceAddress')</label>
         <input type="text" class="form-control" id="validationCustom02" name="correspondenceAddress" data-form-main>
     </div>
-
+    <div class="col-md-12">
+        <div class="form-check">
+            <input class="form-check-input" name="checked_rule" value="1" type="checkbox" id="flexCheckDefault" data-form-main required>
+            <label class="form-check-label" for="flexCheckDefault">
+                @lang('admin.checkedRules')
+            </label>
+        </div>
+    </div>
 
 </form>

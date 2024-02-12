@@ -26,8 +26,8 @@ class Trip extends Model
     protected $casts = [
       'name' => 'string',
       'slug' => 'string',
-      'start_day' => 'timestamp',
-      'end_day' => 'timestamp',
+      'start_day' => 'datetime: Y-m-d H:i:s',
+      'end_day' => 'datetime: Y-m-d H:i:s',
       'yacht_id' => 'integer',
       'price_adult' => 'integer',
       'price_kids' => 'integer',

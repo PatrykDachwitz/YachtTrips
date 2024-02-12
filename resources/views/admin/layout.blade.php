@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl" >
 <head>
+    <link rel="icon" href="/files/icons/logo.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="X-CSRF-Token" content="{{ csrf_token() }}">
@@ -14,6 +15,7 @@
     <div id="navbar" class="shadow bg-dark text-white menu-mobile">
         @include('admin.menu')
     </div>
+    @yield('form-content')
     <div class="dashboard-content">
         <div class="alerts position-absolute bottom-0 end-0 me-3 z-1" data-errors-alerts>
             <svg xmlns="http://www.w3.org/2000/svg" class="d-none">

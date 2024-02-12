@@ -71,4 +71,8 @@ return [
     'premium' => "Premium",
     'checkedRules' => "Zgoda z regulaminem",
     'typePayment' => "Typ płatności",
+    'age' => "Wiek",
+    'bookingId' => "Numer rezerwacji",
+    'adult' => "Osoba dorosła",
+    'kid' => "Osboba niepełnoletnia",
 ];
