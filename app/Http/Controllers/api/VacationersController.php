@@ -34,7 +34,8 @@ class VacationersController extends Controller
     public function store(CreateRequest $request)
     {
         if(Gate::denies('api.update')) {
-            $order = ($this->books->findOrFail($request->input('book_id')))->order;
+
+            $order = ($this->books->findOrFail(intval($request->input('book_id'))))->order;
 
             if (session()->getId() !== $order->session_id) {
                 abort(403);
