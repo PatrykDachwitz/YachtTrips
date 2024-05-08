@@ -3,7 +3,7 @@
 import filters from '@/components/filters/filters.vue';
 import {inject, onMounted, provide, ref} from "vue";
 import ListProducts from "@/components/products/listProducts.vue";
-import Calendar from "@/admin/components/show.vue";
+import Calendar from "@/admin/components/bannerShow.vue";
 import calendar from "@/components/calendar.vue";
 import emptySupport from "@/admin/components/emptySupport.vue";
 

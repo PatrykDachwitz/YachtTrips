@@ -22,7 +22,7 @@ use App\Http\Controllers\SummaryOrderController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+/*
 Route::get('/cart/{idOrder}-{numberOrder}', SummaryOrderController::class)
 ->name('summaryOrder');
 //MainPage
@@ -83,5 +83,14 @@ Route::group([
         ->name('views.show');
 
 });
+*/
 
+Route::get('admin/{any}', function () {
+    return view('admin');
+})
+    ->middleware("auth:sanctum")
+    ->where("any", ".*");
 
+Route::get('{any}', function () {
+    return view('test');
+})->where("any", ".*");

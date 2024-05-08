@@ -1,10 +1,8 @@
 import './bootstrap';
-import {activeMenu} from "@/primary_function/menuActive.js";
+import {createApp} from "vue";
+import dashboard from "@/layout/dashboard.vue";
+import {router} from "@/settings/router.js";
 
-
-
-//Function run menu in mobile version
-window.addEventListener('load', () => {
-    activeMenu();
-});
-
+createApp(dashboard)
+    .use(router)
+    .mount("#app");

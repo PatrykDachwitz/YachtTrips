@@ -17,7 +17,7 @@ provide('data', data);
 
     <navbar
     name="Lista">
-
+        {{ Vite::image() }}
         <a :href="urlCreate" v-if="urlCreate !== ''">
             <picture>
                 <source srcset="/files/icons/add.webp" type="image/webp">

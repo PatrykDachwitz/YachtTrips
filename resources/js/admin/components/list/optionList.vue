@@ -14,7 +14,6 @@ function useFetchDeletedCustom(id) {
     useFetchDeleted(`${deleteUrl}/${id}`);
 
     urlApiCurrent.value = urlApiCurrent.value + "?ts=13";
-    console.log(urlApiCurrent.value);
 }
 </script>
 

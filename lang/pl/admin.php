@@ -1,6 +1,22 @@
 <?php
 
 return [
+    "menu" => [
+        'files_manager' => "Menadżer plików",
+        'orders' => "Zamówienia",
+        'oceans' => "Oceany",
+        'trips' => "Podróże",
+        'yachts' => "Jachty",
+        'rooms' => "Pokoje",
+        'pages' => "Strony",
+        'banners' => "Bannery",
+        'sales' => "Sprzedaż",
+        'travels' => "Wycieczki",
+        'content' => "Zawartość",
+        'users' => "Użytkownicy",
+        'logOut' => "Wyloguj się",
+        'vacationers' => "vacationers",
+    ],/*
     'name' => 'Nazwa',
     'view' => 'Wyświetl',
     'add' => 'Dodaj',
@@ -74,5 +90,5 @@ return [
     'age' => "Wiek",
     'bookingId' => "Numer rezerwacji",
     'adult' => "Osoba dorosła",
-    'kid' => "Osboba niepełnoletnia",
+    'kid' => "Osboba niepełnoletnia",*/
 ];
