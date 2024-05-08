@@ -16,7 +16,12 @@ return [
         'users' => "Użytkownicy",
         'logOut' => "Wyloguj się",
         'vacationers' => "vacationers",
-    ],/*
+    ],
+    'views' => [
+        'view' => 'Wyświetl',
+        'edit' => 'Edytuj',
+        'delete' => 'Usuń',
+    ]/*
     'name' => 'Nazwa',
     'view' => 'Wyświetl',
     'add' => 'Dodaj',

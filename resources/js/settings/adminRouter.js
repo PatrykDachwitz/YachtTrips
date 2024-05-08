@@ -1,8 +1,8 @@
 import {createRouter, createWebHistory} from "vue-router";
 import bannerCreate from "@/views/banners/bannerCreate.vue";
-import bannerIndex from "@/views/banners/bannerIndex.vue";
 import bannerEdit from "@/views/banners/bannerEdit.vue";
 import bannerShow from "@/views/banners/bannerShow.vue";
+import index from "@/views/index.vue";
 
 
 const routes = [
@@ -22,7 +22,7 @@ const routes = [
                     {
                         path: "",
                         name: "banners-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "banners-create",
@@ -44,7 +44,7 @@ const routes = [
                     {
                         path: "",
                         name: "bookings-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "bookings-create",
@@ -66,7 +66,7 @@ const routes = [
                     {
                         path: "",
                         name: "payments-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "payments-create",
@@ -88,7 +88,7 @@ const routes = [
                     {
                         path: "",
                         name: "oceans-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "oceans-create",
@@ -110,7 +110,7 @@ const routes = [
                     {
                         path: "",
                         name: "orders-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "orders-create",
@@ -132,7 +132,7 @@ const routes = [
                     {
                         path: "",
                         name: "pages-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "pages-create",
@@ -154,7 +154,7 @@ const routes = [
                     {
                         path: "",
                         name: "rooms-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "rooms-create",
@@ -176,7 +176,7 @@ const routes = [
                     {
                         path: "",
                         name: "templates-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "templates-create",
@@ -198,7 +198,7 @@ const routes = [
                     {
                         path: "",
                         name: "trips-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "trips-create",
@@ -220,7 +220,7 @@ const routes = [
                     {
                         path: "",
                         name: "users-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "users-create",
@@ -242,7 +242,7 @@ const routes = [
                     {
                         path: "",
                         name: "vacationers-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "vacationers-create",
@@ -264,7 +264,7 @@ const routes = [
                     {
                         path: "",
                         name: "yachts-index",
-                        component: bannerIndex
+                        component: index
                     }, {
                         path: "create",
                         name: "yachts-create",

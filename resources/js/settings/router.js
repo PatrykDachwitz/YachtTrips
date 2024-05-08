@@ -1,6 +1,5 @@
 import {createRouter, createWebHistory} from "vue-router";
 import bannerCreate from "@/views/banners/bannerCreate.vue";
-import bannerIndex from "@/views/banners/bannerIndex.vue";
 import bannerEdit from "@/views/banners/bannerEdit.vue";
 import bannerShow from "@/views/banners/bannerShow.vue";
 
