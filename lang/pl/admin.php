@@ -21,7 +21,7 @@ return [
         'view' => 'Wyświetl',
         'edit' => 'Edytuj',
         'delete' => 'Usuń',
-    ]/*
+    ],
     'name' => 'Nazwa',
     'view' => 'Wyświetl',
     'add' => 'Dodaj',
@@ -95,5 +95,5 @@ return [
     'age' => "Wiek",
     'bookingId' => "Numer rezerwacji",
     'adult' => "Osoba dorosła",
-    'kid' => "Osboba niepełnoletnia",*/
+    'kid' => "Osboba niepełnoletnia",
 ];

@@ -1,0 +1,7 @@
+.alert {
+    &__index {
+        &--height {
+            z-index: 20 !important;
+        }
+    }
+}

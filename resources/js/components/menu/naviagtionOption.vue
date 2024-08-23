@@ -20,7 +20,7 @@ const lang = inject('lang');
     <div class="collapse ms-2" :id="name" style="">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ms-4">
             <li v-for="childElement in children">
-                <router-link :to="{ name: `${childElement}-index`}" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">{{ lang[`menu`][childElement] }}</router-link>
+                <router-link :to="{ name: 'universal__index', params: { target: `${childElement}`} }" class="link-body-emphasis d-inline-flex text-decoration-none rounded fs-6">{{ lang[`menu`][childElement] }}</router-link>
             </li>
         </ul>
     </div>

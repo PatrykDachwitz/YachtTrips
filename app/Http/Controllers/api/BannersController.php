@@ -61,7 +61,7 @@ class BannersController extends Controller
      */
     public function show(int $id)
     {
-        if(Gate::denies('api.view')) abort(403);
+       // if(Gate::denies('api.view')) abort(403);
 
         return response($this->banners->findOrFail($id), 200);
     }

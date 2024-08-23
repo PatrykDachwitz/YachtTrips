@@ -2,7 +2,11 @@ import {createRouter, createWebHistory} from "vue-router";
 import bannerCreate from "@/views/banners/bannerCreate.vue";
 import bannerEdit from "@/views/banners/bannerEdit.vue";
 import bannerShow from "@/views/banners/bannerShow.vue";
-import index from "@/views/index.vue";
+import index from "@/views/elementsAdmin/index.vue";
+import create from "@/views/elementsAdmin/create.vue";
+import edit from "@/views/elementsAdmin/edit.vue";
+import show from "@/views/elementsAdmin/show.vue";
+
 
 
 const routes = [
@@ -16,25 +20,25 @@ const routes = [
                 alias: "/dashboard"
             },
             {
-                path: 'banners',
-                name: 'banners',
+                path: ':target',
+                name: "universal",
                 children: [
                     {
                         path: "",
-                        name: "banners-index",
+                        name: "universal__index",
                         component: index
                     }, {
                         path: "create",
-                        name: "banners-create",
-                        component: bannerCreate
+                        name: "universal__create",
+                        component: create,
                     }, {
                         path: ":id/edit",
-                        name: "banners-edit",
-                        component: bannerEdit
+                        name: "universal__edit",
+                        component: edit
                     }, {
                         path: ":id",
-                        name: "banners-show",
-                        component: bannerShow
+                        name: "universal__show",
+                        component: show
                     }
                 ]
             }, {
@@ -114,7 +118,7 @@ const routes = [
                     }, {
                         path: "create",
                         name: "orders-create",
-                        component: bannerCreate
+                        component: bannerCreate,
                     }, {
                         path: ":id/edit",
                         name: "orders-edit",

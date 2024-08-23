@@ -30,7 +30,7 @@ use App\Http\Controllers\api\RoomsController;
 
 
 Route::group([
-    'middleware' => "auth:sanctum"
+   // 'middleware' => "auth:sanctum"
 ], function () {
     Route::group([
         'prefix' => "banners/",

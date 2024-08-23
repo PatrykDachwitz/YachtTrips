@@ -14,7 +14,7 @@
 
 
 <div style="display: none !important;" data-lang>
-    @json(__('admin'))
+    @json(array_merge(__('admin'), __('vue')))
 </div>
 </body>
 @vite(['resources/js/admin.js'])

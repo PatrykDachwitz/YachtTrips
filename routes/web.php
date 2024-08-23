@@ -88,7 +88,7 @@ Route::group([
 Route::get('admin/{any}', function () {
     return view('admin');
 })
-    ->middleware("auth:sanctum")
+  //  ->middleware("auth:sanctum")
     ->where("any", ".*");
 
 Route::get('{any}', function () {
