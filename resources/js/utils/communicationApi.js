@@ -74,6 +74,73 @@ export class communicationApi {
 
         return response.json();
     }
+    async put(url, data) {
+
+
+        const response = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: data
+        })/*.then(response => {
+               //console.log(response.status)
+            if (response.status < 300) {
+                //console.log(response.json());
+                return response.json();
+            } else {
+                console.log(response.json());
+                throw Error;
+            }
+        })
+            .then(json => {
+                this.setAlert("success", 203);
+                console.log(json)
+                dataPost.value = json;
+            })
+            .catch(err => {
+                this.setAlert("test", 500)
+            });*/
+
+
+        return {
+            dataPut: response.json(),
+            status: response.status
+        };
+    }
+    async delete(url) {
+
+
+        const response = await fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+        })/*.then(response => {
+               //console.log(response.status)
+            if (response.status < 300) {
+                //console.log(response.json());
+                return response.json();
+            } else {
+                console.log(response.json());
+                throw Error;
+            }
+        })
+            .then(json => {
+                this.setAlert("success", 203);
+                console.log(json)
+                dataPost.value = json;
+            })
+            .catch(err => {
+                this.setAlert("test", 500)
+            });*/
+
+
+
+        return response.status;
+    }
 
 
 }

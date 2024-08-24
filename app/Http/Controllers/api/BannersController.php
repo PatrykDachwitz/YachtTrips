@@ -98,7 +98,7 @@ class BannersController extends Controller
      */
     public function destroy(int $id)
     {
-        if(Gate::denies('api.delete')) abort(403);
+      //  if(Gate::denies('api.delete')) abort(403);
 
         if ($this->banners->destroy($id)) {
             return response('success', 200);

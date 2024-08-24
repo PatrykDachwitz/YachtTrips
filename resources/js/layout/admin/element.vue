@@ -3,6 +3,7 @@ import NavBarElement from "@/layout/admin/navBarElement.vue";
 import {inject, onMounted} from "vue";
 import {selectOtherOption} from "@/utils/dashboardNavBarFunction.js";
 import {completeDataForm} from "@/utils/completeDataForm.js";
+import data from "bootstrap/js/src/dom/data.js";
 
 
 defineProps([
@@ -13,13 +14,14 @@ defineProps([
 
 const lang = inject('lang');
 const dataForm = inject('dataForm');
-/*
+
 onMounted(() => {
     if (dataForm !== null) {
+        console.log(dataForm)
         completeDataForm(dataForm.value);
     }
 
-})*/
+})
 </script>
 
 <template>

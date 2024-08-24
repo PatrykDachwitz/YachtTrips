@@ -5,7 +5,13 @@ export function completeDataForm(data) {
         let searchInput = document.querySelector(`[name="${nameInput}"]`);
 
         if (searchInput !== null) {
-            searchInput.value = data[nameInput];
+            if (data[nameInput] === false) {
+                searchInput.value = 0;
+            } else if(data[nameInput] === true) {
+                searchInput.value = 1;
+            } else {
+                searchInput.value = data[nameInput];
+            }
         }
     })
 }
