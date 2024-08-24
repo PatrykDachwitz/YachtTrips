@@ -32,12 +32,7 @@ use App\Http\Controllers\api\RoomsController;
 Route::group([
    // 'middleware' => "auth:sanctum"
 ], function () {
-    Route::group([
-        'prefix' => "banners/",
-        "as" => "banners."
-    ], function () {
-        Route::apiResource('category', categoryBannersController::class);
-    });
+    Route::apiResource('categoriesBanner', categoryBannersController::class);
     Route::apiResource('banners', BannersController::class);
     Route::apiResource('yachts', YachtsController::class)
     ->except('index');

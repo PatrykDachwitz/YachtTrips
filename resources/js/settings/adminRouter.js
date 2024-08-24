@@ -1,7 +1,4 @@
 import {createRouter, createWebHistory} from "vue-router";
-import bannerCreate from "@/views/banners/bannerCreate.vue";
-import bannerEdit from "@/views/banners/bannerEdit.vue";
-import bannerShow from "@/views/banners/bannerShow.vue";
 import index from "@/views/elementsAdmin/index.vue";
 import create from "@/views/elementsAdmin/create.vue";
 import edit from "@/views/elementsAdmin/edit.vue";
@@ -52,15 +49,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "bookings-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "bookings-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "bookings-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -74,15 +71,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "payments-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "payments-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "payments-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -96,15 +93,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "oceans-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "oceans-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "oceans-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -118,15 +115,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "orders-create",
-                        component: bannerCreate,
+                        component: "bannerCreate",
                     }, {
                         path: ":id/edit",
                         name: "orders-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "orders-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -140,15 +137,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "pages-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "pages-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "pages-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -162,15 +159,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "rooms-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "rooms-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "rooms-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -184,15 +181,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "templates-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "templates-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "templates-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -206,15 +203,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "trips-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "trips-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "trips-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -228,15 +225,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "users-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "users-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "users-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -250,15 +247,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "vacationers-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "vacationers-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "vacationers-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             }, {
@@ -272,15 +269,15 @@ const routes = [
                     }, {
                         path: "create",
                         name: "yachts-create",
-                        component: bannerCreate
+                        component: "bannerCreate"
                     }, {
                         path: ":id/edit",
                         name: "yachts-edit",
-                        component: bannerEdit
+                        component: "bannerEdit"
                     }, {
                         path: ":id",
                         name: "yachts-show",
-                        component: bannerShow
+                        component: "bannerShow"
                     }
                 ]
             },

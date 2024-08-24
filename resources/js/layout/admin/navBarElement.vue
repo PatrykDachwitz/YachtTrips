@@ -10,7 +10,7 @@ defineProps([
         <div class="fs-4 text-white">
             <span v-if="id">#{{ id }}</span> {{ name }}
         </div>
-        <div>
+        <div class="navBarContainer__inputs">
             <slot />
         </div>
     </div>

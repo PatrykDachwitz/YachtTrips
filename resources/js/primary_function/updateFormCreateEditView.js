@@ -1,11 +1,3 @@
-export function changePositionForm() {
-    const formShow = document.querySelector('form[data-show-form]');
-    const containerForm = document.querySelector('[data-show-form-container]');
-
-    containerForm.append(formShow);
-
-    formShow.classList.remove('d-none');
-}
 
 
 function setInvalidInInput(input, errors) {

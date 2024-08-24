@@ -13,10 +13,13 @@ defineProps([
 
 const lang = inject('lang');
 const dataForm = inject('dataForm');
-
+/*
 onMounted(() => {
-    completeDataForm(dataForm.value);
-})
+    if (dataForm !== null) {
+        completeDataForm(dataForm.value);
+    }
+
+})*/
 </script>
 
 <template>
@@ -35,32 +38,34 @@ onMounted(() => {
         <a class="btn btn-dark" @click="selectOtherOption('content')">{{ lang['contents'] }}</a>
     </div>
 
-    <div data-show-form-container class="" data-content-show="info">
-        <slot name="formSlot"></slot>
-    </div>
-
-    <div data-show-form-container class="p-4 d-none" data-content-show="content">
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">{{ lang['contents'] }}</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 100%" name="description"></textarea>
-        </div>
-    </div>
-    <div class="p-5 d-none" data-content-show="media">
-<!--
-        <div style="border-bottom: 1.5px solid #d3d3d3">
-            <button class="btn btn-outline-dark btn-add" @click="editViewActive = true"><strong>+</strong></button>
-            {{ lang['graphics'] }}
-        </div>
-        <div v-if="data !== null">
-&lt;!&ndash;            <image-form class="graphic-container py-4"  v-for="image in data.images" :image="image" :key="image.id" />&ndash;&gt;
+    <form data-form>
+        <div data-show-form-container class="" data-content-show="info">
+            <slot name="formSlot"></slot>
         </div>
 
-        <div>
-&lt;!&ndash;            <image-form class="graphic-container py-4"  v-for="file in selectImage" :image="file" :key="file.id" />&ndash;&gt;
+        <div data-show-form-container class="p-4 d-none" data-content-show="content">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">{{ lang['contents'] }}</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 100%" name="description"></textarea>
+            </div>
         </div>
--->
+        <div class="p-5 d-none" data-content-show="media">
+        <!--
+                <div style="border-bottom: 1.5px solid #d3d3d3">
+                    <button class="btn btn-outline-dark btn-add" @click="editViewActive = true"><strong>+</strong></button>
+                    {{ lang['graphics'] }}
+                </div>
+                <div v-if="data !== null">
+        &lt;!&ndash;            <image-form class="graphic-container py-4"  v-for="image in data.images" :image="image" :key="image.id" />&ndash;&gt;
+                </div>
 
-    </div>
+                <div>
+        &lt;!&ndash;            <image-form class="graphic-container py-4"  v-for="file in selectImage" :image="file" :key="file.id" />&ndash;&gt;
+                </div>
+        -->
+
+        </div>
+    </form>
 </template>
 
 <style scoped></style>

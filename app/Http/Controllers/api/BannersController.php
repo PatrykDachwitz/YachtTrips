@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\banners\CreatedRequest;
 use App\Http\Requests\banners\UpdateRequest;
+use App\Models\Banner;
 use App\Repository\BannersRepository;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -31,29 +32,23 @@ class BannersController extends Controller
      */
     public function store(CreatedRequest $request)
     {
-        if(Gate::denies('api.create')) abort(403);
+      //  if(Gate::denies('api.create')) abort(403);
 
-        try {
-            $id = $this->banners->create($request->only([
+       /** try {
+            $banner = $this->banners->create($request->only([
                 'name',
                 'start_at',
                 'finish_at',
                 'active',
                 'category_banner_id',
-                'description',
-                'href',
+               // 'description',
+              ///  'href',
             ]));
         } catch (Exception) {
             abort(500);
-        }
+        }*/
 
-        $response = [
-          'url' => route('admin.views.edit', [
-              'views' => 'banners',
-              'id' => $id
-          ])
-        ];
-        return response( json_encode($response), 301);
+        return response( json_encode(Banner::find(1)), 200);
     }
 
     /**

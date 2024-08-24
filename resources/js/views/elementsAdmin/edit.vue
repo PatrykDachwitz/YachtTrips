@@ -35,9 +35,13 @@ provide("dataForm", data);
         </template>
 
         <template v-slot:inputs>
-            <RouterLink :to="{name:'universal__edit', params: {target: target, id:data.id}}">
-                <img src="/files/icons/edit.png" class="pointer" alt="save" width="20" height="20" @click="formController.create()"/>
+            <RouterLink :to="{name:'universal__show', params: {target: target, id:data.id}}">
+                <img src="/files/icons/view.png" class="pointer" alt="view" width="20" height="20"/>
             </RouterLink>
+            <img src="/files/icons/save.png" class="pointer ms-2" alt="save" width="20" height="20" />
+            <img src="/files/icons/save_exit.png" class="pointer ms-2" alt="save and exit" width="24" height="24" />
+            <img src="/files/icons/add.png" class="pointer ms-2" alt="create new" width="20" height="20" />
+            <img src="/files/icons/delete.png" class="pointer ms-2" alt="create new" width="20" height="20" />
         </template>
     </element>
 

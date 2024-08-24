@@ -20,6 +20,11 @@ class Banner extends Model
             ->withPivot('device');
     }
 
+    public function getPathShowAttribute() {
+        return route('banners.show', [
+            'banners' => $this->id
+        ]);
+    }
 
     protected $casts = [
         'name' => 'string',
@@ -30,6 +35,7 @@ class Banner extends Model
         'category_banner_id' => 'integer',
         'description' => 'string',
         'href' => 'string',
+        'pathShow' => 'string',
     ];
 
     protected $fillable = [
@@ -40,6 +46,7 @@ class Banner extends Model
         'finish_at',
         'start_at',
         'href',
+        'pathShow',
     ];
 
     protected $hidden = [

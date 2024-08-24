@@ -9,7 +9,7 @@ export class communicationApi {
     }
 
     setAlert(text, statusCode) {
-        console.log(this.alerts)
+       // console.log(this.alerts)
         this.alerts.value.push({
             text,
             statusCode
@@ -41,5 +41,39 @@ export class communicationApi {
 
         return dataGet;
     }
+
+    async post(url, data) {
+
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: data
+        })/*.then(response => {
+               //console.log(response.status)
+            if (response.status < 300) {
+                //console.log(response.json());
+                return response.json();
+            } else {
+                console.log(response.json());
+                throw Error;
+            }
+        })
+            .then(json => {
+                this.setAlert("success", 203);
+                console.log(json)
+                dataPost.value = json;
+            })
+            .catch(err => {
+                this.setAlert("test", 500)
+            });*/
+
+
+        return response.json();
+    }
+
 
 }
