@@ -85,11 +85,33 @@ Route::group([
 });
 */
 
-Route::get('admin/{any}', function () {
-    return view('admin');
-})
-  //  ->middleware("auth:sanctum")
-    ->where("any", ".*");
+
+
+Route::group([
+    'prefix' => "admin/",
+    'as' => "admin.",
+], function () {
+
+    Route::get('login', function () {
+        return view('admin.login');
+    })
+        ->name("login");
+    Route::post('login', LoginController::class)
+        ->name("login");
+
+    Route::get('{any}', function () {
+        return view('admin');
+    })
+        ->middleware("auth:sanctum")
+        ->where("any", ".*")
+        ->name('index');
+});
+
+
+
+
+
+
 
 Route::get('{any}', function () {
     return view('test');

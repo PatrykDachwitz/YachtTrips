@@ -12,3 +12,5 @@ export function changeAdminPagePathToApiPathForShowWithRemoveEditData(currentPat
     return currentPath.replace(pathAdminPage, pathApi).replace("/edit", "").replace("/create", "");
 }
 
+
+

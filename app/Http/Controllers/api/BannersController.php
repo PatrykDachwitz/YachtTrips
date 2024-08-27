@@ -32,9 +32,9 @@ class BannersController extends Controller
      */
     public function store(CreatedRequest $request)
     {
-      //  if(Gate::denies('api.create')) abort(403);
+        if(Gate::denies('api.create')) abort(403);
 
-       /** try {
+        try {
             $banner = $this->banners->create($request->only([
                 'name',
                 'start_at',
@@ -46,9 +46,9 @@ class BannersController extends Controller
             ]));
         } catch (Exception) {
             abort(500);
-        }*/
+        }
 
-        return response( json_encode(Banner::find(1)), 200);
+        return response( json_encode($banner), 200);
     }
 
     /**
@@ -56,7 +56,7 @@ class BannersController extends Controller
      */
     public function show(int $id)
     {
-       // if(Gate::denies('api.view')) abort(403);
+        if(Gate::denies('api.view')) abort(403);
 
         return response($this->banners->findOrFail($id), 200);
     }
@@ -98,7 +98,7 @@ class BannersController extends Controller
      */
     public function destroy(int $id)
     {
-      //  if(Gate::denies('api.delete')) abort(403);
+        if(Gate::denies('api.delete')) abort(403);
 
         if ($this->banners->destroy($id)) {
             return response('success', 200);

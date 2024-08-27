@@ -16,13 +16,20 @@ export class communicationApi {
             statusCode
         })
     }
+    getCsrfToken() {
+        return document.querySelector('meta[name="X-CSRF-Token"]').content;
+    }
 
     get(url) {
         ///console.info(url)
         const dataGet = ref(null);
         watchEffect(() => {
             dataGet.value = null;
-            fetch(toValue(url))
+            fetch(toValue(url), {
+                headers: {
+                    'X-CSRF-Token': this.getCsrfToken(),
+                }
+            })
                 .then(response => {
                  //   console.log(response.status)
                     if (response.status < 300) {
@@ -51,11 +58,12 @@ export class communicationApi {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
+                'X-CSRF-Token': this.getCsrfToken(),
             },
             body: data
         }).then(response => {
                //console.log(response.status)
-            if (response.status < 300) {
+            if (response.status <= 400) {
                 //console.log(response.json());
                 return {
                     dataPost: response.json(),
@@ -88,6 +96,7 @@ export class communicationApi {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
+                'X-CSRF-Token': this.getCsrfToken(),
             },
             body: data
         })/*.then(response => {
@@ -123,6 +132,7 @@ export class communicationApi {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
+                'X-CSRF-Token': this.getCsrfToken(),
             },
         })/*.then(response => {
                //console.log(response.status)

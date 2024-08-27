@@ -21,7 +21,9 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect(route('admin.dashboard'), 301);
+            return redirect(route('admin.index', [
+                'any' => "dashboard"
+            ]), 301);
         } else {
             return back()->withErrors([
                 'email' => __('login.accountNotIsset')

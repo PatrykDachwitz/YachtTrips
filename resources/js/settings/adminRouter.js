@@ -10,11 +10,13 @@ const routes = [
     {
         path: '/admin',
         name: 'admin',
+        component: "",
         children: [
             {
                 path: "",
                 name: "home",
-                alias: "/dashboard"
+                alias: "/dashboard",
+                component: "",
             },
             {
                 path: ':target',

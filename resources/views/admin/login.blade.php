@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="w-100 min-vh-100 d-flex align-items-center justify-content-center">
-        <form class="bg-gray w-25 border-grayLight-1 px-5 py-3 rounded-2 shadow" action="{{ route('login') }}" class="row" method="POST">
+        <form class="bg-gray w-25 border-grayLight-1 px-5 py-3 rounded-2 shadow" action="" class="row" method="POST" style="max-width: 365px !important;">
 
             <div class="d-flex justify-content-center mb-4">
                 <picture>
@@ -20,11 +20,11 @@
             </div>
             <div class="col-md-12 fs-5">
                 <label for="validationCustom02" class="form-label">@lang('login.email')</label>
-                <input type="email" class="form-control" id="validationCustom02" name="email" value="{{ old('email', '') }}" placeholder="@lang('login.emailTemplate')">
+                <input type="email" class="form-control" id="validationCustom02" name="email" value="{{ old('email', '') }}" placeholder="@lang('login.emailTemplate')" required>
             </div>
 
             @if($errors->any())
-                <div class="text-danger fs-5 mt-2">@lang('auth.errorLogin')</div>
+                <div class="text-danger mt-2">@lang('auth.errorLogin')</div>
             @endif
 
             @csrf
@@ -34,10 +34,9 @@
             </div>
 
             <div>
-                <input type="submit" class="btn btn-dark mt-3" value="@lang('login.send')">
+                <input type="submit" class="btn btn-dark mt-3 w-100" value="@lang('login.send')">
             </div>
         </form>
     </div>
-    @vite(['resources/js/app.js'])
 </body>
 </html>

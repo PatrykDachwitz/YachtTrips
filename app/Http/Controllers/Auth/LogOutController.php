@@ -19,6 +19,8 @@ class LogOutController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect(route('login'), 301);
+        return response( json_encode([
+            'url' => route('admin.login')
+        ]),301);
     }
 }
