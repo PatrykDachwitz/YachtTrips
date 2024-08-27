@@ -22,7 +22,7 @@ const availableOptionsCategoryBanner = communication.get(urlBannersCategory);
     <div class="row g-3 p-3">
         <div class="col-md-10">
             <label for="validationCustom02" class="form-label">{{ lang['name'] }}</label>
-            <input type="email" class="form-control" id="validationCustom02" name="name" data-form-main>
+            <input type="text" class="form-control" id="validationCustom02" name="name" data-form-main>
         </div>
 
         <div class="col-md-2">
@@ -36,13 +36,13 @@ const availableOptionsCategoryBanner = communication.get(urlBannersCategory);
         <div class="col-md-4">
             <label for="start_at" class="form-label">{{ lang['startView'] }}</label>
             <div class="position-relative">
-                <input type="date" class="form-control" id="created_at" name="start_at" style="background-position: right calc(2.4em + 0.1875rem) center;"  data-form-main>
+                <input type="date" class="form-control" id="created_at" name="start_at"  data-form-main>
             </div>
         </div>
         <div class="col-md-4">
             <label for="finish_at" class="form-label">{{ lang['endView'] }}</label>
             <div class="position-relative">
-                <input type="date" class="form-control" id="created_at" name="finish_at" style="background-position: right calc(2.4em + 0.1875rem) center;"  data-form-main>
+                <input type="date" class="form-control" id="created_at" name="finish_at"  data-form-main>
             </div>
         </div>
 

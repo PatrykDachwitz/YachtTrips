@@ -16,10 +16,10 @@ const lang = inject('lang');
 const dataForm = inject('dataForm');
 
 onMounted(() => {
-    if (dataForm !== null) {
+   /* if (dataForm !== null) {
         console.log(dataForm)
         completeDataForm(dataForm.value);
-    }
+    }*/
 
 })
 </script>

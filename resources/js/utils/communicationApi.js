@@ -1,4 +1,5 @@
 import {inject, ref, toValue, watchEffect} from "vue";
+import {addErrorForm} from "@/utils/addErrorForm.js";
 
 export class communicationApi {
 
@@ -52,27 +53,32 @@ export class communicationApi {
                 'Accept': 'application/json',
             },
             body: data
-        })/*.then(response => {
+        }).then(response => {
                //console.log(response.status)
             if (response.status < 300) {
                 //console.log(response.json());
-                return response.json();
+                return {
+                    dataPost: response.json(),
+                    status: response.status
+                };
+            } else if (response.status === 422) {
+                addErrorForm( response.json());
+               // console.log(response.json());
+                throw Error;
             } else {
-                console.log(response.json());
                 throw Error;
             }
         })
-            .then(json => {
-                this.setAlert("success", 203);
-                console.log(json)
-                dataPost.value = json;
-            })
             .catch(err => {
-                this.setAlert("test", 500)
-            });*/
+                return {
+                    errorPost: "",
+                    status: 500
+                };
+
+            });
 
 
-        return response.json();
+        return response;
     }
     async put(url, data) {
 

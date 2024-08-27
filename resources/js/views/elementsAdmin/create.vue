@@ -20,8 +20,12 @@ const router = useRouter();
 async function create(action) {
     const inputs = getInputsForm();
 
-    const dataPost = await communication.post(urlPost, JSON.stringify(inputs));
+    const {dataPost, errorPost, status} = await communication.post(urlPost, JSON.stringify(inputs));
 
+  /*  console.log(dataPost);
+    console.log(errorPost);
+    console.log(status);*/
+/*
     switch (action) {
         case "view":
             setTimeout(() =>{
@@ -64,15 +68,15 @@ async function create(action) {
 
             break;
     }
-
+*/
 }
 
 </script>
 
 <template>
     <element
-        name="test"
-        id="123"
+        :name="lang['new'][route.params.target]"
+        id=""
     >
         <template v-slot:formSlot>
             <component :is="formComponent"></component>
