@@ -22,19 +22,11 @@ use App\Http\Controllers\SummaryOrderController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/*
+
 Route::get('/cart/{idOrder}-{numberOrder}', SummaryOrderController::class)
 ->name('summaryOrder');
-//MainPage
-Route::get('/', MainPageController::class);
 
-Route::view('/login', "login")
-    ->name('login');
-Route::POST('/login', LoginController::class)
-    ->name('login');
-Route::get('/admin', DashboardController::class)
-    ->middleware('auth:sanctum')
-    ->name('admin.dashboard');
+
 //Trips Controller
 Route::group([
     'prefix' => 'trips/',
@@ -60,30 +52,9 @@ Route::get('/{slug}', PageController::class)
 
 
 
-//CMS routing
-Route::group([
-     "as" => "admin.",
-     "prefix" => "admin/",
-     "middleware" => "auth:sanctum"
-], function () {
-
-    Route::get('file_manager', ManagerFilesController::class)
-    ->name('fileManager');
-    Route::post('/logout', LogOutController::class)
-        ->name('logout');
-
-
-    Route::get('{views}', [PageAdminController::class, 'index'])
-        ->name('views.index');
-    Route::get('{views}/create', [PageAdminController::class, 'create'])
-        ->name('views.create');
-    Route::get('{views}/{id}/edit', [PageAdminController::class, 'edit'])
-        ->name('views.edit');
-    Route::get('{views}/{id}', [PageAdminController::class, 'show'])
-        ->name('views.show');
-
-});
-*/
+/*Refactoring routes*/
+//MainPage
+Route::get('/', MainPageController::class);
 
 
 
@@ -112,7 +83,7 @@ Route::group([
 
 
 
-
+/*
 Route::get('{any}', function () {
     return view('test');
-})->where("any", ".*");
+})->where("any", ".*");*/

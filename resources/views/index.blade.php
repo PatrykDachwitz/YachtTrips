@@ -23,7 +23,6 @@
 
 @vite([
     'resources/js/mainPage.js',
-    'resources/js/app.js',
     ])
 </body>
 </html>

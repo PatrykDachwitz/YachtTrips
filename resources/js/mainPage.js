@@ -1,5 +1,5 @@
-import {miniSliders} from "@/primary_function/miniSliders.js";
-import {sliders} from "@/primary_function/sliders.js";
+import {sliders} from "@/utils/sliders.js";
+import {miniSliders} from "@/utils/miniSliders.js";
 
 
 const yachts = new sliders('yachts')

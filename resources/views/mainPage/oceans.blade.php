@@ -20,7 +20,7 @@
 
                 <div class="d-flex align-items-center">
                     <div>
-                        <button class="btn btn-dark border-2 fs-2" data-button-previous="oceans">
+                        <button class="btn btn-dark border-2 fs-2 d-xxxxl-none" data-button-previous="oceans">
                             <
                         </button>
                     </div>
@@ -36,11 +36,11 @@
                                 @break
                             @case(1)
                                 d-none
-                                d-lg-flex
+                                d-md-flex
                                 @break
                             @case(2)
                                 d-none
-                                d-xxxl-flex
+                                d-xl-flex
                                 @break
                             @case(3)
                                 d-none
@@ -76,7 +76,7 @@
 
                 <div class="d-flex align-items-center">
                     <div>
-                        <button class="btn btn-dark border-2 fs-2" data-button-next="oceans">
+                        <button class="btn btn-dark border-2 fs-2 d-xxxxl-none" data-button-next="oceans">
                             >
                         </button>
                     </div>
