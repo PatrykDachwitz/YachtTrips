@@ -2,6 +2,8 @@
 declare(strict_types=1);
 namespace App\Http\Controllers;
 
+use App\Models\Ocean;
+use App\Models\Yacht;
 use App\Repository\TripsRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -15,12 +17,28 @@ class TripsController extends Controller
         $this->trips = $tripsRepository;
     }
 
+    private function getFilters() {
+        return [
+            [
+                'name' => "oceans",
+                "options" => Ocean::all(),
+                "nameInput" => "ocean_id"
+            ],
+            [
+                'name' => "yachts",
+                "options" => Yacht::all(),
+                "nameInput" => "yacht_id"
+            ]
+        ];
+    }
+
 
     public function index(Request $request) {
 
-        return view('trips',
+        return view('pages.trips',
         [
-            'currentUrl' => $request->url(),
+            'trips' => $this->trips->get(),
+            'filters' => $this->getFilters(),
             'queryHtml' => urldecode($request->getQueryString() ?? ""),
         ]);
     }

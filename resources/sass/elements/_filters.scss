@@ -1,0 +1,8 @@
+.filters {
+    min-width: 300px;
+    &__content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        position: fixed;
+    }
+}

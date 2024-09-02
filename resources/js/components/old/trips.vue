@@ -20,20 +20,6 @@ const supportComponent = {
     emptySupport
 }
 
-function runCalendar() {
-    const calendarInputs = document.querySelectorAll('[data-calendar-input]');
-
-    calendarInputs.forEach(calendarInput => {
-        calendarInput.addEventListener('click', () => {
-            if (activeCalendar.value === "calendar") {
-                activeCalendar.value = "emptySupport";
-            } else {
-                activeCalendar.value = "calendar";
-                locationDataSet.value = calendarInput.dataset.calendarInput;
-            }
-        })
-    });
-}
 
 onMounted(() => {
     runCalendar();

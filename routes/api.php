@@ -69,8 +69,6 @@ Route::get('yachts', [YachtsController::class, 'index'])
     ->name('yachts.index');
 Route::get('oceans', [OceansController::class, 'index'])
     ->name('oceans.index');
-Route::get('trips', [TripsController::class, 'index'])
-    ->name('trips.index');
 Route::get('trips/{trip}', [TripsController::class, 'show'])
     ->name('trips.show');
 Route::post('booking', [BooksController::class, 'store'])
