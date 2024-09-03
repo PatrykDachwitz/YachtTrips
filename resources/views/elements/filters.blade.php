@@ -1,4 +1,4 @@
-<form class="filters d-flex justify-content-center rounded-2 overflow-hidden d-none d-lg-block" data-form-files>
+<form class="filters d-flex justify-content-center rounded-2 overflow-hidden d-none d-lg-block" method="GET" data-form-files>
     <div class="filters__content bg-gray shadow p-4 m-3 m-xxl-4">
         <h2 class="fs-3">@lang('travels.filters')</h2>
         <hr />
@@ -37,12 +37,8 @@
             </div>
         </div>
 
-        <template v-if="products !== null">
-            <input type="hidden" :value="products.current_page" name="page" />
-        </template>
-
         <div class="mt-3 w-100">
-            <a class="btn btn-outline-dark w-100" @click="updateParamsFilter">@lang('travels.filtred')</a>
+            <button class="btn btn-outline-dark w-100">@lang('travels.filtred')</button>
         </div>
 
     </div>

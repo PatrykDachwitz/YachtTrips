@@ -1,1 +1,10 @@
 @import "header";
+@media (min-width: 1200px) {
+    .trip_gallery--main {
+        max-width: 690px;
+        max-height: 576px;
+    }
+    .card-mini__container {
+        max-width: 690px;
+    }
+}

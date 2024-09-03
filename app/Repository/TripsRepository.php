@@ -8,6 +8,7 @@ interface TripsRepository
     public function getAll();
 
     public function get(int $paginated = 40, array $filters = []);
+    public function getBySlug(string $slug);
     public function findOrFail(int $id);
 
     public function destroy(int $id);

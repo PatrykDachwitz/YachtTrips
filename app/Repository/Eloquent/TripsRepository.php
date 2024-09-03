@@ -128,4 +128,17 @@ class TripsRepository implements \App\Repository\TripsRepository
 
         return $trip->id;
     }
+
+    public function getBySlug(string $slug)
+    {
+
+        return $this->trip
+            ->availableRooms()
+            ->with('rooms')
+            ->with('oceans')
+            ->with('yachts')
+            ->with('gallery')
+            ->where("slug", $slug)
+            ->first();
+    }
 }

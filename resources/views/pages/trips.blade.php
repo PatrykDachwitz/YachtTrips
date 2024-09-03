@@ -1,8 +1,4 @@
 @extends('pages')
-{{--
-
-@include('elements.loadingPage')
---}}
 
 @section('content')
     <div class="d-flex justify-content-center" style="margin-top: 65px">

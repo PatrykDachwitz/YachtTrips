@@ -84,6 +84,12 @@ class Trip extends Model
             ->withPivot('default')
             ->orderByPivot('position');
     }
+
+    public function gallery() {
+        return $this->belongsToMany(File::class)
+            ->withPivot('default')
+            ->orderByPivot('position');
+    }
     public function imagesCategory() {
         return $this->belongsToMany(File::class)
             ->wherePivot('default', true);

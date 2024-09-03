@@ -5,11 +5,29 @@
 </head>
 <body>
 <div class="container-fluid d-flex flex-column m-0 p-0 overflow-hidden">
-    @include('elements.loadingPage')
+
     @include('elements.menu')
-    <div class="container product d-flex flex-column flex-lg-row product-main-container" id="app" style="margin-top: 60px !important;min-width: 100% !important;">
+    <div class="container product d-flex flex-column flex-lg-row product-main-container" style="margin-top: 60px !important;min-width: 100% !important;">
+        @if(isset($trip))
 
 
+            @include('elements.gallery', [
+                "gallery" => $trip->gallery ?? []
+            ])
+
+            <div class="product-configurator w-100 max-lg-50 pt-5 px-2 d-flex flex-column justify-content-start align-items-center align-items-xxl-start" v-if="trip !== null">
+
+                @include('elements.configuration', [
+                    "trip" => $trip
+                ])
+
+
+                <div class="d-flex justify-content-end w-100 max-lg-75 align-items-center">
+                    <div class="fs-4">@lang('travels.price'):&nbsp;<strong>{{ $trip->minimal_price }} zł</strong></div>
+                    <div class="btn btn-dark fs-5 ms-3">@lang('travels.bookTrip')</div>
+                </div>
+            </div>
+        @endif
     </div>
     <div class="my-3 border-top-gray-1">
         <div class="d-flex flex-column flex-lg-row justify-content-lg-center">
@@ -26,7 +44,7 @@
                     <div class="flex-50 d-flex overflow-hidden align-items-center justify-content-center">
                         <picture>
                             <source srcset="/files/templates/sekcja_1.webp" type="image/webp">
-                            <img class="img-fluid" src="/files/templates/sekcja_1.jpg" class="img-fluid" width="950" height="500"/>
+                            <img class="img-fluid" src="/files/templates/sekcja_1.jpg" width="950" height="500"/>
                         </picture>
                     </div>
                 </div>
@@ -70,21 +88,15 @@
         </div>
     </div>
 
-    <div style="display: none" data-language>
-        @json(__('travels'))
-    </div>
-    <input type="hidden" value="{{ route('trips.show', ["trip" => $trip_id]) }}" data-url-api>
-    <input type="hidden" value="{{ route('booking.store') }}" data-url-create>
-    <input type="hidden" value="{{ $sessionId }}" data-session-id>
 </div>
 
 @include('elements.footer')
 
-@vite([
+{{--@vite([
     'resources/sass/app.scss',
     'resources/js/app.js',
     'resources/js/trip.js'
-    ])
+    ])--}}
 
 </body>
 </html>

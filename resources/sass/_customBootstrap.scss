@@ -95,3 +95,11 @@
 .min-h-100 {
     min-height: 100%;
 }
+
+.btn-prev {
+    transform: rotate(90deg);
+}
+
+.btn-next {
+    transform: rotate(-90deg);
+}
