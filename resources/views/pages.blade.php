@@ -18,7 +18,6 @@
         @endisset
     @show
 
-    @vite([ 'resources/js/app.js'])
     @yield('script')
     @include('elements.footer')
 </div>

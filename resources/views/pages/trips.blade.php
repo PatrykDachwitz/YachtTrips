@@ -42,3 +42,13 @@
 
 @endsection
 
+@section('script')
+   @vite([
+    'resources/js/trips.js'
+])
+
+    <div style="display: none" data-filters-checked>
+        @json($filtersChecked)
+    </div>
+@endsection
+

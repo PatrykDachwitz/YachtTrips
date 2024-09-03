@@ -22,12 +22,12 @@ class FiltersRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'filters.start_day' => ['date_format:Y-m-d'],
-            'filters.end_day' => ['date_format:Y-m-d'],
-            'filters.yacht_id.*' => ['integer'],
-            'filters.ocean_id.*' => ['integer'],
-            'filters.template_id.*' => ['integer'],
-            'filters.count_day.*' => ['integer'],
+            'start_day' => ['date_format:Y-m-d', "nullable"],
+            'end_day' => ['date_format:Y-m-d', 'nullable'],
+            'yacht_id.*' => ['integer'],
+            'ocean_id.*' => ['integer'],
+            'count_day.*' => ['integer'],
+            'pagination' => ['integer'],
         ];
     }
 }

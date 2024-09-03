@@ -23,16 +23,16 @@ class TripsRepository implements \App\Repository\TripsRepository
                     $tripQuery->where('end_day', '<=', $filter);
                     break;
                 case "yacht_id":
-                    $tripQuery->whereIn('yacht_id', $filter['*']);
+                    $tripQuery->whereIn('yacht_id', $filter);
                     break;
                 case "ocean_id":
-                    $tripQuery->whereIn('ocean_id', $filter['*']);
+                    $tripQuery->whereIn('ocean_id', $filter);
                     break;
                 case "template_id":
-                    $tripQuery->whereIn('template_id', $filter['*']);
+                    $tripQuery->whereIn('template_id', $filter);
                     break;
                 case "count_day":
-                    $tripQuery->whereIn('count_day', $filter['*']);
+                    $tripQuery->whereIn('count_day', $filter);
                     break;
             }
         }
@@ -133,10 +133,10 @@ class TripsRepository implements \App\Repository\TripsRepository
     {
 
         return $this->trip
-            ->availableRooms()
+            /*->availableRooms()
             ->with('rooms')
             ->with('oceans')
-            ->with('yachts')
+            ->with('yachts')*/
             ->with('gallery')
             ->where("slug", $slug)
             ->first();

@@ -87,6 +87,7 @@ class Trip extends Model
 
     public function gallery() {
         return $this->belongsToMany(File::class)
+            ->wherePivot('default', 0)
             ->withPivot('default')
             ->orderByPivot('position');
     }

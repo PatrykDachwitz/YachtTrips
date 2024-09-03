@@ -2,14 +2,18 @@
 declare(strict_types=1);
 namespace App\Http\Controllers;
 
+use App\Http\Requests\trips\FiltersRequest;
 use App\Models\Ocean;
 use App\Models\Yacht;
 use App\Repository\TripsRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Mockery\Exception;
 
 class TripsController extends Controller
 {
+
+    const DEFAULT_PAGINATION_COUNT = 40;
     private $trips;
 
     public function __construct(TripsRepository $tripsRepository)
@@ -33,13 +37,29 @@ class TripsController extends Controller
     }
 
 
-    public function index(Request $request) {
+    public function index(FiltersRequest $request) {
+
+        $filters = $request->validated();
+        $pagination = $request->input('pagination', self::DEFAULT_PAGINATION_COUNT);
+
+        try {
+            if (!isset($filters["start_day"]) || is_null($filters["start_day"])) {
+                $filters["start_day"] = date("Y-m-d", strtotime("+1 day"));
+            }
+
+            if (is_null($filters["end_day"])) {
+                unset($filters["end_day"]);
+            }
+
+        } catch (\Exception) {
+
+        }
 
         return view('pages.trips',
         [
-            'trips' => $this->trips->get(),
+            'trips' => $this->trips->get($pagination, $filters),
             'filters' => $this->getFilters(),
-            'queryHtml' => urldecode($request->getQueryString() ?? ""),
+            'filtersChecked' => $filters
         ]);
     }
 
