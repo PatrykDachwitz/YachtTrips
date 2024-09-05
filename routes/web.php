@@ -55,6 +55,10 @@ Route::group([
     Route::get('', [OrderController::class, 'index'])
         ->name('index');
 
+    Route::post('', function () {
+        return redirect(\route('cart.personalData'));
+    });
+
     Route::post('personal-data', [OrderController::class, 'setPersonalData']);
 
     Route::get('personal-data', [OrderController::class, 'getPersonalData'])

@@ -24,8 +24,8 @@ class ManyUpdateRequest extends FormRequest
     {
         return [
             'id.*' => ['integer', 'min:1'],
-            'first_name.*' => ['string', "max:255", "nullable"],
-            'last_name.*' => ['string', "max:255", "nullable"],
+            'first_name.*' => ['string', "max:255"],
+            'last_name.*' => ['string', "max:255"],
             'book_id.*' => ['integer'],
         ];
     }

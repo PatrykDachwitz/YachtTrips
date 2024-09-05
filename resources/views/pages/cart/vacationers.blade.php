@@ -35,6 +35,5 @@
             @endforeach
         </div>
     </div>
-    {{ dump($errors) }}
 @endsection
 
