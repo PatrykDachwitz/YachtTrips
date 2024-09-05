@@ -9,7 +9,7 @@
                @lang('menu.nameCompany')
            </a>
            <div class="d-flex d-lg-none menu-button-active align-items-center">
-               <a href="{{ route('cart') }}">
+               <a href="{{ route('cart.index') }}">
                    <picture>
                        <source srcset="/files/icons/koszyk.webp" type="image/webp">
                        <img src="/files/icons/koszyk.png" alt="@lang('menu.altCart')" width="35" height="35"/>
@@ -34,7 +34,7 @@
                 <li class="mb-1 mb-md-0" ><a href="{{ route('page.oceans') }}" class="text-white text-decoration-none mx-2 fs-5" >@lang('menu.availableOceans')</a></li>
             </ul>
             <div class="d-none d-lg-flex align-items-center ms-3">
-                <a href="{{ route('cart') }}">
+                <a href="{{ route('cart.index') }}">
                     <picture>
                         <source srcset="/files/icons/koszyk.webp" type="image/webp">
                         <img src="/files/icons/koszyk.png" alt="@lang('menu.altCart')" width="35" height="35"/>

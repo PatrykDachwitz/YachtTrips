@@ -63,7 +63,7 @@ class OrdersController extends Controller
     {
         if(Gate::denies('api.view')) abort(403);
 
-        return response($this->orders->findOrFail($id), 200);
+        return response($this->orders->finxdOrFail($id), 200);
     }
     public function showBySession(string $sessionId)
     {

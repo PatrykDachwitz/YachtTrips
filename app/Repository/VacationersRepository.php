@@ -14,4 +14,6 @@ interface VacationersRepository
 
     public function create(array $data);
     public function update(int $id, array $updateData);
+
+    public function getEmptyByBookId(int $bookId);
 }

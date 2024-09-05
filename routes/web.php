@@ -22,9 +22,9 @@ use App\Http\Controllers\SummaryOrderController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+/*
 Route::get('/cart/{idOrder}-{numberOrder}', SummaryOrderController::class)
-->name('summaryOrder');
+->name('summaryOrder');*/
 
 
 //Trips Controller
@@ -44,19 +44,38 @@ Route::view('/yachts', 'pages.yachts')->name('page.yachts');
 
 
 //Pages and cart Controller
-Route::get('/cart', OrderController::class)
+Route::get('/cart', [OrderController::class, 'mainPage'])
 ->name('cart');
+
+Route::group([
+   "as" => "cart.",
+   "prefix" => "cart/"
+], function () {
+
+    Route::get('', [OrderController::class, 'index'])
+        ->name('index');
+
+    Route::post('personal-data', [OrderController::class, 'setPersonalData']);
+
+    Route::get('personal-data', [OrderController::class, 'getPersonalData'])
+        ->name('personalData');
+
+    Route::get('vacationers', [OrderController::class, 'getVacationers'])
+        ->name('vacationers');
+
+    Route::post('vacationers', [OrderController::class, 'setVacationers']);
+
+    Route::get('payments', [OrderController::class, 'getPayments'])
+        ->name('payments');
+
+});
 
 Route::get('/{slug}', PageController::class)
     ->name('pages');
 
 
-
-/*Refactoring routes*/
 //MainPage
 Route::get('/', MainPageController::class);
-
-
 
 Route::group([
     'prefix' => "admin/",
@@ -77,13 +96,3 @@ Route::group([
         ->where("any", ".*")
         ->name('index');
 });
-
-
-
-
-
-
-/*
-Route::get('{any}', function () {
-    return view('test');
-})->where("any", ".*");*/

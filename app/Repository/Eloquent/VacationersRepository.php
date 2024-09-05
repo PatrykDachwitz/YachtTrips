@@ -47,4 +47,19 @@ class VacationersRepository implements \App\Repository\VacationersRepository
 
         return $vacationer->save();
     }
+
+    public function getEmptyByBookId(int $bookId)
+    {
+
+        return $this->vacationer
+            ->where([
+                ['first_name', ""],
+                ['book_id', $bookId]
+            ])
+            ->orWhere([
+                ['last_name', ""],
+                ['book_id', $bookId]
+            ])
+            ->get();
+    }
 }
