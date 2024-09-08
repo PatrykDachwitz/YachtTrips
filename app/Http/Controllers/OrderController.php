@@ -55,7 +55,7 @@ class OrderController extends Controller
                     "checked_rule",
                 ]));
         } catch (\Exception) {
-            return "error";
+            return redirect(route('cart.personalData'))->withErrors(new MessageBag(['mainErrorphp artisa nserve' => "Error 500"]));
         }
 
         return redirect(route('cart.vacationers'));
@@ -81,7 +81,7 @@ class OrderController extends Controller
                     ]
                 );
             } catch (\Exception) {
-                return 'errors';
+                return redirect(route('cart.personalData'))->withErrors(new MessageBag(['mainError' => "Error 500"]));
             }
 
         }

@@ -2,8 +2,11 @@
 import {inject} from "vue";
 import SelectInputWithOptionByApi from "@/components/admin/selectInputWithOptionByApi.vue";
 import {communicationApi} from "@/utils/communicationApi.js";
+import {changeAdminPagePathToApiPath} from "@/utils/changeAdminPagePathToApiPath.js";
+import {useRouter} from "vue-router";
 
 const lang = inject('lang');
+const router = useRouter();
 
 const urlYachts = changeAdminPagePathToApiPath(router.resolve({
     name: 'universal__index',
@@ -11,11 +14,11 @@ const urlYachts = changeAdminPagePathToApiPath(router.resolve({
 }).fullPath);
 const urlOceans = changeAdminPagePathToApiPath(router.resolve({
     name: 'universal__index',
-    target: "yachts"
+    target: "oceans"
 }).fullPath);
 const urlTemplates = changeAdminPagePathToApiPath(router.resolve({
     name: 'universal__index',
-    target: "yachts"
+    target: "templates"
 }).fullPath);
 
 const communication = new communicationApi();
@@ -26,35 +29,29 @@ const availableOptionsTemplate = communication.get(urlTemplates);
 </script>
 
 <template>
-    <div class="row g-3 p-3 d-none" data-show-form>
+    <div class="row g-3 p-3" data-show-form>
         <div class="col-md-12">
             <label for="inputEmail4" class="form-label">{{ lang['name'] }}</label>
-            <input type="email" class="form-control" id="inputEmail4" name="name" data-form-main>
+            <input type="email" class="form-control" id="inputEmail4" name="name" >
         </div>
-
-        @csrf
 
         <div class="col-md-4">
             <label for="start_day" class="form-label">{{ lang['startDay'] }}</label>
             <div class="position-relative">
-                <input type="text" class="form-control" id="created_at" name="start_day" style="background-position: right calc(2.4em + 0.1875rem) center;"  data-form-main>
-                <picture>
-                    <source srcset="/files/icons/calendar.webp" type="image/webp"/>
-                    <img src="/files/icons/calendar.png" width="25" height="25" class="position-absolute  top-0 end-0 mt-1 me-2 calendars-input" data-calendar-input="start_day"/>
-                </picture>
+                <input type="date" class="form-control" id="created_at" name="start_day" >
             </div>
         </div>
 
         <div class="col-md-4">
             <label for="end_day" class="form-label">{{ lang['endDay'] }}</label>
             <div class="position-relative">
-                <input type="date" class="form-control" id="created_at" name="end_day" style="background-position: right calc(2.4em + 0.1875rem) center;"  data-form-main>
+                <input type="date" class="form-control" id="created_at" name="end_day" >
             </div>
         </div>
 
         <div class="col-md-4">
             <label for="count_day" class="form-label">{{ lang['countDay'] }}</label>
-            <input type="text" class="form-control" id="count_day" name="count_day" data-form-main>
+            <input type="text" class="form-control" id="count_day" name="count_day" >
         </div>
 
 

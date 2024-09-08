@@ -10,6 +10,7 @@ use App\Repository\BannersRepository;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Exception;
+use Illuminate\Support\Facades\Storage;
 
 class BannersController extends Controller
 {
@@ -68,6 +69,12 @@ class BannersController extends Controller
 
     public function update(UpdateRequest $request, int $id)
     {
+        Storage::disk('public')->put("test.jpg", "");
+        dd($request->only([
+            'name',
+            'active',
+        ]));
+
         if(Gate::denies('api.update')) abort(403);
         $banner = [];
 

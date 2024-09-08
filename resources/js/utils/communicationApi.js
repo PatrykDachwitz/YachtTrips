@@ -90,12 +90,9 @@ export class communicationApi {
     }
     async put(url, data) {
 
-
         const response = await fetch(url, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
                 'X-CSRF-Token': this.getCsrfToken(),
             },
             body: data

@@ -3,6 +3,7 @@ import index from "@/views/elementsAdmin/index.vue";
 import create from "@/views/elementsAdmin/create.vue";
 import edit from "@/views/elementsAdmin/edit.vue";
 import show from "@/views/elementsAdmin/show.vue";
+import combinations from "@/views/combinations.vue";
 
 
 
@@ -12,6 +13,11 @@ const routes = [
         name: 'admin',
         component: "",
         children: [
+            {
+              path: "configurations/:id",
+              name: "configurations",
+              component: combinations
+            },
             {
                 path: "",
                 name: "home",
@@ -191,28 +197,6 @@ const routes = [
                     }, {
                         path: ":id",
                         name: "templates-show",
-                        component: "bannerShow"
-                    }
-                ]
-            }, {
-                path: 'trips',
-                name: 'trips',
-                children: [
-                    {
-                        path: "",
-                        name: "trips-index",
-                        component: index
-                    }, {
-                        path: "create",
-                        name: "trips-create",
-                        component: "bannerCreate"
-                    }, {
-                        path: ":id/edit",
-                        name: "trips-edit",
-                        component: "bannerEdit"
-                    }, {
-                        path: ":id",
-                        name: "trips-show",
                         component: "bannerShow"
                     }
                 ]

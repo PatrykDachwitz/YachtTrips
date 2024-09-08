@@ -22,11 +22,11 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', "min:6", "max:255", "string"],
+            'name' => ["min:6", "max:255", "string"],
             'start_at' => ['date_format:Y-m-d H:i:s'],
             'finish_at' => ['date_format:Y-m-d H:i:s'],
-            'active' => ["required", "boolean"],
-            'category_banner_id' => ["required", "integer", "min:1"],
+            'active' => "boolean",
+            'category_banner_id' => ["integer", "min:1"],
             'description' => ['string'],
             'href' => ['string'],
             'images.*.id' => ['integer'],

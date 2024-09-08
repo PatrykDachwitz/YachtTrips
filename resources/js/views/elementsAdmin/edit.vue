@@ -25,7 +25,14 @@ provide("dataForm", data);
 async function edit(action = "") {
     const inputs = getInputsForm();
 
-    const {status, dataPut} = await communication.put(urlApi, inputs)
+    const formData = new FormData(document.querySelector('form'));
+    const inputFile = document.querySelector('[name="file"]');
+
+//
+   // formData.append('files', inputFile.files[0]);
+  //  formData.append('name', "test");
+    console.log(formData.get('file'));
+    const {status, dataPut} = await communication.put(urlApi, formData)
 
     if (status === 200 && action === "exit") {
         setTimeout(() => {

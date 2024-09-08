@@ -56,5 +56,17 @@ return [
     'getNewLocation' => 'Podaj nową Lokalizację',
     'changeLocation' => 'Zmień lokalizację',
     'getName' => 'Podaj nazwę pliku',
-    'newName' => "Nowa nazwa"
+    'newName' => "Nowa nazwa",
+    'generatedCombination' => "Generowanie kombinacji",
+    'generatedCombinationAndDeleteOther' => "Generuj i usuń istniejące",
+    'addNewCombination' => "Dodaj nowe kombincje do istniejących",
+    'generated' => "Generuj",
+    'adult' => "Dorośli",
+    'kid' => "Dzieci",
+    'singleBed' => "Pojedyncze łóżka",
+    'doubleBed' => "Podwójne łóżka",
+    'count' => "Ilość",
+    'supplement' => "Dopłata",
+    'pln' => "zł",
+    'addRoom' => "Dodaj pokój",
 ];
