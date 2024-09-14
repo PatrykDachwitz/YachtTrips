@@ -126,4 +126,9 @@ return [
     'bookingId' => "Numer rezerwacji",
     'adult' => "Osoba dorosła",
     'kid' => "Osboba niepełnoletnia",
+    'tripId' => "Pokój id",
+    'cost' => "Koszt",
+    'available' => "Dostępny",
+    'true' => "Tak",
+    'false' => "Nie",
 ];

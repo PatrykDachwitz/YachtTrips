@@ -36,8 +36,8 @@ class CombinationsController extends Controller
             for ($i = 0; $i < intval($data['count']); $i++) {
                 $this->combination
                     ->create([
-                       'trips_id' => $validatedData['id'],
-                       'rooms_id' => $data['id'],
+                       'trip_id' => $validatedData['id'],
+                       'room_id' => $data['id'],
                        'price' => $data['price'],
                 ]);
             }

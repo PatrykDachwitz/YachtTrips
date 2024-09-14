@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('trips_id');
-            $table->integer('rooms_id');
+            $table->integer('trip_id');
+            $table->integer('room_id');
             $table->boolean('available')->default(true);
             $table->integer('price')->default(0);
         });

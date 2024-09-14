@@ -18,7 +18,7 @@ class CombinationsRepository implements \App\Repository\CombinationsRepository
     {
         $this->combination
             ->where([
-                ["trips_id", $tripId],
+                ["trip_id", $tripId],
                 ["available", 1],
             ])->delete();
     }

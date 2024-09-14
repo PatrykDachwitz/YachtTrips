@@ -6,6 +6,7 @@ import {completeDataForm} from "@/utils/completeDataForm.js";
 import data from "bootstrap/js/src/dom/data.js";
 import DragDropFiles from "@/components/admin/dragDropFiles.vue";
 import CombinationRooms from "@/components/admin/combinationRooms.vue";
+import {useRoute, useRouter} from "vue-router";
 
 
 defineProps([
@@ -16,6 +17,8 @@ defineProps([
 
 const lang = inject('lang');
 const dataForm = inject('dataForm');
+const route = useRoute();
+const targetElement = route.params.target;
 
 onMounted(() => {
    /* if (dataForm !== null) {
@@ -54,9 +57,9 @@ function testDrop(e) {
 
     <div class="bg-gray p-2 " style="border-bottom: 1.5px solid #d3d3d3" v-if="lang">
         <a class="btn btn-dark me-2" @click="selectOtherOption('info')">{{ lang['information'] }}</a>
-        <a class="btn btn-dark" @click="selectOtherOption('content')">{{ lang['contents'] }}</a>
-        <a class="btn btn-dark" @click="selectOtherOption('media')">{{ lang['media'] }}</a>
-        <a class="btn btn-dark" @click="selectOtherOption('rooms')">Dostępne pokoje</a>
+        <a class="btn btn-dark me-2" @click="selectOtherOption('content')">{{ lang['contents'] }}</a>
+        <a class="btn btn-dark me-2" @click="selectOtherOption('media')">{{ lang['media'] }}</a>
+        <a class="btn btn-dark" v-if="targetElement === 'trips'" @click="selectOtherOption('rooms')">Dostępne pokoje</a>
     </div>
 
     <form data-form>
@@ -98,8 +101,8 @@ function testDrop(e) {
                 </div>
         </div>
 
-        <div data-content-show="rooms">
-            <combinationRooms></combinationRooms>
+        <div data-content-show="rooms" class="d-none" v-if="targetElement === 'trips'">
+            <combinationRooms ></combinationRooms>
         </div>
     </form>
 </template>

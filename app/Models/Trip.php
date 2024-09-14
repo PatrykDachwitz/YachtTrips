@@ -96,6 +96,9 @@ class Trip extends Model
             ->wherePivot('default', true);
     }
 
+    public function combinations() {
+        return $this->hasMany(Combination::class);
+    }
     public function scopeAvailableRooms() {
         return $this
                 ->withMax('roomsActive', 'double_beds')

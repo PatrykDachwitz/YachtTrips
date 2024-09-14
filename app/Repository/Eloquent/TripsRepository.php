@@ -63,11 +63,10 @@ class TripsRepository implements \App\Repository\TripsRepository
     public function findOrFail(int $id)
     {
         return $this->trip
-            ->availableRooms()
-            ->with('rooms')
             ->with('oceans')
             ->with('yachts')
             ->with('images')
+            ->with('combinations')
             ->findOrFail($id);
     }
 

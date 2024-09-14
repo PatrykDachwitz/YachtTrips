@@ -11,15 +11,15 @@ class Combination extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'trips_id',
-        'rooms_id',
+        'trip_id',
+        'room_id',
         'available',
         'price',
     ];
 
     protected $casts = [
-      'trips_id' => 'integer',
-      'rooms_id' => 'integer',
+      'trip_id' => 'integer',
+      'room_id' => 'integer',
       'available' => "bool",
       'price' => 'integer',
     ];

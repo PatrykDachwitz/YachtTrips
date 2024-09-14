@@ -69,7 +69,7 @@ async function generatedCombination() {
                 </div>
                 <div>
                     <label for="validationCustom03" class="form-label">{{ lang['count'] }}</label>
-                    <input type="text" class="form-control" id="validationCustom03" :name="'count[' + room.id + ']'" value="100">
+                    <input type="text" class="form-control" id="validationCustom03" :name="'count[' + room.id + ']'" value="1">
                 </div>
                 <div>
                     <label for="validationCustom02" class="form-label">{{ lang['supplement'] }}</label>

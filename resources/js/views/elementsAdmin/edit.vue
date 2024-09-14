@@ -21,6 +21,10 @@ const data = communication.get(urlApi);
 
 provide("dataForm", data);
 
+setTimeout(() => {
+    console.log(data)
+}, 500)
+
 
 async function edit(action = "") {
     const inputs = getInputsForm();
